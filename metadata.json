@@ -1,0 +1,6 @@
+{
+  "name": "Raoz Demo Factory",
+  "description": "Independent website template factory and architecture for popular business categories, preparing modular demos for future integration with Raoz Website Maker.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
