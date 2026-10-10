@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" fill="none">
+  <defs>
+    <linearGradient id="cineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="60%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <radialGradient id="lensFlare" cx="35%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.8" />
+      <stop offset="40%" stop-color="#818CF8" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#cineGrad)" />
+  <circle cx="260" cy="210" r="180" fill="url(#lensFlare)" />
+
+  <!-- Film Strip / 21:9 Letterbox Bars -->
+  <rect x="0" y="0" width="600" height="40" fill="#000000" />
+  <rect x="0" y="410" width="600" height="40" fill="#000000" />
+
+  <!-- Cinema Camera Rig Illustration -->
+  <g transform="translate(180, 110)">
+    <!-- Base Camera Body -->
+    <rect x="70" y="70" width="130" height="95" rx="10" fill="#1E293B" stroke="#475569" stroke-width="3" />
+    <!-- Battery Pack -->
+    <rect x="35" y="80" width="35" height="75" rx="6" fill="#0F172A" stroke="#334155" stroke-width="2" />
+    <!-- Top Handle -->
+    <path d="M90 70 L90 40 L180 40 L180 70" stroke="#64748B" stroke-width="6" fill="none" stroke-linecap="round" />
+    <!-- Monitor on articulating arm -->
+    <rect x="140" y="10" width="70" height="45" rx="4" fill="#0F172A" stroke="#0284C7" stroke-width="2" />
+    <circle cx="150" cy="20" r="3" fill="#EF4444" />
+    <!-- Matte Box & Cinema Lens -->
+    <polygon points="200,90 260,70 260,165 200,145" fill="#0F172A" stroke="#334155" stroke-width="2" />
+    <circle cx="200" cy="117" r="28" fill="#1E293B" stroke="#38BDF8" stroke-width="3" />
+    <circle cx="200" cy="117" r="18" fill="#0284C7" opacity="0.6" />
+    <!-- Follow Focus Knob -->
+    <circle cx="160" cy="140" r="16" fill="#F59E0B" stroke="#B45309" stroke-width="2" />
+    <!-- Dual Rods -->
+    <line x1="50" y1="175" x2="250" y2="175" stroke="#94A3B8" stroke-width="5" />
+  </g>
+
+  <!-- Sound waveform / 4K UHD Badge -->
+  <rect x="250" y="340" width="100" height="26" rx="13" fill="#E11D48" />
+  <text x="300" y="357" text-anchor="middle" font-family="'Raleway', sans-serif" font-size="11" font-weight="800" letter-spacing="1" fill="#FFFFFF">4K CINEMA</text>
+
+  <text x="300" y="390" text-anchor="middle" font-family="'Raleway', sans-serif" font-size="20" font-weight="800" letter-spacing="3" fill="#FFFFFF">WEDDING CINEMATOGRAPHY</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" fill="none">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FBF9F5"/>
+      <stop offset="100%" stop-color="#EFE8DB"/>
+    </linearGradient>
+    <linearGradient id="giftBox" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B2838"/>
+      <stop offset="100%" stop-color="#0B141E"/>
+    </linearGradient>
+    <linearGradient id="goldRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE08B"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#AA771C"/>
+    </linearGradient>
+    <filter id="giftShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#0c1b2a" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <rect width="400" height="480" rx="16" fill="url(#cardBg)"/>
+  
+  <!-- Standing Trio Gift Case -->
+  <g filter="url(#giftShadow)" transform="translate(65, 70)">
+    <!-- Main Luxury Box -->
+    <rect x="0" y="30" width="270" height="260" rx="10" fill="url(#giftBox)" stroke="#D4AF37" stroke-width="2"/>
+    <path d="M0 30 L30 0 L300 0 L270 30 Z" fill="#243447"/>
+    <path d="M270 30 L300 0 L300 260 L270 290 Z" fill="#131D29"/>
+    
+    <!-- Gold Ribbon Cross -->
+    <rect x="120" y="30" width="30" height="260" fill="url(#goldRibbon)"/>
+    <rect x="0" y="145" width="270" height="30" fill="url(#goldRibbon)"/>
+    
+    <!-- 3 Mini Bag Silhouettes inside cutout window -->
+    <g transform="translate(30, 60)">
+      <rect x="10" y="10" width="55" height="100" rx="4" fill="#152B52" opacity="0.95" stroke="#FFFFFF" stroke-width="1"/>
+      <text x="37" y="55" text-anchor="middle" font-family="'Times New Roman', serif" font-size="8" font-weight="bold" fill="#FFFFFF">CORSICA</text>
+      
+      <rect x="80" y="10" width="55" height="100" rx="4" fill="#D99B26" opacity="0.95" stroke="#FFFFFF" stroke-width="1"/>
+      <text x="107" y="55" text-anchor="middle" font-family="'Times New Roman', serif" font-size="8" font-weight="bold" fill="#FFFFFF">NIZZA</text>
+      
+      <rect x="150" y="10" width="55" height="100" rx="4" fill="#6B213F" opacity="0.95" stroke="#FFFFFF" stroke-width="1"/>
+      <text x="177" y="55" text-anchor="middle" font-family="'Times New Roman', serif" font-size="8" font-weight="bold" fill="#FFFFFF">MONACO</text>
+    </g>
+    
+    <!-- Dove Crest on Gift Box -->
+    <circle cx="135" cy="160" r="28" fill="#0C1B2A" stroke="#D4AF37" stroke-width="2"/>
+    <g fill="#FCE08B" transform="translate(119, 145) scale(0.16)">
+      <path d="M78 52 C72 44 65 38 52 35 C42 32 30 33 22 38 C18 40 14 44 12 48 C10 52 11 56 15 58 C20 60 27 58 34 54 C40 50 48 48 55 50 C62 52 68 56 74 61 C60 63 46 68 35 76 C26 82 20 90 22 96 C24 100 30 102 38 98 C48 93 57 84 66 75 C73 68 80 62 88 58 Z" />
+      <path d="M78 52 C85 40 98 25 116 14 C132 4 150 0 172 2 C184 3 194 6 198 10 C200 12 198 15 192 16 C176 18 160 25 146 36 C134 45 124 57 118 70 C114 62 104 55 94 51 Z" />
+    </g>
+    
+    <!-- Title Text at bottom -->
+    <text x="135" y="240" text-anchor="middle" font-family="'Times New Roman', serif" font-size="16" font-weight="bold" fill="#FFFFFF" letter-spacing="1">BEST SELLERS GIFT BOX</text>
+    <text x="135" y="260" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="9" font-weight="600" fill="#D4AF37" letter-spacing="1.5">3 × 12 OZ ROASTER SELECTION</text>
+  </g>
+</svg>

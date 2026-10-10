@@ -255,13 +255,24 @@ export const TemplateDetailModal: React.FC<TemplateDetailModalProps> = ({
             >
               Close
             </button>
+            {template.referenceSource?.sourceUrl && (
+              <a
+                href={template.referenceSource.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-[#181d28] hover:bg-[#202736] text-emerald-400 border border-emerald-800/40 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer text-xs font-medium"
+              >
+                <span>Visit Original Site</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            )}
             {template.status === 'completed' && (
               <button
                 onClick={() => {
                   onClose();
                   onPreview(template);
                 }}
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer"
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer text-xs"
               >
                 <span>Launch Interactive Demo</span>
                 <ArrowUpRight className="w-4 h-4" />

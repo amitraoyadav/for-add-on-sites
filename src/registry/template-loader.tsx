@@ -11,6 +11,12 @@ import { Clock, Sparkles } from 'lucide-react';
 const SazyCafeLazy = lazy(() => import('../templates/sazy-cafe/SazyCafe'));
 const SocialOfflineLazy = lazy(() => import('../templates/social-offline/SocialOffline'));
 const PhoCafeLazy = lazy(() => import('../templates/pho-cafe/PhoCafe'));
+const LaColombeLazy = lazy(() => import('../templates/la-colombe/LaColombe'));
+const WeddingPhotoPlanetLazy = lazy(() => import('../templates/wedding-photo-planet/WeddingPhotoPlanet'));
+const PhotoPhactoryLazy = lazy(() => import('../templates/photo-phactory/PhotoPhactory'));
+const TellATaleLazy = lazy(() => import('../templates/tell-a-tale/TellATale'));
+const GajarePhotographyLazy = lazy(() => import('../templates/gajare-photography/GajarePhotography'));
+const KnotsbyAMPLazy = lazy(() => import('../templates/knotsbyamp/KnotsbyAMP'));
 
 interface TemplateLoaderProps {
   template: TemplateManifestItem;
@@ -74,6 +80,126 @@ export function TemplateLoader({ template, onOpenIntakeModal }: TemplateLoaderPr
         }
       >
         <PhoCafeLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is LA COLOMBE
+  if (template.id === 'la-colombe') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#FBF9F5] text-[#0C1B2A]">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#0C1B2A] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-[#5C6570] font-mono">
+                Loading LA COLOMBE Flagship...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <LaColombeLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is WEDDING PHOTO PLANET
+  if (template.id === 'wedding-photo-planet') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#FFFFFF] text-[#E11D48]">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#E11D48] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-[#6B7280] font-mono">
+                Loading WEDDING PHOTO PLANET...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <WeddingPhotoPlanetLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is PHOTO PHACTORY
+  if (template.id === 'photo-phactory') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#000000] text-[#6DA716]">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#6DA716] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-[#9CA3AF] font-mono">
+                Loading PHOTO PHACTORY...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <PhotoPhactoryLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is TELL-A-TALE STUDIOS
+  if (template.id === 'tell-a-tale') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#FAF9F5] text-[#141518]">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#141518] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-[#5C6068] font-mono">
+                Loading TELL-A-TALE STUDIOS...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <TellATaleLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is GAJARE PHOTOGRAPHY
+  if (template.id === 'gajare-photography') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#0B0C10] text-[#D4AF37]">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#D4AF37] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-[#9CA3AF] font-mono">
+                Loading GAJARE PHOTOGRAPHY...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <GajarePhotographyLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is KNOTSBYAMP
+  if (template.id === 'knotsbyamp') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#0E0E11] text-[#C99D66]">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#C99D66] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-[#9CA3AF] font-mono">
+                Loading KNOTSBYAMP...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <KnotsbyAMPLazy />
       </Suspense>
     );
   }

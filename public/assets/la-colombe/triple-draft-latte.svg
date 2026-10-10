@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 480" fill="none">
+  <defs>
+    <linearGradient id="canBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F4EFE6"/>
+      <stop offset="100%" stop-color="#E5DEC9"/>
+    </linearGradient>
+    <linearGradient id="canCylinder" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1A1C20"/>
+      <stop offset="18%" stop-color="#2D3139"/>
+      <stop offset="50%" stop-color="#4A505D"/>
+      <stop offset="82%" stop-color="#2D3139"/>
+      <stop offset="100%" stop-color="#141518"/>
+    </linearGradient>
+    <linearGradient id="canLid" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D1D5DB"/>
+      <stop offset="50%" stop-color="#F3F4F6"/>
+      <stop offset="100%" stop-color="#9CA3AF"/>
+    </linearGradient>
+    <linearGradient id="goldAcc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E5C158"/>
+      <stop offset="50%" stop-color="#FBE698"/>
+      <stop offset="100%" stop-color="#C29D38"/>
+    </linearGradient>
+    <filter id="canShadow" x="-20%" y="-10%" width="140%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#0c1b2a" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="360" height="480" rx="16" fill="url(#canBg)"/>
+
+  <!-- 9 FL OZ Draft Latte Slim Can -->
+  <g filter="url(#canShadow)" transform="translate(115, 60)">
+    <!-- Can Rim / Neck -->
+    <ellipse cx="65" cy="20" rx="46" ry="10" fill="url(#canLid)" stroke="#9CA3AF" stroke-width="1"/>
+    <ellipse cx="65" cy="18" rx="38" ry="7" fill="#E5E7EB"/>
+    <ellipse cx="65" cy="17" rx="16" ry="3.5" fill="#9CA3AF"/>
+    <!-- Pull Tab -->
+    <path d="M60 17 L72 15 L70 20 Z" fill="#6B7280"/>
+
+    <!-- Tapered shoulder -->
+    <path d="M19 20 Q12 35 10 50 L120 50 Q118 35 111 20 Z" fill="url(#canCylinder)"/>
+
+    <!-- Cylinder Main Body -->
+    <rect x="10" y="50" width="110" height="270" rx="0" fill="url(#canCylinder)"/>
+
+    <!-- Bottom Taper -->
+    <path d="M10 320 Q14 336 24 340 L106 340 Q116 336 120 320 Z" fill="url(#canCylinder)"/>
+    <ellipse cx="65" cy="340" rx="41" ry="8" fill="url(#canLid)"/>
+
+    <!-- Front Graphic Wrap -->
+    <!-- Gold Foil Accent Bands -->
+    <rect x="10" y="80" width="110" height="4" fill="url(#goldAcc)"/>
+    <rect x="10" y="270" width="110" height="4" fill="url(#goldAcc)"/>
+
+    <!-- Brand Header -->
+    <text x="65" y="105" text-anchor="middle" font-family="'Times New Roman', serif" font-size="11" font-weight="bold" fill="#FCE08B" letter-spacing="2">LA COLOMBE</text>
+    
+    <!-- Dove Emblem -->
+    <g fill="#FCE08B" transform="translate(54, 114) scale(0.11)">
+      <path d="M78 52 C72 44 65 38 52 35 C42 32 30 33 22 38 C18 40 14 44 12 48 C10 52 11 56 15 58 C20 60 27 58 34 54 C40 50 48 48 55 50 C62 52 68 56 74 61 C60 63 46 68 35 76 C26 82 20 90 22 96 C24 100 30 102 38 98 C48 93 57 84 66 75 C73 68 80 62 88 58 Z" />
+      <path d="M78 52 C85 40 98 25 116 14 C132 4 150 0 172 2 C184 3 194 6 198 10 C200 12 198 15 192 16 C176 18 160 25 146 36 C134 45 124 57 118 70 C114 62 104 55 94 51 Z" />
+    </g>
+
+    <!-- Main Title -->
+    <text x="65" y="150" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="2">TRIPLE</text>
+    <text x="65" y="168" text-anchor="middle" font-family="'Times New Roman', serif" font-size="14" font-style="italic" fill="#FCE08B">Draft Latte</text>
+
+    <!-- Key Ingredients Pill -->
+    <rect x="25" y="185" width="80" height="22" rx="11" fill="#1A1C20" stroke="#FCE08B" stroke-width="1"/>
+    <text x="65" y="200" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="8.5" font-weight="700" fill="#FCE08B" letter-spacing="1">3 SHOTS ESPRESSO</text>
+
+    <!-- Description -->
+    <text x="65" y="230" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="8" font-weight="500" fill="#D1D5DB">FROTHY MILK + COLD BREW</text>
+    <text x="65" y="244" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="7.5" font-weight="400" fill="#9CA3AF">NITROGEN-INFUSED</text>
+
+    <!-- Can Volume -->
+    <text x="65" y="300" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="8" font-weight="600" fill="#D1D5DB" letter-spacing="1">9 FL OZ (266 mL)</text>
+  </g>
+</svg>

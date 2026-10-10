@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TEMPLATE_MANIFEST } from '../registry/template-manifest';
 import { BUSINESS_CATEGORIES } from '../categories/categories.data';
 import { TemplateManifestItem, ReferenceType } from '../types/template.types';
@@ -62,6 +62,60 @@ export default function RaozDemoFactoryApp() {
     submittedAt: string;
   }>>([
     {
+      id: 'ref-knots-09',
+      templateId: 'knotsbyamp',
+      refType: 'zip',
+      urlOrTitle: 'KnotsbyAMP (https://www.knotsbyamp.com/)',
+      notes: 'Best Wedding Photographers in Mumbai — Beautiful Weddings, Breathtaking Films. Recreated as Template #9.',
+      clientNeeds: 'Complete website recreation, dark luxury editorial aesthetic, WeddingSutra 2024 Winners and GIWA awards showcase, Real Wedding Stories filterable by culture & destination, Cinematic Wedding Films with YouTube playback modals, Couple Shoot portfolios, 6 Core Pillars & Team Showcase, Verbatim 5.0★ client reviews, FAQ accordion, Date Availability checker & WhatsApp direct chat.',
+      submittedAt: '2026-10-10'
+    },
+    {
+      id: 'ref-gajare-08',
+      templateId: 'gajare-photography',
+      refType: 'zip',
+      urlOrTitle: 'Gajare Photography (https://gajarephotography.com/)',
+      notes: 'Best Wedding & Event Photographer in Mumbai — Stories Worth Remembering. Moments Worth Reliving. Recreated as Template #8.',
+      clientNeeds: 'Complete website recreation, crossfade hero slider, Google 4.9★ rating badge (500+ reviews), Six Real Wedding stories with deep-dive galleries, filterable portfolio with Lightbox, Instant Photo Booth service showcase (8s prints, QR mobile downloads), "From a Smartphone to Gajare Photography" origin story, FAQ & Pricing guidance, Date availability checker & direct WhatsApp float.',
+      submittedAt: '2026-10-10'
+    },
+    {
+      id: 'ref-tell-07',
+      templateId: 'tell-a-tale',
+      refType: 'zip',
+      urlOrTitle: 'Tell-a-Tale Studios (https://tell-a-tale.in/)',
+      notes: 'Corporate & Event Photographer in Mumbai for Conferences, Consulates & PR-Ready Coverage. Recreated as Template #7.',
+      clientNeeds: 'Complete website recreation, Corporate & Celebrations portfolios, Food & Product styling, Films, Founders story (Nikhil & Mamta), 4 Core Pillars, Shoot inquiry modal & WhatsApp float.',
+      submittedAt: '2026-10-10'
+    },
+    {
+      id: 'ref-photo-06',
+      templateId: 'photo-phactory',
+      refType: 'zip',
+      urlOrTitle: 'Photo Phactory (https://photophactory.in/)',
+      notes: 'Crafting Treasures for Life — Real Weddings, Pre-Wedding Romance & Fine Art Cinematography. Recreated as Template #6.',
+      clientNeeds: 'Complete website recreation, Revolution Slider 6, 24-item portfolio with filter tabs, Real Wedding stories, Cinematic Video Showcase, Testimonials slider, Milestones, Blog, Contact form & WhatsApp float.',
+      submittedAt: '2026-10-10'
+    },
+    {
+      id: 'ref-wedding-05',
+      templateId: 'wedding-photo-planet',
+      refType: 'zip',
+      urlOrTitle: 'Wedding Photo Planet (https://www.weddingphotoplanet.com/)',
+      notes: 'Best wedding photographer in Delhi NCR — candid wedding photography, cinematic films, pre-wedding shoots across India.',
+      clientNeeds: 'Complete website recreation, 8-slide hero carousel, 52 gallery items with lightbox, 15 client reviews, Why Choose Us, Glimpses, Cinematography, Blog, Contact enquiry form & WhatsApp float.',
+      submittedAt: '2026-10-10'
+    },
+    {
+      id: 'ref-colombe-04',
+      templateId: 'la-colombe',
+      refType: 'zip',
+      urlOrTitle: 'La Colombe Coffee Roasters (https://www.lacolombe.com/)',
+      notes: "America's premier specialty craft coffee roaster and pioneer of the Draft Latte. Recreated faithfully as Template #4.",
+      clientNeeds: 'Complete storefront, signature Corsica/Nizza/Monaco/Fall blends, RTD canned draft lattes, Coffee Club subscription (save 15%), 32+ cafes directory, cart drawer with $40 free shipping meter.',
+      submittedAt: '2026-10-10'
+    },
+    {
       id: 'ref-pho-03',
       templateId: 'pho-cafe',
       refType: 'zip',
@@ -110,13 +164,45 @@ export default function RaozDemoFactoryApp() {
     return matchesSearch && matchesCategory && matchesStatus && matchesBatch;
   });
 
+  // Support direct route access (e.g. /website/tell-a-tale-studios) and browser navigation
+  useEffect(() => {
+    const handleUrlRoute = () => {
+      const path = window.location.pathname.toLowerCase();
+      const match = path.match(/\/website\/([a-z0-9-]+)/);
+      if (match) {
+        let slug = match[1];
+        if (slug === 'tell-a-tale-studios') slug = 'tell-a-tale';
+        const found = templates.find(
+          (t) => t.id === slug || t.id.replace(/-/g, '') === slug.replace(/-/g, '')
+        );
+        if (found) {
+          setSelectedTemplate(found);
+          const searchParams = new URLSearchParams(window.location.search);
+          if (searchParams.get('action') === 'demo') {
+            setActiveTab('preview');
+          } else {
+            setDetailModalTemplate(found);
+          }
+        }
+      }
+    };
+
+    handleUrlRoute();
+    window.addEventListener('popstate', handleUrlRoute);
+    return () => window.removeEventListener('popstate', handleUrlRoute);
+  }, [templates]);
+
   const handleLaunchPreview = (tpl: TemplateManifestItem) => {
     setSelectedTemplate(tpl);
     setActiveTab('preview');
+    const slug = tpl.id === 'tell-a-tale' ? 'tell-a-tale-studios' : tpl.id;
+    window.history.pushState(null, '', `/website/${slug}?action=demo`);
   };
 
   const handleInspect = (tpl: TemplateManifestItem) => {
     setDetailModalTemplate(tpl);
+    const slug = tpl.id === 'tell-a-tale' ? 'tell-a-tale-studios' : tpl.id;
+    window.history.pushState(null, '', `/website/${slug}`);
   };
 
   const handleOpenIntake = (tpl: TemplateManifestItem) => {
@@ -176,7 +262,7 @@ export default function RaozDemoFactoryApp() {
         </div>
         <div className="flex items-center gap-3">
           <span className="px-2 py-0.5 rounded bg-amber-950/80 border border-amber-800 text-amber-300 font-mono text-[11px]">
-            Fresh Collection Active · SAZY CAFE (#1) · SOCIAL OFFLINE (#2) · PHO CAFE (#3)
+            Fresh Collection Active · SAZY CAFE (#1) · SOCIAL OFFLINE (#2) · PHO CAFE (#3) · LA COLOMBE (#4) · WEDDING PHOTO PLANET (#5)
           </span>
           <span className="px-2 py-0.5 rounded bg-[#1e2330] border border-[#2d374d] text-[#cbd5e1] text-[11px]">
             Auto-Deploy Disabled
@@ -879,7 +965,12 @@ export default function RaozDemoFactoryApp() {
       {/* Modals */}
       <TemplateDetailModal
         template={detailModalTemplate}
-        onClose={() => setDetailModalTemplate(null)}
+        onClose={() => {
+          setDetailModalTemplate(null);
+          if (activeTab === 'catalog') {
+            window.history.pushState(null, '', '/');
+          }
+        }}
         onPreview={handleLaunchPreview}
       />
 

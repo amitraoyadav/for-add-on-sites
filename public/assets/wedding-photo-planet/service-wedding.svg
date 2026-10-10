@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" fill="none">
+  <defs>
+    <linearGradient id="bgWed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A0404" />
+      <stop offset="50%" stop-color="#7F1D1D" />
+      <stop offset="100%" stop-color="#1E0202" />
+    </linearGradient>
+    <radialGradient id="goldGlow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#B45309" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#bgWed)" />
+  <circle cx="300" cy="200" r="220" fill="url(#goldGlow)" />
+
+  <!-- Floral Garland Arch -->
+  <path d="M60 450 Q 300 30 540 450" stroke="#F59E0B" stroke-width="4" fill="none" opacity="0.4" stroke-dasharray="8 8" />
+  <path d="M80 450 Q 300 60 520 450" stroke="#EF4444" stroke-width="3" fill="none" opacity="0.3" />
+
+  <!-- Royal Silhouette Couple -->
+  <!-- Groom (Left) -->
+  <path d="M230 180 C230 150 250 140 260 140 C270 140 280 150 280 180 L295 240 L290 450 L205 450 L210 240 Z" fill="#991B1B" />
+  <!-- Groom Turban / Safa with feather -->
+  <ellipse cx="255" cy="135" rx="20" ry="14" fill="#D97706" />
+  <path d="M255 120 Q 252 100 258 90" stroke="#FDE68A" stroke-width="3" fill="none" />
+  <!-- Bride (Right) with Dupatta -->
+  <path d="M340 185 C340 155 325 145 315 145 C305 145 295 155 295 185 L285 240 L280 450 L385 450 L360 240 Z" fill="#DC2626" />
+  <!-- Bride Veil Flow -->
+  <path d="M315 145 Q 370 200 380 340 L 330 360 Q 330 220 305 175 Z" fill="#B91C1C" opacity="0.7" />
+  <!-- Varmala Garlands -->
+  <path d="M235 210 Q 255 300 275 220" stroke="#FDE68A" stroke-width="6" fill="none" />
+  <path d="M295 220 Q 315 300 335 210" stroke="#FDE68A" stroke-width="6" fill="none" />
+
+  <!-- Floating Bokeh Sparkles -->
+  <circle cx="120" cy="120" r="16" fill="#FDE68A" opacity="0.4" filter="blur(4px)" />
+  <circle cx="480" cy="140" r="22" fill="#F59E0B" opacity="0.35" filter="blur(6px)" />
+  <circle cx="180" cy="340" r="14" fill="#FEF3C7" opacity="0.3" filter="blur(3px)" />
+  <circle cx="440" cy="300" r="20" fill="#FDE68A" opacity="0.3" filter="blur(5px)" />
+
+  <text x="300" y="415" text-anchor="middle" font-family="'Raleway', sans-serif" font-size="20" font-weight="800" letter-spacing="3" fill="#FFFFFF">ROYAL WEDDING PHOTOGRAPHY</text>
+  <text x="300" y="435" text-anchor="middle" font-family="'Open Sans', sans-serif" font-size="11" font-weight="600" letter-spacing="2" fill="#FDE68A">DELHI NCR • JAIPUR • UDAIPUR</text>
+</svg>

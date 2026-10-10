@@ -361,5 +361,24 @@ export const BUSINESS_CATEGORIES: CategoryDefinition[] = [
     industryGuidelines: 'Transparent financial accountability and genuine impact metrics.',
     badgeColor: 'emerald',
     accentColor: '#047857'
+  },
+  {
+    code: 'cat-photography',
+    letter: '21',
+    title: 'Photography, Studio & Cinematography',
+    shortTitle: 'Photography',
+    subcategories: [
+      'Wedding Photography',
+      'Pre-Wedding Photography',
+      'Cinematography & Films',
+      'Destination Weddings',
+      'Candid & Portrait Studios'
+    ],
+    clientProfiles: ['Wedding photographers', 'Cinematographers', 'Studio owners', 'Visual artists'],
+    conversionFocus: ['Check Date Availability', 'Explore Portfolio', 'Inquire Quote', 'Book Shoot'],
+    industryGuidelines: 'High-emotion visual storytelling, transparent packages, cinematic image galleries, and responsive booking.',
+    badgeColor: 'violet',
+    accentColor: '#7C3AED'
   }
 ];
+

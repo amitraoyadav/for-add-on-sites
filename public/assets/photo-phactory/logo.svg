@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <!-- Minimalist Camera Monogram / Shutter Motif -->
+  <g transform="translate(10, 15)">
+    <!-- Lens outer circle -->
+    <circle cx="26" cy="26" r="24" stroke="#000000" stroke-width="2.5" fill="none" />
+    <circle cx="26" cy="26" r="17" fill="#000000" />
+    <!-- Aperture blade cutouts -->
+    <path d="M26 12 L34 26 L26 34 L18 26 Z" fill="#6DA716" opacity="0.9" />
+    <circle cx="26" cy="26" r="5" fill="#FFFFFF" />
+  </g>
+  <!-- Typography in classic Georgia / Serif -->
+  <text x="72" y="38" font-family="'Georgia', serif" font-size="24" font-weight="700" letter-spacing="3" fill="#000000">
+    PHOTO PHACTORY
+  </text>
+  <text x="74" y="55" font-family="'Georgia', serif" font-size="10" font-style="italic" letter-spacing="4" fill="#6DA716">
+    Crafting Treasures for Life
+  </text>
+</svg>

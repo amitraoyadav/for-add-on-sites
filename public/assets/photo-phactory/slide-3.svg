@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 800" fill="none">
+  <defs>
+    <linearGradient id="slider3Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#261019" />
+      <stop offset="50%" stop-color="#4A1D2B" />
+      <stop offset="100%" stop-color="#14080D" />
+    </linearGradient>
+    <radialGradient id="varmalaGlow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#FDE047" stop-opacity="0.4" />
+      <stop offset="60%" stop-color="#BE185D" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="800" fill="url(#slider3Grad)" />
+  <circle cx="960" cy="350" r="500" fill="url(#varmalaGlow)" />
+
+  <!-- Traditional Mandap Marigold Strings & Floral Drapery -->
+  <g stroke="#F59E0B" stroke-width="3" stroke-dasharray="6 8" opacity="0.45">
+    <line x1="200" y1="0" x2="200" y2="450" />
+    <line x1="400" y1="0" x2="400" y2="520" />
+    <line x1="600" y1="0" x2="600" y2="480" />
+    <line x1="1320" y1="0" x2="1320" y2="480" />
+    <line x1="1520" y1="0" x2="1520" y2="520" />
+    <line x1="1720" y1="0" x2="1720" y2="450" />
+  </g>
+
+  <!-- Sacred Phere Mandap Fire / Diya Glow -->
+  <ellipse cx="960" cy="620" rx="90" ry="25" fill="#B45309" opacity="0.6" />
+  <path d="M930 620 Q 960 520 990 620 Z" fill="#F59E0B" opacity="0.8" />
+  <path d="M945 620 Q 960 550 975 620 Z" fill="#FEF08A" />
+
+  <!-- Couple Mandap Rituals Silhouette -->
+  <g fill="#0D0408">
+    <circle cx="900" cy="460" r="16" />
+    <path d="M885 480 L925 480 L935 700 L865 700 Z" />
+    <!-- Groom safa -->
+    <ellipse cx="900" cy="450" rx="20" ry="12" fill="#D97706" />
+
+    <circle cx="1020" cy="470" r="15" />
+    <path d="M1000 490 L1045 490 L1080 700 L970 700 Z" />
+    <!-- Bride Chunni -->
+    <path d="M1020 460 Q 1070 520 1080 660 L 1030 670 Z" fill="#991B1B" opacity="0.85" />
+
+    <!-- Sacred Varmala garlands -->
+    <path d="M895 500 Q 910 570 925 505" stroke="#FDE68A" stroke-width="7" fill="none" />
+    <path d="M1000 505 Q 1015 570 1030 500" stroke="#FDE68A" stroke-width="7" fill="none" />
+  </g>
+
+  <!-- Golden Petals / Sparkles falling -->
+  <g fill="#FBBF24" opacity="0.65">
+    <circle cx="850" cy="240" r="4" />
+    <circle cx="920" cy="280" r="5" />
+    <circle cx="1000" cy="220" r="3.5" />
+    <circle cx="1070" cy="290" r="4.5" />
+    <circle cx="880" cy="360" r="3" />
+    <circle cx="1050" cy="380" r="4" />
+  </g>
+</svg>

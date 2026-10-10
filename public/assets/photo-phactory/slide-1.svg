@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 800" fill="none">
+  <defs>
+    <linearGradient id="slider1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1815" />
+      <stop offset="50%" stop-color="#2D2820" />
+      <stop offset="100%" stop-color="#0E0D0B" />
+    </linearGradient>
+    <radialGradient id="goldenLight" cx="60%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#FDE68A" stop-opacity="0.35" />
+      <stop offset="50%" stop-color="#D97706" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="800" fill="url(#slider1Grad)" />
+  <circle cx="1150" cy="320" r="480" fill="url(#goldenLight)" />
+
+  <!-- Architectural Arches & Royal Balcony -->
+  <g stroke="#D4AF37" stroke-width="2" opacity="0.3" fill="none">
+    <path d="M700 800 L700 240 Q 950 80 1200 240 L1200 800" />
+    <path d="M1200 800 L1200 280 Q 1400 140 1600 280 L1600 800" />
+    <circle cx="950" cy="180" r="25" />
+  </g>
+
+  <!-- Romantic Couple in Silhouette with Veil Flowing -->
+  <g fill="#0A0A0A">
+    <!-- Groom -->
+    <path d="M900 280 C900 240 930 230 945 230 C960 230 970 240 970 280 L980 420 L965 720 L885 720 L895 420 Z" />
+    <!-- Bride in flowing gown -->
+    <path d="M1010 290 C1010 250 990 240 980 240 C970 240 955 250 955 290 L950 420 L910 720 L1080 720 L1030 420 Z" />
+    <!-- Dramatic flowing veil in wind -->
+    <path d="M980 240 Q 1150 180 1350 320 Q 1200 450 1020 380 Z" fill="#FFFFFF" opacity="0.25" />
+    <path d="M980 240 Q 1200 160 1450 360 Q 1250 500 1010 400 Z" fill="#FDE68A" opacity="0.18" />
+  </g>
+
+  <!-- Ambient Golden Sparkles -->
+  <g fill="#FDE68A" opacity="0.6">
+    <circle cx="750" cy="280" r="3" />
+    <circle cx="820" cy="210" r="2.5" />
+    <circle cx="1100" cy="190" r="3.5" />
+    <circle cx="1250" cy="270" r="2" />
+    <circle cx="1030" cy="150" r="4" />
+    <circle cx="1180" cy="380" r="3" />
+  </g>
+
+  <!-- Dark gradient vignette overlay -->
+  <rect width="1920" height="800" fill="black" opacity="0.25" />
+</svg>

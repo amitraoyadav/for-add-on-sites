@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" fill="none">
+  <!-- Camera lens & planet ring icon -->
+  <g transform="translate(10, 10)">
+    <circle cx="30" cy="30" r="26" fill="#111827" stroke="#E11D48" stroke-width="2.5" />
+    <!-- Planet orbit ring -->
+    <ellipse cx="30" cy="30" rx="34" ry="12" fill="none" stroke="#F59E0B" stroke-width="2" transform="rotate(-25 30 30)" />
+    <!-- Camera aperture shutter leaves -->
+    <circle cx="30" cy="30" r="14" fill="#1F2937" stroke="#FFFFFF" stroke-width="1.5" />
+    <circle cx="30" cy="30" r="6" fill="#E11D48" />
+    <circle cx="28" cy="27" r="2" fill="#FFFFFF" opacity="0.8" />
+  </g>
+
+  <!-- Typography -->
+  <text x="85" y="38" font-family="'Raleway', 'Montserrat', sans-serif" font-size="24" font-weight="800" letter-spacing="1" fill="#111827">
+    WEDDING <tspan fill="#E11D48">PHOTO</tspan> PLANET
+  </text>
+  <text x="86" y="55" font-family="'Open Sans', sans-serif" font-size="9" font-weight="700" letter-spacing="3" fill="#6B7280">
+    CANDID PHOTOGRAPHY &amp; CINEMATIC FILMS
+  </text>
+</svg>

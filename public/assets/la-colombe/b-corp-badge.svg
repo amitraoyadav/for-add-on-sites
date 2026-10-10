@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <circle cx="60" cy="60" r="54" fill="#0C1B2A" stroke="#FFFFFF" stroke-width="2" />
+  <text x="60" y="32" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="8" font-weight="700" letter-spacing="1.5" fill="#FFFFFF">CERTIFIED</text>
+  <text x="60" y="74" text-anchor="middle" font-family="'Times New Roman', serif" font-size="44" font-weight="bold" fill="#D4AF37">B</text>
+  <line x1="42" y1="82" x2="78" y2="82" stroke="#FFFFFF" stroke-width="2" />
+  <text x="60" y="96" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="8" font-weight="700" letter-spacing="1.5" fill="#FFFFFF">CORPORATION</text>
+</svg>

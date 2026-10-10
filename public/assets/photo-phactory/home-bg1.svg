@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600" fill="none">
+  <defs>
+    <linearGradient id="bgQuote" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F0F11" />
+      <stop offset="50%" stop-color="#1A1C22" />
+      <stop offset="100%" stop-color="#080809" />
+    </linearGradient>
+    <radialGradient id="epicCenter" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#6DA716" stop-opacity="0.18" />
+      <stop offset="60%" stop-color="#000000" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.85" />
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="600" fill="url(#bgQuote)" />
+  <rect width="1920" height="600" fill="url(#epicCenter)" />
+
+  <!-- Subtle camera lens grid lines -->
+  <circle cx="960" cy="300" r="280" stroke="#FFFFFF" stroke-width="1" opacity="0.06" fill="none" />
+  <circle cx="960" cy="300" r="180" stroke="#6DA716" stroke-width="1" opacity="0.1" fill="none" />
+  <circle cx="960" cy="300" r="80" stroke="#FFFFFF" stroke-width="1" opacity="0.08" fill="none" />
+  <line x1="960" y1="0" x2="960" y2="600" stroke="#FFFFFF" stroke-width="0.5" opacity="0.05" />
+  <line x1="0" y1="300" x2="1920" y2="300" stroke="#FFFFFF" stroke-width="0.5" opacity="0.05" />
+</svg>

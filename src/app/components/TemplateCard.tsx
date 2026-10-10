@@ -100,19 +100,34 @@ export const TemplateCard: React.FC<TemplateCardProps> = ({
       </div>
 
       {/* Card Actions Footer */}
-      <div className="pt-4 border-t border-[#1f2430] flex items-center justify-between gap-2">
-        <button
-          onClick={() => onInspect(template)}
-          className="px-3 py-1.5 text-xs font-medium text-[#94a3b8] hover:text-white bg-[#181d28] hover:bg-[#202736] border border-[#283144] rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer"
-        >
-          <Code2 className="w-3.5 h-3.5 text-blue-400" />
-          Specs & Audit
-        </button>
+      <div className="pt-4 border-t border-[#1f2430] flex flex-wrap items-center justify-between gap-2">
+        <div className="flex items-center gap-1.5">
+          <button
+            onClick={() => onInspect(template)}
+            className="px-2.5 py-1.5 text-xs font-medium text-[#94a3b8] hover:text-white bg-[#181d28] hover:bg-[#202736] border border-[#283144] rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer"
+          >
+            <Code2 className="w-3.5 h-3.5 text-blue-400" />
+            <span>Specs</span>
+          </button>
+
+          {template.referenceSource?.sourceUrl && (
+            <a
+              href={template.referenceSource.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-2.5 py-1.5 text-xs font-medium text-emerald-400 hover:text-emerald-300 bg-emerald-950/40 hover:bg-emerald-900/50 border border-emerald-800/50 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer"
+              title={`Visit original ${template.name} website in new tab`}
+            >
+              <span>Visit Original</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+          )}
+        </div>
 
         {isCompleted ? (
           <button
             onClick={() => onPreview(template)}
-            className="px-3.5 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors flex items-center gap-1.5 shadow-sm shadow-blue-500/30 cursor-pointer"
+            className="px-3.5 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors flex items-center gap-1.5 shadow-sm shadow-blue-500/30 cursor-pointer ml-auto"
           >
             <span>Launch Demo</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -120,7 +135,7 @@ export const TemplateCard: React.FC<TemplateCardProps> = ({
         ) : (
           <button
             onClick={() => onIntake(template)}
-            className="px-3 py-1.5 text-xs font-medium text-amber-300 hover:text-amber-200 bg-amber-950/40 hover:bg-amber-900/40 border border-amber-800/40 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer"
+            className="px-3 py-1.5 text-xs font-medium text-amber-300 hover:text-amber-200 bg-amber-950/40 hover:bg-amber-900/40 border border-amber-800/40 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer ml-auto"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>Assign Reference</span>
