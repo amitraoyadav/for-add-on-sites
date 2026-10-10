@@ -42,6 +42,7 @@ export interface TemplateManifestItem {
   status: TemplateStatus;
   entryPoint: string; // "src/templates/sazy-cafe/SazyCafe.tsx"
   assetPath: string; // "public/assets/sazy-cafe/"
+  thumbnail?: string; // Optional card thumbnail image URL
   dependencies: string[];
   features: string[];
   conversionTriggers: string[];

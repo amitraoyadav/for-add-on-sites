@@ -368,7 +368,9 @@ export const BUSINESS_CATEGORIES: CategoryDefinition[] = [
     title: 'Photography, Studio & Cinematography',
     shortTitle: 'Photography',
     subcategories: [
+      'Portrait Photography Studio',
       'Wedding Photography',
+      'Wedding Films & Videography',
       'Pre-Wedding Photography',
       'Cinematography & Films',
       'Destination Weddings',

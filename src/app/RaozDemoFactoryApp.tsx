@@ -62,6 +62,15 @@ export default function RaozDemoFactoryApp() {
     submittedAt: string;
   }>>([
     {
+      id: 'ref-portrait-10',
+      templateId: 'the-portrait-company',
+      refType: 'zip',
+      urlOrTitle: 'The Portrait Company (https://theportraitcompany.in/)',
+      notes: 'Professional Photography Studio in Mumbai — Family, Celebrity, Corporate, Couple, Kids, Fashion, Maternity, Boudoir, and Matrimonial Portraits. Recreated as Template #10.',
+      clientNeeds: 'Complete website recreation, fullwidth hero slider with Kareena Kapoor Khan celebrity banner, all 9 photography categories with verbatim headings and descriptions, View Portfolio modals, Cherish Your Precious Moments section, Our Partners showcase (Chitraksh, Home Photography, Fashion Folio), Studio Packages, verified client testimonials, click-to-call, mailto, and direct WhatsApp float.',
+      submittedAt: '2026-10-10'
+    },
+    {
       id: 'ref-knots-09',
       templateId: 'knotsbyamp',
       refType: 'zip',

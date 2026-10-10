@@ -551,6 +551,70 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
     },
     routes: ['/', 'wedding-stories', 'wedding-films', 'couple-shoot', 'about', 'testimonials', 'faqs', 'contact'],
     completedAt: '2026-10-10'
+  },
+
+  // --- TEMPLATE #10: THE PORTRAIT COMPANY (Professional Photography Studio in Mumbai) ---
+  {
+    id: 'the-portrait-company',
+    numericId: 10,
+    name: 'The Portrait Company',
+    tagline: 'A professional photography studio showcasing family portraits, celebrity portraits, corporate headshots, couple photography, maternity portraits, and more.',
+    categoryCode: 'cat-photography',
+    categoryLetter: '21',
+    categoryName: 'Photography',
+    subcategory: 'Portrait Photography Studio',
+    businessType: 'Professional photography studio website',
+    targetClients: 'Individuals, couples, multi-generational families, executives, models, and expectant parents across Mumbai seeking fine-art portrait photography',
+    batch: 1,
+    status: 'completed',
+    entryPoint: 'src/templates/the-portrait-company/ThePortraitCompany.tsx',
+    assetPath: 'public/assets/the-portrait-company/',
+    thumbnail: '/assets/the-portrait-company/hero-celebrity.webp',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Original The Portrait Company branding, logo emblem, and luxury dark editorial aesthetic (#080808 / #D4AF37)',
+      'Fullwidth hero slider featuring 9 signature studio portraits with Kareena Kapoor Khan celebrity banner',
+      'Top in-hero concierge bar: "We’d love to hear from you!" with direct phone, email, and inquiry actions',
+      'Nine core photography categories in exact original sequence: Family, Celebrity, Corporate, Couple, Kids, Fashion, Maternity, Boudoir, Matrimonial',
+      'Verbatim source headings and narrative descriptions for each photography discipline',
+      'Dedicated "View Portfolio" modals for all nine categories with session specs and booking triggers',
+      '"Cherish Your Precious Moments" legacy showcase highlighting photographed celebrities (Carol Gracias, Gauhar Khan, Rashmi Desai, Tushar Kapoor)',
+      'Verified "Our Partners" showcase featuring Chitraksh, Home Photography, and Fashion Folio',
+      'Transparent studio packages breakdown: Studio Essential, Signature Editorial, and Luxury Heirloom',
+      'Authentic client reviews with 5.0★ rating breakdown and verified testimonials',
+      'Interactive Consultation & Shoot Booking Inquiry modal with category and time slot selectors',
+      'Direct floating WhatsApp chat link (+91 9820987979) and click-to-call phone connectivity'
+    ],
+    conversionTriggers: [
+      'Book Shoot / Inquiry Form',
+      'WhatsApp Concierge (+91-9820987979)',
+      'Direct Phone Call (+91-9820987979)',
+      'View Category Portfolios',
+      'Explore Studio Packages'
+    ],
+    colorTheme: {
+      primary: '#000000',
+      secondary: '#D4AF37',
+      bgStyle: 'bg-[#080808]'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'The Portrait Company (https://theportraitcompany.in/)',
+      sourceUrl: 'https://theportraitcompany.in/',
+      notes: 'Faithfully reconstructed full website demo for The Portrait Company using supplied HTML capture and asset archive, featuring all 9 photography categories, Kareena Kapoor Khan celebrity banner, partners, and inquiry flows.',
+      receivedAt: '2026-10-10'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Sub-router built with internal active tab states.'
+    },
+    routes: ['/', 'packages', 'testimonials', 'about', 'teams', 'gift', 'blog', 'contact'],
+    completedAt: '2026-10-10'
   }
 ];
 

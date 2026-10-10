@@ -61,6 +61,21 @@ export const TemplateCard: React.FC<TemplateCardProps> = ({
           </span>
         </div>
 
+        {/* Thumbnail if provided */}
+        {template.thumbnail && (
+          <div className="mb-3 rounded-lg overflow-hidden h-40 bg-black/50 border border-[#232733] relative group/thumb">
+            <img
+              src={template.thumbnail}
+              alt={template.name}
+              className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+            />
+            <div className="absolute top-2 right-2 bg-black/85 backdrop-blur-xs px-2 py-0.5 rounded text-[10px] font-mono font-semibold text-white/95 border border-white/20 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              DEMO WEBSITE
+            </div>
+          </div>
+        )}
+
         {/* Title & Tagline */}
         <h3 className="text-base font-semibold text-white group-hover:text-blue-400 transition-colors line-clamp-1 mb-1">
           {template.name}
@@ -129,7 +144,7 @@ export const TemplateCard: React.FC<TemplateCardProps> = ({
             onClick={() => onPreview(template)}
             className="px-3.5 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors flex items-center gap-1.5 shadow-sm shadow-blue-500/30 cursor-pointer ml-auto"
           >
-            <span>Launch Demo</span>
+            <span>View Demo</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         ) : (
