@@ -9,6 +9,8 @@ import { Clock, Sparkles } from 'lucide-react';
 
 // Lazy map for implemented templates
 const SazyCafeLazy = lazy(() => import('../templates/sazy-cafe/SazyCafe'));
+const SocialOfflineLazy = lazy(() => import('../templates/social-offline/SocialOffline'));
+const PhoCafeLazy = lazy(() => import('../templates/pho-cafe/PhoCafe'));
 
 interface TemplateLoaderProps {
   template: TemplateManifestItem;
@@ -32,6 +34,46 @@ export function TemplateLoader({ template, onOpenIntakeModal }: TemplateLoaderPr
         }
       >
         <SazyCafeLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is SOCIAL OFFLINE
+  if (template.id === 'social-offline') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#0a0b0e] text-[#f95721]">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#f95721] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-[#9ca3af]">
+                Loading SOCIAL OFFLINE Demo...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <SocialOfflineLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is PHO CAFE
+  if (template.id === 'pho-cafe') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#FBF9F5] text-[#E21837]">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#E21837] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-[#737373] font-mono">
+                Loading PHO CAFE Demo...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <PhoCafeLazy />
       </Suspense>
     );
   }

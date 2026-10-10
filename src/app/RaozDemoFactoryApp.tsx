@@ -62,6 +62,24 @@ export default function RaozDemoFactoryApp() {
     submittedAt: string;
   }>>([
     {
+      id: 'ref-pho-03',
+      templateId: 'pho-cafe',
+      refType: 'zip',
+      urlOrTitle: 'Pho Cafe UK (saveweb2zip-com-www-phocafe-co-uk.zip / https://www.phocafe.co.uk/)',
+      notes: 'Fresh & Healthy Vietnamese street food chain. 98% gluten free, Coeliac UK accredited, 12-hour bone broths.',
+      clientNeeds: 'Black rounded pill nav, 45+ UK locations search, Something Pho Everyone food slider, student offers, table booking modal.',
+      submittedAt: '2026-10-10'
+    },
+    {
+      id: 'ref-social-02',
+      templateId: 'social-offline',
+      refType: 'zip',
+      urlOrTitle: 'Social Offline (saveweb2zip-com-socialoffline-in.zip / https://socialoffline.in)',
+      notes: "India's favourite neighbourhood cafe, high-energy bar & collaborative workspace. Recreated as SOCIAL OFFLINE.",
+      clientNeeds: '14 Outlets across 8 cities, Khaana & Peena menu with diet filters, Social Wrks passes, Social Club loyalty tiers, table reservations.',
+      submittedAt: '2026-10-09'
+    },
+    {
       id: 'ref-sazy-01',
       templateId: 'sazy-cafe',
       refType: 'zip',
@@ -158,7 +176,7 @@ export default function RaozDemoFactoryApp() {
         </div>
         <div className="flex items-center gap-3">
           <span className="px-2 py-0.5 rounded bg-amber-950/80 border border-amber-800 text-amber-300 font-mono text-[11px]">
-            Fresh Collection Active · SAZY CAFE (Template #1)
+            Fresh Collection Active · SAZY CAFE (#1) · SOCIAL OFFLINE (#2) · PHO CAFE (#3)
           </span>
           <span className="px-2 py-0.5 rounded bg-[#1e2330] border border-[#2d374d] text-[#cbd5e1] text-[11px]">
             Auto-Deploy Disabled
