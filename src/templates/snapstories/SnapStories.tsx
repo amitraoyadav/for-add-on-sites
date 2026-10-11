@@ -565,16 +565,22 @@ export const SnapStories: React.FC = () => {
             {/* Modal Header */}
             <div className="p-6 border-b border-[#eeeeee] flex items-center justify-between sticky top-0 bg-white z-10">
               <div>
-                <span className="text-xs uppercase tracking-widest text-[#888888] block">
-                  {selectedStoryModal.category}
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs uppercase tracking-widest text-[#888888]">
+                    {selectedStoryModal.category}
+                  </span>
+                  <span className="text-[10px] font-mono text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded">
+                    /{selectedStoryModal.slug}
+                  </span>
+                </div>
                 <h3
-                  className="text-xl font-normal text-[#111111]"
+                  className="text-xl font-normal text-[#111111] mt-0.5"
                   style={{ fontFamily: 'Raleway, Helvetica, sans-serif' }}
                 >
                   {selectedStoryModal.title}
                 </h3>
               </div>
+
               <button
                 onClick={() => setSelectedStoryModal(null)}
                 className="text-gray-400 hover:text-black p-2 cursor-pointer"
@@ -637,14 +643,24 @@ export const SnapStories: React.FC = () => {
                     Check Wedding Date
                   </button>
                   <a
+                    href={`https://www.snapstories.in/${selectedStoryModal.slug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2.5 border border-gray-300 hover:border-black text-gray-700 hover:text-black text-xs font-semibold tracking-wider uppercase rounded-xs transition-colors inline-flex items-center gap-1.5"
+                  >
+                    <span>View on Live Site</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                  <a
                     href={SNAPSTORIES_CONFIG.brand.contact.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-6 py-2.5 border border-black text-black hover:bg-gray-100 text-xs font-semibold tracking-wider uppercase rounded-xs transition-colors cursor-pointer"
                   >
-                    WhatsApp Aniket Pawar
+                    WhatsApp Studio
                   </a>
                 </div>
+
               </div>
             </div>
           </div>

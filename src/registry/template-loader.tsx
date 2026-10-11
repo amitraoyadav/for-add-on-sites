@@ -21,6 +21,8 @@ const ThePortraitCompanyLazy = lazy(() => import('../templates/the-portrait-comp
 const PKPhotographyLazy = lazy(() => import('../templates/pk-photography/PKPhotography'));
 const TrueShadesPhotographyLazy = lazy(() => import('../templates/true-shades-photography/TrueShadesPhotography'));
 const SnapStoriesLazy = lazy(() => import('../templates/snapstories/SnapStories'));
+const ShootExpressLazy = lazy(() => import('../templates/shoot-express/ShootExpress'));
+const OllarStudiosLazy = lazy(() => import('../templates/ollar-studios/OllarStudios'));
 
 interface TemplateLoaderProps {
   template: TemplateManifestItem;
@@ -287,6 +289,48 @@ export function TemplateLoader({ template, onOpenIntakeModal }: TemplateLoaderPr
       </Suspense>
     );
   }
+
+  // If template is SHOOT EXPRESS PHOTOGRAPHY
+  if (template.id === 'shoot-express') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#0F172A] text-[#E11D48]">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#E11D48] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-slate-400 font-mono">
+                Loading SHOOT EXPRESS PHOTOGRAPHY...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <ShootExpressLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is OLLAR STUDIOS
+  if (template.id === 'ollar-studios') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#0F172A] text-[#2563EB]">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#2563EB] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-slate-400 font-mono">
+                Loading OLLAR STUDIOS...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <OllarStudiosLazy />
+      </Suspense>
+    );
+  }
+
+
 
   // Fallback for future planned slots
   return (

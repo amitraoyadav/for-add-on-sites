@@ -798,8 +798,135 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
     },
     routes: ['/', '#about', '#wedding', '#engagement', '#cinematic-videos', '#portfolio', '#contact'],
     completedAt: '2026-10-11'
+  },
+
+  // --- TEMPLATE #14: SHOOT EXPRESS PHOTOGRAPHY (Best Photographer in Mumbai) ---
+  {
+    id: 'shoot-express',
+    numericId: 14,
+    name: 'Shoot Express Photography',
+    tagline: 'Best Photographer In Mumbai — Weddings, maternity, candid, family, food, product, interior, fashion & events.',
+    categoryCode: 'cat-photography',
+    categoryLetter: '21',
+    categoryName: 'Photography',
+    subcategory: 'Professional Photography & Videography',
+    businessType: 'Professional Photography & Videography Studio',
+    targetClients: 'Couples, expectant parents, families, corporate brands, restaurants, architects, and event hosts seeking full-spectrum photography in Mumbai',
+    batch: 1,
+    status: 'completed',
+    entryPoint: 'src/templates/shoot-express/ShootExpress.tsx',
+    assetPath: 'public/assets/shoot-express/',
+    thumbnail: '/assets/shoot-express/wedding-couple-photoshoot.jpg',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Original Shoot Express Photography branding, aperture emblem, and deep slate/crimson design system',
+      'Hero section with authentic H1: "Best Photographer In Mumbai" and brand headline "Shoot Express Photography Mumbai"',
+      'Verified performance metrics: 7,120 Functions, 5,000+ Customers, 7+ Years Experience, 70 Team Size',
+      'Occasions Covered By Us: All 9 core categories (Wedding, Maternity, Candid, Family, Food, Product, Interior, Fashion, Event)',
+      'Why Choose Us: 6 pillars including one-stop solution, experienced crew, competitive pricing, 24*7 support, and Powai indoor studio',
+      'Photography Portfolio with 9 labeled showcases and high-resolution Lightbox photo viewer',
+      'What People Say About Our Photography Service with verified 4.9★ reviews (870+ reviews)',
+      'As Seen On section highlighting WeddingSutra, Justdial 4.9★, Hindustan Times, Instavendor, and Mumbai Mirror',
+      'Frequently Asked Questions accordion with verbatim guidance on pricing, booking advances, deliverables, and turnaround',
+      'Locations We Serve covering 16 key Mumbai suburban areas from Churchgate to Virar',
+      'Contact section with working phone (7738111094), email (ashwin@shootexpress.com), Powai studio address, and WhatsApp concierge'
+    ],
+    conversionTriggers: [
+      'Book Shoot / Inquiry Form',
+      'WhatsApp Directly (+91 7738111094)',
+      'Call Studio (7738111094)',
+      'Explore Portfolio',
+      'Check Date Availability'
+    ],
+    colorTheme: {
+      primary: '#0F172A',
+      secondary: '#E11D48',
+      bgStyle: 'bg-[#0F172A]'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'Shoot Express Photography (https://shootexpress.com/)',
+      sourceUrl: 'https://shootexpress.com/',
+      notes: 'Faithfully reconstructed full website demo for Shoot Express Photography using indexed metadata, search intelligence, and domain profile details, featuring all 9 occasions, 6 Why Choose Us pillars, 16 Mumbai locations, reviews, FAQs, and booking consultation.',
+      receivedAt: '2026-10-11'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Sub-router built with internal active tab and section states.'
+    },
+    routes: ['/', '#about', '#occasions', '#why-us', '#portfolio', '#reviews', '#faqs', '#locations', '#contact'],
+    completedAt: '2026-10-11'
+  },
+
+  // --- TEMPLATE #15: OLLAR STUDIOS (Premium Photography & Studio Rentals in Mumbai) ---
+  {
+    id: 'ollar-studios',
+    numericId: 15,
+    name: 'Ollar Studios',
+    tagline: 'Premium Photography & Studio Rentals in Mumbai — 1,800 sq. ft. photo bays, podcast suites & creative productions.',
+    categoryCode: 'cat-photography',
+    categoryLetter: '21',
+    categoryName: 'Photography',
+    subcategory: 'Photography Studio Rentals & Creative Production',
+    businessType: 'Photography Studio Rentals, Podcast Studios & Commercial Photography',
+    targetClients: 'Photographers, creators, podcasters, couples, brands, and agency producers seeking 1,800 sq. ft. studio rentals and creative production in Mumbai',
+    batch: 1,
+    status: 'completed',
+    entryPoint: 'src/templates/ollar-studios/OllarStudios.tsx',
+    assetPath: 'public/assets/ollar-studios/',
+    thumbnail: '/assets/ollar-studios/photography-studio.jpg',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Original Ollar Studios branding, dark studio aesthetic, and Poppins typography system',
+      'Hero section: "Premium Photography & Studio Rentals in Mumbai" and "Your One-Stop Creative Destination in Mumbai"',
+      'Studio Rentals: 1,800 sq. ft. Photography Studio (strobe lights, motorized seamless paper, vanity room, chroma) and Acoustically Soundproofed Podcast Studio (broadcast mics, 4K video, RGB themes)',
+      'Professional Photography Services: Wedding Photography (Ollar Weds), Pre wedding Photography, Product Photography, Fashion Photography',
+      'Why Chooes Us section covering Creative Concepts & Styling, Pro Equipment, Flexible Packages, and Central Mulund Location',
+      'Work Portfolio with category filters (Wedding, Pre-Wedding, Fashion, Product, Photography, Podcast Studio, Photography Studio) and high-res Lightbox',
+      'Client Testimonials featuring Priyanka Kanani, Bhavik Devdhar, Tania Shripad, and Pranav Pujari',
+      'Latest Blogs with outreach and studio booking guides',
+      'Milestones: 1,500+ Shoots Completed, 1,200+ Happy Clients, 4.9/5 Rating, 1,800 Sq. Ft. Studio Space',
+      'Contact section with working phone (+91 9004344101), email, Mulund West studio address, and interactive booking modal'
+    ],
+    conversionTriggers: [
+      'Book Studio Rental',
+      'Book Shoot / Inquiry Form',
+      'WhatsApp Directly (+91 9004344101)',
+      'Call Studio (+91 9004344101)',
+      'Explore Portfolio'
+    ],
+    colorTheme: {
+      primary: '#0F172A',
+      secondary: '#2563EB',
+      bgStyle: 'bg-[#0F172A]'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'Ollar Studios (https://ollarstudios.com/)',
+      sourceUrl: 'https://ollarstudios.com/',
+      notes: 'Faithfully reconstructed full website demo for Ollar Studios using supplied homepage capture and asset archive, featuring 1,800 sq. ft. photography studio, podcast recording suite, wedding photography, fashion campaigns, product catalogs, testimonials, and booking consultation.',
+      receivedAt: '2026-10-11'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Sub-router built with internal active tab and section states.'
+    },
+    routes: ['/', '#about', '#studio-rentals', '#podcast-studio', '#photography-studio', '#services', '#why-choose-us', '#portfolio', '#testimonials', '#blogs', '#contact'],
+    completedAt: '2026-10-11'
   }
 ];
+
+
 
 
 

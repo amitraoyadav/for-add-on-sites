@@ -62,6 +62,24 @@ export default function RaozDemoFactoryApp() {
     submittedAt: string;
   }>>([
     {
+      id: 'ref-ollar-studios-15',
+      templateId: 'ollar-studios',
+      refType: 'zip',
+      urlOrTitle: 'Ollar Studios (https://ollarstudios.com/)',
+      notes: 'Premium Photography & Studio Rentals in Mumbai — 1,800 sq. ft. photo bays, podcast suites & creative productions. Recreated as Template #15.',
+      clientNeeds: 'Complete website recreation, hero section with "Premium Photography & Studio Rentals in Mumbai", 1800 sq. ft. Photography Studio rental and soundproof Podcast Studio with multi-mics and 4K cameras, 4 core photography services (Weddings, Pre-wedding, Product, Fashion), Why Chooes Us section, 8-filter work portfolio with Lightbox, verified client testimonials (Priyanka Kanani, Bhavik Devdhar, Tania Shripad, Pranav Pujari), latest blogs, Mulund West studio location, and booking consultation modal.',
+      submittedAt: '2026-10-11'
+    },
+    {
+      id: 'ref-shoot-express-14',
+      templateId: 'shoot-express',
+      refType: 'zip',
+      urlOrTitle: 'Shoot Express Photography (https://shootexpress.com/)',
+      notes: 'Best Photographer In Mumbai — Professional photography and videography for weddings, events, maternity, family, newborn, food, product, jewellery, interior, fashion, and events. Recreated as Template #14.',
+      clientNeeds: 'Complete website recreation, hero section with "Best Photographer In Mumbai", 7,120 functions milestone statistics, all 9 Occasions Covered By Us, 6 Why Choose Us pillars with Powai indoor studio, photography portfolio with high-res Lightbox, 4.9★ Justdial customer reviews, FAQs accordion, 16 Mumbai locations served, and direct contact with working phone (+91 7738111094), email, and WhatsApp.',
+      submittedAt: '2026-10-11'
+    },
+    {
       id: 'ref-snapstories-13',
       templateId: 'snapstories',
       refType: 'zip',
