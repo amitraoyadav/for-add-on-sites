@@ -62,6 +62,15 @@ export default function RaozDemoFactoryApp() {
     submittedAt: string;
   }>>([
     {
+      id: 'ref-pk-11',
+      templateId: 'pk-photography',
+      refType: 'zip',
+      urlOrTitle: 'PK Photography (https://pkphotography.in/)',
+      notes: 'Wedding Photography & Films in Mumbai & Goa — A studio built around your story. Led by Prabhakar Kumar. Recreated as Template #11.',
+      clientNeeds: 'Complete website recreation, dark luxury editorial aesthetic, hero section with 4K video reel playback modal and 4-step workflow, 6 core service disciplines, 32 verified client logos with sector filters, 8-frame curated visual folio with high-res lightbox, transparent studio packages (₹6,000 to ₹2,00,000), 5.0★ Google reviews, FAQ accordion, booking consultation modal, and direct WhatsApp float (+91 8888766739).',
+      submittedAt: '2026-10-10'
+    },
+    {
       id: 'ref-portrait-10',
       templateId: 'the-portrait-company',
       refType: 'zip',

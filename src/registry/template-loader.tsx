@@ -18,6 +18,7 @@ const TellATaleLazy = lazy(() => import('../templates/tell-a-tale/TellATale'));
 const GajarePhotographyLazy = lazy(() => import('../templates/gajare-photography/GajarePhotography'));
 const KnotsbyAMPLazy = lazy(() => import('../templates/knotsbyamp/KnotsbyAMP'));
 const ThePortraitCompanyLazy = lazy(() => import('../templates/the-portrait-company/ThePortraitCompany'));
+const PKPhotographyLazy = lazy(() => import('../templates/pk-photography/PKPhotography'));
 
 interface TemplateLoaderProps {
   template: TemplateManifestItem;
@@ -221,6 +222,26 @@ export function TemplateLoader({ template, onOpenIntakeModal }: TemplateLoaderPr
         }
       >
         <ThePortraitCompanyLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is PK PHOTOGRAPHY
+  if (template.id === 'pk-photography') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#090A0C] text-[#C5A880]">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#C5A880] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-[#9CA3AF] font-mono">
+                Loading PK PHOTOGRAPHY (Mumbai & Goa)...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <PKPhotographyLazy />
       </Suspense>
     );
   }

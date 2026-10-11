@@ -615,6 +615,66 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
     },
     routes: ['/', 'packages', 'testimonials', 'about', 'teams', 'gift', 'blog', 'contact'],
     completedAt: '2026-10-10'
+  },
+  {
+    id: 'pk-photography',
+    numericId: 11,
+    name: 'PK Photography',
+    tagline: 'Weddings, events & brands. Mumbai, Goa & beyond. Photography feels different when you feel understood.',
+    categoryCode: 'cat-photography',
+    categoryLetter: '21',
+    categoryName: 'Photography',
+    subcategory: 'Wedding & Commercial Photography',
+    businessType: 'Wedding & Commercial Photography Studio',
+    targetClients: 'Couples, corporate brands, celebrities, and executives seeking thoughtful cinematic wedding films and editorial portraiture across Mumbai and Goa',
+    batch: 1,
+    status: 'completed',
+    entryPoint: 'src/templates/pk-photography/PKPhotography.tsx',
+    assetPath: 'public/assets/pk-photography/',
+    thumbnail: '/assets/pk-photography/curated/wedding-0n3a7372.webp',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Original PK Photography branding, Prabhakar Kumar direction, and dark luxury aesthetic',
+      'Hero section with cinematic video reel playback modal and 4-step workflow (Gather, Feel, Remember, Keep)',
+      'Curated services directory: Wedding photography, Goa destination weddings, Pre-wedding, Corporate events, Portfolios, Headshots',
+      'All 32 authentic client brand logos (Tata Motors, Siemens Energy, Godrej, Myntra, Airbnb, AMD, W Goa, Asianet, Lakme, BenQ, etc.) with category filters',
+      'Visual folio highlights with high-res lightbox modals and camera optics specifications',
+      'Transparent studio packages: Studio Headshot (₹6,000), Intimate Celebration (₹80,000), Full Wedding Day Master (₹1,20,000), Destination Wedding (₹2,00,000)',
+      'Verified 5.0★ Google reviews and authentic client testimonials across Mumbai & Goa',
+      'Frequently asked questions accordion with verbatim pricing & delivery guidance',
+      'Interactive Booking Consultation modal with shoot date, venue, and package selectors',
+      'Direct floating WhatsApp concierge (+91 8888766739) and studio telephone connectivity'
+    ],
+    conversionTriggers: [
+      'Check Availability / Reserve Date',
+      'Watch Cinematic Reel',
+      'WhatsApp Concierge (+91 8888766739)',
+      'Direct Phone Call (+91 8888766739 / +91 81888 81165)',
+      'Explore Studio Packages'
+    ],
+    colorTheme: {
+      primary: '#090A0C',
+      secondary: '#C5A880',
+      bgStyle: 'bg-[#090A0C]'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'PK Photography (https://pkphotography.in/)',
+      sourceUrl: 'https://pkphotography.in/',
+      notes: 'Faithfully reconstructed full website demo for PK Photography using supplied website capture and asset archive, featuring Mumbai & Goa studios, cinematic reels, 32 client logos, transparent packages, and booking consultation.',
+      receivedAt: '2026-10-10'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Sub-router built with internal active tab states.'
+    },
+    routes: ['/', 'services', 'portfolio', 'pricing', 'reviews', 'about', 'contact'],
+    completedAt: '2026-10-10'
   }
 ];
 
