@@ -675,6 +675,129 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
     },
     routes: ['/', 'services', 'portfolio', 'pricing', 'reviews', 'about', 'contact'],
     completedAt: '2026-10-10'
+  },
+
+  // --- TEMPLATE #12: TRUE SHADES PHOTOGRAPHY (Best Wedding Photographer in Mumbai) ---
+  {
+    id: 'true-shades-photography',
+    numericId: 12,
+    name: 'True Shades Photography',
+    tagline: 'A wedding photography studio showcasing candid wedding photography, wedding films, pre-wedding shoots, and cinematic memories.',
+    categoryCode: 'cat-photography',
+    categoryLetter: '21',
+    categoryName: 'Photography',
+    subcategory: 'Wedding Photography, Candid Photography & Films',
+    businessType: 'Wedding Photography, Candid Photography, Wedding Films, Pre-Wedding Photography and Pre-Wedding Films',
+    targetClients: 'Couples, families, wedding planners, and couples seeking candid wedding photography and cinematic films across Mumbai, Goa, and worldwide',
+    batch: 1,
+    status: 'completed',
+    entryPoint: 'src/templates/true-shades-photography/TrueShadesPhotography.tsx',
+    assetPath: 'public/assets/true-shades-photography/',
+    thumbnail: '/assets/true-shades-photography/hero-wedding.jpg',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Original True Shades Photography branding, logo, and signature cream editorial aesthetic (#fdfcf7 / #666666)',
+      'Top header with Crescent Royale Andheri West address, direct phone link (+919920144211), and social links',
+      'Hero photography slider with fullwidth authentic wedding portraits and navigation controls',
+      'Intro section with red paint graphic backdrop, decorative fairy lights, and "Photography" & "Films" action triggers',
+      'Featured In section with cranberry banner (#bb687a) and smooth marquee with 5 verified publications (Times of India, WeddingSutra, Hindustan Times, Mid-Day, Big Fat Indian Wedding)',
+      'About Intro section with watermark camera icon and verbatim narrative on traditions, rituals, and candid photography',
+      'Candid Photography section with left and right video camera illustration watermarks and verbatim commitment to excellence',
+      'Client Reviews section featuring 6 authentic review screenshot cards with carousel navigation and full-screen lightbox zoom',
+      'Footer with Mumbai address, blog guides, useful links, and copyright statement',
+      'Interactive Consultation & Date Availability booking modal with service selection and direct WhatsApp float'
+    ],
+    conversionTriggers: [
+      'Book Shoot / Inquiry Form',
+      'WhatsApp Directly (+91 9920144211)',
+      'Call Studio (+919920144211)',
+      'Explore Photography Portfolio',
+      'Watch Wedding Films'
+    ],
+    colorTheme: {
+      primary: '#666666',
+      secondary: '#bfd5c8',
+      bgStyle: 'bg-[#fdfcf7]'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'True Shades Photography (https://trueshadesphotography.com/)',
+      sourceUrl: 'https://trueshadesphotography.com/',
+      notes: 'Faithfully reconstructed full website demo for True Shades Photography using supplied HTML capture and asset archive, featuring hero slider, red paint intro, featured marquee, candid photography philosophy, and 6 client review cards.',
+      receivedAt: '2026-10-11'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Sub-router built with internal active tab states.'
+    },
+    routes: ['/', '#about-us', '#our-work', '#wedding-photography', '#wedding-films', '#client-reviews', '#blogs', '#contact'],
+    completedAt: '2026-10-11'
+  },
+
+  // --- TEMPLATE #13: SNAPSTORIES PHOTOGRAPHY (Wedding & Engagement Photography, Films) ---
+  {
+    id: 'snapstories',
+    numericId: 13,
+    name: 'SnapStories Photography',
+    tagline: 'Wedding photography and films that preserve emotions, relationships, and memories, with engagement photography and cinematic video storytelling.',
+    categoryCode: 'cat-photography',
+    categoryLetter: '21',
+    categoryName: 'Photography',
+    subcategory: 'Wedding Photography, Engagement & Cinematic Films',
+    businessType: 'Wedding Photography, Engagement Photography, Wedding Films and Cinematic Videos',
+    targetClients: 'Couples, families, and wedding planners seeking authentic candid photography and emotional cinematic storytelling that lasts forever',
+    batch: 1,
+    status: 'completed',
+    entryPoint: 'src/templates/snapstories/SnapStories.tsx',
+    assetPath: 'public/assets/snapstories/',
+    thumbnail: '/assets/snapstories/portfolio-janhavi-kishen.jpg',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Original SnapStories branding, logo, and clean editorial photography layout',
+      'Hero photography banner with signature serif headline "SNAPSTORIES PHOTOGRAPHY" and uppercase "WEDDING - ENGAGEMENT" subtitle',
+      'Full portfolio showcase with all 6 authentic couples in source order: Janhavi & Kishen, Ankitha & Pranav, Srija & Saiesh, Ruth & Geoffrey, Sanika & Jasdeep, Sneha & Nikhil',
+      'Interactive Story Showcase modals with emotional story overviews, session highlights, and full-screen Lightbox viewer',
+      'Verbatim "About SnapStories" storytelling narrative on 15+ years of experience and preserving memories forever',
+      'Contact section with Aniket Pawar direct contact, working phone link (+91 9137698195), Instagram, and Cinematic Videos links',
+      'Interactive Date Availability and consultation booking modal with couple and venue selectors',
+      'Footer with "SnapStories — Wedding Photography & Films", copyright "©2026 SnapStories | Disclaimer", and Back to Top action',
+      'Direct floating WhatsApp concierge for immediate inquiry with Aniket Pawar'
+    ],
+    conversionTriggers: [
+      'Book Wedding Date',
+      'WhatsApp Directly (+91 9137698195)',
+      'Call Studio (9137698195)',
+      'Explore Recent Work',
+      'Watch Cinematic Videos'
+    ],
+    colorTheme: {
+      primary: '#111111',
+      secondary: '#666666',
+      bgStyle: 'bg-[#ffffff]'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'SnapStories Photography (https://www.snapstories.in/)',
+      sourceUrl: 'https://www.snapstories.in/',
+      notes: 'Faithfully reconstructed full website demo for SnapStories using supplied Wix HTML capture and asset archive, featuring 6 couple stories, hero slider, verbatim About narrative, and contact details.',
+      receivedAt: '2026-10-11'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Sub-router built with internal active tab states.'
+    },
+    routes: ['/', '#about', '#wedding', '#engagement', '#cinematic-videos', '#portfolio', '#contact'],
+    completedAt: '2026-10-11'
   }
 ];
 

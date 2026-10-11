@@ -19,6 +19,8 @@ const GajarePhotographyLazy = lazy(() => import('../templates/gajare-photography
 const KnotsbyAMPLazy = lazy(() => import('../templates/knotsbyamp/KnotsbyAMP'));
 const ThePortraitCompanyLazy = lazy(() => import('../templates/the-portrait-company/ThePortraitCompany'));
 const PKPhotographyLazy = lazy(() => import('../templates/pk-photography/PKPhotography'));
+const TrueShadesPhotographyLazy = lazy(() => import('../templates/true-shades-photography/TrueShadesPhotography'));
+const SnapStoriesLazy = lazy(() => import('../templates/snapstories/SnapStories'));
 
 interface TemplateLoaderProps {
   template: TemplateManifestItem;
@@ -242,6 +244,46 @@ export function TemplateLoader({ template, onOpenIntakeModal }: TemplateLoaderPr
         }
       >
         <PKPhotographyLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is TRUE SHADES PHOTOGRAPHY
+  if (template.id === 'true-shades-photography') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#fdfcf7] text-[#666666]">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#bfd5c8] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-[#7a7a7a] font-mono">
+                Loading TRUE SHADES PHOTOGRAPHY...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <TrueShadesPhotographyLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is SNAPSTORIES PHOTOGRAPHY
+  if (template.id === 'snapstories') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-white text-[#222222]">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#222222] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-[#666666] font-mono">
+                Loading SNAPSTORIES PHOTOGRAPHY...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <SnapStoriesLazy />
       </Suspense>
     );
   }

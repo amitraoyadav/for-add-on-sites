@@ -62,12 +62,30 @@ export default function RaozDemoFactoryApp() {
     submittedAt: string;
   }>>([
     {
+      id: 'ref-snapstories-13',
+      templateId: 'snapstories',
+      refType: 'zip',
+      urlOrTitle: 'SnapStories Photography (https://www.snapstories.in/)',
+      notes: 'Wedding Photography, Engagement Photography, Wedding Films and Cinematic Videos — A team with over 15 years of experience preserving emotions, relationships and memories. Led by Aniket Pawar. Recreated as Template #13.',
+      clientNeeds: 'Complete website recreation, full-bleed hero banner with signature EB Garamond/Raleway typography, 6 recent wedding work showcases (Janhavi & Kishen, Ankitha & Pranav, Srija & Saiesh, Ruth & Geoffrey, Sanika & Jasdeep, Sneha & Nikhil) with story modals and image lightbox, verbatim About SnapStories narrative, contact section with working phone link (+91 9137698195), Instagram and Cinematic Videos links, disclaimer modal, and WhatsApp concierge.',
+      submittedAt: '2026-10-11'
+    },
+    {
+      id: 'ref-true-shades-12',
+      templateId: 'true-shades-photography',
+      refType: 'zip',
+      urlOrTitle: 'True Shades Photography (https://trueshadesphotography.com/)',
+      notes: 'One Of The Best Wedding Photographers In Mumbai — Wedding Photography, Candid Photography, Wedding Films, Pre-Wedding Photography and Pre-Wedding Films. Recreated as Template #12.',
+      clientNeeds: 'Complete website recreation, original cream aesthetic (#fdfcf7), hero photography slider, intro section with red paint graphic backdrop and decorative lights, featured publication marquee (Times of India, WeddingSutra, Hindustan Times, Mid-Day, Big Fat Indian Wedding), candid photography philosophy, 6 client review cards with lightbox viewer, footer blog guides, contact info, and WhatsApp direct float (+919920144211).',
+      submittedAt: '2026-10-11'
+    },
+    {
       id: 'ref-pk-11',
       templateId: 'pk-photography',
       refType: 'zip',
       urlOrTitle: 'PK Photography (https://pkphotography.in/)',
       notes: 'Wedding Photography & Films in Mumbai & Goa — A studio built around your story. Led by Prabhakar Kumar. Recreated as Template #11.',
-      clientNeeds: 'Complete website recreation, dark luxury editorial aesthetic, hero section with 4K video reel playback modal and 4-step workflow, 6 core service disciplines, 32 verified client logos with sector filters, 8-frame curated visual folio with high-res lightbox, transparent studio packages (₹6,000 to ₹2,00,000), 5.0★ Google reviews, FAQ accordion, booking consultation modal, and direct WhatsApp float (+91 8888766739).',
+      clientNeeds: 'Complete website recreation, dark luxury editorial aesthetic, hero section with 4K video reel playback modal and 4-step workflow, 6 core service disciplines, 32 verified client logos with sector filters, 8-frame curated visual folio with high-res lightbox, transparent studio packages (₹6,00,0 to ₹2,00,000), 5.0★ Google reviews, FAQ accordion, booking consultation modal, and direct WhatsApp float (+91 8888766739).',
       submittedAt: '2026-10-10'
     },
     {
@@ -196,10 +214,10 @@ export default function RaozDemoFactoryApp() {
         if (found) {
           setSelectedTemplate(found);
           const searchParams = new URLSearchParams(window.location.search);
-          if (searchParams.get('action') === 'demo') {
-            setActiveTab('preview');
-          } else {
+          if (searchParams.get('action') === 'specs') {
             setDetailModalTemplate(found);
+          } else {
+            setActiveTab('preview');
           }
         }
       }
@@ -214,13 +232,13 @@ export default function RaozDemoFactoryApp() {
     setSelectedTemplate(tpl);
     setActiveTab('preview');
     const slug = tpl.id === 'tell-a-tale' ? 'tell-a-tale-studios' : tpl.id;
-    window.history.pushState(null, '', `/website/${slug}?action=demo`);
+    window.history.pushState(null, '', `/website/${slug}`);
   };
 
   const handleInspect = (tpl: TemplateManifestItem) => {
     setDetailModalTemplate(tpl);
     const slug = tpl.id === 'tell-a-tale' ? 'tell-a-tale-studios' : tpl.id;
-    window.history.pushState(null, '', `/website/${slug}`);
+    window.history.pushState(null, '', `/website/${slug}?action=specs`);
   };
 
   const handleOpenIntake = (tpl: TemplateManifestItem) => {
