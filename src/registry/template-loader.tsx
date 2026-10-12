@@ -23,6 +23,7 @@ const TrueShadesPhotographyLazy = lazy(() => import('../templates/true-shades-ph
 const SnapStoriesLazy = lazy(() => import('../templates/snapstories/SnapStories'));
 const ShootExpressLazy = lazy(() => import('../templates/shoot-express/ShootExpress'));
 const OllarStudiosLazy = lazy(() => import('../templates/ollar-studios/OllarStudios'));
+const NikhilKapurPhotographyLazy = lazy(() => import('../templates/nikhil-kapur-photography/NikhilKapurPhotography'));
 
 interface TemplateLoaderProps {
   template: TemplateManifestItem;
@@ -326,6 +327,26 @@ export function TemplateLoader({ template, onOpenIntakeModal }: TemplateLoaderPr
         }
       >
         <OllarStudiosLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is NIKHIL KAPUR PHOTOGRAPHY
+  if (template.id === 'nikhil-kapur-photography') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#050505] text-white">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-white/80 border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-white/50 font-mono">
+                Loading NIKHIL KAPUR PHOTOGRAPHY...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <NikhilKapurPhotographyLazy />
       </Suspense>
     );
   }

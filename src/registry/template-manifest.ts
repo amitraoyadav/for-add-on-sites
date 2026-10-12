@@ -923,6 +923,79 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
     },
     routes: ['/', '#about', '#studio-rentals', '#podcast-studio', '#photography-studio', '#services', '#why-choose-us', '#portfolio', '#testimonials', '#blogs', '#contact'],
     completedAt: '2026-10-11'
+  },
+
+  // --- TEMPLATE #16: NIKHIL KAPUR PHOTOGRAPHY (Candid, Wedding, Architecture, Products) ---
+  {
+    id: 'nikhil-kapur-photography',
+    numericId: 16,
+    name: 'Nikhil Kapur Photography',
+    tagline: 'Candid Photographer. Filmmaker. Storyteller. Lover of dark chocolate with a side of good stories.',
+    categoryCode: 'cat-photography',
+    categoryLetter: '21',
+    categoryName: 'Photography',
+    subcategory: 'Wedding, Architecture & Product Photography',
+    businessType: 'Professional Photography Portfolio & Storytelling Studio',
+    targetClients: 'Couples, luxury hotels, heritage properties, architects, interior designers, commercial brands, and families seeking high-end visual storytelling',
+    batch: 1,
+    status: 'completed',
+    entryPoint: 'src/templates/nikhil-kapur-photography/NikhilKapurPhotography.tsx',
+    assetPath: 'public/assets/nikhil-kapur-photography/',
+    thumbnail: '/assets/nikhil-kapur-photography/hero-udaipur-palace.jpg',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Original Squarespace Brine design system with top bar utilities, brand monogram logo, and multi-tier dropdown navigation',
+      'Full-bleed 9-slide hero gallery carousel with authentic Udaipur palace, luxury hotel, heritage, and candid wedding photography',
+      'Verbatim artist statement: "Candid Photographer. Filmmaker. Storyteller. Lover of dark chocolate with a side of good stories."',
+      '9-item Curated Chronicles real wedding showcase (Purva & Shrenik, Anahita & Shisher, Sarath & Vrinda) with story modal reader',
+      'Editorial photography genres with verbatim copy: Product Photography (Food & Jewelry), Wedding Photography, Kids Photography, and Architecture Photography (Heritage, Homes, Hotels)',
+      'Works Archive portfolio with 9 category filter tabs (Architecture, Wedding, Kids, Products, Food, Jewelry, Heritage, Hotels) and responsive Lightbox viewer',
+      'Working modal experiences for all navigation destinations: Architecture, Wedding & Candid, Kids, Products & Food, Cinematic Films, Books & Albums, About, and Contact',
+      'Studio contact section with verified phone (+91 98200 26166), email, Mumbai location, and consultation inquiry form'
+    ],
+    conversionTriggers: [
+      'Commission a Project',
+      'Schedule Consultation',
+      'Call Studio (+91 98200 26166)',
+      'Explore Portfolio',
+      'Read Wedding Chronicles'
+    ],
+    colorTheme: {
+      primary: '#050505',
+      secondary: '#FFFFFF',
+      bgStyle: 'bg-[#050505]'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'Nikhil Kapur Photography (saveweb2zip-com-www-nikhilkapur-com.zip / https://www.nikhilkapur.com/)',
+      sourceUrl: 'https://www.nikhilkapur.com/',
+      notes: 'Faithfully reconstructed full website experience of Nikhil Kapur Photography using original Squarespace assets, authentic hero slides, real wedding chronicles, verbatim genre descriptions, and working portfolio modals.',
+      receivedAt: '2026-10-11'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Sub-router built with internal active modal and section states.'
+    },
+    routes: [
+      '/',
+      '#gallery',
+      '#about',
+      '#portfolio',
+      '#photography',
+      '#architecture',
+      '#wedding',
+      '#kids',
+      '#products',
+      '#films',
+      '#books',
+      '#contact'
+    ],
+    completedAt: '2026-10-11'
   }
 ];
 

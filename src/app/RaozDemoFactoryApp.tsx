@@ -62,6 +62,15 @@ export default function RaozDemoFactoryApp() {
     submittedAt: string;
   }>>([
     {
+      id: 'ref-nikhil-kapur-16',
+      templateId: 'nikhil-kapur-photography',
+      refType: 'zip',
+      urlOrTitle: 'Nikhil Kapur Photography (https://www.nikhilkapur.com/)',
+      notes: 'Candid Photographer. Filmmaker. Storyteller. Lover of dark chocolate with a side of good stories. Currently residing in Mumbai, India. Recreated as Template #16.',
+      clientNeeds: 'Complete website recreation, original Squarespace Brine design system, full-bleed 9-slide hero gallery carousel with authentic Udaipur palace and luxury hotel architecture, verbatim artist statement, 9-item Curated Chronicles real wedding showcase, 4 core editorial photography genres (Product with Food & Jewelry, Wedding, Kids, and Architecture with Heritage, Homes, and Hotels), filterable portfolio with Lightbox, working navigation modals, and verified direct contact details (+91 98200 26166).',
+      submittedAt: '2026-10-11'
+    },
+    {
       id: 'ref-ollar-studios-15',
       templateId: 'ollar-studios',
       refType: 'zip',
