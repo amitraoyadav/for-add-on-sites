@@ -62,6 +62,24 @@ export default function RaozDemoFactoryApp() {
     submittedAt: string;
   }>>([
     {
+      id: 'ref-rao-college-18',
+      templateId: 'rao-college',
+      refType: 'zip',
+      urlOrTitle: 'RAO COLLEGE (Rebranded from https://www.amity.edu/ archive)',
+      notes: 'Premier Higher Education College & Academic Institution with the motto "Learn Today. Lead Tomorrow." Recreated as Template #18 (rao-college / rao-college-demo).',
+      clientNeeds: 'Complete website transformation and institutional rebranding into RAO COLLEGE, original heraldic crest logo in navy & gold, responsive mobile navigation, 3-slide hero gallery carousel with campus architecture, 6-program degree catalogue (BCA, BBA, B.Com Hons, BA JMC, B.Sc. Data Science, MBA) with curriculum details modals, interactive admissions application form with field validation & demo tracking reference generation, campus life facilities with high-res photography, corporate placement cell with recruiter directory, student testimonials, events & conclaves calendar, expandable FAQ accordion, and full contact directory.',
+      submittedAt: '2026-10-13'
+    },
+    {
+      id: 'ref-iiser-pune-17',
+      templateId: 'iiser-pune',
+      refType: 'zip',
+      urlOrTitle: 'IISER Pune — Indian Institute of Science Education and Research Pune (https://www.iiserpune.ac.in/)',
+      notes: 'Premier Institute of National Importance dedicated to research and teaching in basic sciences. Recreated as Template #17 (iiser-pune-homepage-demo).',
+      clientNeeds: 'Complete website recreation, institutional bilingual branding, working Search modal with live query filtering, dual English/Hindi language toggle, accessibility contrast mode and A-/A/A+ text sizing, full-bleed 5-slide hero gallery carousel with NASI/CNR Rao/IBRO/CRS awards, horizontal scrolling 8-item news cards carousel with story reader modal, 6 institutional focus tiles with interactive detail modals, 8 interdisciplinary departments explorer, BS-MS/MSc/PhD admissions roadmap, interactive mega-menu drawer, and comprehensive footer with verified social media and official address.',
+      submittedAt: '2026-10-13'
+    },
+    {
       id: 'ref-nikhil-kapur-16',
       templateId: 'nikhil-kapur-photography',
       refType: 'zip',

@@ -996,6 +996,157 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
       '#contact'
     ],
     completedAt: '2026-10-11'
+  },
+
+  // --- TEMPLATE #17: IISER PUNE (Indian Institute of Science Education and Research Pune) ---
+  {
+    id: 'iiser-pune',
+    slug: 'iiser-pune-homepage-demo',
+    numericId: 17,
+    name: 'IISER Pune — Research Institute Website',
+    tagline: 'Where Teaching and Research Converge — Premier Institute of National Importance',
+    categoryCode: 'cat-education-coaching',
+    categoryLetter: '2',
+    categoryName: 'Coaching Institute & Education',
+    subcategory: 'Universities & Research Institutes',
+    businessType: 'Autonomous Public Research University & National Science Institute',
+    targetClients: 'Universities, research institutes, higher education colleges, science academies, national labs, academic councils',
+    batch: 1,
+    status: 'completed',
+    entryPoint: 'src/templates/iiser-pune/IiserPune.tsx',
+    assetPath: 'public/assets/iiser-pune/',
+    thumbnail: '/assets/iiser-pune/slide-1119.jpg',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Authentic bilingual institutional header with English and Hindi inscriptions and official brand logos',
+      'Site-wide search modal with live query filtering across news, departments, degree programs, and tiles',
+      'Dual language toggle (English/Hindi) and high-contrast accessibility mode with text size scaling (A-, A, A+)',
+      'Full-bleed 5-slide hero gallery carousel with NASI Fellows, CNR Rao Prize, IBRO Award, CRS Award, and distinguished visitor lectures',
+      'Key institutional metrics ribbon highlighting NIRF #35 Research, #55 Overall, 60%+ Ph.D. progression, and 8 departments',
+      'Horizontal scrolling News carousel featuring 8 authentic research highlights, accolades, and campus events with story modal reader',
+      'Six institutional focus tiles (Accolades, In the Media, Alumni Affairs, Campus, Opportunities, Library) with interactive detail modals',
+      'Interactive 8-department research explorer (Biology, Chemistry, Data Science, Earth & Climate, Humanities, Mathematics, Physics, Science Media)',
+      'Comprehensive degree programs and admissions guide (BS-MS via IAT, M.Sc. via IIT JAM, Integrated Ph.D., and Ph.D.)',
+      'Interactive mega navigation drawer with structured sub-links across institutional governance and faculties',
+      'Complete authentic footer featuring India.gov.in portal banner, official Pashan campus address, verified social links, and RTI statutory disclosures'
+    ],
+    conversionTriggers: [
+      'Admissions Desk (IAT 2026-27)',
+      'Explore Academic Departments',
+      'Plan Campus Visit',
+      'Donate to IISER Pune',
+      'View Research News'
+    ],
+    colorTheme: {
+      primary: '#b62126',
+      secondary: '#0077bf',
+      bgStyle: 'bg-[#171412]'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'IISER Pune — Indian Institute of Science Education and Research Pune (https://www.iiserpune.ac.in/)',
+      sourceUrl: 'https://www.iiserpune.ac.in/',
+      notes: 'Faithfully reconstructed full website demo for IISER Pune using supplied official assets, verbatim slides, 8 authentic news items, 6 institutional tiles, 8 interdisciplinary departments, and full institutional mega navigation and footer.',
+      receivedAt: '2026-10-13'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Scoped styling under .iiser-pune-demo.'
+    },
+    routes: [
+      '/',
+      '#home',
+      '#about',
+      '#research',
+      '#departments',
+      '#education',
+      '#admissions',
+      '#news',
+      '#campus',
+      '#library',
+      '#alumni',
+      '#contact'
+    ],
+    completedAt: '2026-10-13'
+  },
+
+  // --- TEMPLATE #18: RAO COLLEGE (Rebranded College Website Demo) ---
+  {
+    id: 'rao-college',
+    slug: 'rao-college',
+    numericId: 18,
+    name: 'RAO COLLEGE',
+    tagline: 'Learn Today. Lead Tomorrow.',
+    categoryCode: 'cat-education-coaching',
+    categoryLetter: '2',
+    categoryName: 'Coaching Institute & Education',
+    subcategory: 'Universities & Colleges',
+    businessType: 'Higher Education College & Academic Institution Website',
+    targetClients: 'Colleges, universities, educational trusts, business schools, technical institutes, academic institutions',
+    batch: 1,
+    status: 'completed',
+    entryPoint: 'src/templates/rao-college/RaoCollege.tsx',
+    assetPath: 'public/assets/rao-college/',
+    thumbnail: '/assets/rao-college/campus-hero-1.jpg',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Complete institutional rebranding with original navy blue & academic gold heraldic crest and wordmark',
+      'Comprehensive 3-slide hero gallery carousel with high-res campus aerial and quad architecture',
+      'Institutional statistics ribbon highlighting 20+ years legacy, 500+ recruiters, and 15,000+ alumni',
+      'Six degree programme tracks (BCA, BBA, B.Com Hons, BA JMC, B.Sc. Data Science, MBA) with filter tabs and details modal',
+      'Direct admissions application desk with working client-side validation, error handling, and demo reference generation',
+      'Campus life and infrastructure showcase (Central Library, Advanced Labs, Grand Auditorium, Sports, Hostels, Innovation Hub)',
+      'Corporate Resource Cell (CRC) placements section with recruiter sector directory and recruiter inquiry modal',
+      'Six authentic student and alumni voices highlighting professional career outcomes and faculty mentorship',
+      'News, events, and student hackathon achievement showcases with interactive detail modals',
+      'Expandable FAQ accordion addressing admissions, merit scholarships, hostel living, and campus recruitment',
+      'Complete contact directory with Knowledge Campus Sector 62 address, toll-free helpline, and inquiry form'
+    ],
+    conversionTriggers: [
+      'Apply Online (2026-27)',
+      'Explore Programmes',
+      'Download Prospectus',
+      'Campus Visit Tour',
+      'Recruiter Enquiry'
+    ],
+    colorTheme: {
+      primary: '#0A192F',
+      secondary: '#D4AF37',
+      bgStyle: 'bg-[#0A192F]'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'RAO COLLEGE (Rebranded from https://www.amity.edu/ archive)',
+      sourceUrl: 'https://www.amity.edu/',
+      notes: 'Complete institutional rebranding into RAO COLLEGE with original heraldic crest, 3-slide hero carousel, 6 core academic programs (BCA, BBA, B.Com, BA, B.Sc., MBA), live admissions application form with validation, campus life facilities, placement cell, events, testimonials, and contact directory.',
+      receivedAt: '2026-10-13'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Scoped styling under .rao-college-demo.'
+    },
+    routes: [
+      '/',
+      '#home',
+      '#about',
+      '#programs',
+      '#admissions',
+      '#facilities',
+      '#placements',
+      '#events',
+      '#contact'
+    ],
+    completedAt: '2026-10-13'
   }
 ];
 

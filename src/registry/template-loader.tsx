@@ -24,6 +24,8 @@ const SnapStoriesLazy = lazy(() => import('../templates/snapstories/SnapStories'
 const ShootExpressLazy = lazy(() => import('../templates/shoot-express/ShootExpress'));
 const OllarStudiosLazy = lazy(() => import('../templates/ollar-studios/OllarStudios'));
 const NikhilKapurPhotographyLazy = lazy(() => import('../templates/nikhil-kapur-photography/NikhilKapurPhotography'));
+const IiserPuneLazy = lazy(() => import('../templates/iiser-pune/IiserPune'));
+const RaoCollegeLazy = lazy(() => import('../templates/rao-college/RaoCollege'));
 
 interface TemplateLoaderProps {
   template: TemplateManifestItem;
@@ -347,6 +349,46 @@ export function TemplateLoader({ template, onOpenIntakeModal }: TemplateLoaderPr
         }
       >
         <NikhilKapurPhotographyLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is IISER PUNE
+  if (template.id === 'iiser-pune' || template.id === 'iiser-pune-homepage-demo') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#171412] text-white">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#b62126] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-white/80 font-mono">
+                Loading IISER PUNE Demo...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <IiserPuneLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is RAO COLLEGE
+  if (template.id === 'rao-college' || template.id === 'rao-college-demo') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#0A192F] text-white">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-white/80 font-mono">
+                Loading RAO COLLEGE Demo...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <RaoCollegeLazy />
       </Suspense>
     );
   }

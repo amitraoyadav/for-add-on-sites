@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 90" width="460" height="90" fill="none">
+  <!-- Crest / Shield Symbol -->
+  <g transform="translate(10, 5)">
+    <!-- Outer Shield -->
+    <path d="M40 0 C64 0, 80 16, 80 40 C80 64, 56 78, 40 82 C24 78, 0 64, 0 40 C0 16, 16 0, 40 0 Z" fill="#0D2140" stroke="#F59E0B" stroke-width="2.5"/>
+    
+    <!-- Inner Accent Rim -->
+    <path d="M40 5 C60 5, 74 19, 74 40 C74 60, 53 73, 40 76 C27 73, 6 60, 6 40 C6 19, 20 5, 40 5 Z" fill="#0A192F" stroke="#E5C158" stroke-width="1" opacity="0.6"/>
+    
+    <!-- Heraldic Open Book of Knowledge -->
+    <path d="M40 45 C32 40, 20 40, 14 44 L14 62 C20 58, 32 58, 40 63 C48 58, 60 58, 66 62 L66 44 C60 40, 48 40, 40 45 Z" fill="#FFFFFF" opacity="0.95"/>
+    <path d="M40 45 L40 63" stroke="#0A192F" stroke-width="1.5"/>
+    <path d="M22 47 C28 46, 34 47, 37 49" stroke="#D4AF37" stroke-width="1"/>
+    <path d="M22 52 C28 51, 34 52, 37 54" stroke="#D4AF37" stroke-width="1"/>
+    <path d="M58 47 C52 46, 46 47, 43 49" stroke="#D4AF37" stroke-width="1"/>
+    <path d="M58 52 C52 51, 46 52, 43 54" stroke="#D4AF37" stroke-width="1"/>
+
+    <!-- Torch of Wisdom / Leadership Flame -->
+    <path d="M37 25 C37 22, 40 14, 40 14 C40 14, 43 22, 43 25 C43 27, 41.5 29, 40 29 C38.5 29, 37 27, 37 25 Z" fill="#F59E0B"/>
+    <path d="M38.5 24 C38.5 22, 40 17, 40 17 C40 17, 41.5 22, 41.5 24 C41.5 25, 40.8 26, 40 26 C39.2 26, 38.5 25, 38.5 24 Z" fill="#FDE047"/>
+    <path d="M37 29 L43 29 L41.5 37 L38.5 37 Z" fill="#D4AF37"/>
+
+    <!-- Excellence Stars -->
+    <polygon points="40,31 41.2,34.2 44.5,34.2 41.8,36.2 42.8,39.5 40,37.5 37.2,39.5 38.2,36.2 35.5,34.2 38.8,34.2" fill="#E5C158"/>
+    <circle cx="24" cy="30" r="2" fill="#E5C158"/>
+    <circle cx="56" cy="30" r="2" fill="#E5C158"/>
+  </g>
+
+  <!-- Typography Brand -->
+  <g transform="translate(104, 15)">
+    <!-- Primary Brand Wordmark -->
+    <text x="0" y="32" font-family="'Cinzel', 'Playfair Display', 'Georgia', serif" font-size="32" font-weight="800" fill="#FFFFFF" letter-spacing="3">
+      RAO <tspan fill="#F59E0B">COLLEGE</tspan>
+    </text>
+
+    <!-- Dividing Hairline -->
+    <line x1="0" y1="42" x2="330" y2="42" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
+    
+    <!-- Institutional Tagline & Academic Motto -->
+    <text x="2" y="58" font-family="'Montserrat', 'Inter', sans-serif" font-size="11" font-weight="600" fill="#CBD5E1" letter-spacing="2.8">
+      LEARN TODAY. LEAD TOMORROW.
+    </text>
+  </g>
+</svg>

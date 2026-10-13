@@ -29,6 +29,7 @@ export interface IntegrationReadiness {
 
 export interface TemplateManifestItem {
   id: string; // Stable ID: e.g. "sazy-cafe"
+  slug?: string; // Optional slug: e.g. "iiser-pune-homepage-demo"
   numericId: number; // e.g. 1
   name: string; // e.g. "SAZY CAFE"
   tagline: string;
