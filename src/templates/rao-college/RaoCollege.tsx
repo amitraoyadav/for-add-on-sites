@@ -90,6 +90,10 @@ export default function RaoCollege() {
 
   // Recruiter Enquiry Modal State
   const [isRecruiterModalOpen, setIsRecruiterModalOpen] = useState(false);
+  const [recruiterSubmitted, setRecruiterSubmitted] = useState(false);
+
+  // Quick Contact Form State
+  const [contactFormSubmitted, setContactFormSubmitted] = useState(false);
 
   // FAQ Accordion State
   const [expandedFaqIndex, setExpandedFaqIndex] = useState<number | null>(0);
@@ -1364,17 +1368,32 @@ export default function RaoCollege() {
                 />
               </div>
 
-              <div className="flex items-center justify-between pt-2">
-                <span className="text-[11px] text-slate-500">
-                  Direct counseling inquiries: admissions@raocollege.edu.in
-                </span>
-                <button
-                  onClick={() => alert('Thank you for contacting RAO COLLEGE. Our admissions team will respond shortly.')}
-                  className="px-6 py-2.5 bg-[#0A192F] hover:bg-[#002244] text-white font-bold text-xs rounded uppercase tracking-wider transition-colors"
-                >
-                  Send Message
-                </button>
-              </div>
+              {contactFormSubmitted ? (
+                <div className="p-4 bg-emerald-50 border border-emerald-200 rounded text-emerald-800 text-xs flex items-center justify-between gap-3 animate-fadeIn">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={16} className="text-emerald-600 shrink-0" />
+                    <span>Thank you! Your message has been received by RAO COLLEGE Administration. We will respond shortly.</span>
+                  </div>
+                  <button
+                    onClick={() => setContactFormSubmitted(false)}
+                    className="text-[11px] underline text-emerald-700 hover:text-emerald-900 font-semibold cursor-pointer shrink-0"
+                  >
+                    Send another
+                  </button>
+                </div>
+              ) : (
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
+                  <span className="text-[11px] text-slate-500">
+                    Direct counseling inquiries: admissions@raocollege.edu.in
+                  </span>
+                  <button
+                    onClick={() => setContactFormSubmitted(true)}
+                    className="px-6 py-2.5 bg-[#0A192F] hover:bg-[#002244] text-white font-bold text-xs rounded uppercase tracking-wider transition-colors cursor-pointer"
+                  >
+                    Send Message
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -1713,23 +1732,43 @@ export default function RaoCollege() {
               <div>Corporate Email: {brand.placementEmail}</div>
             </div>
 
-            <div className="pt-2 flex justify-end gap-2 text-xs">
-              <button
-                onClick={() => setIsRecruiterModalOpen(false)}
-                className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded"
-              >
-                Close
-              </button>
-              <button
-                onClick={() => {
-                  alert(`Thank you for your interest. Please send the recruitment invite to ${brand.placementEmail}`);
-                  setIsRecruiterModalOpen(false);
-                }}
-                className="px-4 py-2 bg-[#0A192F] hover:bg-[#002244] text-white font-bold rounded"
-              >
-                Send Placement Drive Invite
-              </button>
-            </div>
+            {recruiterSubmitted ? (
+              <div className="p-4 bg-emerald-50 border border-emerald-200 rounded text-emerald-800 text-xs space-y-2 animate-fadeIn">
+                <div className="flex items-center gap-2 font-bold text-emerald-900">
+                  <CheckCircle2 size={16} className="text-emerald-600 shrink-0" />
+                  <span>Recruitment Invitation Registered</span>
+                </div>
+                <p className="text-slate-600 leading-relaxed">
+                  Thank you for your partnership interest. Our Head of Corporate Relations (Dr. P. K. Singhal) has been notified. You can also send detailed job profiles directly to <strong className="text-slate-900">{brand.placementEmail}</strong>.
+                </p>
+                <div className="pt-2 flex justify-end">
+                  <button
+                    onClick={() => {
+                      setRecruiterSubmitted(false);
+                      setIsRecruiterModalOpen(false);
+                    }}
+                    className="px-4 py-1.5 bg-[#0A192F] hover:bg-[#002244] text-white font-bold rounded cursor-pointer"
+                  >
+                    Done
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="pt-2 flex justify-end gap-2 text-xs">
+                <button
+                  onClick={() => setIsRecruiterModalOpen(false)}
+                  className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded cursor-pointer"
+                >
+                  Close
+                </button>
+                <button
+                  onClick={() => setRecruiterSubmitted(true)}
+                  className="px-4 py-2 bg-[#0A192F] hover:bg-[#002244] text-white font-bold rounded cursor-pointer"
+                >
+                  Send Placement Drive Invite
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}

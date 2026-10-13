@@ -35,7 +35,8 @@ import {
 export default function RaozDemoFactoryApp() {
   const [templates, setTemplates] = useState<TemplateManifestItem[]>(TEMPLATE_MANIFEST);
   const [activeTab, setActiveTab] = useState<'catalog' | 'preview' | 'categories' | 'intake' | 'integration' | 'rules'>('catalog');
-  const [selectedTemplate, setSelectedTemplate] = useState<TemplateManifestItem>(templates[0]);
+  const raoCollegeItem = templates.find((t) => t.id === 'rao-college' || t.id === 'rao-college-demo');
+  const [selectedTemplate, setSelectedTemplate] = useState<TemplateManifestItem>(raoCollegeItem || templates[0]);
   const [detailModalTemplate, setDetailModalTemplate] = useState<TemplateManifestItem | null>(null);
   const [intakeModalTemplate, setIntakeModalTemplate] = useState<TemplateManifestItem | null>(null);
   const [isIntakeModalOpen, setIsIntakeModalOpen] = useState(false);
@@ -474,11 +475,13 @@ export default function RaozDemoFactoryApp() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div className="p-4 bg-[#12141a] border border-[#232733] rounded-xl">
                 <div className="text-[11px] text-[#64748b] uppercase tracking-wider mb-1 font-medium">
-                  Fresh Collection
+                  Website Gallery
                 </div>
                 <div className="text-2xl font-bold text-white flex items-baseline gap-2">
-                  <span>{templates.length} Website</span>
-                  <span className="text-xs text-[#d4af37] font-normal font-mono">Template #1 Active</span>
+                  <span>{templates.length} Demos</span>
+                  <span className="text-xs text-emerald-400 font-normal font-mono">
+                    {templates.filter((t) => t.status === 'completed' || t.status === 'verified').length} Live
+                  </span>
                 </div>
               </div>
 
@@ -494,21 +497,21 @@ export default function RaozDemoFactoryApp() {
 
               <div className="p-4 bg-[#12141a] border border-[#232733] rounded-xl">
                 <div className="text-[11px] text-[#64748b] uppercase tracking-wider mb-1 font-medium">
-                  Verified Template #1
+                  Featured Institution
                 </div>
-                <div className="text-2xl font-bold text-emerald-400 flex items-baseline gap-2">
-                  <span>SAZY CAFE</span>
-                  <span className="text-xs text-emerald-500 font-normal">Live Preview</span>
+                <div className="text-2xl font-bold text-amber-400 flex items-baseline gap-2">
+                  <span>RAO COLLEGE</span>
+                  <span className="text-xs text-amber-300 font-normal">Template #18</span>
                 </div>
               </div>
 
               <div className="p-4 bg-[#12141a] border border-[#232733] rounded-xl">
                 <div className="text-[11px] text-[#64748b] uppercase tracking-wider mb-1 font-medium">
-                  Subcategory Focus
+                  Domain Specialty
                 </div>
-                <div className="text-2xl font-bold text-amber-400 flex items-baseline gap-2">
-                  <span>Cafes & Coffee</span>
-                  <span className="text-xs text-[#94a3b8] font-normal">Category 1</span>
+                <div className="text-2xl font-bold text-indigo-400 flex items-baseline gap-2">
+                  <span>Higher Education</span>
+                  <span className="text-xs text-[#94a3b8] font-normal">Colleges & Universities</span>
                 </div>
               </div>
             </div>
