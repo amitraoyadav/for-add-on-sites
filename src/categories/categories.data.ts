@@ -49,7 +49,7 @@ export const BUSINESS_CATEGORIES: CategoryDefinition[] = [
       'Vocational Training Centers',
       'Language Academies',
       'Universities & Research Institutes',
-      'Universities & Colleges'
+      'Jr College'
     ],
     clientProfiles: ['Coaching directors', 'School administrators', 'Tutors', 'Bootcamp founders'],
     conversionFocus: ['Free Demo Class', 'Download Syllabus', 'Counselor WhatsApp'],

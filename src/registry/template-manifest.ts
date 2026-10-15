@@ -1085,7 +1085,7 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
     categoryCode: 'cat-education-coaching',
     categoryLetter: '2',
     categoryName: 'Coaching Institute & Education',
-    subcategory: 'Universities & Colleges',
+    subcategory: 'Jr College',
     businessType: 'Higher Education College & Academic Institution Website',
     targetClients: 'Colleges, universities, educational trusts, business schools, technical institutes, academic institutions',
     batch: 1,
@@ -1147,6 +1147,83 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
       '#contact'
     ],
     completedAt: '2026-10-13'
+  },
+
+  // --- TEMPLATE #19: S P JAIN SCHOOL OF GLOBAL MANAGEMENT ---
+  {
+    id: 'sp-jain',
+    slug: 'sp-jain',
+    numericId: 19,
+    name: 'S P JAIN SCHOOL OF GLOBAL MANAGEMENT',
+    tagline: 'Crafting World Ready Leaders — Campuses in Dubai, Mumbai, Singapore & Sydney',
+    categoryCode: 'cat-education-coaching',
+    categoryLetter: '2',
+    categoryName: 'Jr College',
+    subcategory: 'Jr College',
+    businessType: 'Premier Australian Global Business School Website',
+    targetClients: 'Business schools, international universities, management colleges, executive education institutes, global academies',
+    batch: 1,
+    status: 'completed',
+    entryPoint: 'src/templates/sp-jain/SpJain.tsx',
+    assetPath: 'public/assets/sp-jain/',
+    thumbnail: '/assets/sp-jain/hero-bloomberg.svg',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Authentic S P Jain heraldic crest logo and global campus branding in maroon and Australian gold',
+      'Bloomberg Businessweek #7 Asia-Pacific and Forbes Top 15 World ranking accolade banners',
+      '3-Slide hero gallery carousel featuring Bloomberg ranking, Tri-City global learning model, and ELO AI-Tutor',
+      'Six institutional pillars with custom vector icons (Top Rank, Real-time Industry Projects, Leadership, Alumni, Faculty, Training)',
+      'Four global campuses interactive showcase for Dubai, Singapore, Sydney, and Mumbai with facility highlights',
+      'Degree programmes explorer (BBA, BDS, Global MBA, MGB, MAIB, Executive MBA) with curriculum details modal',
+      'Engaged Learning Online (ELO) studio spotlight with 20+ HD cameras and proprietary AI-Tutor mentoring demonstration',
+      'Admissions 2026–27 application desk with interactive multi-field validation and generated reference tracking number',
+      'News & accolades section highlighting UN PRME student leader appointment, Bloomberg rankings, and global orientation',
+      'Verified student & alumni career voices at Apple, Amazon Web Services, McKinsey & Company, and Commonwealth Bank',
+      'Expandable FAQ accordion addressing tri-city visas, Australian TEQSA accreditation, scholarships, and post-study work rights',
+      'Comprehensive institutional footer with official Dubai, Singapore, Sydney, and Mumbai addresses and CRICOS disclosure'
+    ],
+    conversionTriggers: [
+      'Apply Now 2026',
+      'Download Global Brochure',
+      'Explore Degree Curricula',
+      'Intake Dates Schedule',
+      'Request Counselor Callback'
+    ],
+    colorTheme: {
+      primary: '#8B1D24',
+      secondary: '#D4AF37',
+      bgStyle: 'bg-[#140608]'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'S P Jain School of Global Management (saveweb2zip-com-www-spjain-org.zip / https://www.spjain.org/)',
+      sourceUrl: 'https://www.spjain.org/',
+      notes: 'Faithfully recreated S P Jain Global website demo using supplied archive assets, authentic Bloomberg rankings, tri-city multi-campus structure, degree programmes, ELO AI-Tutor technology, and verified admissions portal.',
+      receivedAt: '2026-10-15'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Scoped styling under .sp-jain-demo.'
+    },
+    routes: [
+      '/',
+      '#home',
+      '#rankings',
+      '#programs',
+      '#campuses',
+      '#why-spjain',
+      '#elo-tech',
+      '#news',
+      '#placements',
+      '#admissions',
+      '#faqs'
+    ],
+    completedAt: '2026-10-15'
   }
 ];
 

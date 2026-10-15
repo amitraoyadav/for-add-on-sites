@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" fill="none">
+  <defs>
+    <linearGradient id="eloBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#021B2B"/>
+      <stop offset="50%" stop-color="#052E4A"/>
+      <stop offset="90%" stop-color="#140608"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <radialGradient id="cyanGlow" cx="75%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="600" fill="url(#eloBg)"/>
+  <rect width="1200" height="600" fill="url(#cyanGlow)"/>
+
+  <g transform="translate(80, 110)">
+    <rect x="0" y="0" width="310" height="36" rx="18" fill="#06B6D4" fill-opacity="0.15" stroke="#06B6D4" stroke-width="1.2"/>
+    <text x="24" y="23" font-family="'Inter', sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#67E8F9">
+      NEXT-GEN LEARNING TECHNOLOGY
+    </text>
+
+    <text x="0" y="85" font-family="'Cinzel', 'Playfair Display', serif" font-size="44" font-weight="700" fill="#FFFFFF" letter-spacing="1">
+      ENGAGED LEARNING ONLINE
+    </text>
+    <text x="0" y="145" font-family="'Cinzel', 'Playfair Display', serif" font-size="52" font-weight="800" fill="#38BDF8">
+      &amp; AI-TUTOR ECOSYSTEM
+    </text>
+
+    <text x="0" y="195" font-family="'Inter', sans-serif" font-size="18" font-weight="400" fill="#E2E8F0">
+      World's first proprietary virtual classroom with 20+ HD cameras and emotion tracking.
+    </text>
+    <text x="0" y="225" font-family="'Inter', sans-serif" font-size="15" font-weight="300" fill="#94A3B8">
+      Personalized 24/7 AI-Tutor mentoring students on complex case studies and financial modeling.
+    </text>
+
+    <g transform="translate(0, 260)">
+      <rect x="0" y="0" width="165" height="48" rx="8" fill="#FFFFFF" fill-opacity="0.08" stroke="#38BDF8" stroke-width="1"/>
+      <text x="82" y="29" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12.5" font-weight="600" fill="#FFFFFF">Real-Time ELO Studio</text>
+
+      <rect x="180" y="0" width="175" height="48" rx="8" fill="#FFFFFF" fill-opacity="0.08" stroke="#38BDF8" stroke-width="1"/>
+      <text x="267" y="29" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12.5" font-weight="600" fill="#FFFFFF">24/7 AI-Tutor Assistant</text>
+
+      <rect x="370" y="0" width="170" height="48" rx="8" fill="#FFFFFF" fill-opacity="0.08" stroke="#38BDF8" stroke-width="1"/>
+      <text x="455" y="29" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12.5" font-weight="600" fill="#FFFFFF">Immersive Case Labs</text>
+    </g>
+  </g>
+
+  <!-- Right Visual Studio Screen -->
+  <g transform="translate(850, 160)">
+    <rect x="0" y="0" width="260" height="170" rx="14" fill="#031525" stroke="#38BDF8" stroke-width="2"/>
+    <circle cx="130" cy="75" r="32" fill="#38BDF8" fill-opacity="0.2" stroke="#38BDF8" stroke-width="1.5"/>
+    <polygon points="123,60 145,75 123,90" fill="#38BDF8"/>
+    <text x="130" y="130" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#E0F2FE">Experience ELO Lab</text>
+  </g>
+</svg>

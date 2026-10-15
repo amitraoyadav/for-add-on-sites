@@ -63,6 +63,15 @@ export default function RaozDemoFactoryApp() {
     submittedAt: string;
   }>>([
     {
+      id: 'ref-sp-jain-19',
+      templateId: 'sp-jain',
+      refType: 'zip',
+      urlOrTitle: 'S P Jain School of Global Management (saveweb2zip-com-www-spjain-org.zip / https://www.spjain.org/)',
+      notes: 'Premier Australian Global Business School with campuses in Dubai, Mumbai, Singapore, and Sydney. Ranked #7 in Asia-Pacific by Bloomberg Businessweek. Recreated as Template #19 under the Jr College category.',
+      clientNeeds: 'Complete website recreation from the uploaded ZIP archive, authentic maroon and gold heraldic crest branding, top ranking accolade ribbon (Bloomberg #7, Forbes Top 15), 3-slide hero carousel (Rankings, Tri-City Immersion, ELO AI-Tutor), 6 core institutional pillars with custom vector icons, 4 global campuses interactive explorer (Dubai, Singapore, Sydney, Mumbai), degree programmes catalog (BBA, BDS, Global MBA, MGB, MAIB, EMBA) with interactive curriculum modals, ELO virtual classroom and AI-Tutor technology showcase, admissions application form with field validation and reference tracking generator, verified news and student achievements (Gauri Menaria PRME leader), alumni testimonials, and comprehensive institutional footer with TEQSA and CRICOS disclosures.',
+      submittedAt: '2026-10-15'
+    },
+    {
       id: 'ref-rao-college-18',
       templateId: 'rao-college',
       refType: 'zip',
@@ -234,7 +243,9 @@ export default function RaozDemoFactoryApp() {
       t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       t.businessType.toLowerCase().includes(searchQuery.toLowerCase()) ||
       t.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      t.targetClients.toLowerCase().includes(searchQuery.toLowerCase());
+      t.targetClients.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      t.categoryName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      t.subcategory.toLowerCase().includes(searchQuery.toLowerCase());
 
     const matchesCategory = selectedCategoryFilter === 'all' || t.categoryCode === selectedCategoryFilter;
     const matchesStatus =
@@ -511,7 +522,7 @@ export default function RaozDemoFactoryApp() {
                 </div>
                 <div className="text-2xl font-bold text-indigo-400 flex items-baseline gap-2">
                   <span>Higher Education</span>
-                  <span className="text-xs text-[#94a3b8] font-normal">Colleges & Universities</span>
+                  <span className="text-xs text-[#94a3b8] font-normal">Jr College</span>
                 </div>
               </div>
             </div>

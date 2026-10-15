@@ -26,6 +26,7 @@ const OllarStudiosLazy = lazy(() => import('../templates/ollar-studios/OllarStud
 const NikhilKapurPhotographyLazy = lazy(() => import('../templates/nikhil-kapur-photography/NikhilKapurPhotography'));
 const IiserPuneLazy = lazy(() => import('../templates/iiser-pune/IiserPune'));
 const RaoCollegeLazy = lazy(() => import('../templates/rao-college/RaoCollege'));
+const SpJainLazy = lazy(() => import('../templates/sp-jain/SpJain'));
 
 interface TemplateLoaderProps {
   template: TemplateManifestItem;
@@ -389,6 +390,26 @@ export function TemplateLoader({ template, onOpenIntakeModal }: TemplateLoaderPr
         }
       >
         <RaoCollegeLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is S P JAIN SCHOOL OF GLOBAL MANAGEMENT
+  if (template.id === 'sp-jain' || template.id === 'sp-jain-school-of-global-management') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#140608] text-white">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#D4AF37] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-[#F5D061] font-mono">
+                Loading S P JAIN Global Demo...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <SpJainLazy />
       </Suspense>
     );
   }
