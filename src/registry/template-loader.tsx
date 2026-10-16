@@ -27,6 +27,8 @@ const NikhilKapurPhotographyLazy = lazy(() => import('../templates/nikhil-kapur-
 const IiserPuneLazy = lazy(() => import('../templates/iiser-pune/IiserPune'));
 const RaoCollegeLazy = lazy(() => import('../templates/rao-college/RaoCollege'));
 const SpJainLazy = lazy(() => import('../templates/sp-jain/SpJain'));
+const ArshadUniversityLazy = lazy(() => import('../templates/arshad-university/ArshadUniversity'));
+const GilgitLazy = lazy(() => import('../templates/gilgit/Gilgit'));
 
 interface TemplateLoaderProps {
   template: TemplateManifestItem;
@@ -410,6 +412,46 @@ export function TemplateLoader({ template, onOpenIntakeModal }: TemplateLoaderPr
         }
       >
         <SpJainLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is ARSHAD UNIVERSITY (Rebranded from LPU)
+  if (template.id === 'arshad-university') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#090A0F] text-white">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#F37021] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-[#F37021] font-mono">
+                Loading ARSHAD UNIVERSITY Demo...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <ArshadUniversityLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is GILGIT (Rebranded from GLBITM)
+  if (template.id === 'gilgit') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#001733] text-white">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-amber-400 font-mono">
+                Loading GILGIT Demo...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <GilgitLazy />
       </Suspense>
     );
   }

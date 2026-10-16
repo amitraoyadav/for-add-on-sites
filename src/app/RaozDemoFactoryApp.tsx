@@ -35,8 +35,8 @@ import {
 export default function RaozDemoFactoryApp() {
   const [templates, setTemplates] = useState<TemplateManifestItem[]>(TEMPLATE_MANIFEST);
   const [activeTab, setActiveTab] = useState<'catalog' | 'preview' | 'categories' | 'intake' | 'integration' | 'rules'>('catalog');
-  const raoCollegeItem = templates.find((t) => t.id === 'rao-college' || t.id === 'rao-college-demo');
-  const [selectedTemplate, setSelectedTemplate] = useState<TemplateManifestItem>(raoCollegeItem || templates[0]);
+  const gilgitItem = templates.find((t) => t.id === 'gilgit');
+  const [selectedTemplate, setSelectedTemplate] = useState<TemplateManifestItem>(gilgitItem || templates[0]);
   const [detailModalTemplate, setDetailModalTemplate] = useState<TemplateManifestItem | null>(null);
   const [intakeModalTemplate, setIntakeModalTemplate] = useState<TemplateManifestItem | null>(null);
   const [isIntakeModalOpen, setIsIntakeModalOpen] = useState(false);
@@ -62,6 +62,24 @@ export default function RaozDemoFactoryApp() {
     clientNeeds: string;
     submittedAt: string;
   }>>([
+    {
+      id: 'ref-gilgit-21',
+      templateId: 'gilgit',
+      refType: 'zip',
+      urlOrTitle: 'Gilgit (Rebranded from saveweb2zip-com-www-glbitm-org.zip / https://www.glbitm.org/)',
+      notes: 'Premier Technical Institute & Engineering University Campus (GLBITM Rebranded). Approved by AICTE, Affiliated to Dr. A.P.J. Abdul Kalam Technical University (AKTU Code: 192), NBA & NAAC Accredited. Recreated as Template #21 under Universities category.',
+      clientNeeds: 'Complete website recreation from the uploaded ZIP archive, official royal navy blue and gold crest branding, statutory accreditation highlights (AICTE Approved, AKTU Code 192, NBA Accredited B.Tech programs, NAAC Grade A, NIRF ranked engineering band), 4-slide full-bleed hero carousel (₹58 LPA highest placement package, NBA/NAAC accreditations, Centers of Excellence, 15+ acre Knowledge Park campus), academic programs catalog (B.Tech CSE, AI & ML, Data Science, IT, ECE, ME, MBA, MCA) with live search and curriculum breakdown modal, placement powerhouse showcasing ₹58 LPA highest package with 300+ recruiters, industry Centers of Excellence (Apple Authorized iOS Lab, Dassault Systèmes 3DEXPERIENCE, MSME Incubator, Intel IoT), 15+ acre campus facilities with 1,000+ seater central AC auditorium and automated digital library, online admissions application desk with real-time field validation and generated tracking reference, verified alumni career voices, and comprehensive institutional footer with AICTE compliance disclosures.',
+      submittedAt: '2026-10-16'
+    },
+    {
+      id: 'ref-arshad-univ-20',
+      templateId: 'arshad-university',
+      refType: 'zip',
+      urlOrTitle: 'Arshad University (Rebranded from saveweb2zip-com-www-lpu-in.zip / https://www.lpu.in/)',
+      notes: 'Major Comprehensive Multi-Disciplinary University with NAAC A++ (3.68/4) & NIRF #27 in all Indian Universities. Rebranded from the uploaded LPU archive as Template #20 under Universities & Research Institutes category.',
+      clientNeeds: 'Complete website recreation from the uploaded ZIP archive, authentic saffron and dark charcoal crest branding, government accreditation highlights (NAAC A++ with 3.68 score, NIRF #27 Overall, THE World Top 100 Impact, WURI #1 in India for Innovation, MAKA National Sports Trophy), 5-slide full-bleed hero carousel (PM Narendra Modi Science Congress address, NAAC A++, NIRF #27, ₹3 Crore Placements, MAKA Trophy), 150+ academic programs catalog (B.Tech CSE, AI & Data Science, MBA, BCA, B.A. LL.B Hons, B.Pharm, B.Sc. Agriculture, B.Des Fashion) with live search and curriculum breakdown modal, record ₹3 Crore international highest placement showcase, 360° virtual campus tour simulator, world leaders and Nobel laureates archive (PM Narendra Modi, Dalai Lama, Liz Truss, Tony Abbott, Hamid Karzai, Thomas Südhof, Avram Hershko, Neeraj Chopra), AUNEST 2026 interactive scholarship calculator with merit tiers, online admissions application form with field validation and reference tracking generator, student/alumni voices at Google and Amazon, and comprehensive institutional footer with UGC compliance disclosures.',
+      submittedAt: '2026-10-15'
+    },
     {
       id: 'ref-sp-jain-19',
       templateId: 'sp-jain',

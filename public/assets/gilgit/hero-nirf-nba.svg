@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" fill="none">
+  <defs>
+    <linearGradient id="bgGradNirfNba" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B2545"/>
+      <stop offset="50%" stop-color="#133E68"/>
+      <stop offset="100%" stop-color="#041527"/>
+    </linearGradient>
+    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="600" fill="url(#bgGradNirfNba)"/>
+  <circle cx="890" cy="280" r="320" fill="#0284C7" fill-opacity="0.2"/>
+
+  <!-- Left Content -->
+  <g transform="translate(80, 100)">
+    <rect width="320" height="36" rx="18" fill="#0284C7" fill-opacity="0.25" stroke="#38BDF8" stroke-width="1.5"/>
+    <circle cx="18" cy="18" r="6" fill="#38BDF8"/>
+    <text x="34" y="23" font-family="'Inter', sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#BAE6FD">
+      NATIONAL ACCREDITATION LEADER
+    </text>
+
+    <text x="0" y="90" font-family="'Poppins', sans-serif" font-size="44" font-weight="900" fill="#FFFFFF" letter-spacing="-0.5">
+      NBA &amp; NAAC ACCREDITED
+    </text>
+    <text x="0" y="140" font-family="'Poppins', sans-serif" font-size="34" font-weight="700" fill="#38BDF8">
+      Top Engineering Rank by NIRF
+    </text>
+    <text x="0" y="180" font-family="'Poppins', sans-serif" font-size="26" font-weight="600" fill="#E2E8F0">
+      Approved by AICTE · Affiliated to AKTU
+    </text>
+
+    <text x="0" y="230" font-family="'Inter', sans-serif" font-size="15" font-weight="400" fill="#94A3B8">
+      Recognized for high-impact STEM curricula, doctoral researchers, and tier-1 labs.
+    </text>
+    <text x="0" y="255" font-family="'Inter', sans-serif" font-size="14" font-weight="400" fill="#64748B">
+      All core undergraduate B.Tech programs accredited by National Board of Accreditation.
+    </text>
+
+    <!-- Metrics Plaque -->
+    <g transform="translate(0, 300)">
+      <rect width="520" height="85" rx="12" fill="#06182D" fill-opacity="0.9" stroke="#1E3A8A" stroke-width="1"/>
+      <g transform="translate(25, 22)">
+        <text x="0" y="24" font-family="'Poppins', sans-serif" font-size="26" font-weight="800" fill="#38BDF8">NBA</text>
+        <text x="0" y="46" font-family="'Inter', sans-serif" font-size="11" fill="#94A3B8">Tier-1 Accredited</text>
+      </g>
+      <line x1="160" y1="15" x2="160" y2="70" stroke="#1E3A8A"/>
+      <g transform="translate(185, 22)">
+        <text x="0" y="24" font-family="'Poppins', sans-serif" font-size="26" font-weight="800" fill="#F59E0B">NAAC A</text>
+        <text x="0" y="46" font-family="'Inter', sans-serif" font-size="11" fill="#94A3B8">Institutional Grade</text>
+      </g>
+      <line x1="340" y1="15" x2="340" y2="70" stroke="#1E3A8A"/>
+      <g transform="translate(365, 22)">
+        <text x="0" y="24" font-family="'Poppins', sans-serif" font-size="26" font-weight="800" fill="#FFFFFF">NIRF</text>
+        <text x="0" y="46" font-family="'Inter', sans-serif" font-size="11" fill="#94A3B8">Ministry of Education</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Visual Plaque -->
+  <g transform="translate(740, 100)">
+    <rect width="380" height="400" rx="24" fill="#06182D" stroke="#38BDF8" stroke-width="2" stroke-opacity="0.3"/>
+    
+    <g transform="translate(190, 130)">
+      <circle cx="0" cy="0" r="65" fill="#0284C7" fill-opacity="0.15" stroke="#38BDF8" stroke-width="2.5"/>
+      <text x="0" y="10" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="38" font-weight="900" fill="#38BDF8">
+        NBA
+      </text>
+      <text x="0" y="30" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" letter-spacing="1.5" fill="#BAE6FD">
+        ACCREDITED
+      </text>
+    </g>
+
+    <text x="190" y="240" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="18" font-weight="800" fill="#FFFFFF">
+      ACADEMIC RECOGNITION
+    </text>
+    <text x="190" y="265" text-anchor="middle" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#38BDF8">
+      CSE · IT · ECE · ME Programs
+    </text>
+    <text x="190" y="295" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12" fill="#94A3B8">
+      Dr. A.P.J. Abdul Kalam Technical University
+    </text>
+
+    <rect x="90" y="325" width="200" height="34" rx="17" fill="#0284C7" fill-opacity="0.25" stroke="#0284C7" stroke-width="1"/>
+    <text x="190" y="347" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#BAE6FD">
+      GOVERNMENT ACCREDITED
+    </text>
+  </g>
+</svg>

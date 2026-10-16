@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" fill="none">
+  <defs>
+    <linearGradient id="bgGradNaac" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <radialGradient id="naacGlow" cx="80%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="600" fill="url(#bgGradNaac)"/>
+  <circle cx="880" cy="280" r="340" fill="url(#naacGlow)"/>
+
+  <!-- Left Content Plaque -->
+  <g transform="translate(80, 100)">
+    <rect width="280" height="36" rx="18" fill="#F59E0B" fill-opacity="0.2" stroke="#F59E0B" stroke-width="1.5"/>
+    <circle cx="18" cy="18" r="6" fill="#F59E0B"/>
+    <text x="34" y="23" font-family="'Inter', sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#FDE68A">
+      GOVERNMENT ACCREDITATION
+    </text>
+
+    <text x="0" y="90" font-family="'Poppins', sans-serif" font-size="46" font-weight="900" fill="#FFFFFF" letter-spacing="-0.5">
+      NAAC A++ GRADE
+    </text>
+    <text x="0" y="140" font-family="'Poppins', sans-serif" font-size="34" font-weight="700" fill="#F59E0B">
+      Highest Score of 3.68 / 4
+    </text>
+    <text x="0" y="180" font-family="'Poppins', sans-serif" font-size="26" font-weight="600" fill="#E2E8F0">
+      Arshad University — Pinnacle of Quality
+    </text>
+
+    <text x="0" y="230" font-family="'Inter', sans-serif" font-size="15" font-weight="400" fill="#94A3B8">
+      Awarded the supreme Grade A++ by the National Assessment and Accreditation Council.
+    </text>
+    <text x="0" y="255" font-family="'Inter', sans-serif" font-size="14" font-weight="400" fill="#64748B">
+      Affirms global curriculum standards, doctoral research excellence, and benchmark placements.
+    </text>
+
+    <!-- Metrics Plaque -->
+    <g transform="translate(0, 300)">
+      <rect width="520" height="85" rx="12" fill="#1E293B" fill-opacity="0.9" stroke="#334155" stroke-width="1"/>
+      <g transform="translate(25, 22)">
+        <text x="0" y="24" font-family="'Poppins', sans-serif" font-size="28" font-weight="800" fill="#F59E0B">3.68</text>
+        <text x="0" y="46" font-family="'Inter', sans-serif" font-size="11" fill="#94A3B8">Out of 4.0 Score</text>
+      </g>
+      <line x1="160" y1="15" x2="160" y2="70" stroke="#334155"/>
+      <g transform="translate(185, 22)">
+        <text x="0" y="24" font-family="'Poppins', sans-serif" font-size="28" font-weight="800" fill="#FFFFFF">Grade A++</text>
+        <text x="0" y="46" font-family="'Inter', sans-serif" font-size="11" fill="#94A3B8">First Cycle Distinction</text>
+      </g>
+      <line x1="340" y1="15" x2="340" y2="70" stroke="#334155"/>
+      <g transform="translate(365, 22)">
+        <text x="0" y="24" font-family="'Poppins', sans-serif" font-size="28" font-weight="800" fill="#38BDF8">UGC &amp; MHRD</text>
+        <text x="0" y="46" font-family="'Inter', sans-serif" font-size="11" fill="#94A3B8">Statutory Recognition</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Visual Feature (Gold Seal of Accreditation) -->
+  <g transform="translate(740, 100)">
+    <!-- Laurel Wreath & Seal -->
+    <circle cx="180" cy="180" r="140" fill="url(#goldGrad)" fill-opacity="0.1" stroke="url(#goldGrad)" stroke-width="3"/>
+    <circle cx="180" cy="180" r="115" fill="#1E293B" stroke="url(#goldGrad)" stroke-width="2"/>
+    
+    <!-- Large A++ -->
+    <text x="180" y="180" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="64" font-weight="900" fill="url(#goldGrad)">
+      A++
+    </text>
+    <text x="180" y="215" text-anchor="middle" font-family="'Inter', sans-serif" font-size="14" font-weight="800" letter-spacing="3" fill="#FFFFFF">
+      NAAC GRADE
+    </text>
+    <text x="180" y="235" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#FBBF24">
+      CGPA 3.68 ON 4-POINT SCALE
+    </text>
+
+    <!-- Star Clusters -->
+    <g fill="#F59E0B" transform="translate(180, 105)">
+      <polygon points="0,-10 3,-3 10,-3 4,2 6,9 0,5 -6,9 -4,2 -10,-3 -3,-3"/>
+    </g>
+
+    <!-- Bottom Badge -->
+    <g transform="translate(50, 340)">
+      <rect width="260" height="40" rx="20" fill="#F37021" fill-opacity="0.2" stroke="#F37021" stroke-width="1.5"/>
+      <text x="130" y="25" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#FFEDD5">
+        NATIONAL ACCREDITATION LEADER
+      </text>
+    </g>
+  </g>
+</svg>

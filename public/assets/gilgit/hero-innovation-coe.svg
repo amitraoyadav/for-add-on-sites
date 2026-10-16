@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" fill="none">
+  <defs>
+    <linearGradient id="bgGradCoe" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1B4B"/>
+      <stop offset="60%" stop-color="#2E1065"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <radialGradient id="purpleGlow" cx="80%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#1E1B4B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="600" fill="url(#bgGradCoe)"/>
+  <circle cx="890" cy="270" r="330" fill="url(#purpleGlow)"/>
+
+  <!-- Left Content -->
+  <g transform="translate(80, 100)">
+    <rect width="320" height="36" rx="18" fill="#9333EA" fill-opacity="0.25" stroke="#C084FC" stroke-width="1.5"/>
+    <circle cx="18" cy="18" r="6" fill="#C084FC"/>
+    <text x="34" y="23" font-family="'Inter', sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#E9D5FF">
+      CENTER OF EXCELLENCE &amp; R&amp;D
+    </text>
+
+    <text x="0" y="90" font-family="'Poppins', sans-serif" font-size="44" font-weight="900" fill="#FFFFFF" letter-spacing="-0.5">
+      INNOVATION &amp; INCUBATION
+    </text>
+    <text x="0" y="140" font-family="'Poppins', sans-serif" font-size="34" font-weight="700" fill="#C084FC">
+      Apple iOS Lab · MSME Approved
+    </text>
+    <text x="0" y="180" font-family="'Poppins', sans-serif" font-size="26" font-weight="600" fill="#E2E8F0">
+      Smart India Hackathon Consecutive Champions
+    </text>
+
+    <text x="0" y="230" font-family="'Inter', sans-serif" font-size="15" font-weight="400" fill="#CBD5E1">
+      Equipped with industry labs co-established by Dassault Systèmes, Autodesk, and Intel.
+    </text>
+    <text x="0" y="255" font-family="'Inter', sans-serif" font-size="14" font-weight="400" fill="#A855F7">
+      Fostering student ventures, patent filings, and next-generation AI robotics prototypes.
+    </text>
+
+    <!-- Metrics Plaque -->
+    <g transform="translate(0, 300)">
+      <rect width="520" height="85" rx="12" fill="#2E1065" fill-opacity="0.9" stroke="#581C87" stroke-width="1"/>
+      <g transform="translate(25, 22)">
+        <text x="0" y="24" font-family="'Poppins', sans-serif" font-size="26" font-weight="800" fill="#C084FC">SIH Winners</text>
+        <text x="0" y="46" font-family="'Inter', sans-serif" font-size="11" fill="#D8B4FE">Smart India Hackathon</text>
+      </g>
+      <line x1="180" y1="15" x2="180" y2="70" stroke="#581C87"/>
+      <g transform="translate(205, 22)">
+        <text x="0" y="24" font-family="'Poppins', sans-serif" font-size="26" font-weight="800" fill="#FFFFFF">MSME</text>
+        <text x="0" y="46" font-family="'Inter', sans-serif" font-size="11" fill="#D8B4FE">Business Incubator</text>
+      </g>
+      <line x1="340" y1="15" x2="340" y2="70" stroke="#581C87"/>
+      <g transform="translate(365, 22)">
+        <text x="0" y="24" font-family="'Poppins', sans-serif" font-size="26" font-weight="800" fill="#38BDF8">CoE Labs</text>
+        <text x="0" y="46" font-family="'Inter', sans-serif" font-size="11" fill="#D8B4FE">Apple, Dassault, Intel</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Visual Plaque -->
+  <g transform="translate(740, 100)">
+    <rect width="380" height="400" rx="24" fill="#2E1065" stroke="#C084FC" stroke-width="2" stroke-opacity="0.3"/>
+    
+    <g transform="translate(190, 130)">
+      <circle cx="0" cy="0" r="60" fill="#9333EA" fill-opacity="0.2" stroke="#C084FC" stroke-width="2"/>
+      <!-- Chip / Innovation Icon -->
+      <rect x="-24" y="-24" width="48" height="48" rx="8" fill="#C084FC"/>
+      <rect x="-14" y="-14" width="28" height="28" rx="4" fill="#2E1065"/>
+      <line x1="-24" y1="-10" x2="-32" y2="-10" stroke="#C084FC" stroke-width="2.5"/>
+      <line x1="-24" y1="10" x2="-32" y2="10" stroke="#C084FC" stroke-width="2.5"/>
+      <line x1="24" y1="-10" x2="32" y2="-10" stroke="#C084FC" stroke-width="2.5"/>
+      <line x1="24" y1="10" x2="32" y2="10" stroke="#C084FC" stroke-width="2.5"/>
+      <line x1="-10" y1="-24" x2="-10" y2="-32" stroke="#C084FC" stroke-width="2.5"/>
+      <line x1="10" y1="-24" x2="10" y2="-32" stroke="#C084FC" stroke-width="2.5"/>
+      <line x1="-10" y1="24" x2="-10" y2="32" stroke="#C084FC" stroke-width="2.5"/>
+      <line x1="10" y1="24" x2="10" y2="32" stroke="#C084FC" stroke-width="2.5"/>
+    </g>
+
+    <text x="190" y="235" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="18" font-weight="800" fill="#FFFFFF">
+      SMART INDIA HACKATHON
+    </text>
+    <text x="190" y="260" text-anchor="middle" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#C084FC">
+      National Innovation Champions
+    </text>
+    <text x="190" y="290" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12" fill="#E9D5FF">
+      Ministry of Education &amp; AICTE Initiative
+    </text>
+
+    <rect x="90" y="325" width="200" height="34" rx="17" fill="#9333EA" fill-opacity="0.3" stroke="#9333EA" stroke-width="1"/>
+    <text x="190" y="347" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#F3E8FF">
+      STUDENT VENTURE INCUBATOR
+    </text>
+  </g>
+</svg>

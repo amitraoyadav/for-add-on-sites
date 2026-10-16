@@ -1224,6 +1224,162 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
       '#faqs'
     ],
     completedAt: '2026-10-15'
+  },
+
+  // --- TEMPLATE #20: ARSHAD UNIVERSITY (Rebranded from LPU) ---
+  {
+    id: 'arshad-university',
+    slug: 'arshad-university',
+    numericId: 20,
+    name: 'ARSHAD UNIVERSITY',
+    tagline: 'Transforming Education · Transforming India — NAAC A++ (3.68/4) & NIRF #27',
+    categoryCode: 'cat-education-coaching',
+    categoryLetter: '2',
+    categoryName: 'Coaching Institute & Education',
+    subcategory: 'Universities & Research Institutes',
+    businessType: 'Major Comprehensive Multi-Disciplinary University Website',
+    targetClients: 'Universities, major educational campuses, research institutions, degree colleges, technical academies, higher education trusts',
+    batch: 1,
+    status: 'completed',
+    entryPoint: 'src/templates/arshad-university/ArshadUniversity.tsx',
+    assetPath: 'public/assets/arshad-university/',
+    thumbnail: '/assets/arshad-university/hero-modi.svg',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Authentic institutional rebranding into ARSHAD UNIVERSITY with saffron and dark charcoal crest and heraldic emblem',
+      'High-contrast government accreditation ribbon highlighting NAAC Grade A++ (3.68 score on 4-point scale)',
+      'NIRF Ranking 2024 (#27 among all Indian Universities) and discipline breakdowns (Architecture #16, Pharmacy #17, Law #19, Management #38)',
+      'THE World University Rankings (Top 100 in Global Impact) and WURI #1 in India for Innovation',
+      'Maulana Abul Kalam Azad (MAKA) National Sports Trophy 1st Runner-Up & Alma Mater of Olympic Gold Medalist Neeraj Chopra',
+      '5-Slide full-bleed hero carousel (PM Narendra Modi Science Congress, NAAC A++, NIRF #27, ₹3 Crore Placements, MAKA Trophy)',
+      '150+ degree programs catalog (B.Tech CSE, AI & Data Science, MBA, BCA, B.A. LL.B Hons, B.Pharm, B.Sc. Hons Agriculture, B.Des) with live search and curriculum modal',
+      'Record-breaking placements showcase: ₹3 Crore international highest package, ₹64 Lakh domestic highest, and 1,000+ top Fortune 500 recruiters',
+      'Interactive 360° virtual tour simulator covering 600-acre residential campus, Olympic sports arena, 9-storey library, and Uni-Mall',
+      'World leaders and Nobel laureates archive (PM Narendra Modi, Dalai Lama, Liz Truss, Tony Abbott, Hamid Karzai, Thomas Südhof, Avram Hershko, Neeraj Chopra)',
+      'AUNEST 2026 interactive scholarship calculator with merit tier assessment and fee waiver estimation',
+      'Online admissions application desk with real-time field validation, error handling, and generated AU-2026-XXXXXX reference tracking number',
+      'Student and alumni career voices at Google, Amazon Web Services, Pfizer, and corporate law firms',
+      'Expandable FAQ accordion addressing AUNEST, admissions eligibility, scholarships, residential hostels, and international student visas',
+      'Comprehensive institutional footer with UGC compliance disclosures, 1800-102-4431 helpline, and download prospectus flow'
+    ],
+    conversionTriggers: [
+      'Apply Online (AUNEST 2026)',
+      'Calculate Scholarship',
+      'Explore Degree Programs',
+      'Launch 360° Campus Tour',
+      'Download Prospectus',
+      'Toll-Free Helpline'
+    ],
+    colorTheme: {
+      primary: '#F37021',
+      secondary: '#18181B',
+      bgStyle: 'bg-[#090A0F]'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'Arshad University (Rebranded from saveweb2zip-com-www-lpu-in.zip / https://www.lpu.in/)',
+      sourceUrl: 'https://www.lpu.in/',
+      notes: 'Faithfully reconstructed full university website demo rebranded as Arshad University from the uploaded LPU archive, preserving original NAAC A++ (3.68/4), NIRF #27, THE World Top 100, WURI #1 in India, MAKA Trophy, PM Modi visit, ₹3 Crore placements, 150+ degree programs, 360 virtual tour, AUNEST scholarship calculator, and admissions portal.',
+      receivedAt: '2026-10-15'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Scoped styling under .arshad-university-demo.'
+    },
+    routes: [
+      '/',
+      '#home',
+      '#rankings',
+      '#programs',
+      '#placements',
+      '#campus-life',
+      '#dignitaries',
+      '#scholarships',
+      '#admissions',
+      '#contact'
+    ],
+    completedAt: '2026-10-15'
+  },
+
+  // --- TEMPLATE #21: GILGIT (Rebranded from GLBITM) ---
+  {
+    id: 'gilgit',
+    slug: 'gilgit',
+    numericId: 21,
+    name: 'Gilgit',
+    tagline: 'Excellence in Technology, Innovation & Management — NBA & NAAC Accredited · Highest Package ₹58 LPA',
+    categoryCode: 'cat-education-coaching',
+    categoryLetter: '2',
+    categoryName: 'Coaching Institute & Education',
+    subcategory: 'Universities',
+    businessType: 'Major Technical Institute & University Campus Website',
+    targetClients: 'Universities, engineering colleges, technology institutes, management schools, academic trusts',
+    batch: 1,
+    status: 'completed',
+    entryPoint: 'src/templates/gilgit/Gilgit.tsx',
+    assetPath: 'public/assets/gilgit/',
+    thumbnail: '/assets/gilgit/hero-placement-58lpa.svg',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Official institutional rebranding into Gilgit with royal navy blue and gold heraldic crest emblem',
+      'Statutory accreditation highlights: Approved by AICTE, Affiliated to Dr. A.P.J. Abdul Kalam Technical University (AKTU Code: 192)',
+      'NBA Accredited B.Tech Programs (CSE, IT, ECE, ME) and NAAC Grade \'A\' Accredited Institution',
+      'Top Engineering Band ranking by NIRF (Ministry of Education, Govt. of India)',
+      '4-Slide full-bleed hero carousel (₹58 LPA Placements, NBA/NAAC Accreditations, Centers of Excellence, 15+ Acre Campus)',
+      'Academic programs catalog (B.Tech CSE, AI & ML, Data Science, IT, ECE, ME, MBA, MCA) with live search and curriculum modal',
+      'Record-breaking placements showcase: ₹58 LPA highest package, ₹7.12 LPA average, 3,000+ offers from 300+ Fortune 500 recruiters',
+      'Centers of Excellence (Apple Authorized iOS Lab, Dassault Systèmes 3DEXPERIENCE, MSME Approved Incubator, Intel IoT)',
+      '15+ acre modern Knowledge Park II campus infrastructure with 1,000+ seater central AC auditorium and 3-storey digital library',
+      'Online admissions application desk with real-time field validation, error handling, and generated GILGIT-2026-XXXXXX tracking number',
+      'Verified alumni career outcomes at Palo Alto Networks, Amazon AWS, Cisco Systems, and Morgan Stanley',
+      'Expandable FAQ accordion addressing AKTU counseling, NBA branches, highest packages, and on-campus residential hostels',
+      'Comprehensive institutional footer with AICTE compliance disclosures, 0120-2323818 helpline, and download prospectus flow'
+    ],
+    conversionTriggers: [
+      'Apply Online 2026',
+      'Explore Degree Programs',
+      'Download Information Brochure',
+      'View Placement Records',
+      'Contact Admissions Desk'
+    ],
+    colorTheme: {
+      primary: '#002147',
+      secondary: '#F59E0B',
+      bgStyle: 'bg-[#001733]'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'Gilgit (Rebranded from saveweb2zip-com-www-glbitm-org.zip / https://www.glbitm.org/)',
+      sourceUrl: 'https://www.glbitm.org/',
+      notes: 'Faithfully reconstructed full technical institute and university website demo rebranded as Gilgit from the uploaded GLBITM archive, preserving original NBA & NAAC accreditations, AICTE approval, AKTU affiliation (Code 192), ₹58 LPA highest package, 300+ recruiters, Apple iOS CoE, and online admissions portal.',
+      receivedAt: '2026-10-16'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Scoped styling under .gilgit-demo.'
+    },
+    routes: [
+      '/',
+      '#home',
+      '#rankings',
+      '#programs',
+      '#placements',
+      '#innovation',
+      '#facilities',
+      '#admissions',
+      '#contact'
+    ],
+    completedAt: '2026-10-16'
   }
 ];
 

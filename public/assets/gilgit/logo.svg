@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 84" width="540" height="84" fill="none">
+  <!-- Gilgit Crest / Emblem -->
+  <g transform="translate(10, 6)">
+    <!-- Gear Wheel / Cog representing Technology & Engineering -->
+    <path d="M36 4 L40 10 L47 8 L48 15 L55 16 L53 23 L59 27 L55 33 L60 38 L54 43 L57 50 L50 52 L50 59 L43 59 L40 66 L34 63 L28 67 L26 60 L19 60 L19 53 L12 51 L15 44 L9 39 L14 34 L10 28 L16 24 L14 17 L21 16 L22 9 L29 11 Z" fill="#002147" stroke="#F59E0B" stroke-width="1.5"/>
+    <circle cx="35" cy="37" r="24" fill="#0B2545" stroke="#FFFFFF" stroke-width="1.5"/>
+    
+    <!-- Inner Academic Shield -->
+    <path d="M35 18 C46 18 51 24 51 35 C51 47 41 53 35 56 C29 53 19 47 19 35 C19 24 24 18 35 18 Z" fill="#DA251C"/>
+    
+    <!-- Open Book of Wisdom -->
+    <path d="M25 32 C29 29 33 30 35 32 C37 30 41 29 45 32 L45 44 C41 41 37 42 35 44 C33 42 29 41 25 44 Z" fill="#FFFFFF"/>
+    <path d="M35 32 L35 44" stroke="#002147" stroke-width="1.2"/>
+
+    <!-- Torch of Knowledge Rising from Book -->
+    <path d="M35 22 C37 24 38 26 37 28 C36 30 34 30 33 28 C32 26 33 24 35 22 Z" fill="#FBBF24"/>
+    <circle cx="35" cy="24" r="2" fill="#EF4444"/>
+
+    <!-- Mini Star at Apex -->
+    <polygon points="35,7 36.5,10.5 40,10.7 37.3,13 38.2,16.5 35,14.5 31.8,16.5 32.7,13 30,10.7 33.5,10.5" fill="#F59E0B"/>
+  </g>
+
+  <!-- Typography: Gilgit Branding -->
+  <g transform="translate(85, 14)">
+    <text x="0" y="27" font-family="'Cinzel', 'Playfair Display', 'Times New Roman', serif" font-size="30" font-weight="900" letter-spacing="2" fill="#002147">
+      GILGIT
+    </text>
+    <text x="0" y="45" font-family="'Poppins', 'Inter', sans-serif" font-size="11" font-weight="700" letter-spacing="2.2" fill="#DA251C">
+      INSTITUTE OF TECHNOLOGY &amp; MANAGEMENT
+    </text>
+    <text x="0" y="60" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" letter-spacing="1.2" fill="#4B5563">
+      GREATER NOIDA, DELHI-NCR  ·  NBA &amp; NAAC ACCREDITED  ·  APPROVED BY AICTE
+    </text>
+  </g>
+</svg>

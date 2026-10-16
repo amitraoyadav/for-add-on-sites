@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 84" width="480" height="84" fill="none">
+  <!-- Arshad University Crest Emblem (White/Dark Theme) -->
+  <g transform="translate(10, 8)">
+    <!-- Outer Shield with Dynamic Saffron Sunburst -->
+    <path d="M34 2 C52 2 68 12 68 34 C68 56 46 66 34 70 C22 66 0 56 0 34 C0 12 16 2 34 2 Z" fill="#F37021" />
+    <path d="M34 6 C49 6 63 15 63 34 C63 52 44 61 34 65 C24 61 5 52 5 34 C5 15 19 6 34 6 Z" fill="#090A0F" />
+    
+    <!-- Rising Sun / Knowledge Rays -->
+    <path d="M34 16 L34 24" stroke="#F37021" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M22 20 L27 26" stroke="#F37021" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M46 20 L41 26" stroke="#F37021" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M14 30 L22 32" stroke="#F37021" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M54 30 L46 32" stroke="#F37021" stroke-width="2.2" stroke-linecap="round"/>
+
+    <!-- Open Book & Torch Emblem -->
+    <path d="M20 40 C26 37 31 38 34 41 C37 38 42 37 48 40 L48 53 C42 50 37 51 34 54 C31 51 26 50 20 53 Z" fill="#FFFFFF"/>
+    <path d="M34 41 L34 54" stroke="#F37021" stroke-width="1.8"/>
+
+    <!-- Torch flame above book -->
+    <path d="M34 27 C36 29 38 31 37 34 C36 37 32 37 31 34 C30 31 32 29 34 27 Z" fill="#FBBF24"/>
+    <path d="M34 29 C35 30 36 32 35 33 C34 35 33 35 32 33 C32 32 33 30 34 29 Z" fill="#EF4444"/>
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(90, 18)">
+    <text x="0" y="26" font-family="'Poppins', 'Inter', 'Montserrat', sans-serif" font-size="28" font-weight="900" letter-spacing="1.5" fill="#FFFFFF">
+      ARSHAD
+    </text>
+    <text x="0" y="44" font-family="'Poppins', 'Inter', sans-serif" font-size="13" font-weight="700" letter-spacing="3.8" fill="#F37021">
+      UNIVERSITY
+    </text>
+    <text x="0" y="58" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" letter-spacing="1.8" fill="#D4D4D8">
+      Transforming Education · Transforming India
+    </text>
+  </g>
+</svg>
