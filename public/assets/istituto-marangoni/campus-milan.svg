@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <defs>
+    <linearGradient id="milanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181c"/>
+      <stop offset="100%" stop-color="#0a0a0d"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#milanGrad)"/>
+  <!-- Milan Duomo spires & Via Montenapoleone luxury arcade silhouettes -->
+  <g stroke="#D4AF37" stroke-width="1.2" opacity="0.85" fill="none">
+    <path d="M 50 340 L 50 180 L 100 120 L 150 180 L 150 340 Z"/>
+    <path d="M 150 340 L 150 140 L 220 80 L 290 140 L 290 340 Z"/>
+    <path d="M 290 340 L 290 100 L 300 40 L 310 100 L 310 340 Z" stroke="#FFFFFF" stroke-width="1.8"/>
+    <path d="M 310 340 L 310 140 L 380 80 L 450 140 L 450 340 Z"/>
+    <path d="M 450 340 L 450 180 L 500 120 L 550 180 L 550 340 Z"/>
+    <!-- Gothic tracery arches -->
+    <path d="M 180 340 C 180 220 260 220 260 340"/>
+    <path d="M 340 340 C 340 220 420 220 420 340"/>
+    <path d="M 70 340 C 70 240 130 240 130 340"/>
+    <path d="M 470 340 C 470 240 530 240 530 340"/>
+    <line x1="0" y1="340" x2="600" y2="340" stroke="#FFFFFF" stroke-width="1"/>
+  </g>
+  <text x="300" y="375" text-anchor="middle" font-family="'Didot', serif" font-size="18" font-weight="700" letter-spacing="3" fill="#D4AF37">MILANO FASHION &amp; DESIGN</text>
+</svg>

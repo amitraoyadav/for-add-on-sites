@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <defs>
+    <linearGradient id="florenceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c1612"/>
+      <stop offset="100%" stop-color="#0a0705"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#florenceGrad)"/>
+  <!-- Brunelleschi Duomo dome and Renaissance Palazzo loggia -->
+  <g stroke="#F59E0B" stroke-width="1.2" opacity="0.85" fill="none">
+    <!-- Florence Duomo dome -->
+    <path d="M 120 340 L 120 220 C 120 120 280 120 280 220 L 280 340" stroke="#D4AF37" stroke-width="2"/>
+    <path d="M 200 120 L 200 60" stroke="#D4AF37" stroke-width="2"/>
+    <circle cx="200" cy="50" r="10" stroke="#FFFFFF"/>
+    <!-- Palazzo arches -->
+    <path d="M 330 340 L 330 180 C 330 140 390 140 390 180 L 390 340" stroke="#FFFFFF" stroke-opacity="0.6"/>
+    <path d="M 410 340 L 410 180 C 410 140 470 140 470 180 L 470 340" stroke="#FFFFFF" stroke-opacity="0.6"/>
+    <path d="M 490 340 L 490 180 C 490 140 550 140 550 180 L 550 340" stroke="#FFFFFF" stroke-opacity="0.6"/>
+    <line x1="0" y1="340" x2="600" y2="340" stroke="#FFFFFF" stroke-width="1"/>
+  </g>
+  <text x="300" y="375" text-anchor="middle" font-family="'Didot', serif" font-size="18" font-weight="700" letter-spacing="3" fill="#D4AF37">FIRENZE · ART &amp; FASHION</text>
+</svg>

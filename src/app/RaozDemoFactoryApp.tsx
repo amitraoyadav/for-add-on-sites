@@ -35,8 +35,8 @@ import {
 export default function RaozDemoFactoryApp() {
   const [templates, setTemplates] = useState<TemplateManifestItem[]>(TEMPLATE_MANIFEST);
   const [activeTab, setActiveTab] = useState<'catalog' | 'preview' | 'categories' | 'intake' | 'integration' | 'rules'>('catalog');
-  const gilgitItem = templates.find((t) => t.id === 'gilgit');
-  const [selectedTemplate, setSelectedTemplate] = useState<TemplateManifestItem>(gilgitItem || templates[0]);
+  const marangoniItem = templates.find((t) => t.id === 'istituto-marangoni');
+  const [selectedTemplate, setSelectedTemplate] = useState<TemplateManifestItem>(marangoniItem || templates[0]);
   const [detailModalTemplate, setDetailModalTemplate] = useState<TemplateManifestItem | null>(null);
   const [intakeModalTemplate, setIntakeModalTemplate] = useState<TemplateManifestItem | null>(null);
   const [isIntakeModalOpen, setIsIntakeModalOpen] = useState(false);
@@ -62,6 +62,15 @@ export default function RaozDemoFactoryApp() {
     clientNeeds: string;
     submittedAt: string;
   }>>([
+    {
+      id: 'ref-marangoni-22',
+      templateId: 'istituto-marangoni',
+      refType: 'zip',
+      urlOrTitle: 'Istituto Marangoni (saveweb2zip-com-www-istitutomarangoni-com.zip / https://www.istitutomarangoni.com/en)',
+      notes: 'Premier International Fashion, Art & Design Higher Education Academy (Founded in Milan 1935). Accredited by Italian Ministry of University and Research (MUR - AFAM, 180 ECTS First Level Academic Diplomas), Manchester Metropolitan University, and French RNCP Level 7. Ranked in QS World Top 100 Art & Design. Integrated as Template #22 under Universities & Research Institutes category.',
+      clientNeeds: 'Faithful website recreation from uploaded ZIP archive: official luxury black, white & gold wordmark crest branding ("ISTITUTO MARANGONI MILANO 1935"), statutory MUR/AFAM accreditation highlights, 5-slide full-bleed hero carousel (90 Years of Italian Luxury Creativity 1935-2025, Open Days 2026, L\'Oréal Professionnel partnership, Metaverso & AI Fashion Atelier, Maze 35 editorial magazine), Four Creative Pillars (Fashion, Design, Art, Fragrances & Cosmetics), interactive degree courses finder (BA Hons, Master\'s, Intensive, Summer) with live search and curriculum detail modal, Super Mentors & Alumni spotlight (Olivier Rousteing from Balmain, Giambattista Valli, Alessandro Sartori from Zegna, Domenico Dolce, Moschino), Global Campuses explorer across 8 cities (Milan Fashion & Design, Florence, Paris, London, Dubai, Miami, Mumbai), interactive Merit Scholarship Calculator estimating up to 50% tuition reduction, online admissions application desk with real-time field validation and generated IM-2026-XXXXXX tracking reference, 89% placement rate with 400+ luxury recruiters (Gucci, Prada, Dior, Balmain, Cartier, LVMH), Maze 35 article reader modal, and comprehensive institutional footer with campus directories.',
+      submittedAt: '2026-10-16'
+    },
     {
       id: 'ref-gilgit-21',
       templateId: 'gilgit',

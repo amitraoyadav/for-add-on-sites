@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 64" fill="none">
+  <rect width="200" height="64" rx="4" fill="#0A0A0A" stroke="#262626" stroke-width="1"/>
+  <circle cx="28" cy="32" r="16" fill="#171717" stroke="#D4AF37" stroke-width="1.5"/>
+  <text x="28" y="37" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#D4AF37">QS</text>
+  <text x="56" y="27" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" letter-spacing="1" fill="#FFFFFF">WORLD TOP 100</text>
+  <text x="56" y="38" font-family="'Inter', sans-serif" font-size="8" font-weight="500" letter-spacing="0.5" fill="#D4AF37">ART &amp; DESIGN RANKING</text>
+  <text x="56" y="48" font-family="'Inter', sans-serif" font-size="7" font-weight="400" fill="#888888">Global Higher Education</text>
+</svg>

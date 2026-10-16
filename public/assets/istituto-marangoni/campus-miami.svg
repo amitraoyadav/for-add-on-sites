@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <defs>
+    <linearGradient id="miamiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14181f"/>
+      <stop offset="100%" stop-color="#05070a"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#miamiGrad)"/>
+  <!-- Miami Design District contemporary architecture & palm silhouette -->
+  <g stroke="#2DD4BF" stroke-width="1.2" opacity="0.85" fill="none">
+    <!-- Palm fronds outline -->
+    <path d="M 480 340 Q 470 200 460 120" stroke="#D4AF37" stroke-width="2"/>
+    <path d="M 460 120 Q 410 90 380 130" stroke="#2DD4BF"/>
+    <path d="M 460 120 Q 430 70 420 40" stroke="#2DD4BF"/>
+    <path d="M 460 120 Q 480 60 520 70" stroke="#2DD4BF"/>
+    <path d="M 460 120 Q 520 100 540 140" stroke="#2DD4BF"/>
+    <!-- Design District geometric facade -->
+    <polygon points="100,340 100,160 220,120 340,160 340,340" stroke="#FFFFFF" stroke-width="1.5"/>
+    <g stroke="#D4AF37" stroke-width="0.8">
+      <circle cx="170" cy="220" r="30"/>
+      <circle cx="270" cy="220" r="30"/>
+      <circle cx="220" cy="280" r="30"/>
+    </g>
+    <line x1="0" y1="340" x2="600" y2="340" stroke="#FFFFFF" stroke-width="1"/>
+  </g>
+  <text x="300" y="375" text-anchor="middle" font-family="'Didot', serif" font-size="18" font-weight="700" letter-spacing="3" fill="#D4AF37">MIAMI · DESIGN DISTRICT</text>
+</svg>

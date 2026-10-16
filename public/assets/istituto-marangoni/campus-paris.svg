@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <defs>
+    <linearGradient id="parisGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#161214"/>
+      <stop offset="100%" stop-color="#080608"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#parisGrad)"/>
+  <!-- Haussmannian facade of 48 Avenue Montaigne & Eiffel silhouette -->
+  <g stroke="#F472B6" stroke-width="1.2" opacity="0.85" fill="none">
+    <!-- Eiffel Tower outline on side -->
+    <path d="M 440 340 L 490 80 L 510 80 L 560 340" stroke="#D4AF37" stroke-width="1.5"/>
+    <line x1="460" y1="260" x2="540" y2="260" stroke="#D4AF37"/>
+    <line x1="475" y1="180" x2="525" y2="180" stroke="#D4AF37"/>
+    <!-- Avenue Montaigne boutique facade -->
+    <rect x="60" y="100" width="340" height="240" stroke="#FFFFFF" stroke-opacity="0.4"/>
+    <rect x="90" y="130" width="60" height="80" rx="30" stroke="#D4AF37"/>
+    <rect x="200" y="130" width="60" height="80" rx="30" stroke="#D4AF37"/>
+    <rect x="310" y="130" width="60" height="80" rx="30" stroke="#D4AF37"/>
+    <rect x="150" y="250" width="160" height="90" stroke="#FFFFFF" stroke-opacity="0.6"/>
+    <text x="230" y="300" text-anchor="middle" font-family="'Didot', serif" font-size="12" font-weight="700" fill="#D4AF37">48 AV. MONTAIGNE</text>
+    <line x1="0" y1="340" x2="600" y2="340" stroke="#FFFFFF" stroke-width="1"/>
+  </g>
+  <text x="300" y="375" text-anchor="middle" font-family="'Didot', serif" font-size="18" font-weight="700" letter-spacing="3" fill="#D4AF37">PARIS · AVENUE MONTAIGNE</text>
+</svg>

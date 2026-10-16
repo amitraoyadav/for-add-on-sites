@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 780" fill="none">
+  <defs>
+    <linearGradient id="openDayGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c0d12" />
+      <stop offset="60%" stop-color="#181a24" />
+      <stop offset="100%" stop-color="#090a0e" />
+    </linearGradient>
+    <radialGradient id="stageGlow" cx="65%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.2" />
+      <stop offset="50%" stop-color="#D4AF37" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  
+  <rect width="1600" height="780" fill="url(#openDayGrad)"/>
+  <rect width="1600" height="780" fill="url(#stageGlow)"/>
+
+  <!-- Architectural perspective geometry representing Milan / Paris campuses -->
+  <g stroke="#ffffff" stroke-opacity="0.08" stroke-width="1">
+    <line x1="0" y1="780" x2="800" y2="390" />
+    <line x1="1600" y1="780" x2="800" y2="390" />
+    <line x1="200" y1="780" x2="800" y2="390" />
+    <line x1="1400" y1="780" x2="800" y2="390" />
+    <line x1="400" y1="780" x2="800" y2="390" />
+    <line x1="1200" y1="780" x2="800" y2="390" />
+    <line x1="600" y1="780" x2="800" y2="390" />
+    <line x1="1000" y1="780" x2="800" y2="390" />
+    <circle cx="800" cy="390" r="180" fill="none" stroke="#D4AF37" stroke-opacity="0.3" stroke-width="1"/>
+    <circle cx="800" cy="390" r="320" fill="none" stroke="#D4AF37" stroke-opacity="0.15" stroke-width="0.7"/>
+  </g>
+
+  <!-- Content text -->
+  <text x="800" y="240" text-anchor="middle" font-family="'Inter', sans-serif" font-size="14" font-weight="700" letter-spacing="8" fill="#D4AF37">
+    INTERNATIONAL ORIENTATION SESSIONS · ON CAMPUS &amp; ONLINE
+  </text>
+  <text x="800" y="350" text-anchor="middle" font-family="'Didot', 'Playfair Display', serif" font-size="74" font-weight="700" letter-spacing="3" fill="#FFFFFF">
+    OPEN DAYS 2026
+  </text>
+  <text x="800" y="430" text-anchor="middle" font-family="'Didot', 'Playfair Display', serif" font-size="36" font-weight="300" letter-spacing="6" fill="#D4AF37">
+    DISCOVER YOUR CREATIVE FUTURE
+  </text>
+  <text x="800" y="500" text-anchor="middle" font-family="'Inter', sans-serif" font-size="16" font-weight="400" letter-spacing="2" fill="#D1D5DB">
+    MILAN · FLORENCE · PARIS · LONDON · DUBAI · MIAMI · MUMBAI · SHANGHAI
+  </text>
+  <text x="800" y="540" text-anchor="middle" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#9CA3AF">
+    Meet Program Directors, review portfolio requirements, and explore atelier facilities.
+  </text>
+</svg>

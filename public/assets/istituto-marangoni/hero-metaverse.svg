@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 780" fill="none">
+  <defs>
+    <linearGradient id="metaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050814" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#02040a" />
+    </linearGradient>
+    <radialGradient id="cyberGlow" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#6366F1" stop-opacity="0.25" />
+      <stop offset="50%" stop-color="#06B6D4" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="metaGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#312E81" stroke-width="0.6" stroke-opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="780" fill="url(#metaGrad)"/>
+  <rect width="1600" height="780" fill="url(#cyberGlow)"/>
+  <rect width="1600" height="780" fill="url(#metaGrid)"/>
+
+  <!-- Futuristic 3D Wireframe Runway Polygons -->
+  <polygon points="800,180 980,340 920,620 680,620 620,340" fill="none" stroke="#6366F1" stroke-width="1.5" stroke-opacity="0.7"/>
+  <polygon points="800,230 920,350 880,560 720,560 680,350" fill="none" stroke="#06B6D4" stroke-width="1" stroke-opacity="0.5"/>
+  <circle cx="800" cy="400" r="140" fill="none" stroke="#D4AF37" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="8 6"/>
+
+  <text x="800" y="230" text-anchor="middle" font-family="'Inter', sans-serif" font-size="13" font-weight="700" letter-spacing="8" fill="#38BDF8">
+    DIGITAL FASHION &amp; AI INNOVATION
+  </text>
+  <text x="800" y="340" text-anchor="middle" font-family="'Didot', 'Playfair Display', serif" font-size="70" font-weight="700" letter-spacing="4" fill="#FFFFFF">
+    THE METAVERSO ATELIER
+  </text>
+  <text x="800" y="420" text-anchor="middle" font-family="'Didot', 'Playfair Display', serif" font-size="34" font-weight="300" letter-spacing="6" fill="#A5B4FC">
+    AI GENERATIVE DESIGN &amp; 3D DIGITAL COUTURE
+  </text>
+  <text x="800" y="490" text-anchor="middle" font-family="'Inter', sans-serif" font-size="15" font-weight="400" letter-spacing="2" fill="#E2E8F0">
+    PIONEERING THE INTERSECTION OF PHYGITAL LUXURY, CLO3D, AND VIRTUAL RUNWAYS
+  </text>
+  <text x="800" y="530" text-anchor="middle" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#94A3B8">
+    First global fashion school with an immersive campus presence in Decentraland &amp; Unreal Engine 5.
+  </text>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <defs>
+    <linearGradient id="artGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141217"/>
+      <stop offset="100%" stop-color="#08070a"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#artGrad)"/>
+
+  <!-- Classical Renaissance sculpture & modern museum curatorial framing -->
+  <g stroke="#C084FC" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.85">
+    <!-- Museum gallery golden frame -->
+    <rect x="160" y="100" width="280" height="340" stroke="#D4AF37" stroke-width="2"/>
+    <rect x="180" y="120" width="240" height="300" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="0.8"/>
+    <!-- Classical portrait silhouette / abstract sculpture -->
+    <circle cx="300" cy="220" r="50" stroke="#C084FC" stroke-width="1.5"/>
+    <path d="M 270 270 C 270 330 330 330 330 270" stroke="#D4AF37" stroke-width="1.2"/>
+    <path d="M 230 380 C 260 300 340 300 370 380" stroke="#C084FC" stroke-width="1.5"/>
+    <circle cx="300" cy="220" r="80" stroke="#D4AF37" stroke-width="0.5" stroke-dasharray="4 6"/>
+  </g>
+
+  <text x="300" y="555" text-anchor="middle" font-family="'Didot', 'Playfair Display', serif" font-size="28" font-weight="700" letter-spacing="4" fill="#FFFFFF">
+    ART
+  </text>
+  <text x="300" y="580" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="600" letter-spacing="3" fill="#C084FC">
+    CURATING · MULTIMEDIA · MANAGEMENT
+  </text>
+</svg>

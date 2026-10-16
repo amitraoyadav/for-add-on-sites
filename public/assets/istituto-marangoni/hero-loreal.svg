@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 780" fill="none">
+  <defs>
+    <linearGradient id="lorealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0808" />
+      <stop offset="50%" stop-color="#181014" />
+      <stop offset="100%" stop-color="#050305" />
+    </linearGradient>
+    <radialGradient id="roseGlow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#BE185D" stop-opacity="0.22" />
+      <stop offset="60%" stop-color="#D4AF37" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="780" fill="url(#lorealGrad)"/>
+  <rect width="1600" height="780" fill="url(#roseGlow)"/>
+
+  <!-- Fluid cosmetic wave curves -->
+  <path d="M 0 500 Q 400 350, 800 480 T 1600 380 L 1600 780 L 0 780 Z" fill="#201018" fill-opacity="0.35"/>
+  <path d="M 0 560 Q 450 420, 850 540 T 1600 440 L 1600 780 L 0 780 Z" fill="#2a121d" fill-opacity="0.3"/>
+  
+  <text x="800" y="240" text-anchor="middle" font-family="'Inter', sans-serif" font-size="13" font-weight="700" letter-spacing="8" fill="#F472B6">
+    GLOBAL ACADEMIC PARTNERSHIP
+  </text>
+  <text x="800" y="340" text-anchor="middle" font-family="'Didot', 'Playfair Display', serif" font-size="64" font-weight="700" letter-spacing="3" fill="#FFFFFF">
+    L'ORÉAL PROFESSIONNEL
+  </text>
+  <text x="800" y="415" text-anchor="middle" font-family="'Didot', 'Playfair Display', serif" font-size="44" font-weight="300" letter-spacing="6" fill="#D4AF37">
+    &amp; ISTITUTO MARANGONI
+  </text>
+  <text x="800" y="490" text-anchor="middle" font-family="'Inter', sans-serif" font-size="16" font-weight="400" letter-spacing="2" fill="#E5E7EB">
+    CO-DESIGNING THE FUTURE OF LUXURY HAIR, BEAUTY &amp; FASHION BACKSTAGE
+  </text>
+  <text x="800" y="530" text-anchor="middle" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#9CA3AF">
+    Masterclasses, exclusive backstage passes during Milan &amp; Paris Fashion Weeks, and product innovation incubators.
+  </text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" fill="none">
+  <defs>
+    <linearGradient id="valliGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f181f"/>
+      <stop offset="100%" stop-color="#0a070a"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="480" fill="url(#valliGrad)"/>
+  <!-- Haute Couture floral tulle layers -->
+  <circle cx="200" cy="110" r="42" fill="#2d222e" stroke="#F472B6" stroke-width="1.5"/>
+  <path d="M 130 480 Q 160 220 200 170 Q 240 220 270 480 Z" fill="#271c29" stroke="#D4AF37" stroke-width="1.2"/>
+  <!-- Tulle clouds -->
+  <ellipse cx="200" cy="270" rx="65" ry="35" stroke="#F472B6" stroke-width="1.5" stroke-opacity="0.7"/>
+  <ellipse cx="200" cy="330" rx="85" ry="45" stroke="#F472B6" stroke-width="1.2" stroke-opacity="0.5"/>
+  <ellipse cx="200" cy="390" rx="105" ry="55" stroke="#F472B6" stroke-width="0.8" stroke-opacity="0.3"/>
+  
+  <text x="200" y="420" text-anchor="middle" font-family="'Didot', serif" font-size="22" font-weight="700" fill="#FFFFFF">GIAMBATTISTA VALLI</text>
+  <text x="200" y="445" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="600" letter-spacing="2" fill="#F472B6">HAUTE COUTURE DESIGNER</text>
+  <text x="200" y="465" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="400" fill="#A1A1AA">Istituto Marangoni Paris Mentor</text>
+</svg>

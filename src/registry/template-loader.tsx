@@ -29,6 +29,7 @@ const RaoCollegeLazy = lazy(() => import('../templates/rao-college/RaoCollege'))
 const SpJainLazy = lazy(() => import('../templates/sp-jain/SpJain'));
 const ArshadUniversityLazy = lazy(() => import('../templates/arshad-university/ArshadUniversity'));
 const GilgitLazy = lazy(() => import('../templates/gilgit/Gilgit'));
+const IstitutoMarangoniLazy = lazy(() => import('../templates/istituto-marangoni/IstitutoMarangoni'));
 
 interface TemplateLoaderProps {
   template: TemplateManifestItem;
@@ -452,6 +453,26 @@ export function TemplateLoader({ template, onOpenIntakeModal }: TemplateLoaderPr
         }
       >
         <GilgitLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is ISTITUTO MARANGONI
+  if (template.id === 'istituto-marangoni') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#070709] text-white">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#D4AF37] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-[#D4AF37] font-mono">
+                Loading ISTITUTO MARANGONI Demo...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <IstitutoMarangoniLazy />
       </Suspense>
     );
   }

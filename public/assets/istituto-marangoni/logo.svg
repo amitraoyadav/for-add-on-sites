@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 80" fill="none">
+  <!-- Minimalist High-Luxury Typography for Istituto Marangoni -->
+  <text x="260" y="38" text-anchor="middle" font-family="'Didot', 'Bodoni MT', 'Cinzel', 'Playfair Display', serif" font-size="28" font-weight="700" letter-spacing="7" fill="#111111">
+    ISTITUTO MARANGONI
+  </text>
+  <line x1="170" y1="48" x2="350" y2="48" stroke="#111111" stroke-width="1" />
+  <text x="260" y="62" text-anchor="middle" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="600" letter-spacing="5" fill="#555555">
+    MILANO 1935
+  </text>
+  <text x="260" y="74" text-anchor="middle" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" font-weight="500" letter-spacing="3" fill="#888888">
+    THE SCHOOL OF FASHION, ART &amp; DESIGN
+  </text>
+</svg>

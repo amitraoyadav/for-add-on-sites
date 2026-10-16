@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <defs>
+    <linearGradient id="fashionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141416"/>
+      <stop offset="100%" stop-color="#0a0a0c"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#fashionGrad)"/>
+  
+  <!-- Haute Couture Sketch Silhouette -->
+  <g stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.8">
+    <path d="M 300 80 Q 280 140 260 220 Q 240 320 200 520" />
+    <path d="M 300 80 Q 320 140 340 220 Q 360 320 400 520" />
+    <path d="M 270 200 C 300 230 300 230 330 200" />
+    <path d="M 255 260 C 300 300 300 300 345 260" />
+    <path d="M 210 400 C 300 460 300 460 390 400" />
+    <circle cx="300" cy="80" r="28" stroke="#FFFFFF" stroke-width="1.2"/>
+    <!-- Draping pleats -->
+    <path d="M 260 220 C 270 340 250 440 230 520" stroke-width="0.8" opacity="0.6"/>
+    <path d="M 340 220 C 330 340 350 440 370 520" stroke-width="0.8" opacity="0.6"/>
+    <path d="M 300 230 L 300 530" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.5"/>
+  </g>
+  
+  <text x="300" y="555" text-anchor="middle" font-family="'Didot', 'Playfair Display', serif" font-size="28" font-weight="700" letter-spacing="4" fill="#FFFFFF">
+    FASHION
+  </text>
+  <text x="300" y="580" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="600" letter-spacing="3" fill="#D4AF37">
+    DESIGN · STYLING · BUSINESS
+  </text>
+</svg>

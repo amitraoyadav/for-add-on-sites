@@ -1380,8 +1380,87 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
       '#contact'
     ],
     completedAt: '2026-10-16'
+  },
+
+  // --- TEMPLATE #22: ISTITUTO MARANGONI (Fashion, Art & Design Higher Education Academy) ---
+  {
+    id: 'istituto-marangoni',
+    slug: 'istituto-marangoni',
+    numericId: 22,
+    name: 'Istituto Marangoni',
+    tagline: 'The School of Fashion, Art & Design — Milano 1935 · Italian Higher Education in Fashion, Design, Fragrances & Art',
+    categoryCode: 'cat-education-coaching',
+    categoryLetter: '2',
+    categoryName: 'Coaching Institute & Education',
+    subcategory: 'Universities & Research Institutes',
+    businessType: 'International Fashion, Art & Design Higher Education Academy',
+    targetClients: 'Fashion design students, luxury brand aspirants, interior architects, creative directors, fragrance brand managers',
+    batch: 1,
+    status: 'completed',
+    entryPoint: 'src/templates/istituto-marangoni/IstitutoMarangoni.tsx',
+    assetPath: 'public/assets/istituto-marangoni/',
+    thumbnail: '/assets/istituto-marangoni/hero-90years.svg',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Official luxury black, white & gold brand identity for Istituto Marangoni (Milano 1935)',
+      'Statutory accreditations: Italian Ministry of University and Research (MUR - AFAM, 180 ECTS First Level Academic Diplomas)',
+      'Manchester Metropolitan University (MMU, UK) degree validation & French RNCP Level 7 master accreditations',
+      'QS World University Rankings Top 100 for Art & Design worldwide',
+      '5-Slide full-bleed hero carousel (90 Years of Italian Creative Heritage, Open Days 2026, L\'Oréal Partnership, Metaverso AI Atelier, Maze 35)',
+      'Four Creative Pillars (Macro-Areas): Fashion, Design, Art, Fragrances & Cosmetics with dedicated curriculum roadmaps',
+      'Interactive degree courses catalog (BA Hons, Master\'s, Intensive, Summer) with live search and course detail modals',
+      'Super Mentors & Alumni spotlight: Olivier Rousteing (Balmain), Giambattista Valli, Alessandro Sartori (Zegna), Domenico Dolce, Moschino',
+      'Global Campuses interactive explorer across Milan (Fashion & Design), Florence, Paris, London, Dubai, Miami, and Mumbai',
+      'Interactive Merit Scholarship Calculator estimating up to 50% tuition reduction based on creative portfolio excellence',
+      'Admissions application desk with real-time field validation, portfolio URL submission, and generated IM-2026-XXXXXX tracking reference',
+      '89% career placement rate with directory of 400+ international luxury recruiter houses (Gucci, Prada, Dior, Balmain, Cartier, LVMH)',
+      'Maze 35 editorial magazine stories with reader modal and expandable AFAM & campus mobility FAQ accordion'
+    ],
+    conversionTriggers: [
+      'Apply Online 2026',
+      'Find a Degree Course',
+      'Book Open Day Orientation',
+      'Download 2026 Prospectus',
+      'Calculate Merit Scholarship'
+    ],
+    colorTheme: {
+      primary: '#D4AF37',
+      secondary: '#070709',
+      bgStyle: 'bg-[#070709]'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'Istituto Marangoni (saveweb2zip-com-www-istitutomarangoni-com.zip / https://www.istitutomarangoni.com/en)',
+      sourceUrl: 'https://www.istitutomarangoni.com/en',
+      notes: 'Faithfully recreated complete international fashion, art and design higher education institute demo from the uploaded website archive, preserving original logos, 90-year heritage, MUR/AFAM accreditations, Super Mentors, global campuses, 89% placement rate, and online admissions portal.',
+      receivedAt: '2026-10-16'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Sub-router built with section anchors.'
+    },
+    routes: [
+      '/',
+      '#home',
+      '#macro-areas',
+      '#courses',
+      '#mentors',
+      '#campuses',
+      '#alumni',
+      '#scholarships',
+      '#admissions',
+      '#news',
+      '#faq'
+    ],
+    completedAt: '2026-10-16'
   }
 ];
+
 
 
 
