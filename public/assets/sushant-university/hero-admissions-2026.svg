@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="admBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1F1612"/>
+      <stop offset="100%" stop-color="#3D1D0F"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#admBg)"/>
+
+  <rect x="250" y="80" width="300" height="130" rx="16" fill="#7C2D12" stroke="#F97316" stroke-width="3"/>
+  <text x="400" y="135" font-family="'Inter', sans-serif" font-weight="900" font-size="32" fill="#FDE047" text-anchor="middle">
+    ADMISSIONS 2026
+  </text>
+  <text x="400" y="175" font-family="'Inter', sans-serif" font-weight="800" font-size="18" fill="#FFFFFF" text-anchor="middle">
+    MERIT SCHOLARSHIPS UP TO 100%
+  </text>
+
+  <text x="400" y="275" font-family="'Cinzel', serif" font-weight="900" font-size="42" fill="#FFFFFF" text-anchor="middle">
+    ACADEMIC SESSION 2026-27
+  </text>
+  <text x="400" y="325" font-family="'Inter', sans-serif" font-weight="800" font-size="24" fill="#FB923C" text-anchor="middle">
+    ACROSS 8 SCHOOLS &amp; 100+ DEGREE COURSES
+  </text>
+  <text x="400" y="365" font-family="'Inter', sans-serif" font-weight="500" font-size="16" fill="#FED7AA" text-anchor="middle">
+    Architecture · Design · Engineering · Law · Management · Health Sciences · Hospitality
+  </text>
+</svg>

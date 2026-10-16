@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 100" width="540" height="100">
+  <defs>
+    <linearGradient id="shieldGradWhite" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f223d"/>
+      <stop offset="100%" stop-color="#1e3a63"/>
+    </linearGradient>
+    <linearGradient id="goldGradWhite" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="crimsonGradWhite" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#e11d48"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Crest Heraldry -->
+  <g transform="translate(10, 6)">
+    <!-- Laurel Wreath Left -->
+    <path d="M 18,52 C 12,42 12,28 18,18 C 22,25 22,35 18,45 Z" fill="#f59e0b" opacity="0.85"/>
+    <path d="M 12,62 C 6,52 6,38 12,28 C 16,35 16,45 12,55 Z" fill="#fbbf24"/>
+    <!-- Laurel Wreath Right -->
+    <path d="M 70,52 C 76,42 76,28 70,18 C 66,25 66,35 70,45 Z" fill="#f59e0b" opacity="0.85"/>
+    <path d="M 76,62 C 82,52 82,38 76,28 C 72,35 72,45 76,55 Z" fill="#fbbf24"/>
+
+    <!-- Outer Shield -->
+    <path d="M 44,6 L 72,16 L 72,48 C 72,68 44,82 44,82 C 44,82 16,68 16,48 L 16,16 Z" 
+          fill="url(#shieldGradWhite)" stroke="url(#goldGradWhite)" stroke-width="2.5" />
+
+    <!-- Inner Shield Inset -->
+    <path d="M 44,12 L 66,20 L 66,46 C 66,62 44,74 44,74 C 44,74 22,62 22,46 L 22,20 Z" 
+          fill="none" stroke="#fbbf24" stroke-width="1" opacity="0.7" />
+
+    <!-- Red Chevron / Banner -->
+    <path d="M 44,22 L 62,32 L 44,42 L 26,32 Z" fill="url(#crimsonGradWhite)" />
+
+    <!-- Flaming Torch & Open Book -->
+    <path d="M 33,58 C 38,55 42,56 44,58 C 46,56 50,55 55,58 L 55,68 C 50,65 46,66 44,68 C 42,66 38,65 33,68 Z" 
+          fill="#ffffff" stroke="#fbbf24" stroke-width="0.8"/>
+    <line x1="44" y1="58" x2="44" y2="68" stroke="#0f223d" stroke-width="1"/>
+
+    <!-- Torch Stem -->
+    <line x1="44" y1="34" x2="44" y2="48" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+    <!-- Flame -->
+    <path d="M 44,24 C 41,28 41,32 44,34 C 47,32 47,28 44,24 Z" fill="#fbbf24"/>
+    <path d="M 44,26 C 42.5,28.5 42.5,31 44,32 C 45.5,31 45.5,28.5 44,26 Z" fill="#f43f5e"/>
+
+    <!-- Stars representing Excellence -->
+    <circle cx="30" cy="46" r="1.8" fill="#fbbf24"/>
+    <circle cx="58" cy="46" r="1.8" fill="#fbbf24"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="106" y="42" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-weight="800" font-size="28" fill="#ffffff" letter-spacing="1.5">
+    CR RAMANS
+  </text>
+  <text x="107" y="66" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-weight="700" font-size="20" fill="#fb7185" letter-spacing="4">
+    UNIVERSITY
+  </text>
+  <text x="108" y="82" font-family="'Inter', sans-serif" font-weight="600" font-size="9" fill="#cbd5e1" letter-spacing="1">
+    NAAC GRADE A+ ACCREDITED · QS WORLD RANKED #1 PRIVATE UNIVERSITY
+  </text>
+</svg>

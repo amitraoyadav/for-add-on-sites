@@ -30,6 +30,7 @@ const SpJainLazy = lazy(() => import('../templates/sp-jain/SpJain'));
 const ArshadUniversityLazy = lazy(() => import('../templates/arshad-university/ArshadUniversity'));
 const GilgitLazy = lazy(() => import('../templates/gilgit/Gilgit'));
 const IstitutoMarangoniLazy = lazy(() => import('../templates/istituto-marangoni/IstitutoMarangoni'));
+const CrRamansUniversityLazy = lazy(() => import('../templates/cr-ramans-university/CrRamansUniversity'));
 
 interface TemplateLoaderProps {
   template: TemplateManifestItem;
@@ -473,6 +474,26 @@ export function TemplateLoader({ template, onOpenIntakeModal }: TemplateLoaderPr
         }
       >
         <IstitutoMarangoniLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is CR RAMANS UNIVERSITY
+  if (template.id === 'cr-ramans-university') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#070D18] text-white">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-amber-400 font-mono">
+                Loading CR RAMANS UNIVERSITY Demo...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <CrRamansUniversityLazy />
       </Suspense>
     );
   }

@@ -1458,6 +1458,87 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
       '#faq'
     ],
     completedAt: '2026-10-16'
+  },
+
+  // --- TEMPLATE #23: CR RAMANS UNIVERSITY (Rebranded from Chandigarh University / cuchd.in) ---
+  {
+    id: 'cr-ramans-university',
+    slug: 'cr-ramans-university',
+    numericId: 23,
+    name: 'CR RAMANS UNIVERSITY',
+    tagline: 'Discover. Learn. Empower. — NAAC A+ Accredited · Ranked Among Top Universities by QS World & NIRF',
+    categoryCode: 'cat-education-coaching',
+    categoryLetter: '2',
+    categoryName: 'Coaching Institute & Education',
+    subcategory: 'Universities',
+    businessType: 'Major Comprehensive University & Higher Education Campus',
+    targetClients: 'Universities, engineering colleges, management institutes, law colleges, research campuses, academic trusts',
+    batch: 1,
+    status: 'completed',
+    entryPoint: 'src/templates/cr-ramans-university/CrRamansUniversity.tsx',
+    assetPath: 'public/assets/cr-ramans-university/',
+    thumbnail: '/assets/cr-ramans-university/hero-placement-17cr.svg',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Official institutional identity for CR RAMANS UNIVERSITY with heraldic crest, flaming torch, and laurel wreath',
+      'Statutory accreditations highlights: NAAC Grade A+ Accredited (Highest cycle institutional benchmark)',
+      'QS World University Rankings: #1 Private University in India & among Top 1% Universities Worldwide',
+      'ABET USA Accredited engineering programs ensuring global professional equivalency of degrees',
+      'NIRF Ranked University (Ministry of Education, Govt. of India) across Engineering, Management & Overall',
+      '5-Slide full-bleed hero carousel (₹1.7 Crore Placements, NAAC A+ & QS World #1, CRUCET Scholarships, 12,000+ Patents, 200+ Acre Campus)',
+      '150+ degree programs catalog (B.E. CSE, AI & ML, ECE, ME, MBA, BBA FinTech, BCA, MCA, B.A. LL.B Hons, B.Pharm, B.Sc Biotech, B.Des Animation) with live search and curriculum modal',
+      'Record-shattering placements showcase: ₹1.7 Crore highest international package, ₹54.75 LPA domestic highest, 9,124+ offers from 904+ MNCs',
+      'Research & Innovation hub: 12,000+ patents filed, 30+ industry-sponsored Centers of Excellence (IBM, Microsoft, Hyundai, Intel, Cisco, Dassault)',
+      '360° virtual campus tour simulator covering Central Digital Library (150,000+ books), 2,000-seater AC auditorium, Olympic sports complex, and residential hostels',
+      'CRUCET 2026 interactive scholarship calculator with merit tier assessment and up to 100% tuition fee waiver estimation',
+      'Online admissions application desk with real-time field validation, error handling, and generated CRU-2026-XXXXXX tracking reference',
+      'Application tracking desk with instant reference lookup simulation',
+      'Verified student placement voices at Microsoft (₹54.75 LPA), AWS (₹44.14 LPA), Deloitte (₹12.5 LPA), and Trilegal Law',
+      'Expandable FAQ accordion addressing CRUCET 2026, NAAC accreditation, placements, hostels, and program eligibility',
+      'Comprehensive institutional footer with UGC compliance disclosures, AICTE/BCI/PCI/COA approvals, 1800 1212 88800 helpline, and download prospectus flow'
+    ],
+    conversionTriggers: [
+      'Apply Online 2026',
+      'Calculate CRUCET Scholarship',
+      'Explore Degree Programs',
+      'Download 2026 Prospectus',
+      'View Placement Records',
+      'Toll-Free Helpline'
+    ],
+    colorTheme: {
+      primary: '#070D18',
+      secondary: '#F59E0B',
+      bgStyle: 'bg-[#070D18]'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'CR RAMANS UNIVERSITY (Rebranded from saveweb2zip-com-www-cuchd-in.zip / https://www.cuchd.in/)',
+      sourceUrl: 'https://www.cuchd.in/',
+      notes: 'Faithfully reconstructed full university website demo rebranded as CR RAMANS UNIVERSITY from the uploaded Chandigarh University archive, preserving original NAAC A+ accreditation, QS World #1 Private in India ranking, ABET USA accreditation, ₹1.7 Crore highest package, 9,124+ offers, 30+ industry CoE labs, CRUCET scholarship portal, and online admissions desk.',
+      receivedAt: '2026-10-16'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Scoped styling under .cr-ramans-demo.'
+    },
+    routes: [
+      '/',
+      '#home',
+      '#rankings',
+      '#programs',
+      '#placements',
+      '#innovation',
+      '#campus-life',
+      '#scholarships',
+      '#admissions',
+      '#faqs'
+    ],
+    completedAt: '2026-10-16'
   }
 ];
 

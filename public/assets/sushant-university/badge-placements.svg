@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 64" width="210" height="64">
+  <rect width="210" height="64" rx="8" fill="#0A1826" stroke="#10B981" stroke-width="1.5"/>
+  <rect x="12" y="14" width="36" height="36" rx="6" fill="#047857"/>
+  <text x="30" y="38" font-family="'Inter', sans-serif" font-weight="900" font-size="13" fill="#D1FAE5" text-anchor="middle">₹50L</text>
+  <text x="58" y="27" font-family="'Inter', sans-serif" font-weight="900" font-size="13" fill="#34D399">₹50 LPA HIGHEST</text>
+  <text x="58" y="42" font-family="'Inter', sans-serif" font-weight="700" font-size="10" fill="#FFFFFF">850+ HIRING PARTNERS</text>
+  <text x="58" y="54" font-family="'Inter', sans-serif" font-weight="500" font-size="8" fill="#A7F3D0">GOOGLE · AMAZON · GENSLER</text>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="infraBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#infraBg)"/>
+
+  <!-- Building silhouette -->
+  <path d="M 280,240 L 280,160 L 330,130 L 380,160 L 380,240 Z" fill="#334155"/>
+  <path d="M 380,240 L 380,110 L 420,80 L 460,110 L 460,240 Z" fill="#475569"/>
+  <path d="M 460,240 L 460,150 L 520,130 L 520,240 Z" fill="#334155"/>
+
+  <text x="400" y="300" font-family="'Cinzel', serif" font-weight="900" font-size="42" fill="#ffffff" text-anchor="middle">
+    200+ ACRE HI-TECH CAMPUS
+  </text>
+  <text x="400" y="345" font-family="'Inter', sans-serif" font-weight="800" font-size="24" fill="#fbbf24" text-anchor="middle">
+    WORLD-CLASS SPORTS, LIBRARIES &amp; RESIDENTIAL FACILITIES
+  </text>
+  <text x="400" y="385" font-family="'Inter', sans-serif" font-weight="500" font-size="16" fill="#cbd5e1" text-anchor="middle">
+    2,000+ Seater Convention Auditorium · Olympic Swimming &amp; Arenas · Global Multi-Cuisine Cafes
+  </text>
+</svg>

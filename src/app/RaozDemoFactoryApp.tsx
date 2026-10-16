@@ -35,8 +35,9 @@ import {
 export default function RaozDemoFactoryApp() {
   const [templates, setTemplates] = useState<TemplateManifestItem[]>(TEMPLATE_MANIFEST);
   const [activeTab, setActiveTab] = useState<'catalog' | 'preview' | 'categories' | 'intake' | 'integration' | 'rules'>('catalog');
+  const crRamansItem = templates.find((t) => t.id === 'cr-ramans-university');
   const marangoniItem = templates.find((t) => t.id === 'istituto-marangoni');
-  const [selectedTemplate, setSelectedTemplate] = useState<TemplateManifestItem>(marangoniItem || templates[0]);
+  const [selectedTemplate, setSelectedTemplate] = useState<TemplateManifestItem>(crRamansItem || marangoniItem || templates[0]);
   const [detailModalTemplate, setDetailModalTemplate] = useState<TemplateManifestItem | null>(null);
   const [intakeModalTemplate, setIntakeModalTemplate] = useState<TemplateManifestItem | null>(null);
   const [isIntakeModalOpen, setIsIntakeModalOpen] = useState(false);
@@ -62,6 +63,15 @@ export default function RaozDemoFactoryApp() {
     clientNeeds: string;
     submittedAt: string;
   }>>([
+    {
+      id: 'ref-cr-ramans-23',
+      templateId: 'cr-ramans-university',
+      refType: 'zip',
+      urlOrTitle: 'CR RAMANS UNIVERSITY (Rebranded from saveweb2zip-com-www-cuchd-in.zip / https://www.cuchd.in/)',
+      notes: 'Premier NAAC Grade A+ Accredited University & QS World Ranked #1 Private University in India. Featuring ABET USA accreditation, ₹1.7 Crore highest international placement package, ₹54.75 LPA domestic highest package, 9,124+ offers from 904+ MNCs, 12,000+ patents, and CRUCET 2026 ₹170 Cr merit scholarship portal. Recreated as Template #23 under Universities category.',
+      clientNeeds: 'Complete website recreation from the uploaded ZIP archive, official heraldic crest branding, statutory accreditation highlights (NAAC Grade A+ Accredited, QS World Ranked #1 Private in India, NIRF Ranked, ABET USA Engineering Accreditation), 5-slide full-bleed hero carousel (₹1.7 Crore highest package, NAAC A+ & QS rankings, CRUCET 2026 ₹170 Cr scholarships, 12,000+ patents, 200+ acre smart campus), academic programs catalog (B.E. CSE, AI & ML, ECE, ME, MBA, BBA FinTech, BCA, MCA, B.A. LL.B, B.Pharm, B.Sc Biotech, B.Des) with live search and curriculum modal, placement powerhouse showcasing ₹1.7 Crore international package with 904+ Fortune 500 recruiters, 30+ industry Centers of Excellence (IBM Software Lab, Microsoft Innovation Center, Hyundai Powertrain, Intel IoT, Cisco Academy), 200+ acre campus facilities with 2,000+ seater convention auditorium and automated digital library, online admissions application desk with real-time field validation and generated CRU-2026-XXXXXX tracking reference, verified alumni career voices at Microsoft and AWS, and comprehensive institutional footer with UGC compliance disclosures.',
+      submittedAt: '2026-10-16'
+    },
     {
       id: 'ref-marangoni-22',
       templateId: 'istituto-marangoni',

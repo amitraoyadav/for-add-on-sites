@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="crucetBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#crucetBg)"/>
+
+  <rect x="250" y="90" width="300" height="130" rx="16" fill="#312e81" stroke="#818cf8" stroke-width="3"/>
+  <text x="400" y="145" font-family="'Inter', sans-serif" font-weight="900" font-size="34" fill="#fbbf24" text-anchor="middle">
+    CRUCET 2026
+  </text>
+  <text x="400" y="185" font-family="'Inter', sans-serif" font-weight="700" font-size="18" fill="#e0e7ff" text-anchor="middle">
+    NATIONAL ENTRANCE &amp; SCHOLARSHIP
+  </text>
+
+  <text x="400" y="280" font-family="'Cinzel', serif" font-weight="900" font-size="44" fill="#f59e0b" text-anchor="middle">
+    ₹170 CRORE SCHOLARSHIP POOL
+  </text>
+  <text x="400" y="325" font-family="'Inter', sans-serif" font-weight="700" font-size="24" fill="#ffffff" text-anchor="middle">
+    UP TO 100% TUITION FEE WAIVER FOR MERIT HOLDERS
+  </text>
+  <text x="400" y="370" font-family="'Inter', sans-serif" font-weight="500" font-size="16" fill="#c7d2fe" text-anchor="middle">
+    Available across Engineering, Management, Computing, Law, Pharmacy &amp; 150+ Degrees
+  </text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="ssaaBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1826"/>
+      <stop offset="100%" stop-color="#142C44"/>
+    </linearGradient>
+    <linearGradient id="warmOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7043"/>
+      <stop offset="100%" stop-color="#D84315"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#ssaaBg)"/>
+  
+  <!-- Architectural Drafting Grid -->
+  <g stroke="#1E3A5F" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="160" y1="0" x2="160" y2="500"/>
+    <line x1="320" y1="0" x2="320" y2="500"/>
+    <line x1="480" y1="0" x2="480" y2="500"/>
+    <line x1="640" y1="0" x2="640" y2="500"/>
+  </g>
+
+  <!-- Architectural Emblem -->
+  <circle cx="400" cy="170" r="65" fill="#1E3A5F" stroke="url(#warmOrange)" stroke-width="4"/>
+  <polygon points="400,125 435,160 400,195 365,160" fill="none" stroke="#FF7043" stroke-width="3"/>
+  <polygon points="400,140 420,160 400,180 380,160" fill="#E65100"/>
+
+  <text x="400" y="285" font-family="'Cinzel', serif" font-weight="900" font-size="38" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">
+    SUSHANT SCHOOL OF ART &amp; ARCHITECTURE
+  </text>
+  <text x="400" y="330" font-family="'Inter', sans-serif" font-weight="800" font-size="24" fill="#FF7043" text-anchor="middle">
+    RANKED #1 IN ARCHITECTURE &amp; DESIGN IN DELHI-NCR
+  </text>
+  <text x="400" y="370" font-family="'Inter', sans-serif" font-weight="500" font-size="16" fill="#CBD5E1" text-anchor="middle">
+    35+ Years of Pioneering Design Legacy (Estd. 1989) · Global Alumni at Gensler, HOK, Foster + Partners
+  </text>
+</svg>

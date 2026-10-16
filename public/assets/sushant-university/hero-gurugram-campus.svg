@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="guruBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#guruBg)"/>
+
+  <!-- Iconic Building Silhouette with Terracotta Line -->
+  <polygon points="400,90 480,180 320,180" fill="#334155"/>
+  <rect x="340" y="180" width="120" height="40" fill="#475569"/>
+  <line x1="300" y1="220" x2="500" y2="220" stroke="#FF7043" stroke-width="4"/>
+
+  <text x="400" y="280" font-family="'Cinzel', serif" font-weight="900" font-size="38" fill="#FFFFFF" text-anchor="middle">
+    GOLF COURSE ROAD, GURUGRAM
+  </text>
+  <text x="400" y="325" font-family="'Inter', sans-serif" font-weight="800" font-size="24" fill="#38BDF8" text-anchor="middle">
+    15-ACRE GREEN CAMPUS IN INDIA'S CORPORATE CAPITAL
+  </text>
+  <text x="400" y="365" font-family="'Inter', sans-serif" font-weight="500" font-size="16" fill="#94A3B8" text-anchor="middle">
+    Architectural Studios · Amphitheater · High-Tech Design Labs · On-Campus AC Hostels
+  </text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 90" width="520" height="90">
+  <defs>
+    <linearGradient id="suOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E65100"/>
+      <stop offset="100%" stop-color="#D84315"/>
+    </linearGradient>
+    <linearGradient id="suBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A2540"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Architectural Geometric Logo Emblem -->
+  <g transform="translate(10, 8)">
+    <!-- Base structural diamond/quadrilateral -->
+    <path d="M 36,4 L 68,28 L 36,68 L 4,44 Z" fill="url(#suBlue)"/>
+    <!-- Interlocking Orange Architectural Wing (SSAA Design Line) -->
+    <path d="M 36,4 L 68,28 L 52,48 L 20,24 Z" fill="url(#suOrange)"/>
+    <path d="M 36,68 L 68,44 L 52,24 L 20,48 Z" fill="#FF7043" opacity="0.9"/>
+    <!-- Core White Axis Diamond -->
+    <polygon points="36,24 48,36 36,48 24,36" fill="#FFFFFF"/>
+    <!-- Torch Flame Tip -->
+    <circle cx="36" cy="36" r="4" fill="#D84315"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="96" y="38" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-weight="900" font-size="28" fill="#0A2540" letter-spacing="1.5">
+    SUSHANT
+  </text>
+  <text x="97" y="64" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-weight="800" font-size="21" fill="#E65100" letter-spacing="3.5">
+    UNIVERSITY
+  </text>
+  <text x="98" y="79" font-family="'Inter', sans-serif" font-weight="600" font-size="8.5" fill="#64748B" letter-spacing="1">
+    GURUGRAM (DELHI-NCR) · ESTD. 2012 · UGC RECOGNIZED · SSAA LEGACY SINCE 1989
+  </text>
+</svg>

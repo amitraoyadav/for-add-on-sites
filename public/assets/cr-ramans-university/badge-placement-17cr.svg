@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 64" width="200" height="64">
+  <rect width="200" height="64" rx="8" fill="#0A192F" stroke="#F59E0B" stroke-width="1.5"/>
+  <rect x="14" y="14" width="36" height="36" rx="6" fill="#78350F"/>
+  <text x="32" y="38" font-family="'Inter', sans-serif" font-weight="900" font-size="14" fill="#FDE68A" text-anchor="middle">₹1.7</text>
+  <text x="60" y="27" font-family="'Inter', sans-serif" font-weight="900" font-size="14" fill="#F59E0B">₹1.7 CRORE</text>
+  <text x="60" y="43" font-family="'Inter', sans-serif" font-weight="700" font-size="10" fill="#FFFFFF">HIGHEST INTL PACKAGE</text>
+  <text x="60" y="55" font-family="'Inter', sans-serif" font-weight="500" font-size="8" fill="#FDE68A">9,124+ OFFERS · 904+ MNCS</text>
+</svg>

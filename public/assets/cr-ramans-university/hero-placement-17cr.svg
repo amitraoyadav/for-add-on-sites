@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071120"/>
+      <stop offset="100%" stop-color="#0b1b33"/>
+    </linearGradient>
+    <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle Grid Lines -->
+  <g stroke="#1e293b" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+  </g>
+
+  <!-- Glowing Trophy / Chart Graphic -->
+  <circle cx="400" cy="200" r="140" fill="#f59e0b" opacity="0.08" filter="blur(30px)"/>
+  <circle cx="400" cy="180" r="70" fill="#0f274a" stroke="url(#goldGlow)" stroke-width="4"/>
+  
+  <!-- Trophy icon -->
+  <path d="M 375,150 L 425,150 L 425,175 C 425,195 405,205 400,205 C 395,205 375,195 375,175 Z" fill="#f59e0b"/>
+  <path d="M 365,155 C 355,155 355,175 375,175" fill="none" stroke="#f59e0b" stroke-width="3"/>
+  <path d="M 435,155 C 445,155 445,175 425,175" fill="none" stroke="#f59e0b" stroke-width="3"/>
+  <rect x="394" y="205" width="12" height="18" fill="#d97706"/>
+  <rect x="380" y="223" width="40" height="8" rx="2" fill="#f59e0b"/>
+
+  <text x="400" y="300" font-family="'Cinzel', serif" font-weight="900" font-size="44" fill="#f8fafc" text-anchor="middle" letter-spacing="1">
+    RECORD PLACEMENTS 2026
+  </text>
+  <text x="400" y="345" font-family="'Inter', sans-serif" font-weight="800" font-size="28" fill="#f59e0b" text-anchor="middle">
+    ₹1.7 CRORE INTERNATIONAL · ₹54.75 LPA DOMESTIC
+  </text>
+  <text x="400" y="380" font-family="'Inter', sans-serif" font-weight="500" font-size="16" fill="#94a3b8" text-anchor="middle">
+    9,124+ OFFERS · 904+ FORTUNE 500 RECRUITERS · 350+ MULTINATIONALS
+  </text>
+</svg>
