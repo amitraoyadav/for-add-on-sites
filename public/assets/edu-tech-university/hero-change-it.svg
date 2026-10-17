@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#001829" />
+      <stop offset="50%" stop-color="#002B49" />
+      <stop offset="100%" stop-color="#004369" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00A3E0" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="600" height="380" rx="16" fill="url(#bgGrad)" />
+  
+  <!-- Architectural grid & ambient circles -->
+  <circle cx="500" cy="90" r="140" fill="url(#glowGrad)" />
+  <circle cx="120" cy="320" r="90" fill="#006DAE" fill-opacity="0.25" />
+  
+  <!-- Geometric wireframe representing innovation -->
+  <path d="M420 80 L520 160 L480 260 L380 220 Z" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 4" fill="#00A3E0" fill-opacity="0.08" />
+  <path d="M480 40 L580 120 L540 220 L440 180 Z" stroke="#006DAE" stroke-width="1.2" fill="none" opacity="0.6" />
+
+  <!-- Badge banner -->
+  <g transform="translate(48, 50)">
+    <rect width="180" height="30" rx="6" fill="#006DAE" fill-opacity="0.6" stroke="#38BDF8" stroke-width="1" />
+    <text x="90" y="19" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10.5" font-weight="800" letter-spacing="1.5" fill="#38BDF8" text-anchor="middle">
+      GLOBAL TOP 40 UNIVERSITY
+    </text>
+  </g>
+  
+  <!-- Headline -->
+  <text x="48" y="130" font-family="'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="900" fill="#FFFFFF" letter-spacing="0.5">
+    IF YOU DON'T LIKE
+  </text>
+  <text x="48" y="172" font-family="'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="900" fill="#FFFFFF" letter-spacing="0.5">
+    THE WAY THE WORLD IS,
+  </text>
+  
+  <text x="48" y="226" font-family="'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="900" fill="#38BDF8" letter-spacing="1">
+    CHANGE IT.
+  </text>
+  
+  <!-- Sub-caption -->
+  <text x="48" y="270" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="500" fill="#CBD5E1">
+    Australia's leading research powerhouse. Shaping the future across 160+ countries.
+  </text>
+  
+  <!-- Key metrics strip -->
+  <g transform="translate(48, 305)">
+    <rect width="504" height="48" rx="10" fill="#001829" fill-opacity="0.8" stroke="#1E3A5F" stroke-width="1" />
+    
+    <text x="60" y="22" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="900" fill="#38BDF8" text-anchor="middle">#37</text>
+    <text x="60" y="36" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8.5" font-weight="700" fill="#94A3B8" text-anchor="middle">QS WORLD RANK</text>
+    
+    <line x1="120" y1="10" x2="120" y2="38" stroke="#1E3A5F" stroke-width="1" />
+    
+    <text x="190" y="22" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="900" fill="#F59E0B" text-anchor="middle">Go8</text>
+    <text x="190" y="36" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8.5" font-weight="700" fill="#94A3B8" text-anchor="middle">GROUP OF EIGHT</text>
+    
+    <line x1="260" y1="10" x2="260" y2="38" stroke="#1E3A5F" stroke-width="1" />
+    
+    <text x="330" y="22" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="900" fill="#FFFFFF" text-anchor="middle">86,000+</text>
+    <text x="330" y="36" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8.5" font-weight="700" fill="#94A3B8" text-anchor="middle">GLOBAL STUDENTS</text>
+    
+    <line x1="400" y1="10" x2="400" y2="38" stroke="#1E3A5F" stroke-width="1" />
+    
+    <text x="452" y="22" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="900" fill="#10B981" text-anchor="middle">440K+</text>
+    <text x="452" y="36" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8.5" font-weight="700" fill="#94A3B8" text-anchor="middle">ALUMNI NETWORK</text>
+  </g>
+</svg>

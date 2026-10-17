@@ -35,9 +35,11 @@ import {
 export default function RaozDemoFactoryApp() {
   const [templates, setTemplates] = useState<TemplateManifestItem[]>(TEMPLATE_MANIFEST);
   const [activeTab, setActiveTab] = useState<'catalog' | 'preview' | 'categories' | 'intake' | 'integration' | 'rules'>('catalog');
+  const sushantItem = templates.find((t) => t.id === 'sushant-university');
+  const eduTechItem = templates.find((t) => t.id === 'edu-tech-university');
   const crRamansItem = templates.find((t) => t.id === 'cr-ramans-university');
   const marangoniItem = templates.find((t) => t.id === 'istituto-marangoni');
-  const [selectedTemplate, setSelectedTemplate] = useState<TemplateManifestItem>(crRamansItem || marangoniItem || templates[0]);
+  const [selectedTemplate, setSelectedTemplate] = useState<TemplateManifestItem>(sushantItem || eduTechItem || crRamansItem || marangoniItem || templates[0]);
   const [detailModalTemplate, setDetailModalTemplate] = useState<TemplateManifestItem | null>(null);
   const [intakeModalTemplate, setIntakeModalTemplate] = useState<TemplateManifestItem | null>(null);
   const [isIntakeModalOpen, setIsIntakeModalOpen] = useState(false);
@@ -63,6 +65,24 @@ export default function RaozDemoFactoryApp() {
     clientNeeds: string;
     submittedAt: string;
   }>>([
+    {
+      id: 'ref-sushant-25',
+      templateId: 'sushant-university',
+      refType: 'zip',
+      urlOrTitle: 'Sushant University (saveweb2zip-com-sushantuniversity-edu-in(1).zip / https://sushantuniversity.edu.in/)',
+      notes: 'Premier Multidisciplinary University on Golf Course Road, Gurugram. Renowned for Sushant School of Art & Architecture (SSAA, Ranked #1 in Delhi-NCR since 1989), Vatel Hotel & Tourism Business School France, ₹50 LPA highest placement package, and Haryana Domicile merit scholarships. Added as Template #25 under Universities category.',
+      clientNeeds: 'Complete website recreation from the uploaded Sushant University archive: authentic institutional emerald navy & gold heraldic branding, statutory recognition disclosures (Haryana Private Universities Act 2012, UGC, COA, BCI, PCI), 5-slide full-bleed hero carousel (SSAA 35-year architecture legacy, ₹50 LPA placements milestone, international collaborations with Warwick & Vatel, 15-acre lush Gurugram campus, 2026 admissions desk), 8 specialized schools directory (SSAA, SSD, SET, SOB, SOL, SHS, Vatel, SPD), comprehensive degree courses finder (B.Arch, B.Des, B.Tech CSE, MBA, BBA, B.A. LL.B, B.Pharm) with live search and curriculum modal, placement powerhouse showcasing ₹50 LPA highest package with 850+ recruiters, 15-acre smart campus tour, interactive Haryana Domicile & Merit Scholarship Calculator estimating up to 100% tuition waivers, direct online admissions application desk with real-time field validation and generated SU-2026-XXXXXX tracking reference, application status lookup tool, verified alumni career voices, 360° virtual campus tour simulator, expandable FAQ accordion, and comprehensive institutional footer.',
+      submittedAt: '2026-10-17'
+    },
+    {
+      id: 'ref-edu-tech-24',
+      templateId: 'edu-tech-university',
+      refType: 'zip',
+      urlOrTitle: 'EDU TECH UNIVERSITY (Recreated from saveweb2zip-com-www-monash-edu.zip / https://www.monash.edu/)',
+      notes: 'Premier Australian Global Research Intensive University & Member of Group of Eight (Go8). Ranked #37 in the World by QS and US News, #2 in the World for Pharmacy & Pharmacology, #1 in Australia for Engineering & Technology, and Triple Crown Accredited Business School. Recreated as Template #24 under Universities subcategory.',
+      clientNeeds: 'Complete website recreation from the uploaded Monash University archive, official heraldic crest branding with open book, sword, and southern cross stars, statutory Group of Eight and CRICOS 00008C disclosures, 5-slide full-bleed hero carousel ("If you don\'t like the way the world is, Change It", Global Campuses across 4 continents, Research Impact with $480M+ funding, Campus Life with 100+ clubs, and Admissions 2026), four archive feature boxes (International Student Applications, Campus Experience, Design Studio Maker Space, Industry Work-Integrated Learning), ten academic faculties directory (Engineering, IT, Business, Medicine, Pharmacy, Law, Science, Art & Design MADA, Arts, Education), interactive degree courses finder with live search, level/faculty filters and curriculum detail modal, global campuses explorer across 8 locations (Clayton, Caulfield, Parkville, Peninsula, Malaysia, Indonesia, Italy, India), interactive scholarship assessment calculator with merit tiers, direct online admissions application desk with real-time field validation and generated ETU-2026-XXXXXX tracking reference, application status lookup tool, verified alumni career voices, expandable FAQ accordion, 360° virtual campus tour simulator, and comprehensive institutional footer with Acknowledgement of Country.',
+      submittedAt: '2026-10-17'
+    },
     {
       id: 'ref-cr-ramans-23',
       templateId: 'cr-ramans-university',

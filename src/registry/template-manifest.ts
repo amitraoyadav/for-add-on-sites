@@ -23,6 +23,7 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
     status: 'completed',
     entryPoint: 'src/templates/sazy-cafe/SazyCafe.tsx',
     assetPath: 'public/assets/sazy-cafe/',
+    thumbnail: '/assets/sazy-cafe/hero-banner.svg',
     dependencies: ['lucide-react', 'react'],
     features: [
       'Elevated Japanese-inspired dining menu & Toyosu-flown raw sushi bar',
@@ -80,6 +81,7 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
     status: 'completed',
     entryPoint: 'src/templates/social-offline/SocialOffline.tsx',
     assetPath: 'public/assets/social-offline/',
+    thumbnail: '/assets/social-offline/Website-banner-desktop.png',
     dependencies: ['lucide-react', 'react', 'motion'],
     features: [
       'Original SOCIAL OFFLINE branding, typography, and raw industrial aesthetic',
@@ -139,6 +141,7 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
     status: 'completed',
     entryPoint: 'src/templates/pho-cafe/PhoCafe.tsx',
     assetPath: 'public/assets/pho-cafe/',
+    thumbnail: '/assets/pho-cafe/hero-bg.webp',
     dependencies: ['lucide-react', 'react', 'motion'],
     features: [
       'Original Pho Cafe branding, trademark red block & cream logo, and floating black pill nav',
@@ -200,6 +203,7 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
     status: 'completed',
     entryPoint: 'src/templates/la-colombe/LaColombe.tsx',
     assetPath: 'public/assets/la-colombe/',
+    thumbnail: '/assets/la-colombe/hero-bg.svg',
     dependencies: ['lucide-react', 'react', 'motion'],
     features: [
       'Official La Colombe visual language, dove emblem, and classic serif wordmark',
@@ -261,6 +265,7 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
     status: 'completed',
     entryPoint: 'src/templates/wedding-photo-planet/WeddingPhotoPlanet.tsx',
     assetPath: 'public/assets/wedding-photo-planet/',
+    thumbnail: '/assets/wedding-photo-planet/banner-celebrity-1.svg',
     dependencies: ['lucide-react', 'react', 'motion'],
     features: [
       'Original Wedding Photo Planet logo, branding, aperture icon, and red/gold design system',
@@ -322,6 +327,7 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
     status: 'completed',
     entryPoint: 'src/templates/photo-phactory/PhotoPhactory.tsx',
     assetPath: 'public/assets/photo-phactory/',
+    thumbnail: '/assets/photo-phactory/home-bg1.svg',
     dependencies: ['lucide-react', 'react', 'motion'],
     features: [
       'Original Photo Phactory logo, branding, and minimalist dark/light design language (#6DA716 olive green accent)',
@@ -383,6 +389,7 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
     status: 'completed',
     entryPoint: 'src/templates/tell-a-tale/TellATale.tsx',
     assetPath: 'public/assets/tell-a-tale/',
+    thumbnail: '/assets/tell-a-tale/wedding-couple-portrait.jpg',
     dependencies: ['lucide-react', 'react', 'motion'],
     features: [
       'Original Tell-a-Tale Studios branding, logo emblem, and clean editorial monochrome design system',
@@ -446,6 +453,7 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
     status: 'completed',
     entryPoint: 'src/templates/gajare-photography/GajarePhotography.tsx',
     assetPath: 'public/assets/gajare-photography/',
+    thumbnail: '/assets/gajare-photography/portfolio-banner.webp',
     dependencies: ['lucide-react', 'react', 'motion'],
     features: [
       'Original Gajare Photography branding, emblem, and editorial dark aesthetic (#0B0C10 / #D4AF37 regal gold)',
@@ -508,6 +516,7 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
     status: 'completed',
     entryPoint: 'src/templates/knotsbyamp/KnotsbyAMP.tsx',
     assetPath: 'public/assets/knotsbyamp/',
+    thumbnail: '/assets/knotsbyamp/hero-og.jpg',
     dependencies: ['lucide-react', 'react'],
     features: [
       'Original KnotsbyAMP branding, typography, and dark luxury aesthetic (#0E0E11 onyx / #C99D66 champagne gold)',
@@ -1539,8 +1548,175 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
       '#faqs'
     ],
     completedAt: '2026-10-16'
+  },
+
+  // --- TEMPLATE #24: EDU TECH UNIVERSITY (Recreated from Monash University / monash.edu) ---
+  {
+    id: 'edu-tech-university',
+    slug: 'edu-tech-university',
+    numericId: 24,
+    name: 'EDU TECH UNIVERSITY',
+    tagline: "If You Don't Like The Way The World Is, Change It — Top 40 Global University & Group of Eight Australia",
+    categoryCode: 'cat-education-coaching',
+    categoryLetter: '2',
+    categoryName: 'Coaching Institute & Education',
+    subcategory: 'Universities',
+    businessType: 'Major Comprehensive Global Research University',
+    targetClients: 'Universities, research institutes, higher education campuses, international academic partnerships, medical & engineering faculties',
+    batch: 1,
+    status: 'completed',
+    entryPoint: 'src/templates/edu-tech-university/EduTechUniversity.tsx',
+    assetPath: 'public/assets/edu-tech-university/',
+    thumbnail: '/assets/edu-tech-university/hero-change-it.svg',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Official institutional identity for EDU TECH UNIVERSITY with heraldic crest, open book of wisdom, sword of truth, and southern cross stars',
+      'Statutory accreditations highlights: Group of Eight (Go8) Australia, CRICOS Provider Code: 00008C, TEQSA Provider ID: PRV12040',
+      'QS World University Rankings: #37 in the World & US News #37 Worldwide',
+      'Subject World Rankings: #2 in the World for Pharmacy & Pharmacology, #1 in Australia for Engineering & Technology',
+      'Triple Crown Accredited Business School (AACSB, EQUIS, AMBA)',
+      '5-Slide full-bleed hero carousel (Change It Campaign, Global Campuses across 4 Continents, Research Impact, Campus Experience, Admissions 2026)',
+      'Ten Academic Faculties directory (Engineering, IT, Business, Medicine, Pharmacy, Law, Science, Art & Design, Arts, Education)',
+      'Interactive Course Finder catalog (B.Eng Software, B.CompSci AI, B.Med/MD, B.Pharm/M.Pharm, B.Com Finance, LL.B Hons, M.AI, MBA) with live search and curriculum modal',
+      'Global Campuses Explorer across 8 locations: Clayton, Caulfield, Parkville, Peninsula, Malaysia (Sunway City), Indonesia (Jakarta), Prato (Italy), and IITB-ETU Academy (Mumbai)',
+      'Frontier Research Impact Showcase: $480M+ research income, mRNA manufacturing, green hydrogen hub, World Mosquito dengue elimination in 14 countries',
+      'Interactive Scholarship Assessment Calculator estimating domestic CSP and international fee waivers up to $10,000/yr or 100% full ride',
+      'Direct Online Admissions Application Desk with real-time field validation, error handling, and generated ETU-2026-XXXXXX tracking reference',
+      'Application status tracking lookup tool with instant status retrieval simulation',
+      'Verified alumni career stories at Atlassian, Google DeepMind, The Alfred Hospital, CSL Behring, King & Wood Mallesons, and Dyson',
+      '360° Virtual Campus Tour simulator covering Clayton Learning Precinct, MADA 3D Maker Space, and Parkville Chemistry Labs',
+      'Expandable FAQ accordion filterable by Admissions, International, Scholarships, Campus Life, and Research',
+      'Comprehensive institutional footer with Acknowledgement of Country, faculties directory, campus directories, and ABN/CRICOS compliance disclosures'
+    ],
+    conversionTriggers: [
+      'Apply Online 2026',
+      'Find a Course',
+      'Scholarship Assessment Calculator',
+      '360° Virtual Tour',
+      'International Student Concierge',
+      'Download 2026 Prospectus'
+    ],
+    colorTheme: {
+      primary: '#002B49',
+      secondary: '#006DAE',
+      bgStyle: 'bg-[#002B49]'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'EDU TECH UNIVERSITY (Recreated from saveweb2zip-com-www-monash-edu.zip / https://www.monash.edu/)',
+      sourceUrl: 'https://www.monash.edu/',
+      notes: 'Faithfully reconstructed full university website demo rebranded as EDU TECH UNIVERSITY from the uploaded Monash University archive, preserving original Go8 Australian university architecture, QS #37 world ranking, 10 faculties, global campuses across 4 continents, research strengths, and online admissions portal.',
+      receivedAt: '2026-10-17'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Scoped styling under .edu-tech-university-root.'
+    },
+    routes: [
+      '/',
+      '#home',
+      '#courses',
+      '#faculties',
+      '#campuses',
+      '#research',
+      '#scholarships',
+      '#admissions',
+      '#experience',
+      '#testimonials',
+      '#faqs'
+    ],
+    completedAt: '2026-10-17'
+  },
+
+  // --- TEMPLATE #25: SUSHANT UNIVERSITY (Recreated from saveweb2zip-com-sushantuniversity-edu-in(1).zip / https://sushantuniversity.edu.in/) ---
+  {
+    id: 'sushant-university',
+    slug: 'sushant-university',
+    numericId: 25,
+    name: 'Sushant University',
+    tagline: 'Excellence in Architecture, Design, Law, Engineering & Management — 15-Acre Gurugram Campus & SSAA Legacy',
+    categoryCode: 'cat-education-coaching',
+    categoryLetter: '2',
+    categoryName: 'Coaching Institute & Education',
+    subcategory: 'Universities',
+    businessType: 'Premier Multidisciplinary University & Architecture Legacy Campus',
+    targetClients: 'Universities, architecture institutes, design academies, law colleges, business schools, engineering campuses',
+    batch: 1,
+    status: 'completed',
+    entryPoint: 'src/templates/sushant-university/SushantUniversity.tsx',
+    assetPath: 'public/assets/sushant-university/',
+    thumbnail: '/assets/sushant-university/hero-architecture-legacy.svg',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Official institutional identity for Sushant University with emerald & gold heraldic crest, knowledge torch, and academic pillars',
+      'Statutory accreditations highlights: Established under Haryana Private Universities Act 2012, UGC recognized, COA, BCI, and PCI approved',
+      'Sushant School of Art & Architecture (SSAA): 35+ years of legacy ranked the #1 Architecture School in Delhi-NCR',
+      'Vatel Hotel & Tourism Business School: International hospitality partnership with Vatel France and global culinary training',
+      'Corporate Placements showcase: ₹50 LPA highest international package, ₹7.2 LPA average, 850+ recruiters across design, tech, and corporate sectors',
+      '5-Slide full-bleed hero carousel (SSAA Legacy, ₹50 LPA Placements, Global Collaborations with Warwick & Vatel, 15-Acre Golf Course Road Campus, Admissions 2026)',
+      'Eight Specialized Schools directory (SSAA Architecture, SSD Design, SET Engineering, SOB Business, SOL Law, SHS Health Sciences, Vatel Hospitality, SPD Planning)',
+      'Comprehensive degree courses finder (B.Arch, B.Des, B.Tech CSE AI/ML, MBA, BBA FinTech, B.A. LL.B Hons, B.Pharm, B.Sc CVT) with live search and curriculum modal',
+      '15-Acre smart campus infrastructure tour: Central AC digital library, 800-seater auditorium, moot courts, design ateliers, and on-campus residential hostels',
+      'Merit & Haryana Domicile Scholarship Calculator evaluating academic scores and state residence benefits (up to 100% tuition waiver)',
+      'Online admissions application desk with real-time field validation, error handling, and generated SU-2026-XXXXXX tracking reference',
+      'Application status tracking lookup tool with instant status retrieval simulation',
+      'Verified alumni career stories at Gensler, HOK, Microsoft, Google, Deloitte, and Taj Hotels',
+      '360° Virtual Campus Tour simulator covering SSAA Design Studios, Robotics Labs, Moot Courtroom, and Vatel Commercial Kitchens',
+      'Expandable FAQ accordion addressing COA approval, NATA requirements, scholarships, hostel amenities, and placement cells',
+      'Comprehensive institutional footer with UGC compliance disclosures, statutory approvals, 1800 270 5520 admissions helpline, and brochure downloads'
+    ],
+    conversionTriggers: [
+      'Apply Online 2026',
+      'Calculate Merit Scholarship',
+      'Explore Degree Programs',
+      'Download 2026 Prospectus',
+      'Schedule Campus Visit',
+      'Toll-Free Helpline'
+    ],
+    colorTheme: {
+      primary: '#0B2545',
+      secondary: '#E65100',
+      bgStyle: 'bg-[#0B2545]'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'Sushant University (saveweb2zip-com-sushantuniversity-edu-in(1).zip / https://sushantuniversity.edu.in/)',
+      sourceUrl: 'https://sushantuniversity.edu.in/',
+      notes: 'Faithfully reconstructed full university website demo from the uploaded Sushant University archive, preserving original SSAA architecture heritage, 8 specialized schools, rankings (#1 Architecture in Delhi-NCR), ₹50 LPA placement records, 15-acre Gurugram campus, and online admissions portal.',
+      receivedAt: '2026-10-17'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Scoped styling under .sushant-university-root.'
+    },
+    routes: [
+      '/',
+      '#home',
+      '#rankings',
+      '#schools',
+      '#programs',
+      '#placements',
+      '#campus-life',
+      '#scholarships',
+      '#admissions',
+      '#testimonials',
+      '#faqs'
+    ],
+    completedAt: '2026-10-17'
   }
 ];
+
+
 
 
 

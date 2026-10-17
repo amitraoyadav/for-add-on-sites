@@ -31,6 +31,8 @@ const ArshadUniversityLazy = lazy(() => import('../templates/arshad-university/A
 const GilgitLazy = lazy(() => import('../templates/gilgit/Gilgit'));
 const IstitutoMarangoniLazy = lazy(() => import('../templates/istituto-marangoni/IstitutoMarangoni'));
 const CrRamansUniversityLazy = lazy(() => import('../templates/cr-ramans-university/CrRamansUniversity'));
+const EduTechUniversityLazy = lazy(() => import('../templates/edu-tech-university/EduTechUniversity'));
+const SushantUniversityLazy = lazy(() => import('../templates/sushant-university/SushantUniversity'));
 
 interface TemplateLoaderProps {
   template: TemplateManifestItem;
@@ -494,6 +496,46 @@ export function TemplateLoader({ template, onOpenIntakeModal }: TemplateLoaderPr
         }
       >
         <CrRamansUniversityLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is EDU TECH UNIVERSITY
+  if (template.id === 'edu-tech-university') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#001829] text-white">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#38bdf8] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-[#38bdf8] font-mono">
+                Loading EDU TECH UNIVERSITY Demo...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <EduTechUniversityLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is SUSHANT UNIVERSITY
+  if (template.id === 'sushant-university') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#0B2545] text-white">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#E65100] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-amber-400 font-mono">
+                Loading SUSHANT UNIVERSITY Demo...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <SushantUniversityLazy />
       </Suspense>
     );
   }

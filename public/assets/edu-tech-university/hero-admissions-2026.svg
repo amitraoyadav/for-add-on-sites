@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" fill="none">
+  <defs>
+    <linearGradient id="admGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#451A03" />
+      <stop offset="50%" stop-color="#78350F" />
+      <stop offset="100%" stop-color="#B45309" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="600" height="380" rx="16" fill="url(#admGrad)" />
+  
+  <circle cx="500" cy="130" r="120" fill="#FBBF24" fill-opacity="0.15" />
+  
+  <g transform="translate(48, 48)">
+    <rect width="180" height="28" rx="6" fill="#78350F" stroke="#FBBF24" stroke-width="1" />
+    <text x="90" y="18" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="800" letter-spacing="1.5" fill="#FDE68A" text-anchor="middle">
+      APPLICATIONS OPEN 2026
+    </text>
+  </g>
+
+  <text x="48" y="118" font-family="'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="900" fill="#FFFFFF">
+    YOUR PATHWAY TO
+  </text>
+  <text x="48" y="156" font-family="'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="900" fill="#FDE68A">
+    A GLOBAL DEGREE
+  </text>
+  <text x="48" y="190" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#FEF3C7">
+    Domestic (VTAC) and Direct International applications now being accepted.
+  </text>
+  
+  <g transform="translate(48, 230)">
+    <rect width="160" height="74" rx="8" fill="#451A03" stroke="#B45309" stroke-width="1" />
+    <text x="80" y="34" font-family="'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="900" fill="#FBBF24" text-anchor="middle">SEMESTER 1</text>
+    <text x="80" y="54" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="700" fill="#FDE68A" text-anchor="middle">FEBRUARY 2026 INTAKE</text>
+    
+    <g transform="translate(180, 0)">
+      <rect width="160" height="74" rx="8" fill="#451A03" stroke="#B45309" stroke-width="1" />
+      <text x="80" y="34" font-family="'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="900" fill="#FDE68A" text-anchor="middle">SEMESTER 2</text>
+      <text x="80" y="54" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="700" fill="#FEF3C7" text-anchor="middle">JULY 2026 INTAKE</text>
+    </g>
+    
+    <g transform="translate(360, 0)">
+      <rect width="140" height="74" rx="8" fill="#451A03" stroke="#B45309" stroke-width="1" />
+      <text x="70" y="34" font-family="'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="900" fill="#38BDF8" text-anchor="middle">$10,000</text>
+      <text x="70" y="54" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="700" fill="#BAE6FD" text-anchor="middle">SCHOLARSHIPS / YR</text>
+    </g>
+  </g>
+</svg>

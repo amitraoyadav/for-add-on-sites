@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" fill="none">
+  <defs>
+    <linearGradient id="sazyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0c0e" />
+      <stop offset="60%" stop-color="#14161b" />
+      <stop offset="100%" stop-color="#1e222a" />
+    </linearGradient>
+    <linearGradient id="goldSazy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D" />
+      <stop offset="100%" stop-color="#D4AF37" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="600" height="380" rx="16" fill="url(#sazyGrad)" />
+  <circle cx="500" cy="190" r="130" stroke="#D4AF37" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="4 4" />
+  <circle cx="500" cy="190" r="90" fill="#D4AF37" fill-opacity="0.06" />
+  
+  <!-- Subtle Zen circle (Enso) -->
+  <path d="M460 130 C520 120, 560 180, 530 240 C500 280, 440 270, 430 220" stroke="#D4AF37" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.6" />
+
+  <g transform="translate(48, 60)">
+    <rect width="180" height="26" rx="6" fill="#181a1f" stroke="#D4AF37" stroke-width="1" />
+    <text x="90" y="17" font-family="'Cinzel', serif, Georgia" font-size="10" font-weight="700" letter-spacing="2" fill="#D4AF37" text-anchor="middle">
+      ARTISANAL GASTRONOMY
+    </text>
+  </g>
+
+  <text x="48" y="140" font-family="'Cinzel', serif, Georgia" font-size="38" font-weight="800" fill="#FFFFFF" letter-spacing="3">
+    SAZY CAFE
+  </text>
+  <text x="48" y="176" font-family="'Cinzel', serif, Georgia" font-size="18" font-weight="400" fill="#D4AF37" letter-spacing="4">
+    LOUNGE &amp; OMAKASE BAR
+  </text>
+  
+  <text x="48" y="220" font-family="sans-serif" font-size="13" font-weight="400" fill="#94A3B8" max-width="400">
+    Elevated Japanese-inspired dining, ceremonial matcha &amp; Kyoto slow-drip coffee.
+  </text>
+
+  <g transform="translate(48, 260)">
+    <rect width="120" height="42" rx="8" fill="#181a1f" stroke="#2D3748" />
+    <text x="60" y="20" font-family="sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle">A5 WAGYU</text>
+    <text x="60" y="33" font-family="sans-serif" font-size="8.5" font-weight="600" fill="#D4AF37" text-anchor="middle">SIGNATURE CUTS</text>
+    
+    <g transform="translate(135, 0)">
+      <rect width="120" height="42" rx="8" fill="#181a1f" stroke="#2D3748" />
+      <text x="60" y="20" font-family="sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle">TOYOSU</text>
+      <text x="60" y="33" font-family="sans-serif" font-size="8.5" font-weight="600" fill="#D4AF37" text-anchor="middle">RAW SASHIMI BAR</text>
+    </g>
+
+    <g transform="translate(270, 0)">
+      <rect width="130" height="42" rx="8" fill="#181a1f" stroke="#2D3748" />
+      <text x="65" y="20" font-family="sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle">KYOTO SLOW-DRIP</text>
+      <text x="65" y="33" font-family="sans-serif" font-size="8.5" font-weight="600" fill="#D4AF37" text-anchor="middle">ARTISANAL COFFEE</text>
+    </g>
+  </g>
+</svg>

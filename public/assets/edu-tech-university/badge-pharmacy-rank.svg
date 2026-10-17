@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none">
+  <rect width="160" height="48" rx="8" fill="#002B49" stroke="#7C3AED" stroke-width="1.2" />
+  <g transform="translate(10, 8)">
+    <circle cx="16" cy="16" r="14" fill="#6D28D9" stroke="#A78BFA" stroke-width="1.2" />
+    <text x="16" y="21" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="900" fill="#FFFFFF" text-anchor="middle">#2</text>
+    <text x="40" y="14" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">PHARMACY</text>
+    <text x="40" y="26" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="600" fill="#DDD6FE">#2 IN THE WORLD</text>
+  </g>
+</svg>

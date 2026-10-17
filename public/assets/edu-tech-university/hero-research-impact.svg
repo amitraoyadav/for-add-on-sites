@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" fill="none">
+  <defs>
+    <linearGradient id="researchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022C22" />
+      <stop offset="60%" stop-color="#064E3B" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="600" height="380" rx="16" fill="url(#researchGrad)" />
+  
+  <circle cx="500" cy="180" r="130" fill="#10B981" fill-opacity="0.15" />
+  
+  <!-- Molecule / Network graphics -->
+  <g stroke="#34D399" stroke-width="1.5">
+    <line x1="420" y1="120" x2="480" y2="160" />
+    <line x1="480" y1="160" x2="540" y2="130" />
+    <line x1="480" y1="160" x2="480" y2="240" />
+    <line x1="480" y1="240" x2="430" y2="280" />
+    <line x1="480" y1="240" x2="530" y2="270" />
+    <circle cx="420" cy="120" r="7" fill="#10B981" />
+    <circle cx="480" cy="160" r="9" fill="#F59E0B" />
+    <circle cx="540" cy="130" r="6" fill="#38BDF8" />
+    <circle cx="480" cy="240" r="8" fill="#10B981" />
+    <circle cx="430" cy="280" r="6" fill="#34D399" />
+    <circle cx="530" cy="270" r="7" fill="#6EE7B7" />
+  </g>
+
+  <g transform="translate(48, 48)">
+    <rect width="180" height="28" rx="6" fill="#065F46" stroke="#34D399" stroke-width="1" />
+    <text x="90" y="18" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="800" letter-spacing="1.5" fill="#6EE7B7" text-anchor="middle">
+      WORLD-LEADING RESEARCH
+    </text>
+  </g>
+
+  <text x="48" y="118" font-family="'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="900" fill="#FFFFFF">
+    TACKLING GLOBAL
+  </text>
+  <text x="48" y="156" font-family="'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="900" fill="#34D399">
+    CHALLENGES
+  </text>
+  <text x="48" y="190" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#D1FAE5">
+    Climate change, mRNA therapeutics, global peace & sustainable energy.
+  </text>
+  
+  <g transform="translate(48, 240)">
+    <rect width="160" height="70" rx="8" fill="#022C22" stroke="#047857" stroke-width="1" />
+    <text x="80" y="32" font-family="'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="900" fill="#34D399" text-anchor="middle">$480M+</text>
+    <text x="80" y="52" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="700" fill="#A7F3D0" text-anchor="middle">ANNUAL RESEARCH INCOME</text>
+    
+    <g transform="translate(180, 0)">
+      <rect width="160" height="70" rx="8" fill="#022C22" stroke="#047857" stroke-width="1" />
+      <text x="80" y="32" font-family="'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="900" fill="#F59E0B" text-anchor="middle">#2 WORLD</text>
+      <text x="80" y="52" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="700" fill="#FDE68A" text-anchor="middle">PHARMACY & PHARMACOLOGY</text>
+    </g>
+  </g>
+</svg>

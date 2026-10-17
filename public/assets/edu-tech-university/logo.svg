@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 68" fill="none">
+  <!-- Crest Emblem -->
+  <g transform="translate(4, 4)">
+    <defs>
+      <linearGradient id="crestGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#002B49" />
+        <stop offset="100%" stop-color="#006DAE" />
+      </linearGradient>
+      <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#F59E0B" />
+        <stop offset="100%" stop-color="#D97706" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Shield Base -->
+    <path d="M6 4 C6 4, 30 0, 54 4 C54 28, 52 46, 30 58 C8 46, 6 28, 6 4 Z" fill="url(#crestGrad)" stroke="#00A3E0" stroke-width="1.8" />
+    
+    <!-- Shield Interior Quartering Lines -->
+    <path d="M30 6 L30 56 M8 26 L52 26" stroke="#00A3E0" stroke-width="1" stroke-opacity="0.4" />
+    
+    <!-- Heraldic Open Book (Top-Left) -->
+    <g transform="translate(13, 10)">
+      <path d="M1 10 C5 7, 10 7, 14 9 C18 7, 23 7, 27 10 L27 2 C23 0, 18 0, 14 2 C10 0, 5 0, 1 2 Z" fill="#FFFFFF" opacity="0.95" />
+      <path d="M14 2 L14 9" stroke="#002B49" stroke-width="1.2" />
+      <!-- Book page lines -->
+      <line x1="4" y1="4" x2="11" y2="4" stroke="#006DAE" stroke-width="0.7" />
+      <line x1="4" y1="6.5" x2="11" y2="6.5" stroke="#006DAE" stroke-width="0.7" />
+      <line x1="17" y1="4" x2="24" y2="4" stroke="#006DAE" stroke-width="0.7" />
+      <line x1="17" y1="6.5" x2="24" y2="6.5" stroke="#006DAE" stroke-width="0.7" />
+    </g>
+    
+    <!-- Heraldic Sword & Torch of Truth (Center) -->
+    <g transform="translate(30, 31)">
+      <!-- Sword -->
+      <line x1="0" y1="-5" x2="0" y2="15" stroke="#F59E0B" stroke-width="1.8" stroke-linecap="round" />
+      <line x1="-5" y1="-1" x2="5" y2="-1" stroke="#F59E0B" stroke-width="1.6" stroke-linecap="round" />
+      <!-- Stars (Southern Cross representation) -->
+      <circle cx="-10" cy="5" r="1.5" fill="#FFFFFF" />
+      <circle cx="10" cy="3" r="1.5" fill="#FFFFFF" />
+      <circle cx="-6" cy="14" r="1.2" fill="#FFFFFF" />
+      <circle cx="8" cy="12" r="1.4" fill="#FFFFFF" />
+    </g>
+    
+    <!-- Motto ribbon under crest -->
+    <path d="M12 55 Q30 62 48 55" stroke="#F59E0B" stroke-width="1.5" fill="none" />
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(72, 16)">
+    <!-- Primary Name -->
+    <text x="0" y="20" font-family="'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="900" letter-spacing="1.5" fill="#002B49">
+      EDU TECH
+    </text>
+    <text x="122" y="20" font-family="'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="400" letter-spacing="2" fill="#006DAE">
+      UNIVERSITY
+    </text>
+    
+    <!-- Secondary Subtitle -->
+    <text x="1" y="36" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="2.5" fill="#64748B">
+      AUSTRALIA · GROUP OF EIGHT · TOP 40 GLOBAL
+    </text>
+  </g>
+</svg>
