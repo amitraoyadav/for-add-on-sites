@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 70" width="240" height="70">
+  <rect width="240" height="70" rx="12" fill="#0A2548" stroke="#3B82F6" stroke-width="1.5"/>
+  <circle cx="38" cy="35" r="22" fill="#1E3A8A" stroke="#3B82F6" stroke-width="1"/>
+  <text x="38" y="32" font-family="'Inter', sans-serif" font-weight="900" font-size="11" fill="#93C5FD" text-anchor="middle">NIRF</text>
+  <text x="38" y="46" font-family="'Inter', sans-serif" font-weight="900" font-size="13" fill="#FFFFFF" text-anchor="middle">#29-53</text>
+  <text x="74" y="32" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#FFFFFF">NIRF Top Rankings</text>
+  <text x="74" y="48" font-family="'Inter', sans-serif" font-weight="500" font-size="10" fill="#BFDBFE">#29 Arch · #32 Pharm · #33 Law</text>
+</svg>

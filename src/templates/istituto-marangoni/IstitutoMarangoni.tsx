@@ -53,8 +53,23 @@ import {
   Sparkle,
   Compass as CompassIcon,
   Play,
-  Pause
+  Pause,
+  ArrowUpRight,
+  RotateCcw,
+  Eye,
+  SlidersHorizontal
 } from 'lucide-react';
+
+export type MarangoniPage =
+  | 'home'
+  | 'about'
+  | 'courses'
+  | 'schools'
+  | 'campuses'
+  | 'mentors'
+  | 'admissions'
+  | 'magazine'
+  | 'contact';
 
 export default function IstitutoMarangoni() {
   const {
@@ -69,6 +84,9 @@ export default function IstitutoMarangoni() {
     news,
     faqs
   } = MARANGONI_CONFIG;
+
+  // Active Multi-Page Router State
+  const [currentPage, setCurrentPage] = useState<MarangoniPage>('home');
 
   // Hero Carousel State
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -93,10 +111,14 @@ export default function IstitutoMarangoni() {
     return campuses.find(c => c.id === selectedCampusId) || campuses[0];
   }, [selectedCampusId, campuses]);
 
+  // Virtual Tour Modal
+  const [virtualTourOpen, setVirtualTourOpen] = useState(false);
+  const [tourCity, setTourCity] = useState<string>('Milano Fashion');
+
   // Super Mentor Modal
   const [activeMentorModal, setActiveMentorModal] = useState<MarangoniMentor | null>(null);
 
-  // News Modal
+  // News / Magazine Modal
   const [activeNewsModal, setActiveNewsModal] = useState<MarangoniNewsItem | null>(null);
 
   // Global Search Modal
@@ -129,6 +151,18 @@ export default function IstitutoMarangoni() {
   const [appReferenceNumber, setAppReferenceNumber] = useState('');
   const [appErrors, setAppErrors] = useState<{ [key: string]: string }>({});
 
+  // Application Tracker lookup
+  const [lookupRef, setLookupRef] = useState('');
+  const [lookupResult, setLookupResult] = useState<{
+    found: boolean;
+    ref: string;
+    name: string;
+    program: string;
+    campus: string;
+    status: string;
+    nextStep: string;
+  } | null>(null);
+
   // Recruiter Sector Filter
   const [recruiterFilter, setRecruiterFilter] = useState<string>('all');
 
@@ -136,14 +170,35 @@ export default function IstitutoMarangoni() {
   const [activeFaqCategory, setActiveFaqCategory] = useState<string>('all');
   const [expandedFaqIndex, setExpandedFaqIndex] = useState<number | null>(0);
 
+  // Contact Page Form State
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    campus: 'Milano Fashion',
+    topic: 'Admissions & Portfolio Evaluation',
+    message: ''
+  });
+  const [contactSuccess, setContactSuccess] = useState(false);
+
+  // Language state
+  const [selectedLanguage, setSelectedLanguage] = useState<'EN' | 'IT'>('EN');
+
+  // Scroll to top on page change
+  const navigateTo = (page: MarangoniPage) => {
+    setCurrentPage(page);
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // Hero Autoplay Effect
   useEffect(() => {
-    if (!isHeroPlaying) return;
+    if (!isHeroPlaying || currentPage !== 'home') return;
     const interval = setInterval(() => {
       setCurrentSlideIndex((prev) => (prev + 1) % heroSlides.length);
     }, 6500);
     return () => clearInterval(interval);
-  }, [isHeroPlaying, heroSlides.length]);
+  }, [isHeroPlaying, heroSlides.length, currentPage]);
 
   // Filtered Courses
   const filteredCourses = useMemo(() => {
@@ -208,6 +263,35 @@ export default function IstitutoMarangoni() {
     setAppSubmitted(true);
   };
 
+  // Handle Application Lookup
+  const handleLookup = (e: React.FormEvent) => {
+    e.preventDefault();
+    const clean = lookupRef.trim().toUpperCase();
+    if (!clean) return;
+
+    if (clean === appReferenceNumber && appSubmitted) {
+      setLookupResult({
+        found: true,
+        ref: clean,
+        name: appForm.fullName,
+        program: appForm.macroArea + ' (' + appForm.programLevel + ')',
+        campus: appForm.campus,
+        status: 'Academic Portfolio Assessment In Progress',
+        nextStep: 'Admissions Committee review scheduled within 2 business days. Check your email for interview instructions.'
+      });
+    } else {
+      setLookupResult({
+        found: true,
+        ref: clean.startsWith('IM-') ? clean : `IM-2026-${clean}`,
+        name: 'Verified Applicant Record',
+        program: 'Master in Fashion & Luxury Brand Management',
+        campus: 'Milano Fashion (Via Verri)',
+        status: 'Preliminary Dossier Verified — Portfolio Review Stage',
+        nextStep: 'Please submit your creative portfolio PDF or URL link to admissions.milano@istitutomarangoni.com.'
+      });
+    }
+  };
+
   // Scholarship calculation
   const scholarshipAmount = useMemo(() => {
     const baseFee = calcLevel === 'undergraduate' ? 26500 : 33000;
@@ -227,19 +311,19 @@ export default function IstitutoMarangoni() {
               <Globe2 className="w-3.5 h-3.5" />
               GLOBAL CAMPUSES:
             </span>
-            <span className="hover:text-white transition-colors cursor-pointer" onClick={() => setSelectedCampusId('milano-fashion')}>Milano</span>
+            <button className="hover:text-white transition-colors cursor-pointer" onClick={() => { setSelectedCampusId('milano-fashion'); navigateTo('campuses'); }}>Milano</button>
             <span>·</span>
-            <span className="hover:text-white transition-colors cursor-pointer" onClick={() => setSelectedCampusId('firenze')}>Firenze</span>
+            <button className="hover:text-white transition-colors cursor-pointer" onClick={() => { setSelectedCampusId('firenze'); navigateTo('campuses'); }}>Firenze</button>
             <span>·</span>
-            <span className="hover:text-white transition-colors cursor-pointer" onClick={() => setSelectedCampusId('paris')}>Paris</span>
+            <button className="hover:text-white transition-colors cursor-pointer" onClick={() => { setSelectedCampusId('paris'); navigateTo('campuses'); }}>Paris</button>
             <span>·</span>
-            <span className="hover:text-white transition-colors cursor-pointer" onClick={() => setSelectedCampusId('london')}>London</span>
+            <button className="hover:text-white transition-colors cursor-pointer" onClick={() => { setSelectedCampusId('london'); navigateTo('campuses'); }}>London</button>
             <span>·</span>
-            <span className="hover:text-white transition-colors cursor-pointer" onClick={() => setSelectedCampusId('dubai')}>Dubai</span>
+            <button className="hover:text-white transition-colors cursor-pointer" onClick={() => { setSelectedCampusId('dubai'); navigateTo('campuses'); }}>Dubai</button>
             <span>·</span>
-            <span className="hover:text-white transition-colors cursor-pointer" onClick={() => setSelectedCampusId('miami')}>Miami</span>
+            <button className="hover:text-white transition-colors cursor-pointer" onClick={() => { setSelectedCampusId('miami'); navigateTo('campuses'); }}>Miami</button>
             <span>·</span>
-            <span className="hover:text-white transition-colors cursor-pointer" onClick={() => setSelectedCampusId('mumbai')}>Mumbai</span>
+            <button className="hover:text-white transition-colors cursor-pointer" onClick={() => { setSelectedCampusId('mumbai'); navigateTo('campuses'); }}>Mumbai</button>
           </div>
 
           <div className="flex items-center gap-4 text-[#A1A1AA]">
@@ -251,6 +335,21 @@ export default function IstitutoMarangoni() {
             <span className="text-[11px] font-mono text-[#D4AF37]">
               Admissions: {brand.admissionsPhone}
             </span>
+            <span>|</span>
+            <div className="flex items-center gap-1 text-[11px]">
+              <button
+                onClick={() => setSelectedLanguage('EN')}
+                className={`px-1.5 py-0.5 rounded ${selectedLanguage === 'EN' ? 'bg-[#D4AF37] text-black font-bold' : 'text-[#8E8E93] hover:text-white'}`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setSelectedLanguage('IT')}
+                className={`px-1.5 py-0.5 rounded ${selectedLanguage === 'IT' ? 'bg-[#D4AF37] text-black font-bold' : 'text-[#8E8E93] hover:text-white'}`}
+              >
+                IT
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -259,7 +358,10 @@ export default function IstitutoMarangoni() {
       <header className="sticky top-0 z-40 bg-[#070709]/95 backdrop-blur-md border-b border-[#1C1C22]">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between gap-6">
           {/* Brand Logo */}
-          <a href="#home" className="flex items-center gap-3 group">
+          <button
+            onClick={() => navigateTo('home')}
+            className="flex items-center gap-3 group text-left cursor-pointer"
+          >
             <div className="w-10 h-10 rounded-full border border-[#D4AF37]/50 bg-[#141418] flex items-center justify-center text-[#D4AF37] font-serif font-black text-xl group-hover:border-[#D4AF37] transition-all">
               M
             </div>
@@ -271,17 +373,64 @@ export default function IstitutoMarangoni() {
                 THE SCHOOL OF FASHION, ART &amp; DESIGN · MILANO 1935
               </span>
             </div>
-          </a>
+          </button>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7 text-xs uppercase tracking-widest font-semibold text-[#A1A1AA]">
-            <a href="#courses" className="hover:text-[#D4AF37] transition-colors py-1">Courses</a>
-            <a href="#macro-areas" className="hover:text-[#D4AF37] transition-colors py-1">Disciplines</a>
-            <a href="#campuses" className="hover:text-[#D4AF37] transition-colors py-1">Campuses</a>
-            <a href="#mentors" className="hover:text-[#D4AF37] transition-colors py-1">Super Mentors</a>
-            <a href="#alumni" className="hover:text-[#D4AF37] transition-colors py-1">Alumni</a>
-            <a href="#scholarships" className="hover:text-[#D4AF37] transition-colors py-1">Scholarships</a>
-            <a href="#news" className="hover:text-[#D4AF37] transition-colors py-1">Magazine</a>
+          <nav className="hidden xl:flex items-center gap-6 text-xs uppercase tracking-widest font-semibold text-[#A1A1AA]">
+            <button
+              onClick={() => navigateTo('home')}
+              className={`transition-colors py-2 border-b-2 cursor-pointer ${currentPage === 'home' ? 'text-[#D4AF37] border-[#D4AF37]' : 'border-transparent hover:text-white'}`}
+            >
+              Home
+            </button>
+            <button
+              onClick={() => navigateTo('about')}
+              className={`transition-colors py-2 border-b-2 cursor-pointer ${currentPage === 'about' ? 'text-[#D4AF37] border-[#D4AF37]' : 'border-transparent hover:text-white'}`}
+            >
+              About
+            </button>
+            <button
+              onClick={() => navigateTo('courses')}
+              className={`transition-colors py-2 border-b-2 cursor-pointer ${currentPage === 'courses' ? 'text-[#D4AF37] border-[#D4AF37]' : 'border-transparent hover:text-white'}`}
+            >
+              Courses
+            </button>
+            <button
+              onClick={() => navigateTo('schools')}
+              className={`transition-colors py-2 border-b-2 cursor-pointer ${currentPage === 'schools' ? 'text-[#D4AF37] border-[#D4AF37]' : 'border-transparent hover:text-white'}`}
+            >
+              Schools
+            </button>
+            <button
+              onClick={() => navigateTo('campuses')}
+              className={`transition-colors py-2 border-b-2 cursor-pointer ${currentPage === 'campuses' ? 'text-[#D4AF37] border-[#D4AF37]' : 'border-transparent hover:text-white'}`}
+            >
+              Campuses
+            </button>
+            <button
+              onClick={() => navigateTo('mentors')}
+              className={`transition-colors py-2 border-b-2 cursor-pointer ${currentPage === 'mentors' ? 'text-[#D4AF37] border-[#D4AF37]' : 'border-transparent hover:text-white'}`}
+            >
+              Mentors &amp; Alumni
+            </button>
+            <button
+              onClick={() => navigateTo('admissions')}
+              className={`transition-colors py-2 border-b-2 cursor-pointer ${currentPage === 'admissions' ? 'text-[#D4AF37] border-[#D4AF37]' : 'border-transparent hover:text-white'}`}
+            >
+              Admissions
+            </button>
+            <button
+              onClick={() => navigateTo('magazine')}
+              className={`transition-colors py-2 border-b-2 cursor-pointer ${currentPage === 'magazine' ? 'text-[#D4AF37] border-[#D4AF37]' : 'border-transparent hover:text-white'}`}
+            >
+              Maze 35
+            </button>
+            <button
+              onClick={() => navigateTo('contact')}
+              className={`transition-colors py-2 border-b-2 cursor-pointer ${currentPage === 'contact' ? 'text-[#D4AF37] border-[#D4AF37]' : 'border-transparent hover:text-white'}`}
+            >
+              Contact
+            </button>
           </nav>
 
           {/* Header Action Buttons */}
@@ -294,18 +443,18 @@ export default function IstitutoMarangoni() {
               <Search className="w-4 h-4" />
             </button>
 
-            <a
-              href="#admissions"
+            <button
+              onClick={() => navigateTo('admissions')}
               className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-none bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider transition-all shadow-md shadow-[#D4AF37]/20 cursor-pointer"
             >
               Apply 2026
               <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+            </button>
 
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden w-10 h-10 rounded border border-[#27272A] bg-[#121216] flex items-center justify-center text-white cursor-pointer"
+              className="xl:hidden w-10 h-10 rounded border border-[#27272A] bg-[#121216] flex items-center justify-center text-white cursor-pointer"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -315,28 +464,73 @@ export default function IstitutoMarangoni() {
 
         {/* Mobile Navigation Drawer */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-[#0A0A0E] border-b border-[#27272A] px-6 py-6 space-y-4">
+          <div className="xl:hidden bg-[#0A0A0E] border-b border-[#27272A] px-6 py-6 space-y-4">
             <div className="grid grid-cols-2 gap-3 text-xs uppercase tracking-wider font-semibold text-[#D4D4D8]">
-              <a href="#courses" onClick={() => setIsMobileMenuOpen(false)} className="p-3 bg-[#13131A] rounded border border-[#1E1E26]">Degree Courses</a>
-              <a href="#macro-areas" onClick={() => setIsMobileMenuOpen(false)} className="p-3 bg-[#13131A] rounded border border-[#1E1E26]">Disciplines</a>
-              <a href="#campuses" onClick={() => setIsMobileMenuOpen(false)} className="p-3 bg-[#13131A] rounded border border-[#1E1E26]">Global Campuses</a>
-              <a href="#mentors" onClick={() => setIsMobileMenuOpen(false)} className="p-3 bg-[#13131A] rounded border border-[#1E1E26]">Super Mentors</a>
-              <a href="#alumni" onClick={() => setIsMobileMenuOpen(false)} className="p-3 bg-[#13131A] rounded border border-[#1E1E26]">Alumni Network</a>
-              <a href="#scholarships" onClick={() => setIsMobileMenuOpen(false)} className="p-3 bg-[#13131A] rounded border border-[#1E1E26]">Scholarships</a>
-              <a href="#news" onClick={() => setIsMobileMenuOpen(false)} className="p-3 bg-[#13131A] rounded border border-[#1E1E26]">Maze 35</a>
-              <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="p-3 bg-[#13131A] rounded border border-[#1E1E26]">FAQs &amp; AFAM</a>
+              <button
+                onClick={() => navigateTo('home')}
+                className={`p-3 rounded border text-left cursor-pointer ${currentPage === 'home' ? 'bg-[#D4AF37]/15 border-[#D4AF37] text-[#D4AF37]' : 'bg-[#13131A] border-[#1E1E26]'}`}
+              >
+                Home
+              </button>
+              <button
+                onClick={() => navigateTo('about')}
+                className={`p-3 rounded border text-left cursor-pointer ${currentPage === 'about' ? 'bg-[#D4AF37]/15 border-[#D4AF37] text-[#D4AF37]' : 'bg-[#13131A] border-[#1E1E26]'}`}
+              >
+                About &amp; Heritage
+              </button>
+              <button
+                onClick={() => navigateTo('courses')}
+                className={`p-3 rounded border text-left cursor-pointer ${currentPage === 'courses' ? 'bg-[#D4AF37]/15 border-[#D4AF37] text-[#D4AF37]' : 'bg-[#13131A] border-[#1E1E26]'}`}
+              >
+                Degree Courses
+              </button>
+              <button
+                onClick={() => navigateTo('schools')}
+                className={`p-3 rounded border text-left cursor-pointer ${currentPage === 'schools' ? 'bg-[#D4AF37]/15 border-[#D4AF37] text-[#D4AF37]' : 'bg-[#13131A] border-[#1E1E26]'}`}
+              >
+                4 Creative Schools
+              </button>
+              <button
+                onClick={() => navigateTo('campuses')}
+                className={`p-3 rounded border text-left cursor-pointer ${currentPage === 'campuses' ? 'bg-[#D4AF37]/15 border-[#D4AF37] text-[#D4AF37]' : 'bg-[#13131A] border-[#1E1E26]'}`}
+              >
+                Global Campuses
+              </button>
+              <button
+                onClick={() => navigateTo('mentors')}
+                className={`p-3 rounded border text-left cursor-pointer ${currentPage === 'mentors' ? 'bg-[#D4AF37]/15 border-[#D4AF37] text-[#D4AF37]' : 'bg-[#13131A] border-[#1E1E26]'}`}
+              >
+                Mentors &amp; Alumni
+              </button>
+              <button
+                onClick={() => navigateTo('admissions')}
+                className={`p-3 rounded border text-left cursor-pointer ${currentPage === 'admissions' ? 'bg-[#D4AF37]/15 border-[#D4AF37] text-[#D4AF37]' : 'bg-[#13131A] border-[#1E1E26]'}`}
+              >
+                Admissions 2026
+              </button>
+              <button
+                onClick={() => navigateTo('magazine')}
+                className={`p-3 rounded border text-left cursor-pointer ${currentPage === 'magazine' ? 'bg-[#D4AF37]/15 border-[#D4AF37] text-[#D4AF37]' : 'bg-[#13131A] border-[#1E1E26]'}`}
+              >
+                Maze 35
+              </button>
+              <button
+                onClick={() => navigateTo('contact')}
+                className={`p-3 rounded border text-left cursor-pointer col-span-2 ${currentPage === 'contact' ? 'bg-[#D4AF37]/15 border-[#D4AF37] text-[#D4AF37]' : 'bg-[#13131A] border-[#1E1E26]'}`}
+              >
+                Contact &amp; Open Days
+              </button>
             </div>
             <div className="pt-2 flex flex-col gap-2">
-              <a
-                href="#admissions"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full text-center py-3 bg-[#D4AF37] text-black font-bold uppercase tracking-wider text-xs"
+              <button
+                onClick={() => navigateTo('admissions')}
+                className="w-full text-center py-3 bg-[#D4AF37] text-black font-bold uppercase tracking-wider text-xs cursor-pointer"
               >
                 Apply Online for 2026 Intakes
-              </a>
+              </button>
               <button
                 onClick={() => { setIsMobileMenuOpen(false); setIsBrochureModalOpen(true); }}
-                className="w-full text-center py-2.5 border border-[#3F3F46] text-[#E4E4E7] text-xs font-semibold uppercase tracking-wider"
+                className="w-full text-center py-2.5 border border-[#3F3F46] text-[#E4E4E7] text-xs font-semibold uppercase tracking-wider cursor-pointer"
               >
                 Download Course Prospectus (PDF)
               </button>
@@ -345,347 +539,985 @@ export default function IstitutoMarangoni() {
         )}
       </header>
 
-      {/* 3. HERO BANNER CAROUSEL */}
-      <section id="home" className="relative min-h-[520px] md:min-h-[640px] flex items-center overflow-hidden border-b border-[#1F1F28]">
-        {/* Active Hero Background */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={heroSlides[currentSlideIndex].image}
-            alt={heroSlides[currentSlideIndex].title}
-            className="w-full h-full object-cover transition-opacity duration-1000 opacity-90"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-transparent to-black/40"></div>
-        </div>
-
-        {/* Hero Slide Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 py-16 w-full">
-          <div className="max-w-3xl space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 border border-[#D4AF37]/60 bg-black/60 text-[11px] font-bold uppercase tracking-[0.25em] text-[#D4AF37] backdrop-blur-sm">
-              <Sparkles className="w-3.5 h-3.5" />
-              {heroSlides[currentSlideIndex].tag}
-            </div>
-
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
-              {heroSlides[currentSlideIndex].title}
-            </h1>
-
-            <p className="text-sm sm:text-lg text-[#D1D5DB] leading-relaxed max-w-2xl font-light">
-              {heroSlides[currentSlideIndex].subtitle}
-            </p>
-
-            <div className="pt-4 flex flex-wrap items-center gap-4">
-              <a
-                href={heroSlides[currentSlideIndex].ctaLink}
-                className="px-7 py-3.5 bg-[#D4AF37] hover:bg-[#E5C158] text-black font-bold text-xs uppercase tracking-widest transition-all shadow-lg shadow-[#D4AF37]/20 inline-flex items-center gap-2"
-              >
-                {heroSlides[currentSlideIndex].ctaText}
-                <ChevronRight className="w-4 h-4" />
-              </a>
-
-              <a
-                href={heroSlides[currentSlideIndex].secondaryLink}
-                className="px-6 py-3.5 border border-white/30 hover:border-white bg-black/40 hover:bg-black/60 text-white font-semibold text-xs uppercase tracking-widest transition-all backdrop-blur-sm inline-flex items-center gap-2"
-              >
-                {heroSlides[currentSlideIndex].secondaryCta}
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Carousel Controls */}
-        <div className="absolute bottom-6 right-6 z-20 flex items-center gap-3 bg-black/70 border border-[#27272A] px-3.5 py-2 backdrop-blur-md">
-          <button
-            onClick={() => setCurrentSlideIndex((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1))}
-            className="text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-
-          <div className="flex items-center gap-1.5 px-2">
-            {heroSlides.map((_, i) => (
+      {/* Breadcrumb Bar (Shown on all subpages except home) */}
+      {currentPage !== 'home' && (
+        <div className="bg-[#0B0B0F] border-b border-[#1C1C24] py-3 px-4 sm:px-8">
+          <div className="max-w-7xl mx-auto flex items-center justify-between text-xs text-[#8E8E93]">
+            <div className="flex items-center gap-2">
               <button
-                key={i}
-                onClick={() => setCurrentSlideIndex(i)}
-                className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                  i === currentSlideIndex ? 'w-6 bg-[#D4AF37]' : 'w-2 bg-[#4B5563]'
-                }`}
-                aria-label={`Go to slide ${i + 1}`}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={() => setCurrentSlideIndex((prev) => (prev + 1) % heroSlides.length)}
-            className="text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
-
-          <span className="text-[#4B5563]">|</span>
-
-          <button
-            onClick={() => setIsHeroPlaying(!isHeroPlaying)}
-            className="text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
-            title={isHeroPlaying ? 'Pause carousel' : 'Resume carousel'}
-          >
-            {isHeroPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
-          </button>
-        </div>
-      </section>
-
-      {/* 4. KEY INSTITUTIONAL ACCREDITATIONS & STATS STRIP */}
-      <section className="bg-[#0A0A0E] border-b border-[#1C1C24] py-8 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div className="border-r border-[#1C1C24] last:border-0 p-3">
-            <span className="font-serif text-3xl sm:text-4xl font-bold text-[#D4AF37] block mb-1">
-              {brand.placementRate}
-            </span>
-            <span className="text-xs uppercase tracking-wider text-[#A1A1AA] font-medium">
-              Career Placement within 6 Months
-            </span>
-          </div>
-
-          <div className="border-r border-[#1C1C24] last:border-0 p-3">
-            <span className="font-serif text-3xl sm:text-4xl font-bold text-white block mb-1">
-              {brand.globalCampusesCount}
-            </span>
-            <span className="text-xs uppercase tracking-wider text-[#A1A1AA] font-medium">
-              Campuses in Milan, Paris, London, Dubai &amp; Mumbai
-            </span>
-          </div>
-
-          <div className="border-r border-[#1C1C24] last:border-0 p-3">
-            <span className="font-serif text-3xl sm:text-4xl font-bold text-[#D4AF37] block mb-1">
-              {brand.recruiterHouses}
-            </span>
-            <span className="text-xs uppercase tracking-wider text-[#A1A1AA] font-medium">
-              Recruiting Fashion &amp; Luxury Houses
-            </span>
-          </div>
-
-          <div className="p-3">
-            <span className="font-serif text-3xl sm:text-4xl font-bold text-white block mb-1">
-              Top 100
-            </span>
-            <span className="text-xs uppercase tracking-wider text-[#A1A1AA] font-medium">
-              QS World Art &amp; Design Ranking
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. THE FOUR CREATIVE PILLARS (MACRO-AREAS) */}
-      <section id="macro-areas" className="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#D4AF37] block">
-            THE ACADEMIC ECOSYSTEM
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight">
-            Four Creative Pillars. Endless Future Horizons.
-          </h2>
-          <p className="text-sm text-[#9CA3AF] leading-relaxed">
-            Istituto Marangoni organizes its higher education into four distinct macro-areas, each rooted in Italian heritage and forward-looking international industry requirements.
-          </p>
-        </div>
-
-        {/* Macro Area Selection Tabs */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          {macroAreas.map((area) => (
+                onClick={() => navigateTo('home')}
+                className="hover:text-[#D4AF37] transition-colors cursor-pointer flex items-center gap-1"
+              >
+                Home
+              </button>
+              <ChevronRight className="w-3 h-3 text-[#555]" />
+              <span className="text-white capitalize font-medium tracking-wider">
+                {currentPage === 'about' && 'About & Institutional Heritage'}
+                {currentPage === 'courses' && 'Academic Courses & Degree Directory'}
+                {currentPage === 'schools' && 'Schools & Creative Macro-Areas'}
+                {currentPage === 'campuses' && 'Global Campuses & Student Life'}
+                {currentPage === 'mentors' && 'Super Mentors & Notable Alumni'}
+                {currentPage === 'admissions' && 'Admissions & Scholarships 2026'}
+                {currentPage === 'magazine' && 'Maze 35 Editorial Magazine'}
+                {currentPage === 'contact' && 'Contact & Open Days'}
+              </span>
+            </div>
             <button
-              key={area.id}
-              onClick={() => {
-                setSelectedMacroArea(area.id as any);
-                setSelectedCourseMacro(area.id);
-              }}
-              className={`p-6 border text-left transition-all cursor-pointer relative overflow-hidden group ${
-                selectedMacroArea === area.id
-                  ? 'border-[#D4AF37] bg-[#14141A]'
-                  : 'border-[#1E1E26] bg-[#0C0C10] hover:border-[#383844]'
-              }`}
+              onClick={() => navigateTo('home')}
+              className="text-[#D4AF37] hover:underline flex items-center gap-1 text-[11px] font-mono cursor-pointer"
             >
-              <div className="w-10 h-10 mb-4 rounded-full border flex items-center justify-center" style={{ borderColor: area.accent }}>
-                {area.id === 'fashion' && <Scissors className="w-5 h-5" style={{ color: area.accent }} />}
-                {area.id === 'design' && <CompassIcon className="w-5 h-5" style={{ color: area.accent }} />}
-                {area.id === 'art' && <Palette className="w-5 h-5" style={{ color: area.accent }} />}
-                {area.id === 'fragrances' && <Sparkle className="w-5 h-5" style={{ color: area.accent }} />}
-              </div>
-              <h3 className="font-serif text-xl font-bold text-white mb-1 group-hover:text-[#D4AF37] transition-colors">
-                {area.title}
-              </h3>
-              <p className="text-xs text-[#8E8E93] line-clamp-1">{area.tagline}</p>
-              <div className="mt-4 text-[11px] font-mono font-semibold" style={{ color: area.accent }}>
-                {area.coursesCount} Programs Available →
-              </div>
+              ← Back to Main Showcase
             </button>
-          ))}
+          </div>
         </div>
+      )}
 
-        {/* Active Macro Area Deep Dive Banner */}
-        {(() => {
-          const area = macroAreas.find(m => m.id === selectedMacroArea) || macroAreas[0];
-          return (
-            <div className="border border-[#1E1E26] bg-[#0E0E14] grid grid-cols-1 lg:grid-cols-12 overflow-hidden shadow-2xl">
-              <div className="lg:col-span-5 relative min-h-[340px] bg-black">
-                <img
-                  src={area.image}
-                  alt={area.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                <div className="absolute bottom-6 left-6 right-6">
-                  <span className="text-[10px] uppercase tracking-widest px-2.5 py-1 bg-black/80 border border-white/20 text-[#D4AF37] font-mono">
-                    Macro Area Focus
-                  </span>
-                  <h4 className="font-serif text-2xl font-bold text-white mt-2">
-                    {area.title}
-                  </h4>
-                </div>
-              </div>
+      {/* ========================================================================= */}
+      {/* PAGE 1: HOME (Comprehensive Original Layout) */}
+      {/* ========================================================================= */}
+      {currentPage === 'home' && (
+        <>
+          {/* 3. HERO BANNER CAROUSEL */}
+          <section className="relative min-h-[520px] md:min-h-[640px] flex items-center overflow-hidden border-b border-[#1F1F28]">
+            {/* Active Hero Background */}
+            <div className="absolute inset-0 z-0">
+              <img
+                src={heroSlides[currentSlideIndex].image}
+                alt={heroSlides[currentSlideIndex].title}
+                className="w-full h-full object-cover object-center transition-all duration-1000"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40" />
+            </div>
 
-              <div className="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-between space-y-6">
-                <div className="space-y-4">
-                  <span className="text-xs uppercase tracking-widest font-semibold" style={{ color: area.accent }}>
-                    {area.tagline}
-                  </span>
-                  <p className="text-sm sm:text-base text-[#D1D5DB] leading-relaxed">
-                    {area.description}
-                  </p>
-
-                  <div className="pt-2">
-                    <span className="text-xs uppercase tracking-wider text-[#9CA3AF] font-bold block mb-3">
-                      Key Disciplines &amp; Academic Specializations:
-                    </span>
-                    <div className="flex flex-wrap gap-2">
-                      {area.keyDisciplines.map((disc, idx) => (
-                        <span key={idx} className="text-xs px-3 py-1.5 bg-[#171720] border border-[#272733] text-[#E4E4E7]">
-                          ✓ {disc}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 py-16 w-full">
+              <div className="max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1A1A22]/80 border border-[#D4AF37]/40 text-[#D4AF37] text-[10px] sm:text-xs font-mono font-semibold tracking-widest uppercase mb-5 backdrop-blur-sm">
+                  <Sparkles className="w-3 h-3" />
+                  {heroSlides[currentSlideIndex].tag}
                 </div>
 
-                <div className="pt-4 border-t border-[#1C1C24] flex flex-wrap items-center justify-between gap-4">
-                  <a
-                    href="#courses"
-                    onClick={() => setSelectedCourseMacro(area.id)}
-                    className="px-6 py-3 bg-[#D4AF37] text-black text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 hover:bg-[#E5C158] transition-all cursor-pointer"
+                <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-6">
+                  {heroSlides[currentSlideIndex].title}
+                </h1>
+
+                <p className="text-sm sm:text-base md:text-lg text-[#D4D4D8] leading-relaxed mb-8 max-w-xl">
+                  {heroSlides[currentSlideIndex].subtitle}
+                </p>
+
+                <div className="flex flex-wrap items-center gap-4">
+                  <button
+                    onClick={() => {
+                      if (heroSlides[currentSlideIndex].ctaLink.includes('courses')) navigateTo('courses');
+                      else if (heroSlides[currentSlideIndex].ctaLink.includes('admissions')) navigateTo('admissions');
+                      else if (heroSlides[currentSlideIndex].ctaLink.includes('opendays')) navigateTo('contact');
+                      else if (heroSlides[currentSlideIndex].ctaLink.includes('magazine')) navigateTo('magazine');
+                      else navigateTo('courses');
+                    }}
+                    className="px-6 py-3.5 bg-[#D4AF37] hover:bg-[#E5C158] text-black font-bold uppercase tracking-wider text-xs transition-all shadow-lg shadow-[#D4AF37]/25 flex items-center gap-2 cursor-pointer"
                   >
-                    View All {area.title} Courses ({area.coursesCount})
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
+                    {heroSlides[currentSlideIndex].ctaText}
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
 
                   <button
-                    onClick={() => setIsBrochureModalOpen(true)}
-                    className="text-xs text-[#A1A1AA] hover:text-white underline tracking-wider cursor-pointer"
+                    onClick={() => {
+                      if (heroSlides[currentSlideIndex].secondaryLink.includes('admissions')) navigateTo('admissions');
+                      else if (heroSlides[currentSlideIndex].secondaryLink.includes('scholarships')) navigateTo('admissions');
+                      else if (heroSlides[currentSlideIndex].secondaryLink.includes('alumni')) navigateTo('mentors');
+                      else navigateTo('admissions');
+                    }}
+                    className="px-6 py-3.5 border border-[#3F3F46] bg-black/40 backdrop-blur-sm text-white hover:border-[#D4AF37] hover:text-[#D4AF37] font-semibold uppercase tracking-wider text-xs transition-all cursor-pointer"
                   >
-                    Download {area.title} Syllabus Deck (PDF)
+                    {heroSlides[currentSlideIndex].secondaryCta}
                   </button>
                 </div>
               </div>
             </div>
-          );
-        })()}
-      </section>
 
-      {/* 6. INTERACTIVE DEGREE PROGRAMS & COURSE FINDER */}
-      <section id="courses" className="py-20 px-4 sm:px-8 bg-[#040406] border-t border-b border-[#1A1A22]">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#D4AF37] block mb-2">
-                ACADEMIC CATALOGUE
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight">
-                Find Your Course &amp; Degree Program
-              </h2>
-              <p className="text-xs sm:text-sm text-[#9CA3AF] mt-1">
-                Undergraduate BA Degrees (180 ECTS), Master’s Programs, Intensive Semesters, and Summer Academies.
+            {/* Slide Navigation Controls & Indicators */}
+            <div className="absolute bottom-6 right-4 sm:right-8 z-20 flex items-center gap-3 bg-black/60 backdrop-blur-md px-4 py-2 border border-[#27272A]">
+              <button
+                onClick={() => setCurrentSlideIndex((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)}
+                className="text-[#A1A1AA] hover:text-white transition-colors cursor-pointer"
+                aria-label="Previous slide"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+
+              <button
+                onClick={() => setIsHeroPlaying(!isHeroPlaying)}
+                className="text-[#A1A1AA] hover:text-[#D4AF37] transition-colors cursor-pointer"
+                aria-label={isHeroPlaying ? "Pause carousel" : "Play carousel"}
+              >
+                {isHeroPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+              </button>
+
+              <div className="flex items-center gap-1.5 px-2">
+                {heroSlides.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentSlideIndex(i)}
+                    className={`h-1.5 transition-all cursor-pointer ${i === currentSlideIndex ? 'w-6 bg-[#D4AF37]' : 'w-2 bg-[#3F3F46]'}`}
+                    aria-label={`Go to slide ${i + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={() => setCurrentSlideIndex((prev) => (prev + 1) % heroSlides.length)}
+                className="text-[#A1A1AA] hover:text-white transition-colors cursor-pointer"
+                aria-label="Next slide"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </section>
+
+          {/* 4. STATUTORY ACCREDITATION & GLOBAL STANDING RIBBON */}
+          <section className="bg-[#0A0A0E] border-b border-[#1C1C24] py-8 px-4 sm:px-8">
+            <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
+              <div className="flex items-center gap-4 border-r border-[#1C1C24] pr-4">
+                <div className="w-12 h-12 rounded bg-[#121218] border border-[#27272A] flex items-center justify-center text-[#D4AF37] shrink-0">
+                  <ShieldCheck className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-[#A1A1AA] block">Italian State Accreditation</span>
+                  <span className="font-serif text-sm sm:text-base font-bold text-white block">MUR / AFAM (180 ECTS)</span>
+                  <span className="text-[11px] text-[#71717A]">First Level Academic Diplomas</span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 border-r border-[#1C1C24] pr-4">
+                <div className="w-12 h-12 rounded bg-[#121218] border border-[#27272A] flex items-center justify-center text-[#38BDF8] shrink-0">
+                  <Award className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-[#A1A1AA] block">Global QS Standing</span>
+                  <span className="font-serif text-sm sm:text-base font-bold text-white block">Top 100 Art &amp; Design</span>
+                  <span className="text-[11px] text-[#71717A]">QS World University Rankings</span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 border-r border-[#1C1C24] pr-4">
+                <div className="w-12 h-12 rounded bg-[#121218] border border-[#27272A] flex items-center justify-center text-[#C084FC] shrink-0">
+                  <Globe2 className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-[#A1A1AA] block">Global Network</span>
+                  <span className="font-serif text-sm sm:text-base font-bold text-white block">9 World Campuses</span>
+                  <span className="text-[11px] text-[#71717A]">Milan, Paris, London, Dubai...</span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded bg-[#121218] border border-[#27272A] flex items-center justify-center text-[#4ADE80] shrink-0">
+                  <Trophy className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-[#A1A1AA] block">Career Placement</span>
+                  <span className="font-serif text-sm sm:text-base font-bold text-white block">89% Employment Rate</span>
+                  <span className="text-[11px] text-[#71717A]">400+ Luxury Recruiter Houses</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 5. FOUR CREATIVE PILLARS (MACRO-AREAS) */}
+          <section className="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+              <div>
+                <span className="text-xs uppercase font-mono tracking-[0.25em] text-[#D4AF37] block mb-2 font-bold">
+                  Academic Macro-Areas
+                </span>
+                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+                  Four Creative Disciplines
+                </h2>
+              </div>
+              <p className="text-[#A1A1AA] text-sm max-w-md">
+                Blending Italian artisanal heritage with visionary digital thinking across fashion, spatial design, contemporary art, and sensory beauty.
               </p>
             </div>
 
-            {/* Quick Live Search Field */}
-            <div className="w-full md:w-80 relative">
-              <input
-                type="text"
-                placeholder="Search by course, discipline, campus..."
-                value={courseSearchQuery}
-                onChange={(e) => setCourseSearchQuery(e.target.value)}
-                className="w-full bg-[#0D0D12] border border-[#272733] text-xs text-white px-4 py-3 pl-10 focus:outline-none focus:border-[#D4AF37] transition-colors"
-              />
-              <Search className="w-4 h-4 text-[#71717A] absolute left-3.5 top-3.5" />
-              {courseSearchQuery && (
-                <button
-                  onClick={() => setCourseSearchQuery('')}
-                  className="absolute right-3 top-3 text-[#71717A] hover:text-white text-xs cursor-pointer"
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {macroAreas.map((area) => (
+                <div
+                  key={area.id}
+                  className="group relative bg-[#0D0D12] border border-[#1E1E26] hover:border-[#D4AF37] transition-all duration-300 p-6 flex flex-col justify-between overflow-hidden"
                 >
-                  Clear
-                </button>
-              )}
-            </div>
-          </div>
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-[#D4AF37]/5 rounded-bl-full pointer-events-none group-hover:scale-125 transition-transform" />
+                  
+                  <div>
+                    <div className="w-14 h-14 mb-6 rounded-none bg-[#15151D] border border-[#2A2A36] p-2 flex items-center justify-center">
+                      <img src={area.image} alt={area.title} className="w-full h-full object-contain" />
+                    </div>
 
-          {/* Filter Bar Controls */}
-          <div className="bg-[#0C0C12] border border-[#1E1E28] p-4 mb-8 flex flex-wrap items-center justify-between gap-4">
-            {/* Level Filter */}
-            <div className="flex items-center flex-wrap gap-2 text-xs">
-              <span className="text-[#71717A] uppercase tracking-wider font-semibold mr-1">Study Level:</span>
-              {[
-                { id: 'all', label: 'All Levels' },
-                { id: 'undergraduate', label: 'Undergraduate (3-Yr BA / AFAM)' },
-                { id: 'postgraduate', label: "Postgraduate (Master's)" },
-                { id: 'short', label: 'Short & Summer' }
-              ].map(lvl => (
+                    <span className="text-[10px] uppercase font-mono tracking-widest text-[#D4AF37] block mb-1">
+                      {area.coursesCount} Programs Available
+                    </span>
+
+                    <h3 className="font-serif text-2xl font-bold text-white mb-2 group-hover:text-[#D4AF37] transition-colors">
+                      {area.title}
+                    </h3>
+
+                    <p className="text-xs text-[#8E8E93] font-medium tracking-wide uppercase mb-4">
+                      {area.tagline}
+                    </p>
+
+                    <p className="text-xs text-[#A1A1AA] leading-relaxed mb-6">
+                      {area.description}
+                    </p>
+
+                    <div className="space-y-1.5 mb-6">
+                      {area.keyDisciplines.slice(0, 3).map((disc, idx) => (
+                        <div key={idx} className="flex items-center gap-2 text-xs text-[#D4D4D8]">
+                          <div className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full" />
+                          <span>{disc}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      setSelectedMacroArea(area.id);
+                      navigateTo('schools');
+                    }}
+                    className="pt-4 border-t border-[#1C1C24] flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#D4AF37] group-hover:text-white transition-colors cursor-pointer w-full text-left"
+                  >
+                    <span>Explore School</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* 6. FEATURED DEGREE COURSES PREVIEW */}
+          <section className="py-20 px-4 sm:px-8 bg-[#040406] border-t border-b border-[#1A1A22]">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+                <div>
+                  <span className="text-xs uppercase font-mono tracking-[0.25em] text-[#D4AF37] block mb-2 font-bold">
+                    Official Curricula
+                  </span>
+                  <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white">
+                    Degree Courses &amp; Diplomas
+                  </h2>
+                </div>
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => navigateTo('courses')}
+                    className="px-5 py-2.5 bg-[#141418] border border-[#27272A] hover:border-[#D4AF37] text-white text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer"
+                  >
+                    View All {courses.length} Courses
+                    <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37]" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Course Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {courses.slice(0, 6).map((course) => (
+                  <div
+                    key={course.id}
+                    className="bg-[#0A0A0E] border border-[#1A1A22] hover:border-[#D4AF37]/80 transition-all p-6 flex flex-col justify-between group"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-[10px] uppercase font-mono tracking-wider px-2 py-0.5 bg-[#14141C] text-[#D4AF37] border border-[#2A2A36]">
+                          {course.level === 'undergraduate' ? 'BA Hons / AFAM 180 ECTS' : course.level === 'postgraduate' ? 'Master (1-Year)' : 'Intensive'}
+                        </span>
+                        {course.badge && (
+                          <span className="text-[9px] uppercase font-bold px-2 py-0.5 bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/40">
+                            {course.badge}
+                          </span>
+                        )}
+                      </div>
+
+                      <h3 className="font-serif text-xl font-bold text-white group-hover:text-[#D4AF37] transition-colors mb-2">
+                        {course.title}
+                      </h3>
+
+                      <p className="text-xs text-[#8E8E93] line-clamp-3 mb-4 leading-relaxed">
+                        {course.description}
+                      </p>
+
+                      <div className="border-t border-[#16161E] pt-3 mb-4 space-y-1.5 text-xs text-[#A1A1AA]">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[#71717A]">Duration:</span>
+                          <span className="text-white font-medium">{course.duration}</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-[#71717A]">Campuses:</span>
+                          <span className="text-[#D4AF37] font-medium">{course.campuses.slice(0, 3).join(', ')}</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-[#71717A]">Tuition Fee:</span>
+                          <span className="text-white font-mono">{course.tuitionFeeEuro}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 pt-2">
+                      <button
+                        onClick={() => setActiveCourseModal(course)}
+                        className="flex-1 py-2.5 bg-[#15151D] hover:bg-[#1C1C26] text-white text-xs font-semibold uppercase tracking-wider text-center transition-colors border border-[#272733] cursor-pointer"
+                      >
+                        Syllabus &amp; Details
+                      </button>
+                      <button
+                        onClick={() => {
+                          setAppForm(prev => ({
+                            ...prev,
+                            macroArea: course.title,
+                            campus: course.campuses[0] || 'Milano Fashion'
+                          }));
+                          navigateTo('admissions');
+                        }}
+                        className="px-3 py-2.5 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+                        title="Apply directly for this course"
+                      >
+                        Apply
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* 7. SUPER MENTORS SPOTLIGHT */}
+          <section className="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+              <div>
+                <span className="text-xs uppercase font-mono tracking-[0.25em] text-[#D4AF37] block mb-2 font-bold">
+                  Industry Visionaries
+                </span>
+                <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white">
+                  Super Mentors &amp; Notable Alumni
+                </h2>
+              </div>
+              <button
+                onClick={() => navigateTo('mentors')}
+                className="text-xs uppercase tracking-wider text-[#D4AF37] hover:underline flex items-center gap-1 font-semibold cursor-pointer"
+              >
+                Meet All Mentors &amp; Alumni Network
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {superMentors.slice(0, 3).map((mentor, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[#0C0C10] border border-[#1C1C24] p-6 flex flex-col justify-between hover:border-[#D4AF37]/60 transition-all group"
+                >
+                  <div>
+                    <div className="w-full h-48 bg-[#14141B] border border-[#22222E] mb-6 flex items-center justify-center overflow-hidden">
+                      <img src={mentor.image} alt={mentor.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+
+                    <span className="text-[10px] uppercase font-mono tracking-widest text-[#D4AF37] block mb-1">
+                      {mentor.role} · {mentor.house}
+                    </span>
+
+                    <h3 className="font-serif text-2xl font-bold text-white mb-3">
+                      {mentor.name}
+                    </h3>
+
+                    <blockquote className="text-xs text-[#A1A1AA] italic leading-relaxed mb-4 border-l-2 border-[#D4AF37] pl-3">
+                      "{mentor.quote}"
+                    </blockquote>
+                  </div>
+
+                  <button
+                    onClick={() => setActiveMentorModal(mentor)}
+                    className="text-xs uppercase tracking-wider font-semibold text-[#D4AF37] hover:text-white flex items-center gap-1 pt-2 cursor-pointer"
+                  >
+                    Read Profile &amp; Mentorship Bio
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* 8. GLOBAL CAMPUSES SHOWCASE */}
+          <section className="py-20 px-4 sm:px-8 bg-[#040406] border-t border-b border-[#1A1A22]">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                  <span className="text-xs uppercase font-mono tracking-[0.25em] text-[#D4AF37] block mb-2 font-bold">
+                    International Footprint
+                  </span>
+                  <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white">
+                    Study Across 9 World Fashion Capitals
+                  </h2>
+                </div>
                 <button
-                  key={lvl.id}
-                  onClick={() => setSelectedCourseLevel(lvl.id)}
-                  className={`px-3 py-1.5 transition-colors cursor-pointer ${
-                    selectedCourseLevel === lvl.id
-                      ? 'bg-[#D4AF37] text-black font-bold'
-                      : 'bg-[#14141C] text-[#A1A1AA] hover:text-white border border-[#232330]'
+                  onClick={() => navigateTo('campuses')}
+                  className="px-5 py-2.5 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  Explore All Campuses
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              {/* Campus Selector Buttons */}
+              <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
+                {campuses.map((c) => (
+                  <button
+                    key={c.id}
+                    onClick={() => setSelectedCampusId(c.id)}
+                    className={`px-4 py-2 text-xs uppercase font-bold tracking-wider shrink-0 transition-all cursor-pointer ${
+                      selectedCampusId === c.id
+                        ? 'bg-[#D4AF37] text-black shadow-md'
+                        : 'bg-[#101016] text-[#A1A1AA] hover:text-white hover:bg-[#181822] border border-[#20202A]'
+                    }`}
+                  >
+                    {c.city}
+                  </button>
+                ))}
+              </div>
+
+              {/* Active Campus Card Preview */}
+              <div className="bg-[#0A0A0E] border border-[#1F1F2A] p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-5 h-64 sm:h-80 bg-[#121218] border border-[#272733] overflow-hidden relative">
+                  <img src={activeCampus.image} alt={activeCampus.title} className="w-full h-full object-cover" />
+                  <div className="absolute top-3 left-3 px-2.5 py-1 bg-black/80 backdrop-blur-sm border border-[#D4AF37]/50 text-[10px] font-mono text-[#D4AF37] uppercase">
+                    {activeCampus.city} Campus
+                  </div>
+                </div>
+
+                <div className="lg:col-span-7 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">
+                      {activeCampus.title}
+                    </h3>
+                    <p className="text-xs uppercase font-mono text-[#D4AF37] tracking-wider mb-4">
+                      Specialization: {activeCampus.specialization}
+                    </p>
+                    <p className="text-sm text-[#A1A1AA] leading-relaxed mb-6">
+                      {activeCampus.description}
+                    </p>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                      {activeCampus.facilities.map((fac, i) => (
+                        <div key={i} className="flex items-center gap-2 text-xs text-[#D4D4D8]">
+                          <Check className="w-3.5 h-3.5 text-[#D4AF37]" />
+                          <span>{fac}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="border-t border-[#1C1C24] pt-4 flex flex-wrap items-center justify-between gap-4 text-xs text-[#8E8E93]">
+                      <div className="flex items-center gap-1.5">
+                        <MapPin className="w-3.5 h-3.5 text-[#D4AF37]" />
+                        <span>{activeCampus.address}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 font-mono text-[#D4AF37]">
+                        <Phone className="w-3.5 h-3.5" />
+                        <span>{activeCampus.phone}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <button
+                      onClick={() => {
+                        setTourCity(activeCampus.title);
+                        setVirtualTourOpen(true);
+                      }}
+                      className="px-4 py-2.5 bg-[#15151D] hover:bg-[#1C1C28] border border-[#2A2A38] text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-2 cursor-pointer"
+                    >
+                      <Eye className="w-3.5 h-3.5 text-[#D4AF37]" />
+                      Launch 360° Studio Tour
+                    </button>
+                    <button
+                      onClick={() => {
+                        setAppForm(prev => ({ ...prev, campus: activeCampus.title }));
+                        navigateTo('admissions');
+                      }}
+                      className="px-4 py-2.5 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer"
+                    >
+                      Apply for {activeCampus.city}
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 9. QUICK MERIT SCHOLARSHIP CALCULATOR */}
+          <section className="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+            <div className="bg-[#09090D] border border-[#1E1E28] p-8 sm:p-12 relative overflow-hidden">
+              <div className="max-w-3xl">
+                <span className="text-xs uppercase font-mono tracking-[0.25em] text-[#D4AF37] block mb-2 font-bold">
+                  Financial Aid &amp; Excellence
+                </span>
+                <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+                  Interactive Merit Scholarship Calculator
+                </h2>
+                <p className="text-[#A1A1AA] text-sm leading-relaxed mb-8">
+                  Istituto Marangoni awards tuition fee waivers up to 50% for exceptional creative portfolios, academic merit, and video motivation submissions.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                  <div>
+                    <label className="block text-xs uppercase font-mono tracking-wider text-[#A1A1AA] mb-2">
+                      1. Study Level:
+                    </label>
+                    <div className="grid grid-cols-2 gap-3">
+                      <button
+                        onClick={() => setCalcLevel('undergraduate')}
+                        className={`py-3 text-xs uppercase font-bold tracking-wider border cursor-pointer ${
+                          calcLevel === 'undergraduate'
+                            ? 'bg-[#D4AF37] text-black border-[#D4AF37]'
+                            : 'bg-[#121218] text-white border-[#272733] hover:border-[#D4AF37]'
+                        }`}
+                      >
+                        Undergraduate BA (3-Yr)
+                      </button>
+                      <button
+                        onClick={() => setCalcLevel('postgraduate')}
+                        className={`py-3 text-xs uppercase font-bold tracking-wider border cursor-pointer ${
+                          calcLevel === 'postgraduate'
+                            ? 'bg-[#D4AF37] text-black border-[#D4AF37]'
+                            : 'bg-[#121218] text-white border-[#272733] hover:border-[#D4AF37]'
+                        }`}
+                      >
+                        Postgraduate Master (1-Yr)
+                      </button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs uppercase font-mono tracking-wider text-[#A1A1AA] mb-2">
+                      2. Portfolio Merit Review Tier:
+                    </label>
+                    <div className="grid grid-cols-3 gap-2">
+                      <button
+                        onClick={() => setCalcScoreTier(1)}
+                        className={`py-3 text-xs uppercase font-bold tracking-wider border cursor-pointer ${
+                          calcScoreTier === 1
+                            ? 'bg-[#D4AF37] text-black border-[#D4AF37]'
+                            : 'bg-[#121218] text-white border-[#272733]'
+                        }`}
+                      >
+                        Merit (15%)
+                      </button>
+                      <button
+                        onClick={() => setCalcScoreTier(2)}
+                        className={`py-3 text-xs uppercase font-bold tracking-wider border cursor-pointer ${
+                          calcScoreTier === 2
+                            ? 'bg-[#D4AF37] text-black border-[#D4AF37]'
+                            : 'bg-[#121218] text-white border-[#272733]'
+                        }`}
+                      >
+                        Distinction (30%)
+                      </button>
+                      <button
+                        onClick={() => setCalcScoreTier(3)}
+                        className={`py-3 text-xs uppercase font-bold tracking-wider border cursor-pointer ${
+                          calcScoreTier === 3
+                            ? 'bg-[#D4AF37] text-black border-[#D4AF37]'
+                            : 'bg-[#121218] text-white border-[#272733]'
+                        }`}
+                      >
+                        Exemplary (50%)
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Calculation Output Box */}
+                <div className="bg-[#12121A] border border-[#2A2A38] p-6 grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
+                  <div>
+                    <span className="text-[10px] uppercase font-mono tracking-wider text-[#71717A] block">Published Base Fee</span>
+                    <span className="font-mono text-lg font-bold text-[#A1A1AA]">€{scholarshipAmount.baseFee.toLocaleString()}</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase font-mono tracking-wider text-[#D4AF37] block">Estimated Scholarship Deduction</span>
+                    <span className="font-mono text-xl font-bold text-[#4ADE80]">-€{scholarshipAmount.discount.toLocaleString()} ({scholarshipAmount.percentage}%)</span>
+                  </div>
+                  <div className="sm:border-l sm:border-[#22222E] sm:pl-4">
+                    <span className="text-[10px] uppercase font-mono tracking-wider text-white block">Net Payable Annual Fee</span>
+                    <span className="font-mono text-2xl font-bold text-white">€{scholarshipAmount.finalFee.toLocaleString()}</span>
+                  </div>
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-4">
+                  <button
+                    onClick={() => navigateTo('admissions')}
+                    className="px-6 py-3 bg-[#D4AF37] hover:bg-[#E5C158] text-black font-bold uppercase tracking-wider text-xs transition-all flex items-center gap-2 cursor-pointer"
+                  >
+                    Submit Portfolio for Scholarship Review
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => setIsBrochureModalOpen(true)}
+                    className="px-6 py-3 border border-[#3F3F46] hover:border-[#D4AF37] text-white font-semibold uppercase tracking-wider text-xs transition-all cursor-pointer"
+                  >
+                    Download 2026 Scholarship Booklet (PDF)
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 10. MAZE 35 EDITORIAL HIGHLIGHTS */}
+          <section className="py-20 px-4 sm:px-8 bg-[#040406] border-t border-b border-[#1A1A22]">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                  <span className="text-xs uppercase font-mono tracking-[0.25em] text-[#D4AF37] block mb-2 font-bold">
+                    Editorial Dispatch
+                  </span>
+                  <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white">
+                    Maze 35: The Voices of Global Fashion
+                  </h2>
+                </div>
+                <button
+                  onClick={() => navigateTo('magazine')}
+                  className="text-xs uppercase tracking-wider text-[#D4AF37] hover:underline flex items-center gap-1 font-semibold cursor-pointer"
+                >
+                  Explore All Magazine Issues
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {news.map((item) => (
+                  <div
+                    key={item.id}
+                    className="bg-[#0A0A0E] border border-[#1A1A22] hover:border-[#D4AF37]/70 transition-all p-6 flex flex-col justify-between group"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between text-[10px] font-mono text-[#D4AF37] mb-3">
+                        <span>{item.category}</span>
+                        <span className="text-[#71717A]">{item.readTime}</span>
+                      </div>
+                      <h3 className="font-serif text-lg font-bold text-white group-hover:text-[#D4AF37] transition-colors mb-3 leading-snug">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs text-[#8E8E93] line-clamp-3 mb-4 leading-relaxed">
+                        {item.summary}
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => setActiveNewsModal(item)}
+                      className="pt-3 border-t border-[#181822] text-xs font-semibold uppercase tracking-wider text-[#D4AF37] flex items-center justify-between group-hover:text-white transition-colors cursor-pointer w-full text-left"
+                    >
+                      <span>Read Story</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* 11. FAQ ACCORDION */}
+          <section className="py-20 px-4 sm:px-8 max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="text-xs uppercase font-mono tracking-[0.25em] text-[#D4AF37] block mb-2 font-bold">
+                Student Inquiries
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-sm text-[#A1A1AA]">
+                Essential answers regarding AFAM state recognition, portfolio reviews, transfer semesters, and scholarships.
+              </p>
+            </div>
+
+            {/* Category Filter Pills */}
+            <div className="flex items-center justify-center flex-wrap gap-2 mb-8">
+              {['all', 'accreditation', 'campuses', 'admissions', 'scholarships', 'careers'].map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveFaqCategory(cat)}
+                  className={`px-3.5 py-1.5 text-xs uppercase font-semibold tracking-wider transition-all cursor-pointer ${
+                    activeFaqCategory === cat
+                      ? 'bg-[#D4AF37] text-black'
+                      : 'bg-[#121218] text-[#8E8E93] hover:text-white border border-[#22222E]'
                   }`}
                 >
-                  {lvl.label}
+                  {cat}
                 </button>
               ))}
             </div>
 
-            {/* Macro Area Filter */}
-            <div className="flex items-center gap-2 text-xs">
-              <span className="text-[#71717A] uppercase tracking-wider font-semibold">Area:</span>
-              <select
-                value={selectedCourseMacro}
-                onChange={(e) => setSelectedCourseMacro(e.target.value)}
-                className="bg-[#14141C] border border-[#232330] text-xs text-white px-3 py-1.5 focus:outline-none focus:border-[#D4AF37]"
-              >
-                <option value="all">All Disciplines</option>
-                <option value="fashion">Fashion</option>
-                <option value="design">Design</option>
-                <option value="art">Art</option>
-                <option value="fragrances">Fragrances &amp; Cosmetics</option>
-              </select>
+            <div className="space-y-3">
+              {filteredFaqs.map((faq, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[#0A0A0E] border border-[#1A1A22] overflow-hidden transition-all"
+                >
+                  <button
+                    onClick={() => setExpandedFaqIndex(expandedFaqIndex === idx ? null : idx)}
+                    className="w-full p-5 text-left flex items-center justify-between gap-4 text-sm font-semibold text-white hover:text-[#D4AF37] transition-colors cursor-pointer"
+                  >
+                    <span>{faq.question}</span>
+                    <ChevronDown className={`w-4 h-4 text-[#D4AF37] shrink-0 transition-transform ${expandedFaqIndex === idx ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  {expandedFaqIndex === idx && (
+                    <div className="px-5 pb-5 text-xs text-[#A1A1AA] leading-relaxed border-t border-[#14141C] pt-3">
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+        </>
+      )}
+
+      {/* ========================================================================= */}
+      {/* PAGE 2: ABOUT & INSTITUTIONAL HERITAGE */}
+      {/* ========================================================================= */}
+      {currentPage === 'about' && (
+        <section className="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="max-w-3xl mb-12">
+            <span className="text-xs uppercase font-mono tracking-[0.25em] text-[#D4AF37] block mb-2 font-bold">
+              1935 — 2025 · 90 Years of Italian Luxury
+            </span>
+            <h1 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-6">
+              Shaping the Global Creative Vanguard
+            </h1>
+            <p className="text-base text-[#D4D4D8] leading-relaxed">
+              Founded in Milan in 1935 by Giulio Marangoni as the *Istituto Artistico dell'Abbigliamento Marangoni*, the institution has trained four generations of visionary designers, creative directors, and luxury executives across the fashion capitals of the world.
+            </p>
+          </div>
+
+          {/* Heritage Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16 items-center">
+            <div className="lg:col-span-6 bg-[#0E0E14] border border-[#1F1F2C] p-8">
+              <h2 className="font-serif text-2xl font-bold text-white mb-4">
+                The Founder’s Vision
+              </h2>
+              <p className="text-sm text-[#A1A1AA] leading-relaxed mb-4">
+                In 1935, master tailor Giulio Marangoni recognized that the burgeoning Italian fashion houses required a new kind of creative professional: not merely dressmakers, but creators steeped in art history, fabric technology, and the exacting geometry of cutting and draping.
+              </p>
+              <p className="text-sm text-[#A1A1AA] leading-relaxed mb-6">
+                Over nine decades, that single Milanese atelier has grown into a world-renowned network of nine international campuses spanning Europe, the Americas, the Middle East, and Asia — consistently ranked in the QS World Top 100 for Art &amp; Design.
+              </p>
+              <div className="border-l-2 border-[#D4AF37] pl-4 py-1 italic text-xs text-[#D4AF37]">
+                "Fashion is the living synthesis of Italian craftsmanship, cultural semiotics, and boundless courage." — Giulio Marangoni
+              </div>
             </div>
 
-            {/* Campus Filter */}
-            <div className="flex items-center gap-2 text-xs">
-              <span className="text-[#71717A] uppercase tracking-wider font-semibold">Campus:</span>
-              <select
-                value={selectedCourseCampus}
-                onChange={(e) => setSelectedCourseCampus(e.target.value)}
-                className="bg-[#14141C] border border-[#232330] text-xs text-white px-3 py-1.5 focus:outline-none focus:border-[#D4AF37]"
+            <div className="lg:col-span-6 h-80 bg-[#12121A] border border-[#272736] relative overflow-hidden flex items-center justify-center p-6">
+              <img
+                src="/assets/istituto-marangoni/hero-90years.svg"
+                alt="Celebrating 90 Years of Italian Creative Excellence"
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+
+          {/* Statutory Recognition & Accreditations in Detail */}
+          <div className="bg-[#09090D] border border-[#1D1D28] p-8 sm:p-10 mb-16">
+            <div className="max-w-2xl mb-8">
+              <span className="text-xs uppercase font-mono tracking-[0.2em] text-[#D4AF37] block mb-2 font-bold">
+                Quality Assurance &amp; Legal Recognition
+              </span>
+              <h2 className="font-serif text-3xl font-bold text-white">
+                Statutory Accreditations
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-[#101016] border border-[#22222E] p-6">
+                <div className="w-10 h-10 mb-4 bg-[#D4AF37]/10 text-[#D4AF37] flex items-center justify-center">
+                  <ShieldCheck className="w-6 h-6" />
+                </div>
+                <h3 className="font-serif text-lg font-bold text-white mb-2">Italian State AFAM System</h3>
+                <p className="text-xs text-[#8E8E93] leading-relaxed mb-3">
+                  Legally recognized by the Italian Ministry of University and Research (MUR) under the AFAM system (Alta Formazione Artistica, Musicale e Coreutica). Three-Year courses award First Level Academic Diplomas (180 ECTS), fully aligned with the European Bologna Process.
+                </p>
+                <span className="text-[10px] font-mono text-[#D4AF37] uppercase">Decree MUR n. 759</span>
+              </div>
+
+              <div className="bg-[#101016] border border-[#22222E] p-6">
+                <div className="w-10 h-10 mb-4 bg-[#38BDF8]/10 text-[#38BDF8] flex items-center justify-center">
+                  <Globe2 className="w-6 h-6" />
+                </div>
+                <h3 className="font-serif text-lg font-bold text-white mb-2">Manchester Metropolitan (UK)</h3>
+                <p className="text-xs text-[#8E8E93] leading-relaxed mb-3">
+                  International validation partner. Undergraduate and postgraduate degrees delivered at London and European campuses are validated by Manchester Metropolitan University, granting dual UK and European academic recognition.
+                </p>
+                <span className="text-[10px] font-mono text-[#38BDF8] uppercase">Validated Honours Degrees</span>
+              </div>
+
+              <div className="bg-[#101016] border border-[#22222E] p-6">
+                <div className="w-10 h-10 mb-4 bg-[#C084FC]/10 text-[#C084FC] flex items-center justify-center">
+                  <Award className="w-6 h-6" />
+                </div>
+                <h3 className="font-serif text-lg font-bold text-white mb-2">French RNCP &amp; Global Licenses</h3>
+                <p className="text-xs text-[#8E8E93] leading-relaxed mb-3">
+                  Paris campus Master's programs are certified by France Compétences at RNCP Niveau 7. Dubai campus is authorized by the Knowledge and Human Development Authority (KHDA), and Miami is licensed by Florida DOE.
+                </p>
+                <span className="text-[10px] font-mono text-[#C084FC] uppercase">RNCP Level 7 · KHDA Dubai</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Academic Philosophy: The Italian Method */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div className="bg-[#0B0B10] border border-[#1A1A22] p-6">
+              <span className="font-serif text-3xl font-bold text-[#D4AF37] block mb-2">01</span>
+              <h3 className="font-serif text-xl font-bold text-white mb-2">Artisanal Mastery</h3>
+              <p className="text-xs text-[#A1A1AA] leading-relaxed">
+                Hands-on manual draping, pattern making, luxury leather goods prototyping, and live tactile workshops under master Italian craftsmen.
+              </p>
+            </div>
+
+            <div className="bg-[#0B0B10] border border-[#1A1A22] p-6">
+              <span className="font-serif text-3xl font-bold text-[#38BDF8] block mb-2">02</span>
+              <h3 className="font-serif text-xl font-bold text-white mb-2">Phygital Innovation</h3>
+              <p className="text-xs text-[#A1A1AA] leading-relaxed">
+                Early adoption of 3D virtual garment modeling with CLO3D, digital avatars, generative AI conceptualization, and virtual showroom creation.
+              </p>
+            </div>
+
+            <div className="bg-[#0B0B10] border border-[#1A1A22] p-6">
+              <span className="font-serif text-3xl font-bold text-[#F472B6] block mb-2">03</span>
+              <h3 className="font-serif text-xl font-bold text-white mb-2">Live Industry Briefs</h3>
+              <p className="text-xs text-[#A1A1AA] leading-relaxed">
+                Direct collaborative projects with luxury conglomerates: Kering, LVMH, Dolce &amp; Gabbana, Cartier, and Balmain — presented to creative directors.
+              </p>
+            </div>
+          </div>
+
+          {/* Call to action */}
+          <div className="bg-[#121218] border border-[#272733] p-8 text-center max-w-2xl mx-auto">
+            <h3 className="font-serif text-2xl font-bold text-white mb-2">
+              Join the Next Generation of Visionaries
+            </h3>
+            <p className="text-xs text-[#A1A1AA] mb-6">
+              Admissions for the 2026 Academic Year are currently accepting applications across all nine global campuses.
+            </p>
+            <div className="flex justify-center gap-4">
+              <button
+                onClick={() => navigateTo('courses')}
+                className="px-5 py-2.5 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider cursor-pointer"
               >
-                <option value="all">All Global Campuses</option>
-                <option value="Milano">Milan</option>
-                <option value="Paris">Paris</option>
-                <option value="London">London</option>
-                <option value="Firenze">Florence</option>
-                <option value="Dubai">Dubai</option>
-                <option value="Miami">Miami</option>
-                <option value="Mumbai">Mumbai</option>
-              </select>
+                Browse Degree Courses
+              </button>
+              <button
+                onClick={() => navigateTo('admissions')}
+                className="px-5 py-2.5 border border-[#3F3F46] text-white hover:border-[#D4AF37] text-xs font-semibold uppercase tracking-wider cursor-pointer"
+              >
+                Admissions Portal
+              </button>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ========================================================================= */}
+      {/* PAGE 3: COURSES (Complete Academic Course Directory) */}
+      {/* ========================================================================= */}
+      {currentPage === 'courses' && (
+        <section className="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="max-w-3xl mb-10">
+            <span className="text-xs uppercase font-mono tracking-[0.25em] text-[#D4AF37] block mb-2 font-bold">
+              Undergraduate &amp; Postgraduate Programmes
+            </span>
+            <h1 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
+              Degree Courses &amp; Diplomas
+            </h1>
+            <p className="text-sm text-[#A1A1AA] leading-relaxed">
+              Explore state-accredited Bachelor's (AFAM 180 ECTS / BA Hons), Master Universitario (1-Year), and specialized Intensive programs across Fashion, Design, Art, and Fragrances.
+            </p>
+          </div>
+
+          {/* Interactive Filters Bar */}
+          <div className="bg-[#0B0B10] border border-[#1A1A22] p-5 mb-8 space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {/* Search input */}
+              <div className="relative">
+                <Search className="w-4 h-4 text-[#71717A] absolute left-3 top-3" />
+                <input
+                  type="text"
+                  placeholder="Search course title or topic..."
+                  value={courseSearchQuery}
+                  onChange={(e) => setCourseSearchQuery(e.target.value)}
+                  className="w-full bg-[#14141C] border border-[#272733] text-white text-xs pl-9 pr-3 py-2.5 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                />
+              </div>
+
+              {/* Study Level Filter */}
+              <div>
+                <select
+                  value={selectedCourseLevel}
+                  onChange={(e) => setSelectedCourseLevel(e.target.value)}
+                  className="w-full bg-[#14141C] border border-[#272733] text-white text-xs px-3 py-2.5 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                >
+                  <option value="all">All Study Levels</option>
+                  <option value="undergraduate">Undergraduate BA (3 Years)</option>
+                  <option value="postgraduate">Postgraduate Master (1 Year)</option>
+                  <option value="intensive">Intensive 1-Year</option>
+                  <option value="short">Short &amp; Summer Courses</option>
+                </select>
+              </div>
+
+              {/* Macro Area Filter */}
+              <div>
+                <select
+                  value={selectedCourseMacro}
+                  onChange={(e) => setSelectedCourseMacro(e.target.value)}
+                  className="w-full bg-[#14141C] border border-[#272733] text-white text-xs px-3 py-2.5 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                >
+                  <option value="all">All Creative Disciplines</option>
+                  <option value="fashion">Fashion</option>
+                  <option value="design">Design</option>
+                  <option value="art">Art</option>
+                  <option value="fragrances">Fragrances &amp; Cosmetics</option>
+                </select>
+              </div>
+
+              {/* Campus Filter */}
+              <div>
+                <select
+                  value={selectedCourseCampus}
+                  onChange={(e) => setSelectedCourseCampus(e.target.value)}
+                  className="w-full bg-[#14141C] border border-[#272733] text-white text-xs px-3 py-2.5 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                >
+                  <option value="all">All Global Campuses</option>
+                  <option value="milano">Milano</option>
+                  <option value="firenze">Firenze</option>
+                  <option value="paris">Paris</option>
+                  <option value="london">London</option>
+                  <option value="dubai">Dubai</option>
+                  <option value="miami">Miami</option>
+                  <option value="mumbai">Mumbai</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between text-xs text-[#8E8E93] pt-2 border-t border-[#161620]">
+              <span>Showing <strong className="text-white">{filteredCourses.length}</strong> available courses</span>
+              {(selectedCourseLevel !== 'all' || selectedCourseMacro !== 'all' || selectedCourseCampus !== 'all' || courseSearchQuery) && (
+                <button
+                  onClick={() => {
+                    setSelectedCourseLevel('all');
+                    setSelectedCourseMacro('all');
+                    setSelectedCourseCampus('all');
+                    setCourseSearchQuery('');
+                  }}
+                  className="text-[#D4AF37] hover:underline cursor-pointer flex items-center gap-1"
+                >
+                  <RotateCcw className="w-3 h-3" />
+                  Reset all filters
+                </button>
+              )}
             </div>
           </div>
 
@@ -694,1191 +1526,1475 @@ export default function IstitutoMarangoni() {
             {filteredCourses.map((course) => (
               <div
                 key={course.id}
-                className="border border-[#1E1E28] bg-[#0A0A0E] hover:border-[#D4AF37]/60 transition-all flex flex-col justify-between group p-6 relative"
+                className="bg-[#0A0A0E] border border-[#1A1A22] hover:border-[#D4AF37]/80 transition-all p-6 flex flex-col justify-between group"
               >
-                {course.badge && (
-                  <span className="absolute top-4 right-4 text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-[#D4AF37]">
-                    {course.badge}
-                  </span>
-                )}
-
-                <div className="space-y-4">
-                  <div className="flex items-center gap-2 text-[11px] font-mono uppercase text-[#A1A1AA]">
-                    <span className="px-2 py-0.5 bg-[#14141C] border border-[#262632] text-[#D4AF37]">
-                      {course.macroArea.toUpperCase()}
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[10px] uppercase font-mono tracking-wider px-2 py-0.5 bg-[#14141C] text-[#D4AF37] border border-[#2A2A36]">
+                      {course.level === 'undergraduate' ? 'BA Hons / AFAM 180 ECTS' : course.level === 'postgraduate' ? 'Master (1-Year)' : 'Intensive'}
                     </span>
-                    <span>·</span>
-                    <span>{course.duration}</span>
+                    {course.badge && (
+                      <span className="text-[9px] uppercase font-bold px-2 py-0.5 bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/40">
+                        {course.badge}
+                      </span>
+                    )}
                   </div>
 
-                  <h3 className="font-serif text-xl font-bold text-white group-hover:text-[#D4AF37] transition-colors leading-snug">
+                  <h3 className="font-serif text-xl font-bold text-white group-hover:text-[#D4AF37] transition-colors mb-2">
                     {course.title}
                   </h3>
 
-                  <p className="text-xs text-[#9CA3AF] line-clamp-3 leading-relaxed">
+                  <p className="text-xs text-[#8E8E93] line-clamp-3 mb-4 leading-relaxed">
                     {course.description}
                   </p>
 
-                  <div className="space-y-1.5 pt-2 text-[11px] border-t border-[#181822] text-[#A1A1AA]">
-                    <div className="flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-[#D4AF37]" />
-                      <span>{course.campuses.join(' · ')}</span>
+                  <div className="border-t border-[#16161E] pt-3 mb-4 space-y-1.5 text-xs text-[#A1A1AA]">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[#71717A]">Duration:</span>
+                      <span className="text-white font-medium">{course.duration}</span>
                     </div>
-                    <div className="flex items-center gap-1.5">
-                      <Award className="w-3.5 h-3.5 text-[#A1A1AA]" />
-                      <span className="line-clamp-1">{course.qualification}</span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[#71717A]">Language:</span>
+                      <span className="text-white font-medium">{course.language}</span>
                     </div>
-                    <div className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-[#A1A1AA]" />
-                      <span>Intakes: {course.intake}</span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[#71717A]">Campuses:</span>
+                      <span className="text-[#D4AF37] font-medium">{course.campuses.join(', ')}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[#71717A]">Intake:</span>
+                      <span className="text-white">{course.intake}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[#71717A]">Tuition Fee:</span>
+                      <span className="text-white font-mono">{course.tuitionFeeEuro}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-[#181822] flex items-center justify-between">
-                  <div className="text-xs font-semibold text-white">
-                    {course.tuitionFeeEuro}
-                  </div>
-
+                <div className="flex items-center gap-2 pt-2">
                   <button
                     onClick={() => setActiveCourseModal(course)}
-                    className="px-4 py-2 bg-[#171720] hover:bg-[#D4AF37] text-white hover:text-black text-xs font-bold uppercase tracking-wider transition-all border border-[#2E2E3C] cursor-pointer"
+                    className="flex-1 py-2.5 bg-[#15151D] hover:bg-[#1C1C26] text-white text-xs font-semibold uppercase tracking-wider text-center transition-colors border border-[#272733] cursor-pointer"
                   >
-                    Course Details →
+                    View Syllabus
+                  </button>
+                  <button
+                    onClick={() => {
+                      setAppForm(prev => ({
+                        ...prev,
+                        macroArea: course.title,
+                        campus: course.campuses[0] || 'Milano Fashion'
+                      }));
+                      navigateTo('admissions');
+                    }}
+                    className="px-4 py-2.5 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+                  >
+                    Apply
                   </button>
                 </div>
               </div>
             ))}
           </div>
+        </section>
+      )}
 
-          {filteredCourses.length === 0 && (
-            <div className="text-center py-16 border border-[#272733] bg-[#0E0E14] space-y-3">
-              <BookOpen className="w-8 h-8 text-[#71717A] mx-auto" />
-              <p className="text-base text-white font-medium">No courses found matching your criteria</p>
-              <p className="text-xs text-[#71717A]">Try clearing search filters to see all available degree programs.</p>
+      {/* ========================================================================= */}
+      {/* PAGE 4: SCHOOLS (The 4 Creative Macro-Areas) */}
+      {/* ========================================================================= */}
+      {currentPage === 'schools' && (
+        <section className="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="max-w-3xl mb-10">
+            <span className="text-xs uppercase font-mono tracking-[0.25em] text-[#D4AF37] block mb-2 font-bold">
+              Academic Schools &amp; Departments
+            </span>
+            <h1 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
+              The Four Creative Schools
+            </h1>
+            <p className="text-sm text-[#A1A1AA] leading-relaxed">
+              Explore our specialized ateliers, research laboratories, and industry partnerships across the four foundational pillars of Istituto Marangoni.
+            </p>
+          </div>
+
+          {/* School Selector Tabs */}
+          <div className="flex items-center gap-2 border-b border-[#22222E] pb-4 mb-10 overflow-x-auto scrollbar-none">
+            {macroAreas.map((area) => (
               <button
-                onClick={() => {
-                  setSelectedCourseLevel('all');
-                  setSelectedCourseMacro('all');
-                  setSelectedCourseCampus('all');
-                  setCourseSearchQuery('');
-                }}
-                className="mt-2 px-4 py-2 bg-[#D4AF37] text-black text-xs font-bold uppercase tracking-wider"
+                key={area.id}
+                onClick={() => setSelectedMacroArea(area.id)}
+                className={`px-5 py-3 text-xs uppercase font-bold tracking-widest transition-all cursor-pointer shrink-0 ${
+                  selectedMacroArea === area.id
+                    ? 'bg-[#D4AF37] text-black'
+                    : 'bg-[#101016] text-[#A1A1AA] hover:text-white border border-[#22222E]'
+                }`}
               >
-                Reset All Filters
+                School of {area.title}
               </button>
-            </div>
-          )}
-        </div>
-      </section>
+            ))}
+          </div>
 
-      {/* 7. SUPER MENTORS & ALUMNI SPOTLIGHT */}
-      <section id="mentors" className="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#D4AF37] block">
-            THE MENTORSHIP CIRCLE
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight">
-            Mentorship by Haute Couture Leaders
-          </h2>
-          <p className="text-sm text-[#9CA3AF] leading-relaxed">
-            At Istituto Marangoni, learning happens through direct dialogue with the visionary creative directors leading the world’s most prestigious luxury fashion houses.
-          </p>
-        </div>
+          {/* Active School Deep-Dive Container */}
+          {(() => {
+            const currentSchool = macroAreas.find(m => m.id === selectedMacroArea) || macroAreas[0];
+            const schoolCourses = courses.filter(c => c.macroArea === currentSchool.id);
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {superMentors.slice(0, 3).map((mentor, index) => (
-            <div
-              key={index}
-              className="border border-[#1E1E26] bg-[#0B0B10] flex flex-col justify-between overflow-hidden group hover:border-[#D4AF37] transition-all"
-            >
-              <div className="relative h-64 bg-black overflow-hidden">
-                <img
-                  src={mentor.image}
-                  alt={mentor.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10] via-transparent to-transparent"></div>
-                <div className="absolute top-4 left-4">
-                  <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 bg-black/80 border border-[#D4AF37]/50 text-[#D4AF37]">
-                    {mentor.type === 'supermentor' ? 'Super Mentor' : 'Distinguished Alumnus'}
-                  </span>
+            return (
+              <div>
+                <div className="bg-[#0B0B10] border border-[#1E1E28] p-8 sm:p-12 mb-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                  <div className="lg:col-span-4 h-64 bg-[#14141E] border border-[#272738] p-6 flex items-center justify-center">
+                    <img src={currentSchool.image} alt={currentSchool.title} className="w-full h-full object-contain" />
+                  </div>
+
+                  <div className="lg:col-span-8">
+                    <span className="text-xs uppercase font-mono tracking-widest text-[#D4AF37] block mb-2">
+                      Department Profile · {schoolCourses.length} Programs
+                    </span>
+                    <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-3">
+                      School of {currentSchool.title}
+                    </h2>
+                    <p className="text-sm uppercase font-mono text-[#A1A1AA] tracking-wider mb-4">
+                      {currentSchool.tagline}
+                    </p>
+                    <p className="text-sm text-[#D4D4D8] leading-relaxed mb-6">
+                      {currentSchool.description}
+                    </p>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                      {currentSchool.keyDisciplines.map((d, i) => (
+                        <div key={i} className="flex items-center gap-2 text-xs text-[#E4E4E7]">
+                          <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" />
+                          <span>{d}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <button
+                      onClick={() => {
+                        setSelectedCourseMacro(currentSchool.id);
+                        navigateTo('courses');
+                      }}
+                      className="px-5 py-2.5 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider cursor-pointer"
+                    >
+                      View All {currentSchool.title} Degree Programs
+                    </button>
+                  </div>
+                </div>
+
+                {/* Programs in this School */}
+                <h3 className="font-serif text-2xl font-bold text-white mb-6">
+                  {currentSchool.title} Degree Catalog
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                  {schoolCourses.map((c) => (
+                    <div key={c.id} className="bg-[#0A0A0E] border border-[#1A1A22] p-6 flex flex-col justify-between">
+                      <div>
+                        <span className="text-[10px] font-mono uppercase text-[#D4AF37] block mb-2">{c.qualification}</span>
+                        <h4 className="font-serif text-lg font-bold text-white mb-2">{c.title}</h4>
+                        <p className="text-xs text-[#8E8E93] line-clamp-3 mb-4">{c.description}</p>
+                        <div className="text-xs text-[#A1A1AA] border-t border-[#161620] pt-3 mb-4">
+                          <div>Duration: <strong className="text-white">{c.duration}</strong></div>
+                          <div>Campuses: <strong className="text-[#D4AF37]">{c.campuses.join(', ')}</strong></div>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => setActiveCourseModal(c)}
+                        className="w-full py-2 bg-[#14141C] hover:bg-[#1A1A24] border border-[#272733] text-white text-xs font-semibold uppercase tracking-wider cursor-pointer"
+                      >
+                        Syllabus &amp; Curriculum
+                      </button>
+                    </div>
+                  ))}
                 </div>
               </div>
+            );
+          })()}
+        </section>
+      )}
 
-              <div className="p-6 space-y-3">
+      {/* ========================================================================= */}
+      {/* PAGE 5: CAMPUSES (Global Campuses & Student Life) */}
+      {/* ========================================================================= */}
+      {currentPage === 'campuses' && (
+        <section className="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="max-w-3xl mb-10">
+            <span className="text-xs uppercase font-mono tracking-[0.25em] text-[#D4AF37] block mb-2 font-bold">
+              Nine Global Destinations
+            </span>
+            <h1 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
+              Campuses in World Fashion Capitals
+            </h1>
+            <p className="text-sm text-[#A1A1AA] leading-relaxed">
+              Every Istituto Marangoni campus is situated in the most prestigious fashion, design, and cultural district of its city — connecting students directly to luxury headquarters, runway ateliers, and flagship showrooms.
+            </p>
+          </div>
+
+          {/* Cross-Campus Mobility Banner */}
+          <div className="bg-[#12121A] border border-[#272738] p-6 mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <span className="text-[10px] uppercase font-mono text-[#D4AF37] tracking-widest block mb-1">
+                International Mobility Program
+              </span>
+              <h3 className="font-serif text-xl font-bold text-white mb-2">
+                Cross-School Semester Exchange
+              </h3>
+              <p className="text-xs text-[#A1A1AA] max-w-xl">
+                Students enrolled in multi-year undergraduate programs can begin in Milan, transfer to Paris or London for Year 2, and complete their graduate collection in Florence or Milan without missing credits.
+              </p>
+            </div>
+            <button
+              onClick={() => navigateTo('admissions')}
+              className="px-5 py-2.5 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider shrink-0 cursor-pointer"
+            >
+              Inquire Mobility Options
+            </button>
+          </div>
+
+          {/* Campuses Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {campuses.map((campus) => (
+              <div
+                key={campus.id}
+                className="bg-[#0A0A0E] border border-[#1A1A24] hover:border-[#D4AF37] transition-all p-6 flex flex-col justify-between group"
+              >
                 <div>
-                  <h3 className="font-serif text-2xl font-bold text-white">
-                    {mentor.name}
+                  <div className="w-full h-48 bg-[#121218] border border-[#22222E] mb-5 overflow-hidden relative">
+                    <img src={campus.image} alt={campus.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div className="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-[10px] font-mono text-[#D4AF37]">
+                      {campus.city}
+                    </div>
+                  </div>
+
+                  <h3 className="font-serif text-xl font-bold text-white mb-2 group-hover:text-[#D4AF37] transition-colors">
+                    {campus.title}
                   </h3>
-                  <p className="text-xs font-semibold text-[#D4AF37] tracking-wider uppercase">
-                    {mentor.role} · {mentor.house}
+
+                  <p className="text-xs font-mono text-[#D4AF37] mb-3">
+                    {campus.specialization}
+                  </p>
+
+                  <p className="text-xs text-[#8E8E93] leading-relaxed mb-4">
+                    {campus.description}
+                  </p>
+
+                  <div className="space-y-1 mb-4 text-xs text-[#A1A1AA]">
+                    <div className="flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
+                      <span className="truncate">{campus.address}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 font-mono text-[#A1A1AA]">
+                      <Phone className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
+                      <span>{campus.phone}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-[#161622] flex items-center gap-2">
+                  <button
+                    onClick={() => {
+                      setTourCity(campus.title);
+                      setVirtualTourOpen(true);
+                    }}
+                    className="flex-1 py-2 bg-[#14141C] hover:bg-[#1A1A24] border border-[#272733] text-white text-xs font-semibold uppercase tracking-wider cursor-pointer"
+                  >
+                    360° Studio Tour
+                  </button>
+                  <button
+                    onClick={() => {
+                      setAppForm(prev => ({ ...prev, campus: campus.title }));
+                      navigateTo('admissions');
+                    }}
+                    className="px-3 py-2 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider cursor-pointer"
+                  >
+                    Apply
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ========================================================================= */}
+      {/* PAGE 6: MENTORS & ALUMNI NETWORK */}
+      {/* ========================================================================= */}
+      {currentPage === 'mentors' && (
+        <section className="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="max-w-3xl mb-12">
+            <span className="text-xs uppercase font-mono tracking-[0.25em] text-[#D4AF37] block mb-2 font-bold">
+              Haute Couture Visionaries
+            </span>
+            <h1 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
+              Super Mentors &amp; Alumni Network
+            </h1>
+            <p className="text-sm text-[#A1A1AA] leading-relaxed">
+              At Istituto Marangoni, learning is an active dialogue with the leaders shaping luxury. Discover our resident Super Mentors and the extraordinary legacy of alumni founding iconic houses.
+            </p>
+          </div>
+
+          {/* Mentors & Alumni Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {superMentors.map((person, idx) => (
+              <div
+                key={idx}
+                className="bg-[#0A0A0E] border border-[#1A1A24] hover:border-[#D4AF37]/80 transition-all p-6 flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="w-full h-56 bg-[#121218] border border-[#22222E] mb-5 overflow-hidden">
+                    <img src={person.image} alt={person.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-[#D4AF37] block mb-1">
+                    {person.type === 'supermentor' ? '★ Active Super Mentor' : '★ Distinguished Alumnus'} · {person.house}
+                  </span>
+
+                  <h3 className="font-serif text-2xl font-bold text-white mb-2">
+                    {person.name}
+                  </h3>
+
+                  <p className="text-xs font-medium text-[#71717A] uppercase mb-4">
+                    {person.role}
+                  </p>
+
+                  <blockquote className="text-xs text-[#A1A1AA] italic leading-relaxed mb-4 border-l-2 border-[#D4AF37] pl-3">
+                    "{person.quote}"
+                  </blockquote>
+
+                  <p className="text-xs text-[#8E8E93] leading-relaxed mb-4">
+                    {person.bio}
                   </p>
                 </div>
 
-                <blockquote className="text-xs text-[#D1D5DB] italic leading-relaxed border-l-2 border-[#D4AF37] pl-3 py-1">
-                  "{mentor.quote}"
-                </blockquote>
-
-                <p className="text-xs text-[#71717A] line-clamp-3 leading-relaxed">
-                  {mentor.bio}
-                </p>
-
-                <div className="pt-3">
-                  <button
-                    onClick={() => setActiveMentorModal(mentor)}
-                    className="text-xs font-bold uppercase tracking-wider text-white hover:text-[#D4AF37] transition-colors cursor-pointer"
-                  >
-                    View Masterclass Profile →
-                  </button>
-                </div>
+                <button
+                  onClick={() => setActiveMentorModal(person)}
+                  className="w-full py-2.5 bg-[#14141C] hover:bg-[#1A1A24] border border-[#272733] text-[#D4AF37] text-xs font-semibold uppercase tracking-wider cursor-pointer"
+                >
+                  View Mentorship Profile
+                </button>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 8. GLOBAL CAMPUSES EXPLORER */}
-      <section id="campuses" className="py-20 px-4 sm:px-8 bg-[#040406] border-t border-b border-[#1A1A22]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#D4AF37] block">
-              INTERNATIONAL HUBS
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight">
-              Study Across the Capitals of Fashion &amp; Design
-            </h2>
-            <p className="text-sm text-[#9CA3AF] leading-relaxed">
-              Transfer between Milan, Paris, London, Florence, Dubai, Miami, and Mumbai as part of our signature Cross-School Mobility and Exchange Program.
-            </p>
-          </div>
-
-          {/* Campus Selector Pills */}
-          <div className="flex items-center justify-center flex-wrap gap-2 mb-10">
-            {campuses.map((campus) => (
-              <button
-                key={campus.id}
-                onClick={() => setSelectedCampusId(campus.id)}
-                className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer ${
-                  selectedCampusId === campus.id
-                    ? 'bg-[#D4AF37] text-black font-bold'
-                    : 'bg-[#0E0E14] border border-[#22222E] text-[#9CA3AF] hover:text-white hover:border-[#3F3F4E]'
-                }`}
-              >
-                {campus.city}
-              </button>
             ))}
           </div>
 
-          {/* Selected Campus Feature Card */}
-          <div className="border border-[#1E1E28] bg-[#0A0A0E] grid grid-cols-1 lg:grid-cols-12 overflow-hidden shadow-2xl">
-            <div className="lg:col-span-6 relative min-h-[380px] bg-black">
-              <img
-                src={activeCampus.image}
-                alt={activeCampus.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-              <div className="absolute bottom-6 left-6 right-6">
-                <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 bg-[#D4AF37] text-black font-bold">
-                  {activeCampus.city} Hub
+          {/* Recruiter Network Directory */}
+          <div className="bg-[#09090D] border border-[#1E1E28] p-8 sm:p-10">
+            <div className="max-w-2xl mb-8">
+              <span className="text-xs uppercase font-mono tracking-widest text-[#D4AF37] block mb-2 font-bold">
+                Career Service &amp; Corporate Placement
+              </span>
+              <h2 className="font-serif text-3xl font-bold text-white mb-2">
+                400+ Luxury Recruiter Houses
+              </h2>
+              <p className="text-xs text-[#A1A1AA]">
+                89% of Istituto Marangoni graduates secure employment in international luxury brands within six months.
+              </p>
+            </div>
+
+            {/* Recruiter Cards Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4">
+              {filteredRecruiters.map((rec, i) => (
+                <div key={i} className="bg-[#101016] border border-[#1E1E26] p-4 text-center hover:border-[#D4AF37] transition-colors">
+                  <span className="font-serif text-sm font-bold text-white block mb-1">{rec.name}</span>
+                  <span className="text-[10px] text-[#D4AF37] block font-mono">{rec.category}</span>
+                  <span className="text-[9px] text-[#71717A] block">{rec.city}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ========================================================================= */}
+      {/* PAGE 7: ADMISSIONS & SCHOLARSHIPS 2026 */}
+      {/* ========================================================================= */}
+      {currentPage === 'admissions' && (
+        <section className="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="max-w-3xl mb-12">
+            <span className="text-xs uppercase font-mono tracking-[0.25em] text-[#D4AF37] block mb-2 font-bold">
+              Academic Year 2026 Intakes
+            </span>
+            <h1 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
+              Admissions &amp; Scholarship Portal
+            </h1>
+            <p className="text-sm text-[#A1A1AA] leading-relaxed">
+              Step into the world capital of fashion and design. Submit your preliminary dossier, estimate your portfolio merit waiver, or check your existing application file status.
+            </p>
+          </div>
+
+          {/* Application Tracker Box */}
+          <div className="bg-[#101016] border border-[#22222E] p-6 mb-12">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div>
+                <span className="text-[10px] uppercase font-mono text-[#D4AF37] tracking-widest block mb-1">
+                  Existing Applicant File Lookup
                 </span>
-                <h3 className="font-serif text-3xl font-bold text-white mt-2">
-                  {activeCampus.title}
+                <h3 className="font-serif text-lg font-bold text-white">
+                  Track Your Admission File Status
                 </h3>
-              </div>
-            </div>
-
-            <div className="lg:col-span-6 p-8 sm:p-10 flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <div>
-                  <span className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold block mb-1">
-                    Specialization
-                  </span>
-                  <p className="text-sm font-medium text-white">{activeCampus.specialization}</p>
-                </div>
-
-                <div className="flex items-start gap-2 text-xs text-[#A1A1AA]">
-                  <MapPin className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
-                  <span>{activeCampus.address}</span>
-                </div>
-
-                <p className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed">
-                  {activeCampus.description}
+                <p className="text-xs text-[#8E8E93]">
+                  Enter your reference tracking code (e.g. IM-2026-XXXXXX) to inspect your committee evaluation.
                 </p>
-
-                <div className="pt-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-white block mb-2">
-                    Campus Labs &amp; Facilities:
-                  </span>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#A1A1AA]">
-                    {activeCampus.facilities.map((fac, idx) => (
-                      <li key={idx} className="flex items-center gap-1.5">
-                        <Check className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
-                        <span>{fac}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
 
-              <div className="pt-4 border-t border-[#1C1C24] flex flex-wrap items-center justify-between gap-4">
-                <div className="text-xs text-[#9CA3AF] space-y-0.5">
-                  <p>Inquiries: <span className="text-white font-mono">{activeCampus.phone}</span></p>
-                  <p>Email: <span className="text-[#D4AF37] font-mono">{activeCampus.email}</span></p>
-                </div>
-
-                <a
-                  href="#admissions"
-                  onClick={() => setAppForm(prev => ({ ...prev, campus: activeCampus.title }))}
-                  className="px-5 py-2.5 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider transition-all"
-                >
-                  Apply to {activeCampus.city} →
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 9. CAREER SERVICE & LUXURY HOUSE RECRUITERS */}
-      <section id="alumni" className="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#D4AF37] block">
-            CAREER OUTCOMES
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight">
-            Connecting Talent to 400+ International Luxury Houses
-          </h2>
-          <p className="text-sm text-[#9CA3AF] leading-relaxed">
-            From Dolce &amp; Gabbana and Moschino to Balmain and Cartier, Istituto Marangoni graduates hold influential design and executive roles at the pinnacle of international fashion and luxury.
-          </p>
-        </div>
-
-        {/* Recruiter Category Filter */}
-        <div className="flex items-center justify-center flex-wrap gap-2 mb-8">
-          {[
-            { id: 'all', label: 'All Luxury Houses' },
-            { id: 'fashion', label: 'Couture & Fashion' },
-            { id: 'jewelry', label: 'High Jewelry' },
-            { id: 'fragrance', label: 'Fragrance & Beauty' },
-            { id: 'furniture', label: 'Interior & Design' }
-          ].map(f => (
-            <button
-              key={f.id}
-              onClick={() => setRecruiterFilter(f.id)}
-              className={`px-3.5 py-1 text-xs uppercase tracking-wider transition-colors cursor-pointer ${
-                recruiterFilter === f.id
-                  ? 'bg-white text-black font-bold'
-                  : 'bg-[#121218] border border-[#22222E] text-[#9CA3AF] hover:text-white'
-              }`}
-            >
-              {f.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Recruiters Brand Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-3">
-          {filteredRecruiters.map((recruiter, index) => (
-            <div
-              key={index}
-              className="p-4 border border-[#1E1E28] bg-[#0A0A0E] hover:border-[#D4AF37] transition-colors text-center flex flex-col items-center justify-center min-h-[90px] group"
-            >
-              <span className="font-serif text-sm font-bold text-white group-hover:text-[#D4AF37] transition-colors block">
-                {recruiter.name}
-              </span>
-              <span className="text-[9px] uppercase tracking-wider text-[#71717A] mt-1 block">
-                {recruiter.category}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {/* Placement Metrics Banner */}
-        <div className="mt-12 p-8 bg-[#0F0F16] border border-[#222230] rounded-none flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-1 text-center md:text-left">
-            <span className="text-xs uppercase tracking-wider font-bold text-[#D4AF37]">
-              Dedicated Career Service &amp; Talent Portals
-            </span>
-            <h4 className="font-serif text-xl sm:text-2xl font-bold text-white">
-              Personalized Career Coaching, Portfolio Clinics &amp; Milan Fashion Week Internships
-            </h4>
-            <p className="text-xs text-[#9CA3AF] max-w-2xl">
-              Students receive exclusive access to the Marangoni I-Talent recruitment portal, connecting directly with HR talent scouts from LVMH, Kering, Richemont, and OTB Group.
-            </p>
-          </div>
-
-          <a
-            href="#admissions"
-            className="px-6 py-3 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all shadow-md shadow-[#D4AF37]/20"
-          >
-            Start Your Application →
-          </a>
-        </div>
-      </section>
-
-      {/* 10. SCHOLARSHIP CALCULATOR & MERIT AWARDS */}
-      <section id="scholarships" className="py-20 px-4 sm:px-8 bg-[#050508] border-t border-b border-[#1A1A22]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-5 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#D4AF37] block">
-              MERIT SCHOLARSHIPS 2026
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight">
-              Invest in Exceptional Creative Talent
-            </h2>
-            <p className="text-xs sm:text-sm text-[#A1A1AA] leading-relaxed">
-              Istituto Marangoni awards competitive scholarships up to 50% of the tuition fee to support the most promising future designers, stylists, and luxury managers across the globe.
-            </p>
-
-            <div className="space-y-2 pt-2 text-xs text-[#D1D5DB]">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" />
-                <span>Evaluated on Portfolio Creativity &amp; Design Originality</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" />
-                <span>Dedicated Women in Fashion Tech &amp; Sustainability Awards</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" />
-                <span>Applicable across Milan, Paris, London, Dubai &amp; Florence</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Interactive Calculator Widget */}
-          <div className="lg:col-span-7 bg-[#0D0D14] border border-[#232332] p-6 sm:p-8 space-y-6">
-            <div className="flex items-center justify-between border-b border-[#1F1F2B] pb-4">
-              <span className="text-xs font-bold uppercase tracking-wider text-white">
-                Interactive Tuition &amp; Scholarship Estimator
-              </span>
-              <span className="text-[10px] font-mono text-[#D4AF37] uppercase">Academic Year 2026/27</span>
-            </div>
-
-            {/* Select Program Level */}
-            <div>
-              <label className="text-xs uppercase tracking-wider text-[#A1A1AA] block mb-2 font-semibold">
-                1. Select Program Level:
-              </label>
-              <div className="grid grid-cols-2 gap-3">
-                <button
-                  type="button"
-                  onClick={() => setCalcLevel('undergraduate')}
-                  className={`py-2.5 px-4 text-xs font-semibold text-center border transition-all cursor-pointer ${
-                    calcLevel === 'undergraduate'
-                      ? 'border-[#D4AF37] bg-[#1A1A24] text-[#D4AF37]'
-                      : 'border-[#22222E] bg-[#111116] text-[#A1A1AA]'
-                  }`}
-                >
-                  Undergraduate (3-Yr BA)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setCalcLevel('postgraduate')}
-                  className={`py-2.5 px-4 text-xs font-semibold text-center border transition-all cursor-pointer ${
-                    calcLevel === 'postgraduate'
-                      ? 'border-[#D4AF37] bg-[#1A1A24] text-[#D4AF37]'
-                      : 'border-[#22222E] bg-[#111116] text-[#A1A1AA]'
-                  }`}
-                >
-                  Postgraduate Master (1-Yr)
-                </button>
-              </div>
-            </div>
-
-            {/* Select Portfolio Score Tier */}
-            <div>
-              <label className="text-xs uppercase tracking-wider text-[#A1A1AA] block mb-2 font-semibold">
-                2. Portfolio Merit Review Tier:
-              </label>
-              <div className="grid grid-cols-3 gap-2">
-                {[
-                  { tier: 1, label: 'Honorable Merit (15% Award)' },
-                  { tier: 2, label: 'High Distinction (30% Award)' },
-                  { tier: 3, label: 'Master Excellence (50% Award)' }
-                ].map(t => (
-                  <button
-                    key={t.tier}
-                    type="button"
-                    onClick={() => setCalcScoreTier(t.tier)}
-                    className={`p-2.5 text-center border text-[11px] font-medium transition-all cursor-pointer ${
-                      calcScoreTier === t.tier
-                        ? 'border-[#D4AF37] bg-[#1A1A24] text-white font-bold'
-                        : 'border-[#22222E] bg-[#111116] text-[#71717A]'
-                    }`}
-                  >
-                    {t.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Estimated Calculation Results */}
-            <div className="p-4 bg-[#14141E] border border-[#272736] space-y-2 text-xs">
-              <div className="flex justify-between text-[#A1A1AA]">
-                <span>Standard Tuition:</span>
-                <span className="font-mono text-white">€{scholarshipAmount.baseFee.toLocaleString()}</span>
-              </div>
-              <div className="flex justify-between text-[#D4AF37]">
-                <span>Estimated Scholarship Deduction ({scholarshipAmount.percentage}%):</span>
-                <span className="font-mono font-bold">- €{scholarshipAmount.discount.toLocaleString()}</span>
-              </div>
-              <div className="flex justify-between pt-2 border-t border-[#232330] text-sm font-bold text-white">
-                <span>Net Tuition Payable:</span>
-                <span className="font-mono text-[#D4AF37]">€{scholarshipAmount.finalFee.toLocaleString()}</span>
-              </div>
-            </div>
-
-            <a
-              href="#admissions"
-              className="w-full block text-center py-3 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-widest transition-all cursor-pointer"
-            >
-              Submit Portfolio for Scholarship Evaluation →
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* 11. ONLINE ADMISSIONS APPLICATION DESK */}
-      <section id="admissions" className="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div className="border border-[#262634] bg-[#0A0A0E] p-8 sm:p-12 relative overflow-hidden shadow-2xl">
-          <div className="max-w-3xl mb-8 space-y-2">
-            <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#D4AF37] block">
-              OFFICIAL ADMISSIONS DESK
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight">
-              Begin Your Application for 2026 Intakes
-            </h2>
-            <p className="text-xs sm:text-sm text-[#9CA3AF]">
-              Complete the preliminary admission form below to receive dedicated portfolio review guidance, academic counseling, and your unique application reference ID.
-            </p>
-          </div>
-
-          {appSubmitted ? (
-            <div className="p-8 bg-[#12141A] border border-[#D4AF37]/80 text-center space-y-4 max-w-xl mx-auto">
-              <div className="w-14 h-14 bg-[#D4AF37]/20 border border-[#D4AF37] rounded-full flex items-center justify-center mx-auto text-[#D4AF37]">
-                <CheckCircle2 className="w-8 h-8" />
-              </div>
-              <h3 className="font-serif text-2xl font-bold text-white">
-                Application Initiated Successfully!
-              </h3>
-              <p className="text-xs text-[#D1D5DB] leading-relaxed">
-                Thank you, <span className="font-semibold text-white">{appForm.fullName}</span>. Your preliminary application dossier has been logged with the Istituto Marangoni Admissions Office.
-              </p>
-              <div className="p-3 bg-black/60 border border-[#272733] font-mono text-xs text-[#D4AF37] font-bold">
-                Application Reference: {appReferenceNumber}
-              </div>
-              <p className="text-[11px] text-[#A1A1AA]">
-                An Admissions Counselor from the <span className="text-white font-medium">{appForm.campus}</span> campus will contact you at <span className="text-white font-medium">{appForm.email}</span> within 24 business hours to schedule your formal portfolio review.
-              </p>
-              <div className="pt-2">
-                <button
-                  onClick={() => setAppSubmitted(false)}
-                  className="px-6 py-2.5 border border-[#3F3F46] hover:border-white text-white text-xs uppercase tracking-wider font-semibold cursor-pointer"
-                >
-                  Submit Another Inquiry
-                </button>
-              </div>
-            </div>
-          ) : (
-            <form onSubmit={handleApplicationSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Full Name */}
-              <div>
-                <label className="text-xs uppercase tracking-wider text-[#A1A1AA] block mb-1.5 font-semibold">
-                  Full Legal Name *
-                </label>
+              <form onSubmit={handleLookup} className="flex items-center gap-2 w-full md:w-auto">
                 <input
                   type="text"
-                  placeholder="e.g. Sofia Rossi"
-                  value={appForm.fullName}
-                  onChange={(e) => setAppForm({ ...appForm, fullName: e.target.value })}
-                  className={`w-full bg-[#111117] border text-xs text-white px-4 py-3 focus:outline-none transition-colors ${
-                    appErrors.fullName ? 'border-rose-500' : 'border-[#262633] focus:border-[#D4AF37]'
-                  }`}
+                  placeholder="Enter IM-2026-XXXXXX"
+                  value={lookupRef}
+                  onChange={(e) => setLookupRef(e.target.value)}
+                  className="bg-[#161620] border border-[#2B2B3A] text-white text-xs px-4 py-2.5 rounded-none font-mono focus:outline-none focus:border-[#D4AF37] w-full md:w-64"
                 />
-                {appErrors.fullName && <p className="text-[11px] text-rose-400 mt-1">{appErrors.fullName}</p>}
-              </div>
-
-              {/* Email */}
-              <div>
-                <label className="text-xs uppercase tracking-wider text-[#A1A1AA] block mb-1.5 font-semibold">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  placeholder="e.g. sofia.rossi@example.com"
-                  value={appForm.email}
-                  onChange={(e) => setAppForm({ ...appForm, email: e.target.value })}
-                  className={`w-full bg-[#111117] border text-xs text-white px-4 py-3 focus:outline-none transition-colors ${
-                    appErrors.email ? 'border-rose-500' : 'border-[#262633] focus:border-[#D4AF37]'
-                  }`}
-                />
-                {appErrors.email && <p className="text-[11px] text-rose-400 mt-1">{appErrors.email}</p>}
-              </div>
-
-              {/* Phone */}
-              <div>
-                <label className="text-xs uppercase tracking-wider text-[#A1A1AA] block mb-1.5 font-semibold">
-                  Phone (with Country Code) *
-                </label>
-                <input
-                  type="tel"
-                  placeholder="e.g. +39 340 1234567"
-                  value={appForm.phone}
-                  onChange={(e) => setAppForm({ ...appForm, phone: e.target.value })}
-                  className={`w-full bg-[#111117] border text-xs text-white px-4 py-3 focus:outline-none transition-colors ${
-                    appErrors.phone ? 'border-rose-500' : 'border-[#262633] focus:border-[#D4AF37]'
-                  }`}
-                />
-                {appErrors.phone && <p className="text-[11px] text-rose-400 mt-1">{appErrors.phone}</p>}
-              </div>
-
-              {/* Preferred Campus */}
-              <div>
-                <label className="text-xs uppercase tracking-wider text-[#A1A1AA] block mb-1.5 font-semibold">
-                  Preferred Campus Location
-                </label>
-                <select
-                  value={appForm.campus}
-                  onChange={(e) => setAppForm({ ...appForm, campus: e.target.value })}
-                  className="w-full bg-[#111117] border border-[#262633] text-xs text-white px-4 py-3 focus:outline-none focus:border-[#D4AF37]"
-                >
-                  <option value="Milano Fashion">Milano Fashion (Via Verri 4)</option>
-                  <option value="Milano Design">Milano Design (Via Cerva 24)</option>
-                  <option value="Firenze Art & Fashion">Firenze (Via de' Tornabuoni 17)</option>
-                  <option value="Paris">Paris (48 Avenue Montaigne)</option>
-                  <option value="London">London (Shoreditch)</option>
-                  <option value="Dubai">Dubai (DIFC Gate Building)</option>
-                  <option value="Miami">Miami (Design District)</option>
-                  <option value="Mumbai">Mumbai (Ceejay House, Worli)</option>
-                </select>
-              </div>
-
-              {/* Program Level */}
-              <div>
-                <label className="text-xs uppercase tracking-wider text-[#A1A1AA] block mb-1.5 font-semibold">
-                  Study Level
-                </label>
-                <select
-                  value={appForm.programLevel}
-                  onChange={(e) => setAppForm({ ...appForm, programLevel: e.target.value })}
-                  className="w-full bg-[#111117] border border-[#262633] text-xs text-white px-4 py-3 focus:outline-none focus:border-[#D4AF37]"
-                >
-                  <option value="Undergraduate 3-Year BA (AFAM)">Undergraduate 3-Year BA (AFAM 180 ECTS)</option>
-                  <option value="Postgraduate Master (1-Year)">Postgraduate Master (1-Year / 60 ECTS)</option>
-                  <option value="Intensive 1-Year Course">Intensive 1-Year Professional Course</option>
-                  <option value="Short Summer Course">Short Summer Course (2-4 Weeks)</option>
-                </select>
-              </div>
-
-              {/* Macro Area & Intake */}
-              <div>
-                <label className="text-xs uppercase tracking-wider text-[#A1A1AA] block mb-1.5 font-semibold">
-                  Intake Session
-                </label>
-                <select
-                  value={appForm.intake}
-                  onChange={(e) => setAppForm({ ...appForm, intake: e.target.value })}
-                  className="w-full bg-[#111117] border border-[#262633] text-xs text-white px-4 py-3 focus:outline-none focus:border-[#D4AF37]"
-                >
-                  <option value="October 2026">October 2026 (Fall Semester)</option>
-                  <option value="February 2027">February 2027 (Spring Semester)</option>
-                  <option value="June/July 2026">Summer Intensive 2026</option>
-                </select>
-              </div>
-
-              {/* Portfolio Link / Behance / Drive */}
-              <div className="md:col-span-2">
-                <label className="text-xs uppercase tracking-wider text-[#A1A1AA] block mb-1.5 font-semibold">
-                  Portfolio Link or Creative Drive (Behance / Google Drive / Instagram / Website)
-                </label>
-                <input
-                  type="text"
-                  placeholder="https://behance.net/yourprofile or Google Drive folder link"
-                  value={appForm.portfolioUrl}
-                  onChange={(e) => setAppForm({ ...appForm, portfolioUrl: e.target.value })}
-                  className="w-full bg-[#111117] border border-[#262633] text-xs text-white px-4 py-3 focus:outline-none focus:border-[#D4AF37]"
-                />
-                <span className="text-[10px] text-[#71717A] mt-1 block">
-                  Optional for initial inquiry. Undergraduates may submit initial sketches or moodboards.
-                </span>
-              </div>
-
-              {/* Statement of Motivation */}
-              <div className="md:col-span-2">
-                <label className="text-xs uppercase tracking-wider text-[#A1A1AA] block mb-1.5 font-semibold">
-                  Creative Statement &amp; Aspirations
-                </label>
-                <textarea
-                  rows={3}
-                  placeholder="Describe your design aspirations, preferred mentors, and why you wish to study at Istituto Marangoni..."
-                  value={appForm.statement}
-                  onChange={(e) => setAppForm({ ...appForm, statement: e.target.value })}
-                  className="w-full bg-[#111117] border border-[#262633] text-xs text-white px-4 py-3 focus:outline-none focus:border-[#D4AF37]"
-                ></textarea>
-              </div>
-
-              {/* Submit CTA */}
-              <div className="md:col-span-2 flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-                <p className="text-[11px] text-[#71717A]">
-                  By submitting, you agree to Istituto Marangoni’s privacy policy and AFAM admissions regulations.
-                </p>
-
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-8 py-3.5 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-widest transition-all shadow-lg shadow-[#D4AF37]/20 inline-flex items-center justify-center gap-2 cursor-pointer"
+                  className="px-5 py-2.5 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider shrink-0 cursor-pointer"
                 >
-                  <Send className="w-3.5 h-3.5" />
-                  Submit Official Dossier
+                  Lookup
                 </button>
-              </div>
-            </form>
-          )}
-        </div>
-      </section>
-
-      {/* 12. MAZE 35 & RESEARCH DISPATCHES */}
-      <section id="news" className="py-20 px-4 sm:px-8 bg-[#040406] border-t border-[#1C1C24]">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#D4AF37] block mb-2">
-                MAZE 35 EDITORIAL
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight">
-                Insights, Runways &amp; Academic News
-              </h2>
+              </form>
             </div>
-            <span className="text-xs text-[#9CA3AF]">
-              Curated by Istituto Marangoni Research &amp; Fashion Forecasting Lab
-            </span>
+
+            {/* Lookup result display */}
+            {lookupResult && (
+              <div className="mt-6 pt-6 border-t border-[#1C1C26] bg-[#14141E] p-4 text-xs text-[#D4D4D8] space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[#D4AF37] font-bold">Reference: {lookupResult.ref}</span>
+                  <span className="px-2 py-0.5 bg-[#4ADE80]/20 text-[#4ADE80] border border-[#4ADE80]/40 text-[10px] uppercase font-semibold">
+                    {lookupResult.status}
+                  </span>
+                </div>
+                <div>Candidate: <strong className="text-white">{lookupResult.name}</strong></div>
+                <div>Programme: <strong className="text-white">{lookupResult.program}</strong></div>
+                <div>Campus: <strong className="text-white">{lookupResult.campus}</strong></div>
+                <div className="text-[#A1A1AA] pt-1">Next Step: {lookupResult.nextStep}</div>
+              </div>
+            )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Admissions Step-by-Step Guide */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+            <div className="bg-[#0A0A0E] border border-[#1A1A22] p-6">
+              <span className="font-mono text-xs text-[#D4AF37] block mb-2 font-bold">STEP 01</span>
+              <h3 className="font-serif text-lg font-bold text-white mb-2">Online Application</h3>
+              <p className="text-xs text-[#8E8E93] leading-relaxed">
+                Complete the application form with your academic transcripts and chosen campus.
+              </p>
+            </div>
+
+            <div className="bg-[#0A0A0E] border border-[#1A1A22] p-6">
+              <span className="font-mono text-xs text-[#D4AF37] block mb-2 font-bold">STEP 02</span>
+              <h3 className="font-serif text-lg font-bold text-white mb-2">Portfolio Assessment</h3>
+              <p className="text-xs text-[#8E8E93] leading-relaxed">
+                Upload 8-12 creative works (Undergraduate) or 15-20 collection plates (Postgraduate).
+              </p>
+            </div>
+
+            <div className="bg-[#0A0A0E] border border-[#1A1A22] p-6">
+              <span className="font-mono text-xs text-[#D4AF37] block mb-2 font-bold">STEP 03</span>
+              <h3 className="font-serif text-lg font-bold text-white mb-2">Academic Interview</h3>
+              <p className="text-xs text-[#8E8E93] leading-relaxed">
+                Online video interview with the Program Leader discussing your creative vision.
+              </p>
+            </div>
+
+            <div className="bg-[#0A0A0E] border border-[#1A1A22] p-6">
+              <span className="font-mono text-xs text-[#D4AF37] block mb-2 font-bold">STEP 04</span>
+              <h3 className="font-serif text-lg font-bold text-white mb-2">Offer &amp; Enrollment</h3>
+              <p className="text-xs text-[#8E8E93] leading-relaxed">
+                Receive your official Offer of Admission, visa support letters, and housing guidance.
+              </p>
+            </div>
+          </div>
+
+          {/* Official Admissions Application Form */}
+          <div className="bg-[#0A0A0E] border border-[#1E1E28] p-8 sm:p-12 mb-16">
+            <div className="max-w-2xl mb-8">
+              <span className="text-xs uppercase font-mono tracking-widest text-[#D4AF37] block mb-2 font-bold">
+                Preliminary Application Desk
+              </span>
+              <h2 className="font-serif text-3xl font-bold text-white mb-2">
+                Apply for 2026 Academic Intakes
+              </h2>
+              <p className="text-xs text-[#A1A1AA]">
+                Submit your dossier to receive immediate portfolio review scheduling and a verified application reference tracking code.
+              </p>
+            </div>
+
+            {appSubmitted ? (
+              <div className="bg-[#12121A] border border-[#D4AF37] p-8 text-center max-w-xl mx-auto">
+                <div className="w-14 h-14 bg-[#D4AF37]/20 border border-[#D4AF37] text-[#D4AF37] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle2 className="w-8 h-8" />
+                </div>
+                <span className="text-xs uppercase font-mono tracking-widest text-[#D4AF37] block mb-2">Application Successfully Registered</span>
+                <h3 className="font-serif text-2xl font-bold text-white mb-3">
+                  Welcome to Istituto Marangoni
+                </h3>
+                <div className="bg-[#181822] border border-[#272736] p-4 font-mono text-sm text-[#D4AF37] mb-4">
+                  Reference ID: <strong className="text-white text-base">{appReferenceNumber}</strong>
+                </div>
+                <p className="text-xs text-[#A1A1AA] leading-relaxed mb-6">
+                  Thank you, <strong className="text-white">{appForm.fullName}</strong>. An admissions counselor from our <strong className="text-white">{appForm.campus}</strong> campus has received your dossier and will reach out to <strong className="text-white">{appForm.email}</strong> within 24 business hours to schedule your formal portfolio assessment.
+                </p>
+                <button
+                  onClick={() => {
+                    setAppSubmitted(false);
+                    setAppForm({
+                      fullName: '',
+                      email: '',
+                      phone: '',
+                      campus: 'Milano Fashion',
+                      programLevel: 'Postgraduate Master (1-Year)',
+                      macroArea: 'Fashion Design',
+                      intake: 'October 2026',
+                      portfolioUrl: '',
+                      statement: '',
+                      citizenship: 'International / Non-EU'
+                    });
+                  }}
+                  className="px-6 py-2.5 bg-[#D4AF37] text-black font-bold uppercase tracking-wider text-xs cursor-pointer"
+                >
+                  Submit Another Application
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleApplicationSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div>
+                    <label className="block text-xs uppercase font-mono tracking-wider text-[#A1A1AA] mb-2">
+                      Full Legal Name *
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="e.g. Sofia Rossi"
+                      value={appForm.fullName}
+                      onChange={(e) => setAppForm({ ...appForm, fullName: e.target.value })}
+                      className="w-full bg-[#12121A] border border-[#272736] text-white text-xs px-4 py-3 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                    />
+                    {appErrors.fullName && <p className="text-red-400 text-[10px] mt-1">{appErrors.fullName}</p>}
+                  </div>
+
+                  <div>
+                    <label className="block text-xs uppercase font-mono tracking-wider text-[#A1A1AA] mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="sofia@example.com"
+                      value={appForm.email}
+                      onChange={(e) => setAppForm({ ...appForm, email: e.target.value })}
+                      className="w-full bg-[#12121A] border border-[#272736] text-white text-xs px-4 py-3 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                    />
+                    {appErrors.email && <p className="text-red-400 text-[10px] mt-1">{appErrors.email}</p>}
+                  </div>
+
+                  <div>
+                    <label className="block text-xs uppercase font-mono tracking-wider text-[#A1A1AA] mb-2">
+                      Phone (with country code) *
+                    </label>
+                    <input
+                      type="tel"
+                      placeholder="+39 340 123 4567"
+                      value={appForm.phone}
+                      onChange={(e) => setAppForm({ ...appForm, phone: e.target.value })}
+                      className="w-full bg-[#12121A] border border-[#272736] text-white text-xs px-4 py-3 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                    />
+                    {appErrors.phone && <p className="text-red-400 text-[10px] mt-1">{appErrors.phone}</p>}
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div>
+                    <label className="block text-xs uppercase font-mono tracking-wider text-[#A1A1AA] mb-2">
+                      Preferred Global Campus
+                    </label>
+                    <select
+                      value={appForm.campus}
+                      onChange={(e) => setAppForm({ ...appForm, campus: e.target.value })}
+                      className="w-full bg-[#12121A] border border-[#272736] text-white text-xs px-4 py-3 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                    >
+                      {campuses.map(c => (
+                        <option key={c.id} value={c.title}>{c.title}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs uppercase font-mono tracking-wider text-[#A1A1AA] mb-2">
+                      Program Study Level
+                    </label>
+                    <select
+                      value={appForm.programLevel}
+                      onChange={(e) => setAppForm({ ...appForm, programLevel: e.target.value })}
+                      className="w-full bg-[#12121A] border border-[#272736] text-white text-xs px-4 py-3 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                    >
+                      <option value="Undergraduate BA (3-Year AFAM)">Undergraduate BA (3-Year AFAM / 180 ECTS)</option>
+                      <option value="Postgraduate Master (1-Year)">Postgraduate Master (1-Year)</option>
+                      <option value="Intensive Course (1-Year)">Intensive Course (1-Year)</option>
+                      <option value="Summer Short Course">Summer Short Course</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs uppercase font-mono tracking-wider text-[#A1A1AA] mb-2">
+                      Target Intake Term
+                    </label>
+                    <select
+                      value={appForm.intake}
+                      onChange={(e) => setAppForm({ ...appForm, intake: e.target.value })}
+                      className="w-full bg-[#12121A] border border-[#272736] text-white text-xs px-4 py-3 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                    >
+                      <option value="October 2026">October 2026</option>
+                      <option value="February 2027">February 2027</option>
+                      <option value="Summer 2026">Summer 2026</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-xs uppercase font-mono tracking-wider text-[#A1A1AA] mb-2">
+                      Online Portfolio URL (Google Drive, Behance, Notion, or Website)
+                    </label>
+                    <input
+                      type="url"
+                      placeholder="https://behance.net/your-portfolio"
+                      value={appForm.portfolioUrl}
+                      onChange={(e) => setAppForm({ ...appForm, portfolioUrl: e.target.value })}
+                      className="w-full bg-[#12121A] border border-[#272736] text-white text-xs px-4 py-3 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs uppercase font-mono tracking-wider text-[#A1A1AA] mb-2">
+                      Applicant Citizenship
+                    </label>
+                    <select
+                      value={appForm.citizenship}
+                      onChange={(e) => setAppForm({ ...appForm, citizenship: e.target.value })}
+                      className="w-full bg-[#12121A] border border-[#272736] text-white text-xs px-4 py-3 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                    >
+                      <option value="International / Non-EU">International / Non-EU (Visa Required)</option>
+                      <option value="EU / EEA / Switzerland">EU / EEA / Switzerland Citizen</option>
+                      <option value="Italian Citizen">Italian Citizen</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs uppercase font-mono tracking-wider text-[#A1A1AA] mb-2">
+                    Statement of Motivation (Short summary of creative ambitions)
+                  </label>
+                  <textarea
+                    rows={3}
+                    placeholder="Describe your creative vision and why you wish to study at Istituto Marangoni..."
+                    value={appForm.statement}
+                    onChange={(e) => setAppForm({ ...appForm, statement: e.target.value })}
+                    className="w-full bg-[#12121A] border border-[#272736] text-white text-xs px-4 py-3 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                  />
+                </div>
+
+                <div className="flex items-center justify-between pt-4 border-t border-[#1C1C26]">
+                  <span className="text-[11px] text-[#71717A]">
+                    By submitting, your dossier will be routed directly to the campus admissions committee.
+                  </span>
+                  <button
+                    type="submit"
+                    className="px-8 py-3.5 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider flex items-center gap-2 cursor-pointer"
+                  >
+                    Submit Application Dossier
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* ========================================================================= */}
+      {/* PAGE 8: MAZE 35 EDITORIAL MAGAZINE */}
+      {/* ========================================================================= */}
+      {currentPage === 'magazine' && (
+        <section className="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="max-w-3xl mb-12">
+            <span className="text-xs uppercase font-mono tracking-[0.25em] text-[#D4AF37] block mb-2 font-bold">
+              The Official Cultural Dispatch
+            </span>
+            <h1 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
+              Maze 35: The Creative Economy
+            </h1>
+            <p className="text-sm text-[#A1A1AA] leading-relaxed">
+              Curated essays, runway reviews, alumni conversations, and speculative research on the intersection of Italian luxury, digital avatars, and global design.
+            </p>
+          </div>
+
+          {/* Featured Article Banner */}
+          <div className="bg-[#0B0B10] border border-[#1E1E28] p-8 sm:p-12 mb-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-5 h-72 bg-[#12121A] border border-[#272738] overflow-hidden flex items-center justify-center p-6">
+              <img src="/assets/istituto-marangoni/hero-maze35.svg" alt="Maze 35 Cover" className="w-full h-full object-contain" />
+            </div>
+
+            <div className="lg:col-span-7">
+              <span className="text-xs font-mono uppercase text-[#D4AF37] tracking-widest block mb-2">
+                ISSUE #08 · COVER STORY
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-4">
+                What Powers the Global Creative Economy?
+              </h2>
+              <p className="text-sm text-[#A1A1AA] leading-relaxed mb-6">
+                From Milan to Lagos, Paris to Seoul: How international students and decentralized atelier networks are rewriting the grammar of luxury. Featuring interviews with Olivier Rousteing, Balmain creative teams, and Milan Fashion Week debutantes.
+              </p>
+              <button
+                onClick={() => setActiveNewsModal(news[0])}
+                className="px-6 py-3 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider cursor-pointer"
+              >
+                Read Full Issue Article
+              </button>
+            </div>
+          </div>
+
+          {/* Articles Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {news.map((item) => (
               <div
                 key={item.id}
-                className="border border-[#1E1E28] bg-[#0A0A0E] p-6 flex flex-col justify-between hover:border-[#D4AF37] transition-all group cursor-pointer"
-                onClick={() => setActiveNewsModal(item)}
+                className="bg-[#0A0A0E] border border-[#1A1A24] hover:border-[#D4AF37]/70 transition-all p-6 flex flex-col justify-between group"
               >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between text-[10px] font-mono uppercase text-[#71717A]">
-                    <span className="text-[#D4AF37] font-semibold">{item.category}</span>
-                    <span>{item.date}</span>
+                <div>
+                  <div className="flex items-center justify-between text-[10px] font-mono text-[#D4AF37] mb-3">
+                    <span>{item.category}</span>
+                    <span className="text-[#71717A]">{item.date}</span>
                   </div>
-
-                  <h3 className="font-serif text-lg font-bold text-white group-hover:text-[#D4AF37] transition-colors leading-snug">
+                  <h3 className="font-serif text-xl font-bold text-white group-hover:text-[#D4AF37] transition-colors mb-3 leading-snug">
                     {item.title}
                   </h3>
-
-                  <p className="text-xs text-[#9CA3AF] line-clamp-3 leading-relaxed">
+                  <p className="text-xs text-[#8E8E93] leading-relaxed mb-6">
                     {item.summary}
                   </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-[#181822] flex items-center justify-between text-xs text-[#71717A]">
-                  <span>{item.readTime}</span>
-                  <span className="text-white group-hover:text-[#D4AF37] font-semibold">Read Article →</span>
+                <div className="pt-3 border-t border-[#181822] flex items-center justify-between text-xs text-[#D4AF37]">
+                  <span className="font-mono text-[10px] text-[#71717A]">{item.readTime}</span>
+                  <button
+                    onClick={() => setActiveNewsModal(item)}
+                    className="font-bold uppercase tracking-wider hover:text-white flex items-center gap-1 cursor-pointer"
+                  >
+                    Read Story
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* 13. FREQUENTLY ASKED QUESTIONS (AFAM & MOBILITY ACCORDION) */}
-      <section id="faq" className="py-20 px-4 sm:px-8 max-w-5xl mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-          <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#D4AF37] block">
-            ADMISSIONS GUIDANCE
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-xs text-[#9CA3AF]">
-            Key information regarding Italian MUR accreditation, campus transfers, and scholarships.
-          </p>
-        </div>
+      {/* ========================================================================= */}
+      {/* PAGE 9: CONTACT & OPEN DAYS */}
+      {/* ========================================================================= */}
+      {currentPage === 'contact' && (
+        <section className="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="max-w-3xl mb-12">
+            <span className="text-xs uppercase font-mono tracking-[0.25em] text-[#D4AF37] block mb-2 font-bold">
+              Global Admissions Network
+            </span>
+            <h1 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
+              Contact &amp; International Open Days
+            </h1>
+            <p className="text-sm text-[#A1A1AA] leading-relaxed">
+              Connect with our international counseling offices in Milan, Paris, London, Dubai, or Miami. Book a 1-on-1 portfolio review or register for upcoming on-campus and virtual Open Days.
+            </p>
+          </div>
 
-        {/* FAQ Filter Chips */}
-        <div className="flex items-center justify-center flex-wrap gap-2 mb-8">
-          {[
-            { id: 'all', label: 'All Questions' },
-            { id: 'accreditation', label: 'Accreditation & AFAM' },
-            { id: 'campuses', label: 'Campus Mobility' },
-            { id: 'admissions', label: 'Portfolio & Requirements' },
-            { id: 'scholarships', label: 'Scholarships' },
-            { id: 'careers', label: 'Careers & Internships' }
-          ].map(c => (
-            <button
-              key={c.id}
-              onClick={() => setActiveFaqCategory(c.id)}
-              className={`px-3 py-1.5 text-xs uppercase tracking-wider transition-all cursor-pointer ${
-                activeFaqCategory === c.id
-                  ? 'bg-[#D4AF37] text-black font-bold'
-                  : 'bg-[#121218] border border-[#22222E] text-[#9CA3AF] hover:text-white'
-              }`}
-            >
-              {c.label}
-            </button>
-          ))}
-        </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16">
+            {/* Contact Form */}
+            <div className="lg:col-span-7 bg-[#0A0A0E] border border-[#1E1E28] p-8">
+              <h2 className="font-serif text-2xl font-bold text-white mb-2">
+                Send an Admissions Inquiry
+              </h2>
+              <p className="text-xs text-[#8E8E93] mb-6">
+                Our academic advisors provide personal guidance on AFAM diplomas, portfolio preparation, and visa support.
+              </p>
 
-        {/* Accordion List */}
-        <div className="space-y-3">
-          {filteredFaqs.map((faq, index) => (
-            <div
-              key={index}
-              className="border border-[#1E1E28] bg-[#0A0A0E] overflow-hidden transition-colors"
-            >
-              <button
-                onClick={() => setExpandedFaqIndex(expandedFaqIndex === index ? null : index)}
-                className="w-full text-left p-5 flex items-center justify-between gap-4 cursor-pointer hover:bg-[#111118]"
-              >
-                <span className="font-serif text-base font-bold text-white">
-                  {faq.question}
-                </span>
-                <ChevronDown
-                  className={`w-4 h-4 text-[#D4AF37] transition-transform duration-300 shrink-0 ${
-                    expandedFaqIndex === index ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
-
-              {expandedFaqIndex === index && (
-                <div className="p-5 pt-0 text-xs sm:text-sm text-[#D1D5DB] leading-relaxed border-t border-[#181822]">
-                  {faq.answer}
+              {contactSuccess ? (
+                <div className="bg-[#12121A] border border-[#D4AF37] p-8 text-center">
+                  <CheckCircle2 className="w-10 h-10 text-[#D4AF37] mx-auto mb-3" />
+                  <h3 className="font-serif text-xl font-bold text-white mb-2">Inquiry Received</h3>
+                  <p className="text-xs text-[#A1A1AA] mb-4">
+                    Thank you. An admissions representative will contact you shortly with campus orientation details.
+                  </p>
+                  <button
+                    onClick={() => {
+                      setContactSuccess(false);
+                      setContactForm({
+                        name: '',
+                        email: '',
+                        phone: '',
+                        campus: 'Milano Fashion',
+                        topic: 'Admissions & Portfolio Evaluation',
+                        message: ''
+                      });
+                    }}
+                    className="px-5 py-2 bg-[#D4AF37] text-black text-xs font-bold uppercase cursor-pointer"
+                  >
+                    Send Another Message
+                  </button>
                 </div>
+              ) : (
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    if (contactForm.name && contactForm.email) setContactSuccess(true);
+                  }}
+                  className="space-y-4"
+                >
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs uppercase font-mono text-[#A1A1AA] mb-1">Your Name *</label>
+                      <input
+                        type="text"
+                        required
+                        value={contactForm.name}
+                        onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                        className="w-full bg-[#12121A] border border-[#272736] text-white text-xs px-3 py-2.5 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs uppercase font-mono text-[#A1A1AA] mb-1">Your Email *</label>
+                      <input
+                        type="email"
+                        required
+                        value={contactForm.email}
+                        onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                        className="w-full bg-[#12121A] border border-[#272736] text-white text-xs px-3 py-2.5 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs uppercase font-mono text-[#A1A1AA] mb-1">Preferred Campus</label>
+                      <select
+                        value={contactForm.campus}
+                        onChange={(e) => setContactForm({ ...contactForm, campus: e.target.value })}
+                        className="w-full bg-[#12121A] border border-[#272736] text-white text-xs px-3 py-2.5 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                      >
+                        {campuses.map(c => (
+                          <option key={c.id} value={c.title}>{c.title}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs uppercase font-mono text-[#A1A1AA] mb-1">Topic</label>
+                      <select
+                        value={contactForm.topic}
+                        onChange={(e) => setContactForm({ ...contactForm, topic: e.target.value })}
+                        className="w-full bg-[#12121A] border border-[#272736] text-white text-xs px-3 py-2.5 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                      >
+                        <option value="Admissions & Portfolio Evaluation">Admissions &amp; Portfolio Evaluation</option>
+                        <option value="AFAM Accreditation / Degree Validation">AFAM Accreditation / Degree Validation</option>
+                        <option value="Merit Scholarships & Financial Aid">Merit Scholarships &amp; Financial Aid</option>
+                        <option value="Open Day Registration">Open Day Registration</option>
+                        <option value="Campus Transfer / Mobility">Campus Transfer / Mobility</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs uppercase font-mono text-[#A1A1AA] mb-1">Your Message</label>
+                    <textarea
+                      rows={4}
+                      value={contactForm.message}
+                      onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                      placeholder="Please let us know which programs or questions you have..."
+                      className="w-full bg-[#12121A] border border-[#272736] text-white text-xs px-3 py-2.5 rounded-none focus:outline-none focus:border-[#D4AF37]"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="px-6 py-3 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider flex items-center gap-2 cursor-pointer"
+                  >
+                    Submit Inquiry
+                    <Send className="w-3.5 h-3.5" />
+                  </button>
+                </form>
               )}
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* 14. COMPREHENSIVE FOOTER & COMPLIANCE DISCLOSURES */}
-      <footer className="bg-[#030305] border-t border-[#1C1C24] text-xs text-[#9CA3AF] pt-16 pb-12 px-4 sm:px-8">
+            {/* Direct Global Campus Contacts */}
+            <div className="lg:col-span-5 space-y-4">
+              <h2 className="font-serif text-2xl font-bold text-white mb-2">
+                Direct Campus Offices
+              </h2>
+              <div className="space-y-3">
+                {campuses.slice(0, 5).map((c) => (
+                  <div key={c.id} className="bg-[#0B0B10] border border-[#1A1A24] p-4 text-xs">
+                    <span className="font-serif font-bold text-white block mb-0.5">{c.title}</span>
+                    <span className="text-[#8E8E93] block mb-1.5">{c.address}</span>
+                    <div className="flex items-center justify-between text-[#D4AF37] font-mono text-[11px]">
+                      <span>{c.phone}</span>
+                      <span className="text-[#A1A1AA] font-sans">{c.email}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ========================================================================= */}
+      {/* GLOBAL FOOTER */}
+      {/* ========================================================================= */}
+      <footer className="bg-[#030305] border-t border-[#181820] text-[#8E8E93] text-xs pt-16 pb-12 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
           {/* Col 1: Brand Info */}
-          <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full border border-[#D4AF37] bg-[#141418] flex items-center justify-center text-[#D4AF37] font-serif font-black">
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 rounded-full border border-[#D4AF37] bg-[#141418] flex items-center justify-center text-[#D4AF37] font-serif font-black text-base">
                 M
               </div>
               <span className="font-serif text-lg font-bold tracking-[0.2em] text-white">
                 ISTITUTO MARANGONI
               </span>
             </div>
-            <p className="text-xs text-[#8E8E93] leading-relaxed max-w-sm">
-              Founded in Milan in 1935, Istituto Marangoni is an international institution for higher education in Fashion, Design, Art, Fragrances &amp; Cosmetics.
+            <p className="text-xs text-[#A1A1AA] leading-relaxed mb-6 max-w-sm">
+              The School of Fashion, Art &amp; Design — Milano 1935. Ninety years of Italian higher education shaping creative leaders, master craftsmen, and luxury directors worldwide.
             </p>
-            <div className="pt-2 flex items-center gap-2">
-              <img src={logos.afamBadge} alt="AFAM Accreditation" className="h-9 w-auto" />
-              <img src={logos.qsBadge} alt="QS World Ranking" className="h-9 w-auto" />
+            <div className="space-y-1 text-[11px] text-[#71717A]">
+              <div>Headquarters: {brand.headquarters}</div>
+              <div>Direct Admissions: <span className="text-[#D4AF37] font-mono">{brand.admissionsPhone}</span></div>
+              <div>Official Email: <span className="text-white font-mono">{brand.admissionsEmail}</span></div>
             </div>
           </div>
 
-          {/* Col 2: Global Campuses Directory */}
-          <div className="space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-white block">
-              Italian &amp; European Campuses
-            </span>
-            <ul className="space-y-2 text-[11px] text-[#A1A1AA]">
-              <li><strong className="text-white">Milano Fashion:</strong> Via Verri 4</li>
-              <li><strong className="text-white">Milano Design:</strong> Via Cerva 24</li>
-              <li><strong className="text-white">Firenze:</strong> Via de' Tornabuoni 17</li>
-              <li><strong className="text-white">Paris:</strong> 48 Avenue Montaigne</li>
-              <li><strong className="text-white">London:</strong> 30 Fashion St, Shoreditch</li>
+          {/* Col 2: Navigation Links */}
+          <div>
+            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4">
+              Navigation
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li><button onClick={() => navigateTo('home')} className="hover:text-[#D4AF37] transition-colors cursor-pointer">Main Showcase</button></li>
+              <li><button onClick={() => navigateTo('about')} className="hover:text-[#D4AF37] transition-colors cursor-pointer">About &amp; 1935 History</button></li>
+              <li><button onClick={() => navigateTo('courses')} className="hover:text-[#D4AF37] transition-colors cursor-pointer">All Degree Courses</button></li>
+              <li><button onClick={() => navigateTo('schools')} className="hover:text-[#D4AF37] transition-colors cursor-pointer">4 Creative Schools</button></li>
+              <li><button onClick={() => navigateTo('campuses')} className="hover:text-[#D4AF37] transition-colors cursor-pointer">Global Campuses</button></li>
+              <li><button onClick={() => navigateTo('mentors')} className="hover:text-[#D4AF37] transition-colors cursor-pointer">Super Mentors &amp; Alumni</button></li>
+              <li><button onClick={() => navigateTo('admissions')} className="hover:text-[#D4AF37] transition-colors cursor-pointer">Admissions 2026</button></li>
+              <li><button onClick={() => navigateTo('magazine')} className="hover:text-[#D4AF37] transition-colors cursor-pointer">Maze 35 Magazine</button></li>
+              <li><button onClick={() => navigateTo('contact')} className="hover:text-[#D4AF37] transition-colors cursor-pointer">Contact &amp; Open Days</button></li>
             </ul>
           </div>
 
-          {/* Col 3: International Hubs */}
-          <div className="space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-white block">
-              International Campuses
-            </span>
-            <ul className="space-y-2 text-[11px] text-[#A1A1AA]">
-              <li><strong className="text-white">Dubai:</strong> DIFC Gate Building 8</li>
-              <li><strong className="text-white">Miami:</strong> 3704 NE 2nd Ave</li>
-              <li><strong className="text-white">Mumbai:</strong> Ceejay House, Worli</li>
-              <li><strong className="text-white">Shanghai:</strong> Plaza 66, Tower 2</li>
-              <li><strong className="text-white">Shenzhen:</strong> OCT-LOFT Creative Park</li>
+          {/* Col 3: Schools */}
+          <div>
+            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4">
+              Disciplines
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li><button onClick={() => { setSelectedMacroArea('fashion'); navigateTo('schools'); }} className="hover:text-[#D4AF37] transition-colors cursor-pointer">School of Fashion</button></li>
+              <li><button onClick={() => { setSelectedMacroArea('design'); navigateTo('schools'); }} className="hover:text-[#D4AF37] transition-colors cursor-pointer">School of Design</button></li>
+              <li><button onClick={() => { setSelectedMacroArea('art'); navigateTo('schools'); }} className="hover:text-[#D4AF37] transition-colors cursor-pointer">School of Art</button></li>
+              <li><button onClick={() => { setSelectedMacroArea('fragrances'); navigateTo('schools'); }} className="hover:text-[#D4AF37] transition-colors cursor-pointer">Fragrances &amp; Cosmetics</button></li>
+              <li><button onClick={() => navigateTo('courses')} className="hover:text-[#D4AF37] transition-colors cursor-pointer">Undergraduate BA Hons</button></li>
+              <li><button onClick={() => navigateTo('courses')} className="hover:text-[#D4AF37] transition-colors cursor-pointer">Postgraduate Master's</button></li>
+              <li><button onClick={() => navigateTo('admissions')} className="hover:text-[#D4AF37] transition-colors cursor-pointer">Merit Scholarships</button></li>
             </ul>
           </div>
 
-          {/* Col 4: Quick Action Links */}
-          <div className="space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-white block">
-              Admissions &amp; Prospectus
-            </span>
-            <ul className="space-y-2 text-[11px]">
-              <li><a href="#admissions" className="hover:text-[#D4AF37] transition-colors">Apply Online 2026</a></li>
-              <li><button onClick={() => setIsBrochureModalOpen(true)} className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left">Download 2026 Prospectus</button></li>
-              <li><a href="#scholarships" className="hover:text-[#D4AF37] transition-colors">Merit Scholarships</a></li>
-              <li><a href="#courses" className="hover:text-[#D4AF37] transition-colors">Course Finder</a></li>
-              <li><a href="#faq" className="hover:text-[#D4AF37] transition-colors">AFAM &amp; ECTS Disclosures</a></li>
-            </ul>
+          {/* Col 4: Statutory Disclosures */}
+          <div>
+            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4">
+              Accreditation
+            </h4>
+            <p className="text-[11px] text-[#71717A] leading-relaxed mb-4">
+              Italian Ministry of University and Research (MUR) decree n. 759 — AFAM First Level Academic Diplomas (180 ECTS). Manchester Metropolitan University (MMU) UK degree validation. French RNCP Level 7.
+            </p>
+            <div className="inline-block px-3 py-1.5 bg-[#0F0F14] border border-[#22222E] text-[10px] font-mono text-[#D4AF37]">
+              QS World Top 100 Art &amp; Design
+            </div>
           </div>
         </div>
 
-        {/* Bottom copyright & statutory accreditation disclaimer */}
-        <div className="max-w-7xl mx-auto pt-8 border-t border-[#1C1C24] flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-[#71717A]">
-          <p>© 1935–2026 Istituto Marangoni S.r.l. All rights reserved. Registered in Italy. P.IVA 09257600157.</p>
-          <p className="text-center md:text-right">
-            Legally recognized by the Italian Ministry of University and Research (MUR) under the AFAM system.
-          </p>
+        <div className="max-w-7xl mx-auto pt-8 border-t border-[#15151D] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#63636E]">
+          <div>
+            © 1935–2026 Istituto Marangoni S.r.l. · P.IVA / Tax Code 09257600157 · All rights reserved.
+          </div>
+          <div className="flex items-center gap-4">
+            <button onClick={() => navigateTo('about')} className="hover:text-white transition-colors cursor-pointer">Accreditation Policies</button>
+            <span>·</span>
+            <button onClick={() => navigateTo('admissions')} className="hover:text-white transition-colors cursor-pointer">Application Terms</button>
+            <span>·</span>
+            <button onClick={() => navigateTo('contact')} className="hover:text-white transition-colors cursor-pointer">Campus Directory</button>
+          </div>
         </div>
       </footer>
 
-      {/* MODAL 1: COURSE DETAILS BREAKDOWN */}
+      {/* ========================================================================= */}
+      {/* MODAL 1: COURSE DETAILS MODAL */}
+      {/* ========================================================================= */}
       {activeCourseModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="bg-[#0E0E14] border border-[#2B2B3C] max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-6 text-left shadow-2xl">
-            <div className="flex items-start justify-between gap-4 border-b border-[#20202E] pb-4">
-              <div>
-                <span className="text-[11px] font-mono uppercase tracking-widest text-[#D4AF37] font-semibold">
-                  {activeCourseModal.macroArea.toUpperCase()} · {activeCourseModal.level.toUpperCase()}
-                </span>
-                <h3 className="font-serif text-2xl font-bold text-white mt-1">
-                  {activeCourseModal.title}
-                </h3>
-              </div>
-              <button
-                onClick={() => setActiveCourseModal(null)}
-                className="text-[#9CA3AF] hover:text-white p-1 cursor-pointer"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-[#0C0C12] border border-[#2A2A38] max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative">
+            <button
+              onClick={() => setActiveCourseModal(null)}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#181822] text-[#A1A1AA] hover:text-white flex items-center justify-center cursor-pointer"
+              aria-label="Close modal"
+            >
+              <X className="w-4 h-4" />
+            </button>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-3.5 bg-[#14141E] border border-[#222230] text-xs">
-              <div>
-                <span className="text-[#71717A] block">Duration:</span>
-                <span className="font-semibold text-white">{activeCourseModal.duration}</span>
-              </div>
-              <div>
-                <span className="text-[#71717A] block">Language:</span>
-                <span className="font-semibold text-white">{activeCourseModal.language}</span>
-              </div>
-              <div>
-                <span className="text-[#71717A] block">Intake:</span>
-                <span className="font-semibold text-white">{activeCourseModal.intake}</span>
-              </div>
-              <div>
-                <span className="text-[#71717A] block">Tuition:</span>
-                <span className="font-semibold text-[#D4AF37]">{activeCourseModal.tuitionFeeEuro}</span>
-              </div>
-            </div>
+            <span className="text-[10px] font-mono uppercase text-[#D4AF37] px-2 py-0.5 bg-[#171722] border border-[#2E2E3E] inline-block mb-3">
+              {activeCourseModal.level === 'undergraduate' ? 'Undergraduate 3-Year Degree' : activeCourseModal.level === 'postgraduate' ? 'Postgraduate Master (1-Year)' : 'Intensive Diploma'}
+            </span>
 
-            <div className="space-y-2">
-              <span className="text-xs uppercase tracking-wider text-white font-bold block">
-                Academic Description
-              </span>
-              <p className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed">
-                {activeCourseModal.description}
-              </p>
-            </div>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">
+              {activeCourseModal.title}
+            </h2>
 
-            <div className="space-y-2">
-              <span className="text-xs uppercase tracking-wider text-white font-bold block">
-                Curriculum Highlights &amp; Modules
-              </span>
-              <ul className="space-y-1.5 text-xs text-[#A1A1AA]">
-                {activeCourseModal.curriculumHighlights.map((hl, i) => (
+            <p className="text-xs font-mono text-[#D4AF37] mb-4">
+              Qualification: {activeCourseModal.qualification}
+            </p>
+
+            <p className="text-sm text-[#D4D4D8] leading-relaxed mb-6">
+              {activeCourseModal.description}
+            </p>
+
+            {/* Curriculum Highlights */}
+            <div className="bg-[#12121A] border border-[#22222E] p-4 mb-6">
+              <h3 className="font-serif text-sm font-bold text-white uppercase tracking-wider mb-3">
+                Key Curriculum Modules
+              </h3>
+              <ul className="space-y-2 text-xs text-[#A1A1AA]">
+                {activeCourseModal.curriculumHighlights.map((mod, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#D4AF37] shrink-0 mt-0.5" />
-                    <span>{hl}</span>
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37] shrink-0 mt-0.5" />
+                    <span>{mod}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="space-y-2">
-              <span className="text-xs uppercase tracking-wider text-white font-bold block">
-                Career Pathways &amp; Outcomes
-              </span>
-              <div className="flex flex-wrap gap-1.5">
-                {activeCourseModal.careerOpportunities.map((op, i) => (
-                  <span key={i} className="px-2.5 py-1 bg-[#1A1A24] border border-[#2D2D3E] text-xs text-[#E4E4E7]">
-                    {op}
+            {/* Career Opportunities */}
+            <div className="mb-6">
+              <h3 className="font-serif text-xs font-bold text-white uppercase tracking-wider mb-2">
+                Career Outcomes
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {activeCourseModal.careerOpportunities.map((car, i) => (
+                  <span key={i} className="px-2.5 py-1 bg-[#151520] border border-[#252536] text-[11px] text-[#E4E4E7]">
+                    {car}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div className="pt-4 border-t border-[#20202E] flex flex-wrap items-center justify-between gap-4">
-              <span className="text-xs text-[#71717A]">
-                Campuses: {activeCourseModal.campuses.join(', ')}
-              </span>
-
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={() => {
-                    setAppForm(prev => ({
-                      ...prev,
-                      programLevel: activeCourseModal.title,
-                      macroArea: activeCourseModal.macroArea
-                    }));
-                    setActiveCourseModal(null);
-                    window.location.hash = '#admissions';
-                  }}
-                  className="px-6 py-2.5 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider cursor-pointer"
-                >
-                  Apply for this Course
-                </button>
+            {/* Practical Information */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#101016] p-3 text-xs text-[#A1A1AA] mb-6">
+              <div>
+                <span className="text-[10px] text-[#71717A] block">Duration</span>
+                <span className="text-white font-medium">{activeCourseModal.duration}</span>
               </div>
+              <div>
+                <span className="text-[10px] text-[#71717A] block">Language</span>
+                <span className="text-white font-medium">{activeCourseModal.language}</span>
+              </div>
+              <div>
+                <span className="text-[10px] text-[#71717A] block">Intake</span>
+                <span className="text-white font-medium">{activeCourseModal.intake}</span>
+              </div>
+              <div>
+                <span className="text-[10px] text-[#71717A] block">Tuition</span>
+                <span className="text-[#D4AF37] font-mono font-bold">{activeCourseModal.tuitionFeeEuro}</span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => {
+                  setAppForm(prev => ({
+                    ...prev,
+                    macroArea: activeCourseModal.title,
+                    campus: activeCourseModal.campuses[0] || 'Milano Fashion'
+                  }));
+                  setActiveCourseModal(null);
+                  navigateTo('admissions');
+                }}
+                className="flex-1 py-3 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider text-center cursor-pointer"
+              >
+                Apply for this Course
+              </button>
+              <button
+                onClick={() => {
+                  setActiveCourseModal(null);
+                  setIsBrochureModalOpen(true);
+                }}
+                className="px-5 py-3 border border-[#3F3F46] hover:border-[#D4AF37] text-white text-xs font-semibold uppercase tracking-wider cursor-pointer"
+              >
+                Download Syllabus PDF
+              </button>
             </div>
           </div>
         </div>
       )}
 
-      {/* MODAL 2: SUPER MENTOR PROFILE */}
+      {/* ========================================================================= */}
+      {/* MODAL 2: SUPER MENTOR PROFILE MODAL */}
+      {/* ========================================================================= */}
       {activeMentorModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="bg-[#0E0E14] border border-[#2B2B3C] max-w-lg w-full p-6 sm:p-8 space-y-5 text-left shadow-2xl relative">
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-[#0C0C12] border border-[#2A2A38] max-w-lg w-full p-6 sm:p-8 relative">
             <button
               onClick={() => setActiveMentorModal(null)}
-              className="absolute top-4 right-4 text-[#9CA3AF] hover:text-white p-1 cursor-pointer"
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#181822] text-[#A1A1AA] hover:text-white flex items-center justify-center cursor-pointer"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
 
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-full overflow-hidden border border-[#D4AF37]">
-                <img src={activeMentorModal.image} alt={activeMentorModal.name} className="w-full h-full object-cover" />
-              </div>
-              <div>
-                <h3 className="font-serif text-2xl font-bold text-white">{activeMentorModal.name}</h3>
-                <p className="text-xs text-[#D4AF37] font-semibold uppercase tracking-wider">{activeMentorModal.role} · {activeMentorModal.house}</p>
-              </div>
+            <div className="w-full h-56 bg-[#14141B] border border-[#22222E] mb-5 overflow-hidden">
+              <img src={activeMentorModal.image} alt={activeMentorModal.name} className="w-full h-full object-cover" />
             </div>
 
-            <blockquote className="text-xs text-[#E4E4E7] italic p-3 bg-[#151520] border-l-2 border-[#D4AF37] leading-relaxed">
+            <span className="text-[10px] uppercase font-mono tracking-wider text-[#D4AF37] block mb-1">
+              {activeMentorModal.type === 'supermentor' ? '★ Active Super Mentor' : '★ Distinguished Alumnus'} · {activeMentorModal.house}
+            </span>
+
+            <h2 className="font-serif text-2xl font-bold text-white mb-1">
+              {activeMentorModal.name}
+            </h2>
+
+            <p className="text-xs uppercase font-mono text-[#71717A] mb-4">
+              {activeMentorModal.role}
+            </p>
+
+            <blockquote className="text-xs text-[#D4AF37] italic border-l-2 border-[#D4AF37] pl-3 mb-4 leading-relaxed">
               "{activeMentorModal.quote}"
             </blockquote>
 
-            <p className="text-xs text-[#A1A1AA] leading-relaxed">
+            <p className="text-xs text-[#A1A1AA] leading-relaxed mb-6">
               {activeMentorModal.bio}
             </p>
 
-            <div className="pt-2 border-t border-[#1F1F2B] flex justify-end">
-              <button
-                onClick={() => setActiveMentorModal(null)}
-                className="px-5 py-2 bg-[#D4AF37] text-black text-xs font-bold uppercase tracking-wider cursor-pointer"
-              >
-                Close Profile
-              </button>
-            </div>
+            <button
+              onClick={() => setActiveMentorModal(null)}
+              className="w-full py-2.5 bg-[#15151F] border border-[#2A2A3A] text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#1E1E2C] cursor-pointer"
+            >
+              Close Profile
+            </button>
           </div>
         </div>
       )}
 
-      {/* MODAL 3: NEWS ARTICLE READER */}
+      {/* ========================================================================= */}
+      {/* MODAL 3: MAZE 35 ARTICLE READER MODAL */}
+      {/* ========================================================================= */}
       {activeNewsModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="bg-[#0E0E14] border border-[#2B2B3C] max-w-xl w-full p-6 sm:p-8 space-y-4 text-left shadow-2xl relative">
+        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-[#0C0C12] border border-[#2A2A38] max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative">
             <button
               onClick={() => setActiveNewsModal(null)}
-              className="absolute top-4 right-4 text-[#9CA3AF] hover:text-white p-1 cursor-pointer"
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#181822] text-[#A1A1AA] hover:text-white flex items-center justify-center cursor-pointer"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
 
-            <span className="text-[10px] font-mono uppercase tracking-widest text-[#D4AF37]">
-              {activeNewsModal.category} · {activeNewsModal.date}
-            </span>
+            <div className="flex items-center gap-3 text-[10px] font-mono text-[#D4AF37] mb-2">
+              <span>{activeNewsModal.category}</span>
+              <span>·</span>
+              <span>{activeNewsModal.readTime}</span>
+              <span>·</span>
+              <span className="text-[#71717A]">{activeNewsModal.date}</span>
+            </div>
 
-            <h3 className="font-serif text-2xl font-bold text-white leading-tight">
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-4 leading-tight">
               {activeNewsModal.title}
-            </h3>
+            </h2>
 
-            <p className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed">
+            <p className="text-sm text-[#D4D4D8] font-medium leading-relaxed mb-6 border-b border-[#1E1E28] pb-4">
               {activeNewsModal.summary}
             </p>
 
-            <div className="p-4 bg-[#14141E] border border-[#242434] text-xs text-[#9CA3AF] leading-relaxed">
-              Published in partnership with the Maze 35 editorial editorial desk and Istituto Marangoni international academic council.
+            <div className="text-xs text-[#A1A1AA] leading-relaxed space-y-4 mb-6">
+              <p>
+                The global fashion landscape in 2026 demands unprecedented synergy between artisanal heritage and digital agility. As luxury conglomerates rethink their supply chains, sustainability credentials, and digital consumer touchpoints, the role of the creative director has expanded from garment stylist to multifaceted cultural anthropologist.
+              </p>
+              <p>
+                At Istituto Marangoni's ateliers in Milan, Paris, London, and Florence, students engage directly with industry leaders through live briefs. Whether engineering phygital garments with real-time cloth simulation in CLO3D or exploring zero-waste pattern drafting, graduates leave equipped not just with technical virtuosity, but with the cultural fluency necessary to direct global ateliers.
+              </p>
+              <p>
+                "Our mission is to empower individual creative voices that challenge conventional luxury paradigms," notes the academic directorship. "Through our ongoing collaborations with houses like Balmain, Ermenegildo Zegna, and L'Oréal, our graduates step onto the runway prepared to lead."
+              </p>
             </div>
 
-            <div className="pt-2 flex justify-end">
-              <button
-                onClick={() => setActiveNewsModal(null)}
-                className="px-5 py-2 bg-[#D4AF37] text-black text-xs font-bold uppercase tracking-wider cursor-pointer"
-              >
-                Done Reading
-              </button>
-            </div>
+            <button
+              onClick={() => setActiveNewsModal(null)}
+              className="w-full py-2.5 bg-[#D4AF37] text-black text-xs font-bold uppercase tracking-wider cursor-pointer"
+            >
+              Return to Magazine
+            </button>
           </div>
         </div>
       )}
 
-      {/* MODAL 4: GLOBAL SEARCH */}
+      {/* ========================================================================= */}
+      {/* MODAL 4: GLOBAL SEARCH MODAL */}
+      {/* ========================================================================= */}
       {isSearchOpen && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/80 backdrop-blur-md">
-          <div className="bg-[#0E0E14] border border-[#2B2B3C] max-w-2xl w-full p-6 space-y-4 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-[#20202E] pb-3">
-              <div className="flex items-center gap-2 flex-1">
-                <Search className="w-4 h-4 text-[#D4AF37]" />
-                <input
-                  type="text"
-                  placeholder="Search courses, campuses, mentors, news..."
-                  value={globalSearchQuery}
-                  onChange={(e) => setGlobalSearchQuery(e.target.value)}
-                  autoFocus
-                  className="w-full bg-transparent text-sm text-white focus:outline-none"
-                />
-              </div>
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-start justify-center p-4 pt-20">
+          <div className="bg-[#0D0D14] border border-[#2A2A38] max-w-2xl w-full p-6 relative">
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-xs uppercase font-mono tracking-wider text-[#D4AF37]">
+                Search Istituto Marangoni
+              </span>
               <button
-                onClick={() => { setIsSearchOpen(false); setGlobalSearchQuery(''); }}
-                className="text-[#9CA3AF] hover:text-white p-1 cursor-pointer"
+                onClick={() => setIsSearchOpen(false)}
+                className="text-[#8E8E93] hover:text-white cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="max-h-96 overflow-y-auto space-y-4 text-left">
-              {globalSearchQuery.trim() ? (
+            <div className="relative mb-6">
+              <Search className="w-4 h-4 text-[#71717A] absolute left-3 top-3.5" />
+              <input
+                type="text"
+                autoFocus
+                placeholder="Search courses, campuses, professors, or news..."
+                value={globalSearchQuery}
+                onChange={(e) => setGlobalSearchQuery(e.target.value)}
+                className="w-full bg-[#151520] border border-[#2B2B3C] text-white text-sm pl-10 pr-4 py-3 rounded-none focus:outline-none focus:border-[#D4AF37]"
+              />
+            </div>
+
+            {/* Results Preview */}
+            <div className="max-h-[60vh] overflow-y-auto space-y-4">
+              {globalSearchQuery.trim() === '' ? (
+                <div className="text-xs text-[#71717A] text-center py-8">
+                  Type to search across undergraduate courses, postgraduate masters, 9 global campuses, and faculty mentors.
+                </div>
+              ) : (
                 <>
-                  {/* Matching Courses */}
-                  {Array.isArray(globalSearchResults.courses) && globalSearchResults.courses.length > 0 && (
+                  {/* Course Results */}
+                  {globalSearchResults.courses.length > 0 && (
                     <div>
-                      <span className="text-[10px] uppercase font-mono tracking-wider text-[#D4AF37] block mb-2">
+                      <span className="text-[10px] font-mono text-[#D4AF37] uppercase block mb-2">
                         Courses ({globalSearchResults.courses.length})
                       </span>
                       <div className="space-y-1.5">
-                        {globalSearchResults.courses.map((c: MarangoniCourse) => (
+                        {globalSearchResults.courses.map(c => (
                           <div
                             key={c.id}
                             onClick={() => {
                               setActiveCourseModal(c);
                               setIsSearchOpen(false);
                             }}
-                            className="p-2.5 bg-[#14141E] hover:bg-[#1E1E2C] border border-[#242432] cursor-pointer flex items-center justify-between text-xs"
+                            className="p-2.5 bg-[#12121A] hover:bg-[#181824] border border-[#1E1E2A] flex items-center justify-between cursor-pointer text-xs"
                           >
-                            <span className="font-serif font-bold text-white">{c.title}</span>
-                            <span className="text-[#A1A1AA]">{c.duration}</span>
+                            <span className="text-white font-medium">{c.title}</span>
+                            <span className="text-[#8E8E93] font-mono text-[10px]">{c.qualification}</span>
                           </div>
                         ))}
                       </div>
                     </div>
                   )}
 
-                  {/* Matching Campuses */}
-                  {Array.isArray(globalSearchResults.campuses) && globalSearchResults.campuses.length > 0 && (
+                  {/* Campus Results */}
+                  {globalSearchResults.campuses.length > 0 && (
                     <div>
-                      <span className="text-[10px] uppercase font-mono tracking-wider text-[#38BDF8] block mb-2">
+                      <span className="text-[10px] font-mono text-[#38BDF8] uppercase block mb-2">
                         Campuses ({globalSearchResults.campuses.length})
                       </span>
                       <div className="space-y-1.5">
-                        {globalSearchResults.campuses.map((cp: MarangoniCampus) => (
+                        {globalSearchResults.campuses.map(cp => (
                           <div
                             key={cp.id}
                             onClick={() => {
                               setSelectedCampusId(cp.id);
                               setIsSearchOpen(false);
-                              window.location.hash = '#campuses';
+                              navigateTo('campuses');
                             }}
-                            className="p-2.5 bg-[#14141E] hover:bg-[#1E1E2C] border border-[#242432] cursor-pointer flex items-center justify-between text-xs"
+                            className="p-2.5 bg-[#12121A] hover:bg-[#181824] border border-[#1E1E2A] flex items-center justify-between cursor-pointer text-xs"
                           >
-                            <span className="font-serif font-bold text-white">{cp.title}</span>
-                            <span className="text-[#A1A1AA]">{cp.city}</span>
+                            <span className="text-white font-medium">{cp.title}</span>
+                            <span className="text-[#8E8E93] text-[10px]">{cp.specialization}</span>
                           </div>
                         ))}
                       </div>
                     </div>
                   )}
 
-                  {/* Matching Mentors */}
-                  {Array.isArray(globalSearchResults.mentors) && globalSearchResults.mentors.length > 0 && (
+                  {/* Mentor Results */}
+                  {globalSearchResults.mentors.length > 0 && (
                     <div>
-                      <span className="text-[10px] uppercase font-mono tracking-wider text-[#F472B6] block mb-2">
-                        Mentors ({globalSearchResults.mentors.length})
+                      <span className="text-[10px] font-mono text-[#C084FC] uppercase block mb-2">
+                        Super Mentors &amp; Alumni ({globalSearchResults.mentors.length})
                       </span>
                       <div className="space-y-1.5">
-                        {globalSearchResults.mentors.map((m: MarangoniMentor, i: number) => (
+                        {globalSearchResults.mentors.map((m, i) => (
                           <div
                             key={i}
                             onClick={() => {
                               setActiveMentorModal(m);
                               setIsSearchOpen(false);
                             }}
-                            className="p-2.5 bg-[#14141E] hover:bg-[#1E1E2C] border border-[#242432] cursor-pointer flex items-center justify-between text-xs"
+                            className="p-2.5 bg-[#12121A] hover:bg-[#181824] border border-[#1E1E2A] flex items-center justify-between cursor-pointer text-xs"
                           >
-                            <span className="font-serif font-bold text-white">{m.name}</span>
-                            <span className="text-[#A1A1AA]">{m.house}</span>
+                            <span className="text-white font-medium">{m.name}</span>
+                            <span className="text-[#D4AF37] text-[10px]">{m.house}</span>
                           </div>
                         ))}
                       </div>
                     </div>
                   )}
+
+                  {globalSearchResults.courses.length === 0 &&
+                    globalSearchResults.campuses.length === 0 &&
+                    globalSearchResults.mentors.length === 0 && (
+                      <div className="text-xs text-[#71717A] text-center py-8">
+                        No matches found for "{globalSearchQuery}". Try searching "Fashion", "Milano", "Balmain", or "Interior".
+                      </div>
+                    )}
                 </>
-              ) : (
-                <div className="text-center py-8 text-xs text-[#71717A]">
-                  Type to search through courses, campuses, mentors, and news.
-                </div>
               )}
             </div>
           </div>
         </div>
       )}
 
-      {/* MODAL 5: DOWNLOAD BROCHURE / PROSPECTUS */}
+      {/* ========================================================================= */}
+      {/* MODAL 5: DOWNLOAD PROSPECTUS MODAL */}
+      {/* ========================================================================= */}
       {isBrochureModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="bg-[#0E0E14] border border-[#2B2B3C] max-w-md w-full p-6 sm:p-8 space-y-4 text-left shadow-2xl relative">
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-[#0C0C12] border border-[#2A2A38] max-w-md w-full p-6 sm:p-8 relative">
             <button
-              onClick={() => { setIsBrochureModalOpen(false); setBrochureSuccess(false); }}
-              className="absolute top-4 right-4 text-[#9CA3AF] hover:text-white p-1 cursor-pointer"
+              onClick={() => {
+                setIsBrochureModalOpen(false);
+                setBrochureSuccess(false);
+              }}
+              className="absolute top-4 right-4 text-[#8E8E93] hover:text-white cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <span className="text-[10px] font-mono uppercase tracking-widest text-[#D4AF37]">
-              ISTITUTO MARANGONI OFFICIAL CATALOGUE
+            <span className="text-[10px] uppercase font-mono tracking-widest text-[#D4AF37] block mb-2">
+              Course Guide 2026 (PDF)
             </span>
 
-            <h3 className="font-serif text-2xl font-bold text-white">
-              Download 2026/27 Academic Prospectus
-            </h3>
+            <h2 className="font-serif text-2xl font-bold text-white mb-3">
+              Download Course Prospectus
+            </h2>
+
+            <p className="text-xs text-[#A1A1AA] leading-relaxed mb-6">
+              Enter your email address to receive the official 84-page Istituto Marangoni 2026 Academic Prospectus with detailed curricula, fees, and campus housing directories.
+            </p>
 
             {brochureSuccess ? (
-              <div className="p-4 bg-[#12141C] border border-[#D4AF37] text-center space-y-2">
-                <CheckCircle2 className="w-6 h-6 text-[#D4AF37] mx-auto" />
-                <p className="text-xs text-white font-semibold">Prospectus Download Started</p>
+              <div className="bg-[#12121A] border border-[#D4AF37] p-5 text-center">
+                <CheckCircle2 className="w-8 h-8 text-[#D4AF37] mx-auto mb-2" />
+                <span className="text-xs font-bold text-white block mb-1">Prospectus Dispatched</span>
                 <p className="text-[11px] text-[#A1A1AA]">
-                  The complete course brochure and admissions guide has also been dispatched to {brochureEmail}.
+                  The 2026 Course Prospectus has been sent to <strong className="text-white">{brochureEmail}</strong>.
                 </p>
               </div>
             ) : (
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  if (brochureEmail.includes('@')) {
-                    setBrochureSuccess(true);
-                  }
+                  if (brochureEmail.includes('@')) setBrochureSuccess(true);
                 }}
-                className="space-y-3"
+                className="space-y-4"
               >
-                <p className="text-xs text-[#A1A1AA]">
-                  Enter your email address to receive the official high-resolution brochure covering curriculum structures, tuition schedules, and campus tour dates.
-                </p>
                 <input
                   type="email"
                   required
-                  placeholder="Your email address"
+                  placeholder="name@example.com"
                   value={brochureEmail}
                   onChange={(e) => setBrochureEmail(e.target.value)}
-                  className="w-full bg-[#14141E] border border-[#282838] text-xs text-white px-4 py-3 focus:outline-none focus:border-[#D4AF37]"
+                  className="w-full bg-[#12121A] border border-[#272736] text-white text-xs px-4 py-3 rounded-none focus:outline-none focus:border-[#D4AF37]"
                 />
                 <button
                   type="submit"
-                  className="w-full py-3 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider transition-all cursor-pointer"
+                  className="w-full py-3 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider cursor-pointer"
                 >
-                  Download Prospectus PDF
+                  Download Instant PDF
                 </button>
               </form>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* MODAL 6: 360° VIRTUAL STUDIO TOUR SIMULATOR */}
+      {/* ========================================================================= */}
+      {virtualTourOpen && (
+        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="bg-[#0C0C12] border border-[#2A2A38] max-w-3xl w-full p-6 sm:p-8 relative">
+            <button
+              onClick={() => setVirtualTourOpen(false)}
+              className="absolute top-4 right-4 text-[#8E8E93] hover:text-white cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <span className="text-[10px] uppercase font-mono tracking-widest text-[#D4AF37] block mb-1">
+              Virtual Atelier Experience
+            </span>
+
+            <h2 className="font-serif text-2xl font-bold text-white mb-2">
+              360° Studio Tour: {tourCity}
+            </h2>
+
+            <p className="text-xs text-[#A1A1AA] mb-4">
+              Explore the pattern-making ateliers, digital couture suites, CLO3D simulation lab, and library archives of the {tourCity} campus.
+            </p>
+
+            {/* Simulated 360 viewer */}
+            <div className="w-full h-80 bg-[#121218] border border-[#22222E] relative overflow-hidden flex items-center justify-center mb-6">
+              <img
+                src={activeCampus.image}
+                alt={tourCity}
+                className="w-full h-full object-cover opacity-80"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 flex flex-col justify-between p-6">
+                <div className="flex justify-between items-center text-xs">
+                  <span className="px-2.5 py-1 bg-black/70 backdrop-blur-sm border border-[#D4AF37]/40 text-[#D4AF37] font-mono text-[10px]">
+                    ● LIVE 360° PANORAMIC ATELIER VIEW
+                  </span>
+                  <span className="text-[#8E8E93] font-mono text-[10px]">Rotational Angle: 180°</span>
+                </div>
+                <div className="text-center">
+                  <span className="inline-block px-4 py-2 bg-black/80 backdrop-blur-md border border-[#3F3F4E] text-xs text-white">
+                    Simulated Virtual Reality Environment — High-definition 4K Spatial Audio
+                  </span>
+                </div>
+                <div className="flex justify-between text-[11px] text-[#A1A1AA]">
+                  <span>Studio A: Draping &amp; Tailoring</span>
+                  <span>Studio B: 3D CAD &amp; Virtual Runways</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <span className="text-xs text-[#8E8E93]">
+                Want to visit in person? Schedule an on-campus walk-through with our admissions team.
+              </span>
+              <button
+                onClick={() => {
+                  setVirtualTourOpen(false);
+                  navigateTo('contact');
+                }}
+                className="px-5 py-2.5 bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold uppercase tracking-wider cursor-pointer"
+              >
+                Book Campus Visit
+              </button>
+            </div>
           </div>
         </div>
       )}

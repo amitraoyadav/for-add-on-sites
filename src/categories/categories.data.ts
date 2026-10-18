@@ -40,8 +40,8 @@ export const BUSINESS_CATEGORIES: CategoryDefinition[] = [
   {
     code: 'cat-education-coaching',
     letter: '2',
-    title: 'Coaching Institute & Education',
-    shortTitle: 'Education & Coaching',
+    title: 'Universities, Colleges & Education',
+    shortTitle: 'Universities & Education',
     subcategories: [
       'Competitive Exam Institutes',
       'Schools & Preschools',

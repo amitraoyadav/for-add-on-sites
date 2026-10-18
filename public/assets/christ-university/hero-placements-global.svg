@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="plBgChrist" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#1E1B4B"/>
+      <stop offset="100%" stop-color="#082142"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#plBgChrist)"/>
+
+  <!-- Background Financial / Career Chart Trend -->
+  <path d="M 80 380 Q 200 350, 320 280 T 560 180 T 720 100" fill="none" stroke="#38BDF8" stroke-width="3" opacity="0.4"/>
+  <path d="M 80 380 Q 200 350, 320 280 T 560 180 T 720 100 L 720 450 L 80 450 Z" fill="#38BDF8" opacity="0.05"/>
+
+  <!-- Content -->
+  <g transform="translate(60, 60)">
+    <text x="0" y="20" font-family="'Inter', sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#FBBF24">
+      CAREER GUIDANCE & PLACEMENT CELL
+    </text>
+    <text x="0" y="60" font-family="'Cinzel', 'Georgia', serif" font-size="32" font-weight="700" fill="#FFFFFF">
+      Global Placements & Fortune 500 Network
+    </text>
+    <text x="0" y="88" font-family="'Inter', sans-serif" font-size="14" font-weight="400" fill="#94A3B8">
+      Connecting talent with leading multinational banks, consulting giants, tech leaders, and corporate enterprises
+    </text>
+
+    <!-- Placement Metrics -->
+    <g transform="translate(0, 130)">
+      <rect x="0" y="0" width="200" height="110" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="24" y="36" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#94A3B8">HIGHEST CTC</text>
+      <text x="24" y="74" font-family="'Inter', sans-serif" font-size="32" font-weight="800" fill="#38BDF8">₹21.46 LPA</text>
+      <text x="24" y="96" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#CBD5E1">Global Consulting Track</text>
+
+      <rect x="230" y="0" width="200" height="110" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="254" y="36" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#94A3B8">AVERAGE CTC (MBA/PG)</text>
+      <text x="254" y="74" font-family="'Inter', sans-serif" font-size="32" font-weight="800" fill="#FBBF24">₹10.50 LPA</text>
+      <text x="254" y="96" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#CBD5E1">Across All Campuses</text>
+
+      <rect x="460" y="0" width="200" height="110" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="484" y="36" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#94A3B8">RECRUITING PARTNERS</text>
+      <text x="484" y="74" font-family="'Inter', sans-serif" font-size="32" font-weight="800" fill="#34D399">450+ Orgs</text>
+      <text x="484" y="96" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#CBD5E1">Annual Campus Drives</text>
+    </g>
+
+    <!-- Marquee Brand Badges preview -->
+    <g transform="translate(0, 270)">
+      <text x="0" y="16" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#64748B">MARQUEE RECRUITERS</text>
+      <g transform="translate(0, 30)">
+        <rect x="0" y="0" width="100" height="40" rx="8" fill="#334155" opacity="0.6"/>
+        <text x="50" y="24" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#FFF" text-anchor="middle">DELOITTE</text>
+
+        <rect x="115" y="0" width="120" height="40" rx="8" fill="#334155" opacity="0.6"/>
+        <text x="175" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#FFF" text-anchor="middle">GOLDMAN SACHS</text>
+
+        <rect x="250" y="0" width="100" height="40" rx="8" fill="#334155" opacity="0.6"/>
+        <text x="300" y="24" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#FFF" text-anchor="middle">EY &amp; KPMG</text>
+
+        <rect x="365" y="0" width="110" height="40" rx="8" fill="#334155" opacity="0.6"/>
+        <text x="420" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#FFF" text-anchor="middle">AMAZON &amp; MS</text>
+
+        <rect x="490" y="0" width="100" height="40" rx="8" fill="#334155" opacity="0.6"/>
+        <text x="540" y="24" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#FFF" text-anchor="middle">BCG &amp; BAIN</text>
+
+        <rect x="605" y="0" width="85" height="40" rx="8" fill="#334155" opacity="0.6"/>
+        <text x="647" y="24" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#FFF" text-anchor="middle">CISCO</text>
+      </g>
+    </g>
+  </g>
+</svg>

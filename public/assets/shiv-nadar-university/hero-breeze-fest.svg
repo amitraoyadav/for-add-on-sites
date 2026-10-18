@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="breezeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4C0519"/>
+      <stop offset="50%" stop-color="#881337"/>
+      <stop offset="100%" stop-color="#1C1917"/>
+    </linearGradient>
+    <linearGradient id="neonGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F43F5E"/>
+      <stop offset="50%" stop-color="#FB7185"/>
+      <stop offset="100%" stop-color="#FDE047"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#breezeBg)"/>
+
+  <!-- Dynamic festival stage lights -->
+  <g opacity="0.3">
+    <polygon points="400,0 200,450 600,450" fill="url(#neonGlow)"/>
+    <circle cx="400" cy="220" r="160" fill="none" stroke="#FDA4AF" stroke-width="2"/>
+    <circle cx="400" cy="220" r="220" fill="none" stroke="#FDE047" stroke-width="1"/>
+  </g>
+
+  <!-- Tag -->
+  <rect x="50" y="44" width="235" height="32" rx="16" fill="#F43F5E" fill-opacity="0.25" stroke="#FB7185" stroke-width="1.5"/>
+  <circle cx="66" cy="60" r="5" fill="#FDA4AF"/>
+  <text x="80" y="64" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#FFE4E6" letter-spacing="1">STUDENT LIFE &amp; CULTURE</text>
+
+  <!-- Header -->
+  <text x="50" y="125" font-family="'Cinzel', 'Playfair Display', serif" font-size="36" font-weight="800" fill="#FFFFFF" letter-spacing="1">
+    Breeze: Techno-Cultural Fest
+  </text>
+  <text x="50" y="165" font-family="'Inter', sans-serif" font-size="20" font-weight="600" fill="#FDA4AF">
+    50+ Clubs, Pro-Nights, Indoor Sports Complex &amp; Vibrant Campus
+  </text>
+  <text x="50" y="200" font-family="'Inter', sans-serif" font-size="14" fill="#E2E8F0">
+    Featuring top national artists, hackathons, debates, international arts exhibitions &amp; sports meets
+  </text>
+
+  <!-- Feature Grid -->
+  <g transform="translate(50, 240)">
+    <rect width="210" height="140" rx="14" fill="#9F1239" fill-opacity="0.5" stroke="#F43F5E" stroke-width="1.5"/>
+    <text x="24" y="40" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#FFE4E6" letter-spacing="1">BREEZE FEST</text>
+    <text x="24" y="78" font-family="'Inter', sans-serif" font-size="32" font-weight="900" fill="#FFFFFF">15k+</text>
+    <text x="110" y="76" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#FDE047">Footfall</text>
+    <text x="24" y="106" font-family="'Inter', sans-serif" font-size="12" fill="#FECDD3">3 Days of music, tech, dance</text>
+    <text x="24" y="124" font-family="'Inter', sans-serif" font-size="11" fill="#FDA4AF">Pro-nights &amp; celebrity acts</text>
+  </g>
+
+  <g transform="translate(280, 240)">
+    <rect width="210" height="140" rx="14" fill="#9F1239" fill-opacity="0.5" stroke="#FB7185" stroke-width="1.5"/>
+    <text x="24" y="40" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#FFE4E6" letter-spacing="1">SPORTS COMPLEX</text>
+    <text x="24" y="78" font-family="'Inter', sans-serif" font-size="32" font-weight="900" fill="#FFFFFF">400k</text>
+    <text x="110" y="76" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#FDA4AF">Sq. Ft.</text>
+    <text x="24" y="106" font-family="'Inter', sans-serif" font-size="12" fill="#FECDD3">Indoor Olympic-standard arena</text>
+    <text x="24" y="124" font-family="'Inter', sans-serif" font-size="11" fill="#FDA4AF">Squash, pool, basketball, turf</text>
+  </g>
+
+  <g transform="translate(510, 240)">
+    <rect width="240" height="140" rx="14" fill="#9F1239" fill-opacity="0.5" stroke="#FDE047" stroke-width="1.5"/>
+    <text x="24" y="40" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#FEF08A" letter-spacing="1">STUDENT SOCIETIES</text>
+    <text x="24" y="78" font-family="'Inter', sans-serif" font-size="32" font-weight="900" fill="#FFFFFF">50+</text>
+    <text x="96" y="76" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#FDE047">Clubs</text>
+    <text x="24" y="106" font-family="'Inter', sans-serif" font-size="12" fill="#FECDD3">Robotics, Debating, Theatre</text>
+    <text x="24" y="124" font-family="'Inter', sans-serif" font-size="11" fill="#FDA4AF">SPIC MACAY, Rotaract, Gaming</text>
+  </g>
+</svg>

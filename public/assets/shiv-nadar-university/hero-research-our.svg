@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="ourBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022026"/>
+      <stop offset="50%" stop-color="#04323E"/>
+      <stop offset="100%" stop-color="#02141A"/>
+    </linearGradient>
+    <linearGradient id="ourCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#ourBg)"/>
+
+  <!-- Molecular / Science Network graphic nodes -->
+  <g opacity="0.25">
+    <line x1="120" y1="120" x2="260" y2="180" stroke="#06B6D4" stroke-width="2"/>
+    <line x1="260" y1="180" x2="380" y2="100" stroke="#10B981" stroke-width="2"/>
+    <line x1="260" y1="180" x2="320" y2="300" stroke="#38BDF8" stroke-width="2"/>
+    <line x1="380" y1="100" x2="520" y2="150" stroke="#06B6D4" stroke-width="2"/>
+    <line x1="520" y1="150" x2="680" y2="120" stroke="#10B981" stroke-width="2"/>
+    <line x1="520" y1="150" x2="600" y2="280" stroke="#38BDF8" stroke-width="2"/>
+    <circle cx="120" cy="120" r="12" fill="#06B6D4"/>
+    <circle cx="260" cy="180" r="16" fill="#10B981"/>
+    <circle cx="380" cy="100" r="14" fill="#38BDF8"/>
+    <circle cx="320" cy="300" r="10" fill="#06B6D4"/>
+    <circle cx="520" cy="150" r="18" fill="#10B981"/>
+    <circle cx="680" cy="120" r="14" fill="#06B6D4"/>
+    <circle cx="600" cy="280" r="12" fill="#F59E0B"/>
+  </g>
+
+  <!-- Tag -->
+  <rect x="50" y="44" width="260" height="32" rx="16" fill="#06B6D4" fill-opacity="0.2" stroke="#22D3EE" stroke-width="1.5"/>
+  <circle cx="66" cy="60" r="5" fill="#22D3EE"/>
+  <text x="80" y="64" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#CFFAFE" letter-spacing="1">RESEARCH &amp; INNOVATION</text>
+
+  <!-- Header -->
+  <text x="50" y="125" font-family="'Cinzel', 'Playfair Display', serif" font-size="36" font-weight="800" fill="#FFFFFF" letter-spacing="1">
+    OUR Program &amp; Deep-Tech Discovery
+  </text>
+  <text x="50" y="165" font-family="'Inter', sans-serif" font-size="20" font-weight="600" fill="#22D3EE">
+    Opportunities for Undergraduate Research &amp; Atal Incubation Centre
+  </text>
+  <text x="50" y="200" font-family="'Inter', sans-serif" font-size="14" fill="#99F6E4">
+    Over ₹350+ Crores in Extramural Research Funding · 30+ Startups Incubated by AIC-SNU
+  </text>
+
+  <!-- Feature Grid -->
+  <g transform="translate(50, 240)">
+    <rect width="210" height="140" rx="14" fill="#064E3B" fill-opacity="0.5" stroke="#059669" stroke-width="1.5"/>
+    <text x="24" y="40" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#6EE7B7" letter-spacing="1">PATENTS &amp; PAPERS</text>
+    <text x="24" y="78" font-family="'Inter', sans-serif" font-size="32" font-weight="900" fill="#FFFFFF">3,200+</text>
+    <text x="24" y="106" font-family="'Inter', sans-serif" font-size="12" fill="#A7F3D0">Scopus indexed publications</text>
+    <text x="24" y="124" font-family="'Inter', sans-serif" font-size="11" fill="#6EE7B7">150+ Patents filed &amp; granted</text>
+  </g>
+
+  <g transform="translate(280, 240)">
+    <rect width="210" height="140" rx="14" fill="#0E4256" fill-opacity="0.5" stroke="#0284C7" stroke-width="1.5"/>
+    <text x="24" y="40" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#7DD3FC" letter-spacing="1">ATAL INCUBATION</text>
+    <text x="24" y="78" font-family="'Inter', sans-serif" font-size="32" font-weight="900" fill="#FFFFFF">30+</text>
+    <text x="96" y="76" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#38BDF8">Startups</text>
+    <text x="24" y="106" font-family="'Inter', sans-serif" font-size="12" fill="#BAE6FD">NITI Aayog backed incubator</text>
+    <text x="24" y="124" font-family="'Inter', sans-serif" font-size="11" fill="#7DD3FC">Seed funding &amp; prototype lab</text>
+  </g>
+
+  <g transform="translate(510, 240)">
+    <rect width="240" height="140" rx="14" fill="#312E81" fill-opacity="0.5" stroke="#6366F1" stroke-width="1.5"/>
+    <text x="24" y="40" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#A5B4FC" letter-spacing="1">GLOBAL ALLIANCES</text>
+    <text x="24" y="78" font-family="'Inter', sans-serif" font-size="32" font-weight="900" fill="#FFFFFF">Global</text>
+    <text x="24" y="106" font-family="'Inter', sans-serif" font-size="12" fill="#C7D2FE">Dual Degree with Arizona State (ASU)</text>
+    <text x="24" y="124" font-family="'Inter', sans-serif" font-size="11" fill="#A5B4FC">Partnerships with CMU, Duke, Penn</text>
+  </g>
+</svg>

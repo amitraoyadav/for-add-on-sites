@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="techBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#041226"/>
+      <stop offset="100%" stop-color="#0B2545"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#techBg)"/>
+
+  <!-- Circuit nodes -->
+  <g stroke="#3B82F6" stroke-width="1.5" opacity="0.4">
+    <circle cx="200" cy="180" r="16" fill="none"/>
+    <circle cx="400" cy="120" r="22" fill="none"/>
+    <circle cx="600" cy="180" r="16" fill="none"/>
+    <line x1="216" y1="180" x2="378" y2="120"/>
+    <line x1="422" y1="120" x2="584" y2="180"/>
+    <line x1="400" y1="142" x2="400" y2="240"/>
+  </g>
+
+  <text x="400" y="270" font-family="'Cinzel', Georgia, serif" font-weight="900" font-size="34" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">
+    INSTITUTE OF TECHNOLOGY &amp; INNOVATION
+  </text>
+  <text x="400" y="315" font-family="'Inter', sans-serif" font-weight="800" font-size="20" fill="#60A5FA" text-anchor="middle">
+    AI &amp; ML · CSE · ROBOTICS · CYBER SECURITY · ADVANCED VLSI
+  </text>
+  <text x="400" y="355" font-family="'Inter', sans-serif" font-weight="500" font-size="15" fill="#E2E8F0" text-anchor="middle">
+    State-of-the-Art IDEA Lab · 40+ Research Laboratories · High Performance Supercomputing
+  </text>
+</svg>

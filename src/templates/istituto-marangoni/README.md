@@ -4,7 +4,8 @@
 - **Template ID**: `istituto-marangoni`
 - **Numeric ID**: `22`
 - **Category**: Coaching Institute & Education (`cat-education-coaching`)
-- **Subcategory**: `Universities & Research Institutes`
+- **Subcategory**: `Universities`
+- **Architecture**: Comprehensive Multi-Page Demo with 9 dedicated pages (Home, About & Heritage 1935, Courses & Degree Directory, 4 Creative Schools, Global Campuses & Student Life, Super Mentors & Alumni Network, Admissions 2026 & Scholarship Portal, Maze 35 Magazine, Contact & Open Days)
 - **Original Source Reference**: `saveweb2zip-com-www-istitutomarangoni-com.zip` / `https://www.istitutomarangoni.com/en`
 - **Motto / Tagline**: The School of Fashion, Art & Design — Milano 1935 · Higher Education in Fashion, Design, Fragrances & Art
 

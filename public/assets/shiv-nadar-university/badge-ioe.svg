@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 70" width="240" height="70">
+  <rect width="240" height="70" rx="12" fill="#002D62" stroke="#E11D48" stroke-width="1.5"/>
+  <circle cx="38" cy="35" r="22" fill="#0B2545" stroke="#FDE047" stroke-width="1"/>
+  <path d="M 38 19 L 41 27 L 49 28 L 43 34 L 45 42 L 38 37 L 31 42 L 33 34 L 27 28 L 35 27 Z" fill="#FDE047"/>
+  <text x="72" y="27" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#FDE047" letter-spacing="1">INSTITUTION OF EMINENCE</text>
+  <text x="72" y="42" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">IoE Deemed University</text>
+  <text x="72" y="55" font-family="'Inter', sans-serif" font-size="9" fill="#93C5FD">Govt. of India Recognition</text>
+</svg>

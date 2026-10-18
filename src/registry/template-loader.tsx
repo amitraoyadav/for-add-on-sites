@@ -33,6 +33,9 @@ const IstitutoMarangoniLazy = lazy(() => import('../templates/istituto-marangoni
 const CrRamansUniversityLazy = lazy(() => import('../templates/cr-ramans-university/CrRamansUniversity'));
 const EduTechUniversityLazy = lazy(() => import('../templates/edu-tech-university/EduTechUniversity'));
 const SushantUniversityLazy = lazy(() => import('../templates/sushant-university/SushantUniversity'));
+const NirmaUniversityLazy = lazy(() => import('../templates/nirma-university/NirmaUniversity'));
+const ChristUniversityLazy = lazy(() => import('../templates/christ-university/CHRISTUniversity'));
+const ShivNadarUniversityLazy = lazy(() => import('../templates/shiv-nadar-university/ShivNadarUniversity'));
 
 interface TemplateLoaderProps {
   template: TemplateManifestItem;
@@ -536,6 +539,66 @@ export function TemplateLoader({ template, onOpenIntakeModal }: TemplateLoaderPr
         }
       >
         <SushantUniversityLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is NIRMA UNIVERSITY
+  if (template.id === 'nirma-university') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#081426] text-white">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#F59E0B] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-amber-400 font-mono">
+                Loading NIRMA UNIVERSITY Demo...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <NirmaUniversityLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is CHRIST UNIVERSITY
+  if (template.id === 'christ-university') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#05172C] text-white">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#D4AF37] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-amber-400 font-mono">
+                Loading CHRIST UNIVERSITY Demo...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <ChristUniversityLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is SHIV NADAR UNIVERSITY
+  if (template.id === 'shiv-nadar-university') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#071322] text-white">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#E11D48] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-rose-400 font-mono">
+                Loading SHIV NADAR UNIVERSITY Demo...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <ShivNadarUniversityLazy />
       </Suspense>
     );
   }

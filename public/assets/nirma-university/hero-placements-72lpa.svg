@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="plBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08182B"/>
+      <stop offset="100%" stop-color="#1E3A5F"/>
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#plBg)"/>
+
+  <!-- Graph Lines / Career Ascent Graphic -->
+  <path d="M 100,400 Q 250,380 400,260 T 700,120" fill="none" stroke="#F59E0B" stroke-width="4" stroke-dasharray="6 4"/>
+  <circle cx="700" cy="120" r="10" fill="#F59E0B"/>
+  <circle cx="400" cy="260" r="6" fill="#60A5FA"/>
+
+  <text x="400" y="160" font-family="'Inter', sans-serif" font-weight="900" font-size="64" fill="#FBBF24" text-anchor="middle" letter-spacing="-1">
+    ₹72.04 LPA
+  </text>
+  <text x="400" y="215" font-family="'Cinzel', Georgia, serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">
+    RECORD-BREAKING PLACEMENT MILESTONES
+  </text>
+  <text x="400" y="260" font-family="'Inter', sans-serif" font-weight="700" font-size="18" fill="#93C5FD" text-anchor="middle">
+    300+ Fortune 500 &amp; Global Technology Recruiters
+  </text>
+  <text x="400" y="300" font-family="'Inter', sans-serif" font-weight="500" font-size="14" fill="#CBD5E1" text-anchor="middle">
+    Morgan Stanley · Amazon · Microsoft · IBM · Samsung · Barclays · Adani · Amul
+  </text>
+  <text x="400" y="340" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#34D399" text-anchor="middle">
+    100% Placement in Cyber Security &amp; Flagship Engineering &amp; Management Batches
+  </text>
+</svg>

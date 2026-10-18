@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 92" width="540" height="92">
+  <defs>
+    <linearGradient id="nuGoldLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Heraldic Insignia -->
+  <g transform="translate(14, 8)">
+    <polygon points="38,2 74,38 38,74 2,38" fill="#0F172A" stroke="#F59E0B" stroke-width="2.5"/>
+    <polygon points="38,10 66,38 38,66 10,38" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.6"/>
+    <!-- Central Golden Flame -->
+    <path d="M 38,16 C 45,26 49,33 46,43 C 44,49 40,52 38,52 C 36,52 32,49 30,43 C 27,33 31,26 38,16 Z" fill="url(#nuGoldLight)"/>
+    <path d="M 38,25 C 42,32 44,37 42,43 C 41,47 39,49 38,49 C 37,49 35,47 34,43 C 32,37 34,32 38,25 Z" fill="#FFFFFF"/>
+    <!-- Base Open Book of Knowledge -->
+    <path d="M 23,55 Q 38,50 38,58 Q 38,50 53,55 L 51,60 Q 38,56 38,63 Q 38,56 25,60 Z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="105" y="38" font-family="'Cinzel', 'Trajan Pro', Georgia, serif" font-weight="900" font-size="28" fill="#FFFFFF" letter-spacing="2">
+    NIRMA
+  </text>
+  <text x="106" y="64" font-family="'Cinzel', 'Trajan Pro', Georgia, serif" font-weight="800" font-size="20" fill="#FBBF24" letter-spacing="3.5">
+    UNIVERSITY
+  </text>
+  <text x="107" y="80" font-family="'Inter', sans-serif" font-weight="600" font-size="8.5" fill="#94A3B8" letter-spacing="0.8">
+    NAAC 'A+' ACCREDITED · CENTRE OF EXCELLENCE (GOVT. OF GUJARAT) · ESTD. 2003
+  </text>
+</svg>

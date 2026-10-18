@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="campusBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#062419"/>
+      <stop offset="100%" stop-color="#0A2540"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#campusBg)"/>
+
+  <circle cx="400" cy="160" r="60" fill="#047857" opacity="0.3"/>
+  <circle cx="400" cy="160" r="45" fill="#059669" opacity="0.6"/>
+
+  <text x="400" y="270" font-family="'Cinzel', Georgia, serif" font-weight="900" font-size="34" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">
+    115-ACRE GREEN SMART CAMPUS
+  </text>
+  <text x="400" y="315" font-family="'Inter', sans-serif" font-weight="800" font-size="22" fill="#34D399" text-anchor="middle">
+    AHMEDABAD · S.G. HIGHWAY
+  </text>
+  <text x="400" y="355" font-family="'Inter', sans-serif" font-weight="500" font-size="15" fill="#E2E8F0" text-anchor="middle">
+    World-Class Central Digital Library · Amphi-Theatres · Sports Complex · Dedicated Hostels
+  </text>
+</svg>

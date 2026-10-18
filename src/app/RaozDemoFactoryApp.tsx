@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { TEMPLATE_MANIFEST } from '../registry/template-manifest';
 import { BUSINESS_CATEGORIES } from '../categories/categories.data';
 import { TemplateManifestItem, ReferenceType } from '../types/template.types';
@@ -35,11 +35,14 @@ import {
 export default function RaozDemoFactoryApp() {
   const [templates, setTemplates] = useState<TemplateManifestItem[]>(TEMPLATE_MANIFEST);
   const [activeTab, setActiveTab] = useState<'catalog' | 'preview' | 'categories' | 'intake' | 'integration' | 'rules'>('catalog');
+  const snuItem = templates.find((t) => t.id === 'shiv-nadar-university');
+  const christItem = templates.find((t) => t.id === 'christ-university');
+  const nirmaItem = templates.find((t) => t.id === 'nirma-university');
   const sushantItem = templates.find((t) => t.id === 'sushant-university');
   const eduTechItem = templates.find((t) => t.id === 'edu-tech-university');
   const crRamansItem = templates.find((t) => t.id === 'cr-ramans-university');
   const marangoniItem = templates.find((t) => t.id === 'istituto-marangoni');
-  const [selectedTemplate, setSelectedTemplate] = useState<TemplateManifestItem>(sushantItem || eduTechItem || crRamansItem || marangoniItem || templates[0]);
+  const [selectedTemplate, setSelectedTemplate] = useState<TemplateManifestItem>(snuItem || christItem || nirmaItem || sushantItem || eduTechItem || crRamansItem || marangoniItem || templates[0]);
   const [detailModalTemplate, setDetailModalTemplate] = useState<TemplateManifestItem | null>(null);
   const [intakeModalTemplate, setIntakeModalTemplate] = useState<TemplateManifestItem | null>(null);
   const [isIntakeModalOpen, setIsIntakeModalOpen] = useState(false);
@@ -65,6 +68,33 @@ export default function RaozDemoFactoryApp() {
     clientNeeds: string;
     submittedAt: string;
   }>>([
+    {
+      id: 'ref-snu-28',
+      templateId: 'shiv-nadar-university',
+      refType: 'zip',
+      urlOrTitle: 'Shiv Nadar University (saveweb2zip-com-snu-edu-in.zip / https://snu.edu.in/home/)',
+      notes: 'Prestigious Institution of Eminence (IoE) Deemed to be University recognized by the Govt. of India and NIRF Top 60 ranked institution for 8 consecutive years. Founded in 2011 by the Shiv Nadar Foundation. Features a 286-acre residential campus in Greater Noida, 5 Academic Schools, flagship OUR (Opportunities for Undergraduate Research) grant program, Atal Incubation Centre (AIC-SNU), Olympic-standard 400,000 sq ft Indoor Sports Complex, ₹58.09 LPA highest placements (Google, DE Shaw, Amazon), and full admissions 2026-27 portal with SNUSAT & APT guidelines. Added as Template #28 under Universities category.',
+      clientNeeds: 'Complete faithful website recreation of Shiv Nadar University from uploaded archive: IoE recognition branding, official university crest with "Education for Life", 5-slide hero carousel (IoE Campus, OUR Undergraduate Research, ₹58.09 LPA Placements, SNUSAT Admissions 2026, Breeze Techno-Cultural Fest), interactive Program Finder with curriculum details across all 5 schools (Engineering with ASU Dual Degree, Natural Sciences, Humanities, Management, ACE), Admissions 2026 portal with live merit scholarship waiver calculator up to 100%, fast-track application profile desk, OUR research metrics with ₹350+ Cr funding, 400k sq ft sports complex highlights, Breeze festival showcase, CDC career placement directory, interactive FAQ accordion, transport shuttle guide, and live catalog counter displaying 28 websites.',
+      submittedAt: '2026-10-17'
+    },
+    {
+      id: 'ref-christ-27',
+      templateId: 'christ-university',
+      refType: 'zip',
+      urlOrTitle: 'CHRIST University (saveweb2zip-com-www-christuniversity-in.zip / https://www.christuniversity.in/)',
+      notes: 'Premier NAAC Grade "A+" Accredited Deemed to be University and Top 60 NIRF Ranked Institution founded in 1969 by the Carmelites of Mary Immaculate (CMI). Features 6 modern campuses across Bangalore, Delhi NCR, and Pune Lavasa, 9 academic schools, CUET entrance test simulator, ₹21.46 LPA highest placement, and vibrant collegiate festivals In-Bloom and Bhasha Utsav. Added as Template #27 under Universities category.',
+      clientNeeds: 'Complete website recreation from the uploaded CHRIST University archive: official heraldic shield branding with Latin cross and motto "Excellence and Service", statutory recognition disclosures (Section 3 UGC Act 1956, NAAC Grade A+ 4th Cycle, NIRF Top 60, BCI, COA), 5-slide full-bleed hero carousel (Excellence & Service, 6 Campuses Network, CUET Admissions 2026, Global Placements ₹21.46 LPA, In-Bloom Cultural Extravaganza), 9 specialized academic schools directory, comprehensive degree courses finder (BBA Honours, MBA, BA LLB Hons, BCom Finance & Accountancy, BTech CSE AI/ML, BSc Data Science, MSc Clinical Psychology, BArch) with live search and curriculum modal, placement powerhouse showcasing ₹21.46 LPA highest package with 450+ recruiters, multi-campus explorer across all 6 locations, online admissions application desk with real-time field validation and generated CU-2026-XXXXX tracking reference, application status lookup tool, verified alumni career voices, expandable FAQ accordion, and comprehensive institutional footer.',
+      submittedAt: '2026-10-17'
+    },
+    {
+      id: 'ref-nirma-26',
+      templateId: 'nirma-university',
+      refType: 'zip',
+      urlOrTitle: 'Nirma University (saveweb2zip-com-nirmauni-ac-in.zip / https://nirmauni.ac.in/)',
+      notes: 'Premier Multidisciplinary University & Centre of Excellence on S.G. Highway, Ahmedabad. Established in 2003 under NERF by Dr. Karsanbhai K. Patel. Accredited NAAC Grade "A+" (3.65 CGPA) and conferred "Centre of Excellence" status by the Government of Gujarat. Top NIRF standings across Architecture (#29), Pharmacy (#32), Law (#33), Management (#53), and Engineering. Added as Template #26 under Universities category.',
+      clientNeeds: 'Complete website recreation from the uploaded Nirma University archive: authentic heraldic flame crest branding with Sanskrit motto "तमसो मा ज्योतिर्गमय", statutory recognition disclosures (UGC 2(f), NAAC A+ 3.65 CGPA, Centre of Excellence Govt. of Gujarat, AICTE, BCI, PCI, COA), 5-slide full-bleed hero carousel (Centre of Excellence, ₹72.04 LPA placements milestone, AICTE IDEA & Tech Labs, 115-acre smart campus, Admissions 2026), 8 specialized institutes directory (IT-NU, IM-NU, IP-NU, IL-NU, IAP-NU, IS-NU, IC-NU, ID-NU), comprehensive degree courses finder (B.Tech CSE/ECE/AIML, MBA, Integrated BBA-MBA, BA LL.B Hons, B.Arch, B.Pharm, M.Sc Biotech) with live search and curriculum modal, placement powerhouse showcasing ₹72.04 LPA highest package with 300+ recruiters, 115-acre smart green campus tour simulator, interactive Merit Scholarship Calculator estimating up to 100% tuition waivers, direct online admissions application desk with real-time field validation and generated NU-2026-XXXXXX tracking reference, application status lookup tool, verified student placement voices, expandable FAQ accordion, and comprehensive institutional footer.',
+      submittedAt: '2026-10-17'
+    },
     {
       id: 'ref-sushant-25',
       templateId: 'sushant-university',
@@ -97,7 +127,7 @@ export default function RaozDemoFactoryApp() {
       templateId: 'istituto-marangoni',
       refType: 'zip',
       urlOrTitle: 'Istituto Marangoni (saveweb2zip-com-www-istitutomarangoni-com.zip / https://www.istitutomarangoni.com/en)',
-      notes: 'Premier International Fashion, Art & Design Higher Education Academy (Founded in Milan 1935). Accredited by Italian Ministry of University and Research (MUR - AFAM, 180 ECTS First Level Academic Diplomas), Manchester Metropolitan University, and French RNCP Level 7. Ranked in QS World Top 100 Art & Design. Integrated as Template #22 under Universities & Research Institutes category.',
+      notes: 'Premier International Fashion, Art & Design Higher Education Academy (Founded in Milan 1935). Accredited by Italian Ministry of University and Research (MUR - AFAM, 180 ECTS First Level Academic Diplomas), Manchester Metropolitan University, and French RNCP Level 7. Ranked in QS World Top 100 Art & Design. Integrated as Template #22 under Universities category.',
       clientNeeds: 'Faithful website recreation from uploaded ZIP archive: official luxury black, white & gold wordmark crest branding ("ISTITUTO MARANGONI MILANO 1935"), statutory MUR/AFAM accreditation highlights, 5-slide full-bleed hero carousel (90 Years of Italian Luxury Creativity 1935-2025, Open Days 2026, L\'Oréal Professionnel partnership, Metaverso & AI Fashion Atelier, Maze 35 editorial magazine), Four Creative Pillars (Fashion, Design, Art, Fragrances & Cosmetics), interactive degree courses finder (BA Hons, Master\'s, Intensive, Summer) with live search and curriculum detail modal, Super Mentors & Alumni spotlight (Olivier Rousteing from Balmain, Giambattista Valli, Alessandro Sartori from Zegna, Domenico Dolce, Moschino), Global Campuses explorer across 8 cities (Milan Fashion & Design, Florence, Paris, London, Dubai, Miami, Mumbai), interactive Merit Scholarship Calculator estimating up to 50% tuition reduction, online admissions application desk with real-time field validation and generated IM-2026-XXXXXX tracking reference, 89% placement rate with 400+ luxury recruiters (Gucci, Prada, Dior, Balmain, Cartier, LVMH), Maze 35 article reader modal, and comprehensive institutional footer with campus directories.',
       submittedAt: '2026-10-16'
     },
@@ -292,27 +322,116 @@ export default function RaozDemoFactoryApp() {
     }
   ]);
 
-  const completedCount = templates.filter((t) => t.status === 'completed' || t.status === 'verified').length;
+  // 1. Authoritative active unique website counting logic across all categories
+  const uniqueActiveWebsites = useMemo(() => {
+    const seenIds = new Set<string>();
+    return templates.filter((tpl) => {
+      if (!tpl || !tpl.id || seenIds.has(tpl.id)) return false;
+      seenIds.add(tpl.id);
+      return tpl.status === 'completed' || tpl.status === 'verified';
+    });
+  }, [templates]);
+
+  const totalWebsitesCount = uniqueActiveWebsites.length;
+
+  // Breakdown by key categories (verified dynamically from the same catalog dataset)
+  const universitiesList = useMemo(() => {
+    return uniqueActiveWebsites.filter(
+      (t) =>
+        t.subcategory.toLowerCase().includes('universit') ||
+        t.name.toLowerCase().includes('universit') ||
+        t.id.toLowerCase().includes('universit') ||
+        t.id === 'istituto-marangoni'
+    );
+  }, [uniqueActiveWebsites]);
+  const universitiesCount = universitiesList.length;
+
+  const collegesList = useMemo(() => {
+    return uniqueActiveWebsites.filter(
+      (t) =>
+        t.categoryCode === 'cat-education-coaching' &&
+        !universitiesList.some((u) => u.id === t.id)
+    );
+  }, [uniqueActiveWebsites, universitiesList]);
+  const collegesCount = collegesList.length;
+
+  const photographyList = useMemo(() => {
+    return uniqueActiveWebsites.filter((t) => t.categoryCode === 'cat-photography');
+  }, [uniqueActiveWebsites]);
+  const photographyCount = photographyList.length;
+
+  const foodList = useMemo(() => {
+    return uniqueActiveWebsites.filter((t) => t.categoryCode === 'cat-food-hospitality');
+  }, [uniqueActiveWebsites]);
+  const foodCount = foodList.length;
+
+  const educationCategoryTotal = universitiesCount + collegesCount;
 
   // Filtered Templates
-  const filteredTemplates = templates.filter((t) => {
-    const matchesSearch =
-      t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      t.businessType.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      t.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      t.targetClients.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      t.categoryName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      t.subcategory.toLowerCase().includes(searchQuery.toLowerCase());
+  const filteredTemplates = useMemo(() => {
+    const query = searchQuery.toLowerCase().trim();
 
-    const matchesCategory = selectedCategoryFilter === 'all' || t.categoryCode === selectedCategoryFilter;
-    const matchesStatus =
-      selectedStatusFilter === 'all' ||
-      (selectedStatusFilter === 'completed' && (t.status === 'completed' || t.status === 'verified')) ||
-      (selectedStatusFilter === 'planned' && t.status === 'planned');
-    const matchesBatch = selectedBatchFilter === 'all' || t.batch.toString() === selectedBatchFilter;
+    return templates.filter((t) => {
+      // 1. Search Query Filter (supports name, id, slug, tagline, business type, category, subcategory, marangoni aliases)
+      const matchesSearch =
+        !query ||
+        t.name.toLowerCase().includes(query) ||
+        t.businessType.toLowerCase().includes(query) ||
+        t.id.toLowerCase().includes(query) ||
+        (t.slug ? t.slug.toLowerCase().includes(query) : false) ||
+        t.tagline.toLowerCase().includes(query) ||
+        t.targetClients.toLowerCase().includes(query) ||
+        t.categoryName.toLowerCase().includes(query) ||
+        t.subcategory.toLowerCase().includes(query) ||
+        (query.includes('marangoni') && (t.id.includes('marangoni') || t.name.toLowerCase().includes('marangoni'))) ||
+        (query.includes('istituto') && (t.id.includes('marangoni') || t.name.toLowerCase().includes('istituto'))) ||
+        (query === 'snu' && (t.id === 'shiv-nadar-university' || t.name.toLowerCase().includes('shiv nadar'))) ||
+        (query === 'universities' && (t.subcategory.toLowerCase().includes('universit') || t.id === 'istituto-marangoni'));
 
-    return matchesSearch && matchesCategory && matchesStatus && matchesBatch;
-  });
+      // 2. Category & Subcategory Filter
+      let matchesCategory = false;
+      if (selectedCategoryFilter === 'all') {
+        matchesCategory = true;
+      } else if (selectedCategoryFilter === 'universities' || selectedCategoryFilter === 'Universities') {
+        matchesCategory =
+          t.subcategory.toLowerCase().includes('universit') ||
+          t.name.toLowerCase().includes('universit') ||
+          t.id.toLowerCase().includes('universit') ||
+          t.id === 'istituto-marangoni' ||
+          t.businessType.toLowerCase().includes('universit') ||
+          t.targetClients.toLowerCase().includes('universit');
+      } else if (selectedCategoryFilter === 'colleges') {
+        matchesCategory =
+          t.categoryCode === 'cat-education-coaching' &&
+          !t.subcategory.toLowerCase().includes('universit') &&
+          t.id !== 'istituto-marangoni';
+      } else {
+        matchesCategory =
+          t.categoryCode === selectedCategoryFilter ||
+          t.subcategory.toLowerCase() === selectedCategoryFilter.toLowerCase();
+      }
+
+      // 3. Status Filter
+      const matchesStatus =
+        selectedStatusFilter === 'all' ||
+        (selectedStatusFilter === 'completed' && (t.status === 'completed' || t.status === 'verified')) ||
+        (selectedStatusFilter === 'planned' && t.status === 'planned');
+
+      // 4. Batch Filter
+      const templateBatch = t.batch || (
+        t.numericId <= 3 ? 1 :
+        t.numericId <= 6 ? 2 :
+        t.numericId <= 9 ? 3 :
+        t.numericId <= 12 ? 4 :
+        t.numericId <= 15 ? 5 :
+        t.numericId <= 18 ? 6 :
+        t.numericId <= 24 ? 7 : 8
+      );
+      const matchesBatch = selectedBatchFilter === 'all' || templateBatch.toString() === selectedBatchFilter;
+
+      return matchesSearch && matchesCategory && matchesStatus && matchesBatch;
+    });
+  }, [templates, searchQuery, selectedCategoryFilter, selectedStatusFilter, selectedBatchFilter]);
 
   // Support direct route access (e.g. /website/tell-a-tale-studios) and browser navigation
   useEffect(() => {
@@ -448,7 +567,7 @@ export default function RaozDemoFactoryApp() {
                 activeTab === 'catalog' ? 'bg-blue-600 text-white shadow-sm' : 'text-[#94a3b8] hover:text-white'
               }`}
             >
-              Demo Collection ({templates.length})
+              Demo Collection ({totalWebsitesCount})
             </button>
             <button
               onClick={() => setActiveTab('preview')}
@@ -464,7 +583,7 @@ export default function RaozDemoFactoryApp() {
                 activeTab === 'categories' ? 'bg-blue-600 text-white shadow-sm' : 'text-[#94a3b8] hover:text-white'
               }`}
             >
-              20 Business Categories
+              {BUSINESS_CATEGORIES.length} Business Categories
             </button>
             <button
               onClick={() => setActiveTab('intake')}
@@ -514,9 +633,9 @@ export default function RaozDemoFactoryApp() {
         {/* Mobile Navigation bar */}
         <div className="lg:hidden px-4 py-2 border-t border-[#1f2536] flex items-center overflow-x-auto gap-2 text-xs">
           {[
-            { id: 'catalog', label: 'Manifest (30)' },
+            { id: 'catalog', label: `Manifest (${totalWebsitesCount})` },
             { id: 'preview', label: 'Demo Preview' },
-            { id: 'categories', label: 'Categories A-L' },
+            { id: 'categories', label: `Categories (${BUSINESS_CATEGORIES.length})` },
             { id: 'intake', label: `Intake (${referenceQueue.length})` },
             { id: 'integration', label: 'Integration' },
             { id: 'rules', label: 'Rules' }
@@ -539,16 +658,100 @@ export default function RaozDemoFactoryApp() {
         {/* TAB 1: TEMPLATE MANIFEST & CATALOG */}
         {activeTab === 'catalog' && (
           <div className="space-y-6">
-            {/* Top Factory Metrics Banner */}
+            {/* PROMINENT LIVE TOTAL WEBSITE COUNTER SECTION */}
+            <div className="bg-gradient-to-r from-[#111728] via-[#151d33] to-[#101626] border-2 border-blue-500/50 rounded-2xl p-6 sm:p-7 shadow-2xl shadow-blue-950/50 relative overflow-hidden">
+              <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                <div className="flex items-start sm:items-center gap-4">
+                  <div className="w-16 h-16 rounded-2xl bg-blue-600/25 border border-blue-400/50 flex items-center justify-center text-blue-400 shrink-0 shadow-lg shadow-blue-900/40">
+                    <Layers className="w-8 h-8" />
+                  </div>
+                  <div>
+                    <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-blue-950/90 border border-blue-600/50 text-[11px] font-mono font-semibold text-blue-300 tracking-wider uppercase mb-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                      Authoritative Live Catalog
+                    </div>
+                    <div className="text-3xl sm:text-4xl font-black text-white tracking-tight flex items-baseline gap-3">
+                      <span>TOTAL WEBSITES:</span>
+                      <span className="text-blue-400 font-mono underline decoration-blue-500/70 decoration-2 underline-offset-4">
+                        {totalWebsitesCount}
+                      </span>
+                    </div>
+                    <p className="text-xs text-[#94a3b8] mt-1.5 max-w-2xl leading-relaxed">
+                      Counting all {totalWebsitesCount} registered, unique active website demos across all business categories — dynamically synced with the template manifest and verified live in the Raoz Website Maker catalog (including Nirma University under Universities).
+                    </p>
+                  </div>
+                </div>
+
+                {/* Live Category Breakdown Badges */}
+                <div className="flex flex-wrap items-center gap-2 bg-[#0c101a]/90 border border-[#1e273c] p-3 rounded-xl">
+                  <button
+                    onClick={() => setSelectedCategoryFilter('all')}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                      selectedCategoryFilter === 'all'
+                        ? 'bg-blue-600 text-white shadow-md'
+                        : 'bg-[#151c2a] text-[#94a3b8] hover:text-white border border-[#222e44]'
+                    }`}
+                  >
+                    All Categories: {totalWebsitesCount}
+                  </button>
+
+                  <button
+                    onClick={() => setSelectedCategoryFilter('universities')}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
+                      selectedCategoryFilter === 'universities'
+                        ? 'bg-[#d4af37] text-black shadow-md font-bold'
+                        : 'bg-[#151c2a] text-[#d4af37] hover:text-white border border-[#4a3d1b]'
+                    }`}
+                  >
+                    <span>★ Universities: {universitiesCount}</span>
+                  </button>
+
+                  <button
+                    onClick={() => setSelectedCategoryFilter('cat-photography')}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                      selectedCategoryFilter === 'cat-photography'
+                        ? 'bg-blue-600 text-white shadow-md'
+                        : 'bg-[#151c2a] text-[#94a3b8] hover:text-white border border-[#222e44]'
+                    }`}
+                  >
+                    Photography: {photographyCount}
+                  </button>
+
+                  <button
+                    onClick={() => setSelectedCategoryFilter('cat-food-hospitality')}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                      selectedCategoryFilter === 'cat-food-hospitality'
+                        ? 'bg-blue-600 text-white shadow-md'
+                        : 'bg-[#151c2a] text-[#94a3b8] hover:text-white border border-[#222e44]'
+                    }`}
+                  >
+                    Restaurant &amp; Cafe: {foodCount}
+                  </button>
+
+                  <button
+                    onClick={() => setSelectedCategoryFilter('colleges')}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                      selectedCategoryFilter === 'colleges'
+                        ? 'bg-blue-600 text-white shadow-md'
+                        : 'bg-[#151c2a] text-[#94a3b8] hover:text-white border border-[#222e44]'
+                    }`}
+                  >
+                    Colleges &amp; Research: {collegesCount}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Secondary Factory Metrics Banner */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div className="p-4 bg-[#12141a] border border-[#232733] rounded-xl">
                 <div className="text-[11px] text-[#64748b] uppercase tracking-wider mb-1 font-medium">
                   Website Gallery
                 </div>
                 <div className="text-2xl font-bold text-white flex items-baseline gap-2">
-                  <span>{templates.length} Demos</span>
+                  <span>{totalWebsitesCount} Demos</span>
                   <span className="text-xs text-emerald-400 font-normal font-mono">
-                    {templates.filter((t) => t.status === 'completed' || t.status === 'verified').length} Live
+                    {totalWebsitesCount} Live
                   </span>
                 </div>
               </div>
@@ -558,28 +761,28 @@ export default function RaozDemoFactoryApp() {
                   Category Spectrum
                 </div>
                 <div className="text-2xl font-bold text-blue-400 flex items-baseline gap-2">
-                  <span>20 Categories</span>
-                  <span className="text-xs text-[#94a3b8] font-normal">With Subcategories</span>
+                  <span>{BUSINESS_CATEGORIES.length} Categories</span>
+                  <span className="text-xs text-[#94a3b8] font-normal">Active &amp; Ready</span>
                 </div>
               </div>
 
               <div className="p-4 bg-[#12141a] border border-[#232733] rounded-xl">
                 <div className="text-[11px] text-[#64748b] uppercase tracking-wider mb-1 font-medium">
-                  Featured Institution
+                  Featured University
                 </div>
-                <div className="text-2xl font-bold text-amber-400 flex items-baseline gap-2">
-                  <span>RAO COLLEGE</span>
-                  <span className="text-xs text-amber-300 font-normal">Template #18</span>
+                <div className="text-2xl font-bold text-[#d4af37] flex items-baseline gap-2">
+                  <span className="truncate">ISTITUTO MARANGONI</span>
+                  <span className="text-xs text-amber-300 font-normal shrink-0">#22</span>
                 </div>
               </div>
 
               <div className="p-4 bg-[#12141a] border border-[#232733] rounded-xl">
                 <div className="text-[11px] text-[#64748b] uppercase tracking-wider mb-1 font-medium">
-                  Domain Specialty
+                  Universities Total
                 </div>
                 <div className="text-2xl font-bold text-indigo-400 flex items-baseline gap-2">
-                  <span>Higher Education</span>
-                  <span className="text-xs text-[#94a3b8] font-normal">Jr College</span>
+                  <span>{universitiesCount} Universities</span>
+                  <span className="text-xs text-[#94a3b8] font-normal">Accredited</span>
                 </div>
               </div>
             </div>
@@ -592,7 +795,7 @@ export default function RaozDemoFactoryApp() {
                   <Search className="w-4 h-4 text-[#64748b] absolute left-3 top-1/2 -translate-y-1/2" />
                   <input
                     type="text"
-                    placeholder="Search by template name, business type, client profile or ID..."
+                    placeholder="Search by template name (e.g. Istituto Marangoni, Sushant), ID, or category..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="w-full bg-[#171b24] border border-[#222938] focus:border-blue-500 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-[#64748b] outline-none transition-colors"
@@ -630,12 +833,16 @@ export default function RaozDemoFactoryApp() {
                 <select
                   value={selectedCategoryFilter}
                   onChange={(e) => setSelectedCategoryFilter(e.target.value)}
-                  className="bg-[#171b24] border border-[#222938] text-white text-xs rounded-xl px-3 py-1.5 outline-none"
+                  className="bg-[#171b24] border border-[#222938] text-white text-xs rounded-xl px-3 py-1.5 outline-none font-medium"
                 >
-                  <option value="all">All Categories (A–L)</option>
-                  {BUSINESS_CATEGORIES.map((cat) => (
+                  <option value="all">All Categories ({totalWebsitesCount} Websites)</option>
+                  <option value="universities">★ Universities ({universitiesCount} Demos — Marangoni, CR Ramans, Edu Tech, Sushant, Gilgit, Arshad)</option>
+                  <option value="cat-photography">Category 21: Photography &amp; Studios ({photographyCount} Demos)</option>
+                  <option value="cat-education-coaching">Category 2: Universities, Colleges &amp; Education ({educationCategoryTotal} Demos)</option>
+                  <option value="cat-food-hospitality">Category 1: Restaurant, Cafe &amp; Food Business ({foodCount} Demos)</option>
+                  {BUSINESS_CATEGORIES.filter(cat => cat.code !== 'cat-photography' && cat.code !== 'cat-education-coaching' && cat.code !== 'cat-food-hospitality').map((cat) => (
                     <option key={cat.code} value={cat.code}>
-                      Category {cat.letter}: {cat.title}
+                      Category {cat.letter}: {cat.title} ({templates.filter((t) => t.categoryCode === cat.code).length} Demos)
                     </option>
                   ))}
                 </select>

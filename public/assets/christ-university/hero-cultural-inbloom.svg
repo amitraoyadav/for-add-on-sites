@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="cultBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A044E"/>
+      <stop offset="50%" stop-color="#701A75"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#cultBg)"/>
+
+  <!-- Musical Notes & Fest Sparks -->
+  <g fill="#F472B6" opacity="0.3">
+    <circle cx="120" cy="180" r="40"/>
+    <circle cx="680" cy="140" r="70"/>
+    <circle cx="600" cy="340" r="50"/>
+  </g>
+
+  <g transform="translate(60, 60)">
+    <text x="0" y="20" font-family="'Inter', sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#F472B6">
+      CAMPUS LIFE &amp; CULTURAL HERITAGE
+    </text>
+    <text x="0" y="62" font-family="'Cinzel', 'Georgia', serif" font-size="34" font-weight="700" fill="#FFFFFF">
+      In-Bloom, Bhasha Utsav &amp; Natyarpana
+    </text>
+    <text x="0" y="90" font-family="'Inter', sans-serif" font-size="14" font-weight="400" fill="#FBCFE8">
+      Vibrant collegiate traditions celebrated by 38,000+ students from 70+ countries and all Indian states
+    </text>
+
+    <!-- Highlights Grid -->
+    <g transform="translate(0, 130)">
+      <rect x="0" y="0" width="200" height="150" rx="12" fill="#581C87" stroke="#7E22CE" stroke-width="1.5"/>
+      <text x="24" y="36" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#FDE047">IN-BLOOM</text>
+      <text x="24" y="58" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#E9D5FF">National Cultural Fest</text>
+      <text x="24" y="82" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#D8B4FE">Music, choreography, theatre, fine arts, and literary competitions attracting 15,000+ delegates.</text>
+
+      <rect x="230" y="0" width="200" height="150" rx="12" fill="#581C87" stroke="#7E22CE" stroke-width="1.5"/>
+      <text x="254" y="36" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#FDE047">BHASHA UTSAV</text>
+      <text x="254" y="58" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#E9D5FF">Ethnic Day of India</text>
+      <text x="254" y="82" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#D8B4FE">Traditional garb, folk percussion, regional dance troupes, and linguistic pluralism in grand glory.</text>
+
+      <rect x="460" y="0" width="200" height="150" rx="12" fill="#581C87" stroke="#7E22CE" stroke-width="1.5"/>
+      <text x="484" y="36" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#FDE047">NATYARPANA</text>
+      <text x="484" y="58" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#E9D5FF">National Classical Dance</text>
+      <text x="484" y="82" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#D8B4FE">Bharatanatyam, Kathak, Odissi, and Mohiniyattam ensembles judged by Sangeet Natak Akademi stalwarts.</text>
+    </g>
+  </g>
+</svg>

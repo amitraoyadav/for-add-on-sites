@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="nuBg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08182B"/>
+      <stop offset="50%" stop-color="#0C2647"/>
+      <stop offset="100%" stop-color="#071220"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#nuBg1)"/>
+
+  <!-- Geometric Grid & Light Rays -->
+  <g stroke="#1E3A5F" stroke-width="1" opacity="0.3">
+    <line x1="0" y1="125" x2="800" y2="125"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+  </g>
+
+  <!-- Central Crest Emblem -->
+  <g transform="translate(400, 160) scale(1.4)">
+    <polygon points="0,-40 38,-2 0,36 -38,-2" fill="#0A2548" stroke="url(#goldGrad)" stroke-width="3"/>
+    <path d="M 0,-24 C 8,-12 12,-3 9,8 C 7,15 3,18 0,18 C -3,18 -7,15 -9,8 C -12,-3 -8,-12 0,-24 Z" fill="url(#goldGrad)"/>
+    <circle cx="0" cy="0" r="4" fill="#FFFFFF"/>
+  </g>
+
+  <text x="400" y="270" font-family="'Cinzel', Georgia, serif" font-weight="900" font-size="34" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">
+    NIRMA UNIVERSITY · AHMEDABAD
+  </text>
+  <text x="400" y="315" font-family="'Inter', sans-serif" font-weight="800" font-size="22" fill="#FBBF24" text-anchor="middle" letter-spacing="1">
+    NAAC 'A+' ACCREDITED · CENTRE OF EXCELLENCE (GUJARAT)
+  </text>
+  <text x="400" y="355" font-family="'Inter', sans-serif" font-weight="500" font-size="15" fill="#CBD5E1" text-anchor="middle">
+    तमसो मा ज्योतिर्गमय · Shaping A Better Tomorrow Across 8 Specialized Institutes
+  </text>
+  <text x="400" y="390" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#60A5FA" text-anchor="middle">
+    Technology · Management · Pharmacy · Law · Architecture · Science · Commerce · Design
+  </text>
+</svg>
