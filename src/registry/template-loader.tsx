@@ -36,6 +36,9 @@ const SushantUniversityLazy = lazy(() => import('../templates/sushant-university
 const NirmaUniversityLazy = lazy(() => import('../templates/nirma-university/NirmaUniversity'));
 const ChristUniversityLazy = lazy(() => import('../templates/christ-university/CHRISTUniversity'));
 const ShivNadarUniversityLazy = lazy(() => import('../templates/shiv-nadar-university/ShivNadarUniversity'));
+const ManipalUniversityLazy = lazy(() => import('../templates/manipal-university/ManipalUniversity'));
+const JawaharlalNehruUniversityLazy = lazy(() => import('../templates/jawaharlal-nehru-university/JawaharlalNehruUniversity'));
+const GuruGobindSinghIndraprasthaUniversityLazy = lazy(() => import('../templates/guru-gobind-singh-indraprastha-university/GuruGobindSinghIndraprasthaUniversity'));
 
 interface TemplateLoaderProps {
   template: TemplateManifestItem;
@@ -584,6 +587,66 @@ export function TemplateLoader({ template, onOpenIntakeModal }: TemplateLoaderPr
   }
 
   // If template is SHIV NADAR UNIVERSITY
+  // If template is GURU GOBIND SINGH INDRAPRASTHA UNIVERSITY (IPU)
+  if (template.id === 'guru-gobind-singh-indraprastha-university') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#041d54] text-white">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-amber-300 font-mono">
+                Loading GURU GOBIND SINGH INDRAPRASTHA UNIVERSITY (IPU) Demo...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <GuruGobindSinghIndraprasthaUniversityLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is JAWAHARLAL NEHRU UNIVERSITY (JNU)
+  if (template.id === 'jawaharlal-nehru-university') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#0F2847] text-white">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-blue-300 font-mono">
+                Loading JAWAHARLAL NEHRU UNIVERSITY (JNU) Demo...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <JawaharlalNehruUniversityLazy />
+      </Suspense>
+    );
+  }
+
+  // If template is MANIPAL UNIVERSITY
+  if (template.id === 'manipal-university') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[500px] flex items-center justify-center bg-[#0f172a] text-white">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs uppercase tracking-widest text-orange-400 font-mono">
+                Loading MANIPAL UNIVERSITY Demo...
+              </span>
+            </div>
+          </div>
+        }
+      >
+        <ManipalUniversityLazy />
+      </Suspense>
+    );
+  }
+
   if (template.id === 'shiv-nadar-university') {
     return (
       <Suspense

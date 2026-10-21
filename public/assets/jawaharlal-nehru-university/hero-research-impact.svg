@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgRes" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022C22" />
+      <stop offset="50%" stop-color="#064E3B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bgRes)" rx="16" />
+
+  <!-- Advanced Instrumentation Facility (AIRF) & Research Labs Graphic -->
+  <g transform="translate(80, 80)">
+    <!-- Central Microscope / Cryo-EM Machine Silhouette -->
+    <rect x="180" y="40" width="80" height="180" rx="8" fill="#0F172A" stroke="#34D399" stroke-width="2" />
+    <!-- Lenses & Display Screens -->
+    <circle cx="220" cy="80" r="22" fill="#047857" stroke="#6EE7B7" stroke-width="2" />
+    <circle cx="220" cy="80" r="14" fill="#065F46" />
+    <rect x="195" y="120" width="50" height="30" rx="3" fill="#1E293B" />
+    <text x="220" y="140" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#34D399" text-anchor="middle">AIRF</text>
+    
+    <!-- Spectrometry graph lines -->
+    <path d="M40 220 L100 220 L130 140 L150 180 L180 220" stroke="#FBBF24" stroke-width="3" fill="none" />
+    <path d="M260 220 L290 160 L320 220 L360 120 L400 220" stroke="#38BDF8" stroke-width="3" fill="none" />
+
+    <!-- Nobel & Cabinet Alumni Circles -->
+    <circle cx="80" cy="80" r="26" fill="#1E293B" stroke="#F59E0B" stroke-width="2" />
+    <text x="80" y="85" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#F59E0B" text-anchor="middle">🏅</text>
+    <text x="80" y="118" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#E2E8F0" text-anchor="middle">Nobel Laureate</text>
+
+    <circle cx="360" cy="80" r="26" fill="#1E293B" stroke="#60A5FA" stroke-width="2" />
+    <text x="360" y="85" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#60A5FA" text-anchor="middle">🏛️</text>
+    <text x="360" y="118" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#E2E8F0" text-anchor="middle">Union Ministers</text>
+  </g>
+
+  <!-- Banner -->
+  <g transform="translate(40, 40)">
+    <rect width="260" height="42" rx="8" fill="#065F46" stroke="#34D399" stroke-width="1.5" />
+    <text x="20" y="20" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#ECFDF5">RESEARCH &amp; GLOBAL INFLUENCE</text>
+    <text x="20" y="34" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#A7F3D0">AIRF Facility · 13 Schools · 8 Special Centres</text>
+  </g>
+</svg>

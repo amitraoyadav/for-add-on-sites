@@ -1952,14 +1952,235 @@ export const TEMPLATE_MANIFEST: TemplateManifestItem[] = [
       '#contact'
     ],
     completedAt: '2026-10-17'
+  },
+  // --- TEMPLATE #29: MANIPAL (Universities under Category 2: Universities, Colleges & Education) ---
+  {
+    id: 'manipal-university',
+    slug: 'manipal-university',
+    numericId: 29,
+    name: 'Manipal',
+    tagline: 'Inspired by Life — Institution of Eminence (IoE) Deemed to be University · NAAC Grade A++ · NIRF Top 4 Universities in India · 600+ Acre Flagship Campus & 5 Global Campuses',
+    categoryCode: 'cat-education-coaching',
+    categoryLetter: '2',
+    categoryName: 'Coaching Institute & Education',
+    subcategory: 'Universities',
+    businessType: 'Institution of Eminence & Global Multidisciplinary University',
+    targetClients: 'Prospective undergraduate and postgraduate candidates, research scholars, medical aspirants, corporate hiring partners',
+    batch: 8,
+    status: 'completed',
+    entryPoint: 'src/templates/manipal-university/ManipalUniversity.tsx',
+    assetPath: 'public/assets/manipal-university/',
+    thumbnail: '/assets/manipal-university/hero-campuses-600acres.svg',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Institution of Eminence (IoE) Deemed to be University recognized by Ministry of Education, Govt. of India',
+      'NIRF 2024 Rank #4 in Universities in India (Dental #1, Pharmacy #2, Medical #3, Architecture #6)',
+      'NAAC Grade A++ accredited Category-I Deemed University with 3.65+ CGPA',
+      'Founded in 1953 by Dr. T.M.A. Pai with 70+ years of pioneering private higher education heritage',
+      '6 Global Campuses network across Manipal (600+ Acres flagship), Mangaluru, Bengaluru, Jamshedpur (MTMC), Dubai (UAE), and Melaka (Malaysia)',
+      'Manipal Institute of Technology (MIT) alma mater of Microsoft CEO Satya Nadella and former Nokia CEO Rajeev Suri',
+      'Kasturba Medical College (KMC) with 2,500+ teaching hospital beds and Asia’s largest Anatomy & Pathology Museum',
+      'Welcomgroup Graduate School of Hotel Administration (WGSHA) in partnership with ITC Hotels, alma mater of Chef Vikas Khanna',
+      'T. A. Pai Management Institute (TAPMI) with AACSB & AMBA dual international business school accreditations',
+      'Corporate Placements powerhouse with ₹54.75 LPA highest domestic package and 350+ Fortune 500 recruiters',
+      'Manipal Entrance Test (MET 2026) online admissions portal across 80+ test hubs nationwide with fast-track registration',
+      'Over ₹100 Crores in annual merit scholarships including Dr. T.M.A. Pai 100% Freeship & Shakti Girl Child empowerment waivers',
+      'Marena world-class 6-level air-conditioned indoor sports arena (140,000 sq ft) and 1.5 Lakh sq ft Central Library',
+      'Active student innovation teams: Formula Manipal, SolarMobil, Project MANAS autonomous vehicle, and AeroManipal'
+    ],
+    conversionTriggers: [
+      'Apply for MET 2026',
+      'Check 100% Merit Scholarships',
+      'Explore 6 Global Campuses',
+      'Browse 300+ Programs',
+      'Placement Report & CTC',
+      'Download Prospectus'
+    ],
+    colorTheme: {
+      primary: '#D3401B',
+      secondary: '#0F172A',
+      bgStyle: 'bg-slate-900 text-slate-100'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'Manipal Academy of Higher Education (MAHE)',
+      sourceUrl: 'https://www.manipal.edu/',
+      receivedAt: '2026-10-20',
+      notes: 'Premier Institution of Eminence (IoE) Deemed to be University and Top 4 NIRF Ranked Institution founded in 1953 by Dr. T.M.A. Pai. Features 6 modern campuses across Manipal, Mangaluru, Bengaluru, Jamshedpur, Dubai, and Malaysia, 300+ programs, MET entrance exam simulator, ₹54.75 LPA highest placement, and world-class Marena sports arena. Added as Template #29 under Universities category.'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Sub-router built with internal view tabs.'
+    },
+    routes: [
+      '/',
+      '#overview',
+      '#about',
+      '#campuses',
+      '#programs',
+      '#admissions',
+      '#scholarships',
+      '#research',
+      '#campus-life',
+      '#placements',
+      '#faqs'
+    ],
+    completedAt: '2026-10-20'
+  },
+  // --- TEMPLATE #30: JAWAHARLAL NEHRU UNIVERSITY (JNU) (Universities under Category 2: Universities, Colleges & Education) ---
+  {
+    id: 'jawaharlal-nehru-university',
+    slug: 'jawaharlal-nehru-university',
+    numericId: 30,
+    name: 'Jawaharlal Nehru University (JNU)',
+    tagline: 'Leading Research & Critical Inquiry — Central University Established by Act of Parliament (1966) · NAAC Grade "A++" (3.77 CGPA) · NIRF Rank #2 in India · 1,020-Acre Aravalli Campus',
+    categoryCode: 'cat-education-coaching',
+    categoryLetter: '2',
+    categoryName: 'Coaching Institute & Education',
+    subcategory: 'Universities',
+    businessType: 'Premier Central Research University & Institution of National Eminence',
+    targetClients: 'Prospective undergraduate and postgraduate candidates, research scholars, Ph.D. fellows, diplomatic and civil service aspirants',
+    batch: 8,
+    status: 'completed',
+    entryPoint: 'src/templates/jawaharlal-nehru-university/JawaharlalNehruUniversity.tsx',
+    assetPath: 'public/assets/jawaharlal-nehru-university/',
+    thumbnail: '/assets/jawaharlal-nehru-university/hero-aravali-campus.svg',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'Central University established by Act of Parliament (1966) with NAAC Grade "A++" (3.77 CGPA - highest national tier)',
+      'NIRF 2024 Rank #2 across all Universities in India and QS World Top 20 in Development Studies',
+      '1,020-acre lush residential sanctuary in the Aravalli hills ridge, South Delhi',
+      '13 Specialized Academic Schools (SIS, SSS, SLL&CS, SLS, SPS, SCIS, SOE, ABVSME) & 8 Special Centres',
+      'Alma mater of Nobel Laureate Abhijit Banerjee, Finance Minister Nirmala Sitharaman, and EAM Dr. S. Jaishankar',
+      'Comprehensive CUET 2026 UG, PG, and Ph.D. entrance examination admissions desk',
+      'Acclaimed Deprivation Points System (up to 12 points for backward district quartiles & female/transgender candidates)',
+      '18 residential hostels named after Indian rivers (Ganga, Yamuna, Jhelum, Sutlej, Sabarmati, Brahmaputra)',
+      'Dr. B.R. Ambedkar 9-storey Central Library tower housing 500,000+ volumes and Helen Keller Unit',
+      'Advanced Instrumentation Research Facility (AIRF) housing Cryo-EM, HR-TEM, and 500 MHz NMR suites',
+      'Recent faculty publications archive with peer-reviewed monographs and book reader modals'
+    ],
+    conversionTriggers: [
+      'Apply via CUET 2026',
+      'Check Deprivation Points',
+      'Explore 13 Academic Schools',
+      'Browse Degree Programs',
+      '18 River Hostels Directory',
+      'Research at AIRF'
+    ],
+    colorTheme: {
+      primary: '#0F2847',
+      secondary: '#DC2626',
+      bgStyle: 'bg-slate-900 text-slate-100'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'Jawaharlal Nehru University (JNU)',
+      sourceUrl: 'https://www.jnu.ac.in/',
+      receivedAt: '2026-10-20',
+      notes: 'Premier Central Research University established by Act of Parliament in 1969. Accredited NAAC Grade "A++" (3.77 CGPA) and ranked #2 in India by NIRF. Features 1,020-acre Aravalli ridge campus, 13 schools, 8 special centres, CUET 2026 admissions desk, deprivation points calculator, 18 river hostels, and AIRF research facilities. Added as Template #30 under Universities category.'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Sub-router built with internal view tabs.'
+    },
+    routes: [
+      '/',
+      '#overview',
+      '#about',
+      '#schools',
+      '#programs',
+      '#admissions',
+      '#deprivation',
+      '#research',
+      '#hostels',
+      '#books',
+      '#faqs'
+    ],
+    completedAt: '2026-10-20'
+  },
+  // --- TEMPLATE #31: GURU GOBIND SINGH INDRAPRASTHA UNIVERSITY (IPU) (Universities under Category 2: Universities, Colleges & Education) ---
+  {
+    id: 'guru-gobind-singh-indraprastha-university',
+    slug: 'guru-gobind-singh-indraprastha-university',
+    numericId: 31,
+    name: 'Guru Gobind Singh Indraprastha University (IPU)',
+    tagline: 'Leading State University of Delhi — NAAC Grade "A++" (3.56 CGPA) · NIRF Top 75 · 60-Acre Dwarka & 18.75-Acre Smart Net-Zero East Delhi Campuses · 15 University Schools & 120+ Affiliated Premier Colleges',
+    categoryCode: 'cat-education-coaching',
+    categoryLetter: '2',
+    categoryName: 'Coaching Institute & Education',
+    subcategory: 'Universities',
+    businessType: 'Premier State Technological & Professional University (Govt. of NCT of Delhi)',
+    targetClients: 'Prospective undergraduate and postgraduate students, research scholars, competitive exam applicants, professional aspirants across Delhi-NCR and India',
+    batch: 8,
+    status: 'completed',
+    entryPoint: 'src/templates/guru-gobind-singh-indraprastha-university/GuruGobindSinghIndraprasthaUniversity.tsx',
+    assetPath: 'public/assets/guru-gobind-singh-indraprastha-university/',
+    thumbnail: '/assets/guru-gobind-singh-indraprastha-university/hero-dwarka-campus.svg',
+    dependencies: ['lucide-react', 'react'],
+    features: [
+      'State University established by Govt. of NCT of Delhi (GGSIPU Act 1998) recognized under UGC Section 12B',
+      'Accredited with highest NAAC Grade "A++" (3.56 CGPA out of 4.00) valid for 7 years until 2030',
+      'Ranked among the Top 75 Universities in India by NIRF and ISO 9001:2015 Certified',
+      'Dual Campuses: 60+ Acre Dwarka Main Campus (Sector 16-C) and 18.75-Acre Smart Net-Zero East Delhi Campus (Surajmal Vihar)',
+      '15 Specialized University Schools of Studies (USICT, USAR, USDI, USMS, USLLS, USBT, USCT, USE, USHSS, USM&AHS, USAP, USMC, CDOE)',
+      'Network of 120+ Premier Affiliated Colleges (MAIT, MSIT, BVCOE, VIPS, JIMS, BPIT, GTBIT, VMMC)',
+      'Iconic 4-Column Notice Panel System: Admissions 2026-27, Important Links, Students Corner, Alerts & Circulars',
+      '8-Slide Full-Bleed Hero Photography Carousel using authentic campus slides from saveweb2zip archive',
+      'Centralized Admissions Desk with interactive IPU CET 2026 application registration and tracking ID generator (IPU-2026-XXXXX)',
+      'Interactive Examination Result Checker for gazetted MBBS, BHMS, and engineering marksheets',
+      'Online Fee Services Portal for academic, examination, and hostel dues with instant receipt generation',
+      'University Information Resource Centre (UIRC) Central Library housing 100,000+ volumes and IEEE digital subscriptions'
+    ],
+    conversionTriggers: [
+      'Apply Online 2026',
+      'Check Spot Round Paramedical Notices',
+      'Explore 15 University Schools',
+      'Browse 120+ Affiliated Colleges',
+      'Online Fee Payment',
+      'Check Exam Results'
+    ],
+    colorTheme: {
+      primary: '#041D54',
+      secondary: '#FFCB04',
+      bgStyle: 'bg-slate-900 text-slate-100'
+    },
+    referenceSource: {
+      type: 'zip',
+      title: 'Guru Gobind Singh Indraprastha University (IPU)',
+      sourceUrl: 'https://www.ipu.ac.in/',
+      receivedAt: '2026-10-20',
+      notes: 'Premier State University established by Govt. of NCT of Delhi in 1998. Conferred NAAC Grade "A++" (3.56 CGPA) and NIRF Top 75. Features 60-acre Dwarka campus, 18.75-acre Net-Zero East Delhi campus, 15 University Schools, 120+ affiliated colleges, 4-panel notice system, 8 hero photography slides, and online admissions & examination portals. Added as Template #31 under Universities category.'
+    },
+    integrationReadiness: {
+      isIsolated: true,
+      noSharedStatePollution: true,
+      hasManifestEntry: true,
+      hasResponsiveAudit: true,
+      hasDocumentation: true,
+      conflictCheckPassed: true,
+      exportNotes: 'Completely isolated component with zero external store dependencies. Sub-router built with internal view tabs.'
+    },
+    routes: [
+      "/",
+      "#about",
+      "#schools",
+      "#programs",
+      "#colleges",
+      "#admissions",
+      "#notices",
+      "#campus",
+      "#contact"
+    ],
+    completedAt: '2026-10-20'
   }
 ];
-
-
-
-
-
-
-
-
-

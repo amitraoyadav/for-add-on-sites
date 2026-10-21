@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyJnu" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0F2847" />
+      <stop offset="60%" stop-color="#1E3A8A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#skyJnu)" rx="16" />
+  
+  <!-- JNU 9-Storey Dr. B.R. Ambedkar Central Library Tower -->
+  <g transform="translate(70, 70)">
+    <!-- Tower Body -->
+    <rect x="180" y="20" width="120" height="250" rx="4" fill="#09182B" stroke="#3B82F6" stroke-width="2" />
+    <!-- 9 Floors Window Arrays -->
+    <g fill="#93C5FD" opacity="0.85">
+      <rect x="195" y="40" width="90" height="14" rx="2" />
+      <rect x="195" y="65" width="90" height="14" rx="2" />
+      <rect x="195" y="90" width="90" height="14" rx="2" />
+      <rect x="195" y="115" width="90" height="14" rx="2" />
+      <rect x="195" y="140" width="90" height="14" rx="2" />
+      <rect x="195" y="165" width="90" height="14" rx="2" />
+      <rect x="195" y="190" width="90" height="14" rx="2" />
+      <rect x="195" y="215" width="90" height="14" rx="2" />
+      <rect x="195" y="240" width="90" height="14" rx="2" />
+    </g>
+    <!-- Tower Top Observatory -->
+    <rect x="210" y="5" width="60" height="15" fill="#F59E0B" rx="2" />
+    <line x1="240" y1="5" x2="240" y2="-10" stroke="#FBBF24" stroke-width="3" />
+
+    <!-- Aravalli Hills Ridge & PSR Rocks Silhouette -->
+    <path d="M-20 270 Q100 220 220 260 T460 250 T520 280 L520 310 L-20 310 Z" fill="#14532D" />
+    <path d="M-20 285 Q80 240 240 275 T500 270 L500 310 L-20 310 Z" fill="#064E3B" />
+    <!-- Parthasarathy Rocks (PSR) Silhouette -->
+    <polygon points="50,285 70,250 90,260 120,240 145,285" fill="#475569" />
+    <polygon points="340,285 370,245 400,265 425,285" fill="#475569" />
+  </g>
+
+  <!-- Banner Tag -->
+  <g transform="translate(40, 40)">
+    <rect width="260" height="44" rx="22" fill="rgba(15,40,71,0.9)" stroke="#60A5FA" stroke-width="1.5" />
+    <circle cx="24" cy="22" r="13" fill="#2563EB" />
+    <text x="24" y="26" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#FFFFFF" text-anchor="middle">1020</text>
+    <text x="46" y="20" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">1,020 ACRES ARAVALLI RIDGE</text>
+    <text x="46" y="34" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#93C5FD">Dr. B.R. Ambedkar Central Library Tower</text>
+  </g>
+</svg>

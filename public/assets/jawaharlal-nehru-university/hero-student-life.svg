@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgLife" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="60%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#09182B" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bgLife)" rx="16" />
+
+  <!-- Dhabas, 18 Hostels, and Cultural Conclaves -->
+  <g transform="translate(70, 70)">
+    <!-- Open Air Dhaba / Tea stall canopy -->
+    <polygon points="60,140 180,90 300,140" fill="#B45309" />
+    <rect x="80" y="140" width="15" height="80" fill="#78350F" />
+    <rect x="265" y="140" width="15" height="80" fill="#78350F" />
+    <rect x="110" y="170" width="140" height="30" rx="4" fill="#0F172A" stroke="#F59E0B" stroke-width="1.5" />
+    <text x="180" y="190" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#FEF08A" text-anchor="middle">Ganga Dhaba · Discussions</text>
+
+    <!-- Student silhouettes in vibrant dialogue -->
+    <circle cx="140" cy="155" r="10" fill="#E2E8F0" />
+    <circle cx="220" cy="155" r="10" fill="#E2E8F0" />
+    
+    <!-- 18 Hostels Blocks in Background -->
+    <rect x="330" y="80" width="120" height="140" fill="#1E293B" stroke="#475569" stroke-width="1.5" rx="4" />
+    <text x="390" y="105" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#CBD5E1" text-anchor="middle">18 HOSTELS</text>
+    <g fill="#FBBF24" opacity="0.6">
+      <rect x="345" y="120" width="20" height="15" rx="2" />
+      <rect x="380" y="120" width="20" height="15" rx="2" />
+      <rect x="415" y="120" width="20" height="15" rx="2" />
+      <rect x="345" y="145" width="20" height="15" rx="2" />
+      <rect x="380" y="145" width="20" height="15" rx="2" />
+      <rect x="415" y="145" width="20" height="15" rx="2" />
+      <rect x="345" y="170" width="20" height="15" rx="2" />
+      <rect x="380" y="170" width="20" height="15" rx="2" />
+      <rect x="415" y="170" width="20" height="15" rx="2" />
+    </g>
+  </g>
+
+  <!-- Banner -->
+  <g transform="translate(40, 40)">
+    <rect width="250" height="42" rx="8" fill="#334155" stroke="#94A3B8" stroke-width="1.5" />
+    <text x="20" y="20" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#F8FAFC">INTELLECTUAL STUDENT LIFE</text>
+    <text x="20" y="34" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#CBD5E1">18 Hostels · Ganga Dhaba · Debating Guilds</text>
+  </g>
+</svg>

@@ -35,6 +35,9 @@ import {
 export default function RaozDemoFactoryApp() {
   const [templates, setTemplates] = useState<TemplateManifestItem[]>(TEMPLATE_MANIFEST);
   const [activeTab, setActiveTab] = useState<'catalog' | 'preview' | 'categories' | 'intake' | 'integration' | 'rules'>('catalog');
+  const ipuItem = templates.find((t) => t.id === 'guru-gobind-singh-indraprastha-university');
+  const jnuItem = templates.find((t) => t.id === 'jawaharlal-nehru-university');
+  const manipalItem = templates.find((t) => t.id === 'manipal-university');
   const snuItem = templates.find((t) => t.id === 'shiv-nadar-university');
   const christItem = templates.find((t) => t.id === 'christ-university');
   const nirmaItem = templates.find((t) => t.id === 'nirma-university');
@@ -42,7 +45,7 @@ export default function RaozDemoFactoryApp() {
   const eduTechItem = templates.find((t) => t.id === 'edu-tech-university');
   const crRamansItem = templates.find((t) => t.id === 'cr-ramans-university');
   const marangoniItem = templates.find((t) => t.id === 'istituto-marangoni');
-  const [selectedTemplate, setSelectedTemplate] = useState<TemplateManifestItem>(snuItem || christItem || nirmaItem || sushantItem || eduTechItem || crRamansItem || marangoniItem || templates[0]);
+  const [selectedTemplate, setSelectedTemplate] = useState<TemplateManifestItem>(ipuItem || jnuItem || manipalItem || snuItem || christItem || nirmaItem || sushantItem || eduTechItem || crRamansItem || marangoniItem || templates[0]);
   const [detailModalTemplate, setDetailModalTemplate] = useState<TemplateManifestItem | null>(null);
   const [intakeModalTemplate, setIntakeModalTemplate] = useState<TemplateManifestItem | null>(null);
   const [isIntakeModalOpen, setIsIntakeModalOpen] = useState(false);
@@ -68,6 +71,24 @@ export default function RaozDemoFactoryApp() {
     clientNeeds: string;
     submittedAt: string;
   }>>([
+    {
+      id: 'ref-jnu-30',
+      templateId: 'jawaharlal-nehru-university',
+      refType: 'zip',
+      urlOrTitle: 'Jawaharlal Nehru University (saveweb2zip-com-jnu-ac-in.zip / https://www.jnu.ac.in/)',
+      notes: 'Premier Central Research University established by an Act of Indian Parliament in 1969. Conferred NAAC Grade "A++" (3.77 CGPA - highest national tier) and ranked #2 in India by NIRF Universities for multiple consecutive years. Features a lush 1,020-acre Aravalli ridge sanctuary in South Delhi, 13 Specialized Academic Schools, 8 Interdisciplinary Special Centres, 18 River Hostels, Dr. B.R. Ambedkar 9-storey Central Library, AIRF advanced scientific instrumentation facility, Nobel Laureate Abhijit Banerjee alumni heritage, and full CUET 2026 admissions portal with Deprivation Points affirmative action model. Added as Template #30 under Universities category.',
+      clientNeeds: 'Complete faithful website recreation of Jawaharlal Nehru University from uploaded archive: official university seal with Sanskrit motto "ज्ञानं विज्ञानं सहितं यज्ज्ञात्वा मोक्ष्यसेऽशुभात्", statutory Central University and NAAC A++ (3.77 CGPA) disclosures, 5-slide full-bleed hero carousel (1,020-Acre Aravalli Campus & Central Library, NIRF Rank #2 in India, CUET 2026 Admissions & Ph.D., AIRF Research & Cryo-EM, Intellectual Student Life & 18 Hostels), interactive 13 Schools & 8 Centres directory, degree programs finder (B.A. Foreign Languages, B.Tech Dual Degree, M.A. Economics, M.A. IR, M.Sc. Biotech, MBA, Ph.D.) with live search and curriculum modal, CUET 2026 admissions desk with fast-track registration and generated tracking ID (JNU-2026-XXXXX), live Deprivation Points affirmative action calculator (Quartiles 1 & 2 + Gender points up to 12 points), 18 River Hostels showcase, recent faculty books & publications gallery with original covers, verified alumni voices (Abhijit Banerjee, Nirmala Sitharaman, Dr. S. Jaishankar, Baburam Bhattarai), interactive FAQ accordion, and live catalog counter displaying 30 websites.',
+      submittedAt: '2026-10-20'
+    },
+    {
+      id: 'ref-manipal-29',
+      templateId: 'manipal-university',
+      refType: 'zip',
+      urlOrTitle: 'Manipal Academy of Higher Education (saveweb2zip-com-www-manipal-edu.zip / saveweb2zip-com-www-jnu-ac-in_65a2a9a2.zip / https://www.manipal.edu/)',
+      notes: 'Premier Institution of Eminence (IoE) Deemed to be University recognized by the Govt. of India and NIRF Top 4 ranked institution in India (Dental #1, Pharmacy #2, Medical #3, Architecture #6). Founded in 1953 by Dr. T.M.A. Pai with over 70 years of pioneering academic heritage. Features a 600+ acre flagship university town campus in Manipal, 5 global campuses (Mangaluru, Bengaluru, Jamshedpur, Dubai, Malaysia), 300+ programs across MIT, KMC, TAPMI, MCOPS, WGSHA, Marena 6-level sports complex, ₹54.75 LPA highest placements milestone, and complete MET 2026 entrance admissions portal. Added as Template #29 under Universities category.',
+      clientNeeds: 'Complete faithful website recreation of Manipal from source specifications and archive: IoE and NAAC Grade A++ recognition branding, official university crest with "Inspired by Life", 5-slide hero carousel (600+ Acres Campus, ₹54.75 LPA Placements, MET 2026 Admissions, Marena Sports Complex, Revels & TechTatva), interactive 6 Global Campuses Explorer (Manipal, Mangaluru, Bengaluru, Jamshedpur, Dubai, Malaysia), comprehensive Program Finder with curriculum details across all faculties (MIT Engineering, KMC Medicine, TAPMI Business, MCOPS Pharmacy, MSAP Architecture, WGSHA Hospitality), Admissions 2026 portal with live merit scholarship waiver calculator up to 100%, fast-track application profile desk, application status lookup tool, verified alumni voices (Satya Nadella, Rajeev Suri, Chef Vikas Khanna), Marena sports complex highlights, Revels festival showcase, corporate placement directory with 350+ recruiters, interactive FAQ accordion, and live catalog counter displaying 29 websites.',
+      submittedAt: '2026-10-20'
+    },
     {
       id: 'ref-snu-28',
       templateId: 'shiv-nadar-university',
@@ -385,6 +406,9 @@ export default function RaozDemoFactoryApp() {
         t.subcategory.toLowerCase().includes(query) ||
         (query.includes('marangoni') && (t.id.includes('marangoni') || t.name.toLowerCase().includes('marangoni'))) ||
         (query.includes('istituto') && (t.id.includes('marangoni') || t.name.toLowerCase().includes('istituto'))) ||
+        (query === 'ipu' || query.includes('ggsipu') || query.includes('indraprastha') || query.includes('guru gobind')) && (t.id === 'guru-gobind-singh-indraprastha-university' || t.name.toLowerCase().includes('indraprastha')) ||
+        (query === 'jnu' || query.includes('jawaharlal') || query.includes('nehru')) && (t.id === 'jawaharlal-nehru-university' || t.name.toLowerCase().includes('jawaharlal')) ||
+        (query.includes('manipal') && (t.id.includes('manipal') || t.name.toLowerCase().includes('manipal'))) ||
         (query === 'snu' && (t.id === 'shiv-nadar-university' || t.name.toLowerCase().includes('shiv nadar'))) ||
         (query === 'universities' && (t.subcategory.toLowerCase().includes('universit') || t.id === 'istituto-marangoni'));
 
@@ -677,7 +701,7 @@ export default function RaozDemoFactoryApp() {
                       </span>
                     </div>
                     <p className="text-xs text-[#94a3b8] mt-1.5 max-w-2xl leading-relaxed">
-                      Counting all {totalWebsitesCount} registered, unique active website demos across all business categories — dynamically synced with the template manifest and verified live in the Raoz Website Maker catalog (including Nirma University under Universities).
+                      Counting all {totalWebsitesCount} registered, unique active website demos across all business categories — dynamically synced with the template manifest and verified live in the Raoz Website Maker catalog (including JNU under Universities).
                     </p>
                   </div>
                 </div>
@@ -836,7 +860,7 @@ export default function RaozDemoFactoryApp() {
                   className="bg-[#171b24] border border-[#222938] text-white text-xs rounded-xl px-3 py-1.5 outline-none font-medium"
                 >
                   <option value="all">All Categories ({totalWebsitesCount} Websites)</option>
-                  <option value="universities">★ Universities ({universitiesCount} Demos — Marangoni, CR Ramans, Edu Tech, Sushant, Gilgit, Arshad)</option>
+                  <option value="universities">★ Universities ({universitiesCount} Demos — JNU, Manipal, SNU, Christ, Nirma, Sushant, Edu Tech, CR Ramans, Marangoni)</option>
                   <option value="cat-photography">Category 21: Photography &amp; Studios ({photographyCount} Demos)</option>
                   <option value="cat-education-coaching">Category 2: Universities, Colleges &amp; Education ({educationCategoryTotal} Demos)</option>
                   <option value="cat-food-hospitality">Category 1: Restaurant, Cafe &amp; Food Business ({foodCount} Demos)</option>

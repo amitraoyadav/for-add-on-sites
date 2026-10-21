@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgMarena" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064E3B" />
+      <stop offset="60%" stop-color="#022C22" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bgMarena)" rx="16" />
+
+  <!-- Multi-Level Sports Complex Graphic -->
+  <g transform="translate(70, 70)">
+    <!-- Marena Curved Roof Dome -->
+    <path d="M40 180 Q230 60 420 180 L400 240 L60 240 Z" fill="#047857" stroke="#34D399" stroke-width="2" />
+    
+    <!-- Olympic Swimming & Indoor Basketball Glass Bay -->
+    <rect x="80" y="180" width="300" height="70" fill="#0F766E" stroke="#2DD4BF" stroke-width="1.5" opacity="0.9" />
+    <!-- Running Track Lines -->
+    <path d="M20 270 Q230 230 440 270" stroke="#F97316" stroke-width="8" fill="none" />
+    <path d="M20 282 Q230 242 440 282" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="8" fill="none" />
+    <path d="M20 294 Q230 254 440 294" stroke="#F97316" stroke-width="8" fill="none" />
+
+    <!-- Badges / Icons for Sports -->
+    <circle cx="120" cy="140" r="18" fill="#1E293B" stroke="#FDE047" stroke-width="2" />
+    <text x="120" y="145" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#FDE047" text-anchor="middle">🏸</text>
+    <circle cx="230" cy="120" r="22" fill="#1E293B" stroke="#F97316" stroke-width="2" />
+    <text x="230" y="126" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#F97316" text-anchor="middle">🏀</text>
+    <circle cx="340" cy="140" r="18" fill="#1E293B" stroke="#38BDF8" stroke-width="2" />
+    <text x="340" y="145" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#38BDF8" text-anchor="middle">🏊</text>
+  </g>
+
+  <!-- Marena Banner -->
+  <g transform="translate(40, 40)">
+    <rect width="250" height="42" rx="8" fill="#065F46" stroke="#34D399" stroke-width="1.5" />
+    <text x="20" y="20" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#D1FAE5">MARENA SPORTS ARENA</text>
+    <text x="20" y="34" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#A7F3D0">6-Level World-Class Indoor Complex</text>
+  </g>
+</svg>

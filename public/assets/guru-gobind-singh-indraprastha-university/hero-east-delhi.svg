@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="eastBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="60%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <linearGradient id="eastGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="400" fill="url(#eastBg)" rx="16" />
+
+  <!-- Eco Net-Zero Campus Tech Visual Grid -->
+  <g opacity="0.1" stroke="#ffffff" stroke-width="1">
+    <circle cx="300" cy="200" r="100" fill="none" />
+    <circle cx="300" cy="200" r="180" fill="none" />
+    <circle cx="300" cy="200" r="260" fill="none" />
+  </g>
+
+  <!-- Architectural Showcase Card -->
+  <rect x="40" y="40" width="520" height="320" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(52,211,153,0.3)" stroke-width="1.5" />
+
+  <rect x="60" y="60" width="170" height="28" rx="14" fill="#047857" stroke="#6ee7b7" stroke-width="1" />
+  <text x="75" y="78" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#ffffff">EAST DELHI CAMPUS (EDC)</text>
+
+  <text x="60" y="125" font-family="'Georgia', serif" font-size="24" font-weight="900" fill="#ffffff">Surajmal Vihar Smart Green Campus</text>
+  <text x="60" y="155" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#fbbf24">
+    Dedicated Centre of Excellence in AI, Robotics &amp; Design
+  </text>
+  <text x="60" y="185" font-family="'Inter', sans-serif" font-size="12" font-weight="400" fill="#cbd5e1">
+    Home to USAR (University School of Automation &amp; Robotics) and USDI (University School of Design &amp; Innovation).
+  </text>
+  <text x="60" y="205" font-family="'Inter', sans-serif" font-size="12" font-weight="400" fill="#cbd5e1">
+    18.75-Acre Net-Zero energy campus with geothermal cooling, solar microgrid, and robotics testbeds.
+  </text>
+
+  <g transform="translate(60, 235)">
+    <rect x="0" y="0" width="145" height="70" rx="8" fill="rgba(6, 78, 59, 0.7)" stroke="rgba(255,255,255,0.15)" />
+    <text x="14" y="28" font-family="'Inter', sans-serif" font-size="15" font-weight="800" fill="#34d399">USAR</text>
+    <text x="14" y="46" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#ffffff">Automation &amp; Robotics</text>
+    <text x="14" y="58" font-family="'Inter', sans-serif" font-size="8.5" font-weight="400" fill="#a7f3d0">B.Tech AI, DS, IIoT</text>
+
+    <rect x="160" y="0" width="145" height="70" rx="8" fill="rgba(6, 78, 59, 0.7)" stroke="rgba(255,255,255,0.15)" />
+    <text x="174" y="28" font-family="'Inter', sans-serif" font-size="15" font-weight="800" fill="#fbbf24">USDI</text>
+    <text x="174" y="46" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#ffffff">Design &amp; Innovation</text>
+    <text x="174" y="58" font-family="'Inter', sans-serif" font-size="8.5" font-weight="400" fill="#fde68a">B.Des &amp; M.Des Programs</text>
+
+    <rect x="320" y="0" width="160" height="70" rx="8" fill="rgba(6, 78, 59, 0.7)" stroke="rgba(255,255,255,0.15)" />
+    <text x="334" y="28" font-family="'Inter', sans-serif" font-size="15" font-weight="800" fill="#38bdf8">18.75 Acres</text>
+    <text x="334" y="46" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#ffffff">Net-Zero Green Campus</text>
+    <text x="334" y="58" font-family="'Inter', sans-serif" font-size="8.5" font-weight="400" fill="#bae6fd">Solar, Geothermal &amp; Labs</text>
+  </g>
+</svg>

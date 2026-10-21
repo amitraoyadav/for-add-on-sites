@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 64" width="100%" height="100%">
+  <rect width="200" height="64" rx="8" fill="#FFF7ED" stroke="#F97316" stroke-width="1.5" />
+  <circle cx="32" cy="32" r="20" fill="#EA580C" />
+  <path d="M32 18 L35 27 L44 27 L37 33 L40 42 L32 36 L24 42 L27 33 L20 27 L29 27 Z" fill="#FEF08A" />
+  <text x="60" y="27" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#9A3412">INSTITUTION OF EMINENCE</text>
+  <text x="60" y="42" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#C2410C">Govt. of India (IoE Deemed Univ)</text>
+  <text x="60" y="53" font-family="'Inter', sans-serif" font-size="7.5" font-weight="500" fill="#78350F">Ministry of Education</text>
+</svg>

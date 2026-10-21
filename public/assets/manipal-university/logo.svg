@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="manipalFlame" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E25822" />
+      <stop offset="50%" stop-color="#D3401B" />
+      <stop offset="100%" stop-color="#991B1B" />
+    </linearGradient>
+    <linearGradient id="manipalGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+  </defs>
+
+  <!-- Crest Icon -->
+  <g transform="translate(15, 10)">
+    <!-- Hexagonal / Shield Base -->
+    <path d="M50 0 L90 22 L90 68 L50 95 L10 68 L10 22 Z" fill="url(#manipalFlame)" filter="drop-shadow(0 4px 6px rgba(211,64,27,0.3))" />
+    <!-- Inner Golden Border -->
+    <path d="M50 6 L84 25 L84 65 L50 88 L16 65 L16 25 Z" fill="none" stroke="url(#manipalGold)" stroke-width="2.5" />
+    
+    <!-- Rising Sun / Knowledge Sun Rays -->
+    <path d="M50 20 L53 32 L62 26 L58 37 L69 35 L62 44 L72 47 L62 53 L70 60 L59 62 L64 72 L54 69 L50 80 L46 69 L36 72 L41 62 L30 60 L38 53 L28 47 L38 44 L31 35 L42 37 L38 26 L47 32 Z" fill="#FFFFFF" opacity="0.95" />
+    <!-- Flame Core / Lamp of Wisdom -->
+    <path d="M50 30 C56 42 62 48 60 58 C58 66 54 70 50 72 C46 70 42 66 40 58 C38 48 44 42 50 30 Z" fill="url(#manipalGold)" />
+    <!-- Open Book Base -->
+    <path d="M30 68 Q50 62 50 72 Q50 62 70 68 L68 73 Q50 67 50 77 Q50 67 32 73 Z" fill="#FFFFFF" />
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(130, 20)">
+    <!-- Brand Title -->
+    <text x="0" y="38" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-size="36" font-weight="800" letter-spacing="3" fill="#D3401B">MANIPAL</text>
+    <text x="0" y="60" font-family="'Inter', sans-serif" font-size="14" font-weight="700" letter-spacing="1.5" fill="#0F172A">ACADEMY OF HIGHER EDUCATION</text>
+    <text x="0" y="78" font-family="'Inter', sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.8" fill="#64748B">(Deemed to be University under Section 3 of the UGC Act, 1956)</text>
+    <!-- Tagline Banner -->
+    <rect x="0" y="86" width="165" height="18" rx="3" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1" />
+    <text x="10" y="99" font-family="'Inter', sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#C2410C">★ INSPIRED BY LIFE</text>
+  </g>
+</svg>
